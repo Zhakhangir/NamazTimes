@@ -5,4 +5,4 @@ App name: NamazTimes
 
 Hello world !!!
   
-    :)
+:)
