@@ -7,7 +7,7 @@
 
 import UIKit.UIColor
 
-enum BaseColor: String, CaseIterable {
+enum GeneralColor: String, CaseIterable {
 
     case _3E6D7C                                                // Primary
     case _C5C7C6                                                // Secondary
@@ -25,7 +25,7 @@ enum BaseColor: String, CaseIterable {
     public var hex: String { rawValue.replacingOccurrences(of: "_", with: "#") }
 }
 
-extension BaseColor {
+extension GeneralColor {
 
     // Primary
     static var primary: UIColor { _3E6D7C.uiColor }

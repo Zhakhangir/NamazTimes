@@ -10,7 +10,13 @@
 		7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */; };
 		7147DB9527F5B7F10043CB00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7147DB9427F5B7F10043CB00 /* Assets.xcassets */; };
 		7147DB9827F5B7F10043CB00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7147DB9627F5B7F10043CB00 /* LaunchScreen.storyboard */; };
-		71E4F740280C3E4E0091B120 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E4F73F280C3E4E0091B120 /* GeneralViewController.swift */; };
+		714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20BB2810337400E8A81A /* GeneralColor.swift */; };
+		714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20BF2810355500E8A81A /* UIColor+Extensions.swift */; };
+		714A20C2281046EB00E8A81A /* Tab bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C1281046EB00E8A81A /* Tab bar.swift */; };
+		714A20C828104E5D00E8A81A /* Settings view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C728104E5D00E8A81A /* Settings view controller.swift */; };
+		714A20CA28104E7100E8A81A /* Compass view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C928104E7100E8A81A /* Compass view controller.swift */; };
+		714A20CC28104E8600E8A81A /* Home view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* Home view controller.swift */; };
+		714A20CE28104EA000E8A81A /* Day article view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* Day article view controller.swift */; };
 		AC07F7FFE04D242EF0961F5D /* Pods_NamazTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5672C3FE81CC010BB5C823AE /* Pods_NamazTimes.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +29,13 @@
 		7147DB9427F5B7F10043CB00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7147DB9727F5B7F10043CB00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7147DB9927F5B7F10043CB00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71E4F73F280C3E4E0091B120 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		714A20BB2810337400E8A81A /* GeneralColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralColor.swift; sourceTree = "<group>"; };
+		714A20BF2810355500E8A81A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		714A20C1281046EB00E8A81A /* Tab bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tab bar.swift"; sourceTree = "<group>"; };
+		714A20C728104E5D00E8A81A /* Settings view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings view controller.swift"; sourceTree = "<group>"; };
+		714A20C928104E7100E8A81A /* Compass view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compass view controller.swift"; sourceTree = "<group>"; };
+		714A20CB28104E8600E8A81A /* Home view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home view controller.swift"; sourceTree = "<group>"; };
+		714A20CD28104EA000E8A81A /* Day article view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day article view controller.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +89,62 @@
 			path = NamazTimes;
 			sourceTree = "<group>";
 		};
+		714A20BD2810352600E8A81A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				714A20BB2810337400E8A81A /* GeneralColor.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		714A20BE2810353900E8A81A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				714A20BF2810355500E8A81A /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		714A20C3281046F100E8A81A /* Tab bar */ = {
+			isa = PBXGroup;
+			children = (
+				714A20C1281046EB00E8A81A /* Tab bar.swift */,
+			);
+			path = "Tab bar";
+			sourceTree = "<group>";
+		};
+		714A20C4281047B100E8A81A /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				714A20CD28104EA000E8A81A /* Day article view controller.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		714A20C52810481800E8A81A /* Compass */ = {
+			isa = PBXGroup;
+			children = (
+				714A20C928104E7100E8A81A /* Compass view controller.swift */,
+			);
+			path = Compass;
+			sourceTree = "<group>";
+		};
+		714A20C62810482900E8A81A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				714A20C728104E5D00E8A81A /* Settings view controller.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		71E4F739280C2EF40091B120 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				71E4F73E280C3DA00091B120 /* General view controller */,
+				714A20C3281046F100E8A81A /* Tab bar */,
+				71E4F73E280C3DA00091B120 /* Home */,
+				714A20C4281047B100E8A81A /* Article */,
+				714A20C52810481800E8A81A /* Compass */,
+				714A20C62810482900E8A81A /* Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -88,6 +152,8 @@
 		71E4F73A280C2F010091B120 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				714A20BE2810353900E8A81A /* Extensions */,
+				714A20BD2810352600E8A81A /* General */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -116,12 +182,12 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		71E4F73E280C3DA00091B120 /* General view controller */ = {
+		71E4F73E280C3DA00091B120 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				71E4F73F280C3E4E0091B120 /* GeneralViewController.swift */,
+				714A20CB28104E8600E8A81A /* Home view controller.swift */,
 			);
-			path = "General view controller";
+			path = Home;
 			sourceTree = "<group>";
 		};
 		AFA383F674B70E2CEBE47FA9 /* Pods */ = {
@@ -229,8 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				714A20CA28104E7100E8A81A /* Compass view controller.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
-				71E4F740280C3E4E0091B120 /* GeneralViewController.swift in Sources */,
+				714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */,
+				714A20C828104E5D00E8A81A /* Settings view controller.swift in Sources */,
+				714A20CC28104E8600E8A81A /* Home view controller.swift in Sources */,
+				714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */,
+				714A20C2281046EB00E8A81A /* Tab bar.swift in Sources */,
+				714A20CE28104EA000E8A81A /* Day article view controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
