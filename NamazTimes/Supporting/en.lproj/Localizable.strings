@@ -1,0 +1,10 @@
+/* 
+  Localization.strings
+  NamazTimes
+
+  Created by &&TairoV on 4/23/22.
+  
+*/
+
+"choose_location" = "Choose location please";
+"city_name" = "City name";

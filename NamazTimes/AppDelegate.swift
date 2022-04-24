@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
         self.window = window
-        window.rootViewController = TabBar()
+        window.rootViewController = UINavigationController(rootViewController: LocationFinderViewController())
 
         return true
     }

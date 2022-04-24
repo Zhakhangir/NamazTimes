@@ -12,6 +12,7 @@ class TabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = GeneralColor.primary
+        tabBar.layer.borderColor = GeneralColor.primary.cgColor
         navigationController?.title = "Namaz Times"
         setupChilds()
 
@@ -19,21 +20,20 @@ class TabBar: UITabBarController {
 
     private func setupChilds() {
         viewControllers = [
-            createNavController(with: HomeViewController(),image: UIImage(named: "home")),
-            createNavController(with: DayArticleViewController(),image: UIImage(named: "more")),
-            createNavController(with: CompassViewController(), image: UIImage(named: "compass")),
-            createNavController(with: SettingsViewController(), image: UIImage(named: "settings"))
+            createTabBarController(with: HomeViewController(), title: "home",  image: UIImage(named: "home")),
+            createTabBarController(with: DayArticleViewController(), title: "location", image: UIImage(named: "more")),
+            createTabBarController(with: CompassViewController(), title: "compass", image: UIImage(named: "compass")),
+            createTabBarController(with: SettingsViewController(), title: "settings", image: UIImage(named: "settings"))
         ]
     }
 
-    private func createNavController( with rootViewController: UIViewController,
-                                      title: String = "",
-                                      image: UIImage?) -> UIViewController {
+    private func createTabBarController( with rootViewController: UIViewController,
+                                         title: String = "",
+                                         image: UIImage?) -> UIViewController {
 
-        let navController = UINavigationController(rootViewController: rootViewController)
-        navController.tabBarItem.title = title
-        navController.tabBarItem.image = image
+        rootViewController.tabBarItem.title = title
+        rootViewController.tabBarItem.image = image
 
-        return navController
+        return rootViewController
     }
 }
