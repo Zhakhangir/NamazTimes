@@ -1,5 +1,5 @@
 //
-//  Day article view controller.swift
+//  DailyTimesListViewController.swift
 //  NamazTimes
 //
 //  Created by &&TairoV on 4/20/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DayArticleViewController: UIViewController {
+class DailyTimesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

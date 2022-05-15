@@ -6,5 +6,7 @@ target 'NamazTimes' do
   use_frameworks!
 
   # Pods for NamazTimes
+  
+  pod 'lottie-ios'
 
 end

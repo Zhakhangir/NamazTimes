@@ -9,21 +9,32 @@ import UIKit
 
 class TabBar: UITabBarController {
 
+    private let navigationView = GeneralNavigationView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = GeneralColor.primary
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
         navigationController?.title = "Namaz Times"
         setupChilds()
+        configureHeaderView()
 
+    }
+
+    private func configureHeaderView() {
+        view.addSubview(navigationView)
+
+        navigationView.translatesAutoresizingMaskIntoConstraints = false
+        navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeViewController(), title: "home",  image: UIImage(named: "home")),
-            createTabBarController(with: DayArticleViewController(), title: "location", image: UIImage(named: "more")),
-            createTabBarController(with: CompassViewController(), title: "compass", image: UIImage(named: "compass")),
-            createTabBarController(with: SettingsViewController(), title: "settings", image: UIImage(named: "settings"))
+            createTabBarController(with: HomeViewController(), title: "Home",  image: UIImage(named: "home")),
+            createTabBarController(with: DailyTimesListViewController(), title: "Daily times", image: UIImage(named: "calendar_1")),
+            createTabBarController(with: CompassViewController(), title: "Compass", image: UIImage(named: "compass"))
         ]
     }
 

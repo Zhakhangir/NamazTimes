@@ -6,8 +6,28 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class LocationFinderViewController: UIViewController {
+class LocationSettingsViewController: UIViewController {
+
+    let locationManager = LocationMen()
+    let fieldImageView = UIImageView(frame: CGRect(x: 10, y: -10, width: 20, height: 20))
+
+    lazy var fieldLeftView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: locationTextField.frame.height))
+        view.addSubview(fieldImageView)
+
+        return  view
+    }()
+
+    private var status: CLAuthorizationStatus {
+        if #available(iOS 14.0, *) {
+            return locationManager.locmen.authorizationStatus
+        } else {
+            return CLLocationManager.authorizationStatus()
+        }
+    }
 
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, fieldStackView])
@@ -45,6 +65,7 @@ class LocationFinderViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+
         addSubviews()
         setupLayout()
         addActions()
@@ -52,15 +73,6 @@ class LocationFinderViewController: UIViewController {
     }
 
     private func addSubviews() {
-
-        let iconView = UIImageView()
-        iconView.widthAnchor.constraint(equalToConstant: 48).isActive = true
-        iconView.contentMode = .scaleAspectFit
-        iconView.image = UIImage(named: "search")
-
-        locationTextField.leftView = iconView
-        locationTextField.leftViewMode = .always
-
         view.addSubview(mainStackView)
     }
 
@@ -71,7 +83,7 @@ class LocationFinderViewController: UIViewController {
         locationTextField.delegate = self
         locationTextField.translatesAutoresizingMaskIntoConstraints = false
         layoutContraints += [
-            locationTextField.heightAnchor.constraint(equalToConstant: 48)
+            locationTextField.heightAnchor.constraint(equalToConstant: 42)
         ]
 
         locationButton.translatesAutoresizingMaskIntoConstraints = false
@@ -95,9 +107,18 @@ class LocationFinderViewController: UIViewController {
     }
 
     private func stylize() {
+        fieldImageView.contentMode = .scaleAspectFit
+        fieldImageView.image = UIImage(named: "search")
+
+        locationTextField.leftView = fieldLeftView
+        locationTextField.leftViewMode = .always
+
+        locationTextField.rightView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 10, height: 10)))
+        locationTextField.rightViewMode = .always
+
         locationTextField.keyboardType = .webSearch
         locationTextField.font = UIFont.systemFont(ofSize: 16)
-        locationTextField.layer.cornerRadius = 24
+        locationTextField.layer.cornerRadius = 18
 
         locationTextField.layer.borderWidth = 1
         locationTextField.layer.borderColor = GeneralColor.primary.cgColor
@@ -108,27 +129,57 @@ class LocationFinderViewController: UIViewController {
     }
 }
 
-extension LocationFinderViewController: UITextFieldDelegate {
+extension LocationSettingsViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
+        autoFindLocation()
         return true
     }
 }
 
-extension LocationFinderViewController {
+extension LocationSettingsViewController {
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
+    }
 
     @objc func autoFindLocation() {
-        let alert = UIAlertController(title: "Location", message: "Let me find your location", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] alert  in
-            self?.navigationController?.pushViewController(TabBar(), animated: true)
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            present(TabBar(), animated: true, completion: nil)
+            //Find location service
+        case .restricted:
+            print("Error Alert")
+        case .denied:
+            let alertVc = GeneralAlertPopupVc()
+            let model = GeneralAlertModel(titleLabel: "Error Location", buttonTitle: "Open", actionButtonTapped: {
+                if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
+                    UIApplication.shared.open(url)
+                }
+            })
+            let alertView = GeneralAlertPopupView()
+            alertView.configure(with: model)
+            alertVc.setContentView(alertView)
+
+            present(alertVc, animated: true, completion: nil)
+        case .notDetermined:
+            locationManager.locmen.requestAlwaysAuthorization()
+            locationManager.locmen.requestWhenInUseAuthorization()
+        @unknown default:
+            print("Location error")
         }
-        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    }
+}
 
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
+extension LocationSettingsViewController: CLLocationManagerDelegate {
 
-        self.present(alert, animated: true, completion: nil)
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        autoFindLocation()
     }
 }
 

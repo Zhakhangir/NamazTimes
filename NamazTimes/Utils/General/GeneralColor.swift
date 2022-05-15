@@ -12,6 +12,7 @@ enum GeneralColor: String, CaseIterable {
     case _3E6D7C                                                // Primary
     case _C5C7C6                                                // Secondary
     case _F4C751
+    case _D6D6D6                                                // Blur background
     case _000000, _242424, _454545, _848484, _C5C5C5, _EEEEEE   // Grayscale
     case _54426B, _ED6A5A, _DC602E, _92D5E6, _33658A, _E0AFA0,  // Additional colors
          _623CEA, _987284, _9792E3, _5C6784, _7698B3, _FF8427
@@ -32,6 +33,9 @@ extension GeneralColor {
 
     // Secondary
     static var secondary: UIColor { _C5C7C6.uiColor }
+
+    //Blur background
+    static var blur: UIColor { _D6D6D6.uiColor }
 
     // Grayscale
     static var grayscaleBlack: UIColor { _000000.uiColor }
@@ -56,4 +60,7 @@ extension GeneralColor {
     static var backgroundGray: UIColor { _F7F7F7.uiColor }
     static var red: UIColor { _BD364F.uiColor }
     static var shadowColor: UIColor { _202020.uiColor }
+
+    //Title colors
+    static var el_subtitle: UIColor { _636366.uiColor }
 }
