@@ -7,30 +7,45 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: GeneralViewController {
     
-    let btn = UIButton()
+    let layerButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .green
+        button.setTitle("Layer", for: .normal)
+
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .white
 
-        view.addSubview(btn)
+        addSubviews()
+        setupLayout()
+        stylize()
+    }
 
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.backgroundColor = .green
-        btn.setTitle("Layer", for: .normal)
+    private func addSubviews() {
+        contentView.addSubview(layerButton)
+    }
 
-        NSLayoutConstraint.activate([
-            btn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            btn.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            btn.heightAnchor.constraint(equalToConstant: 48),
-            btn.widthAnchor.constraint(equalToConstant: 100)
-        ])
-
-        btn.addTarget(self, action: #selector(showLayer), for: .touchUpInside)
+    private func setupLayout() {
+        var layoutConstraints = [NSLayoutConstraint]()
         
+        layerButton.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            layerButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            layerButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            layerButton.heightAnchor.constraint(equalToConstant: 48),
+            layerButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+
+        NSLayoutConstraint.activate(layoutConstraints)
+    }
+
+    private func stylize() {
+        layerButton.addTarget(self, action: #selector(showLayer), for: .touchUpInside)
     }
 
     @objc private func showLayer() {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "compass@1x.png",
+      "filename" : "calendar@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "compass@2x.png",
+      "filename" : "calendar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "compass@3x.png",
+      "filename" : "calendar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

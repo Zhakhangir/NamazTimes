@@ -14,7 +14,7 @@ class GeneralNavigationView: UIView {
     let miladMonthName = UILabel()
     let hijriMonthName = UILabel()
 
-    private lazy var locationAnimationView: AnimationView = {
+    private lazy var animationView: AnimationView = {
         let animationView = AnimationView(name: "loader2")
         animationView.backgroundBehavior = .pauseAndRestore
         animationView.loopMode = .loop
@@ -24,16 +24,9 @@ class GeneralNavigationView: UIView {
         return animationView
     }()
 
-    lazy var headerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [locationAnimationView, messageStackView])
-        stackView.spacing = 8
-        stackView.axis = .horizontal
-        stackView.alignment = .center
+    private let spaceView = UIView()
 
-        return stackView
-    }()
-
-    lazy var messageStackView: UIStackView = {
+    lazy var infoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, monthsStackView])
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -43,17 +36,16 @@ class GeneralNavigationView: UIView {
     }()
 
     lazy var monthsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [miladMonthName, hijriMonthName])
+        let stackView = UIStackView(arrangedSubviews: [miladMonthName, spaceView, hijriMonthName])
         stackView.axis = .horizontal
-        stackView.spacing = 4
-        stackView.alignment = .center
+        stackView.spacing = 8
 
         return stackView
     }()
 
     let seperatorView: UIView = {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
-        view.backgroundColor = GeneralColor.black.withAlphaComponent(0.5)
+        view.backgroundColor = GeneralColor.black.withAlphaComponent(0.2)
 
         return view
     }()
@@ -71,51 +63,72 @@ class GeneralNavigationView: UIView {
     }
 
     private func configureHeaderView() {
-        addSubview(headerStackView)
+        addSubview(animationView)
+        addSubview(infoStackView)
         addSubview(seperatorView)
     }
 
     private func setupHeaderViewLayout() {
 
         var layoutConstraints = [NSLayoutConstraint]()
-
-        headerStackView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            headerStackView.topAnchor.constraint(equalTo: topAnchor),
-            headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            animationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            animationView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 70),
+            animationView.widthAnchor.constraint(equalToConstant: 70)
+        ]
+
+        infoStackView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            infoStackView.leadingAnchor.constraint(equalTo: animationView.trailingAnchor, constant: 8),
+            infoStackView.topAnchor.constraint(equalTo: animationView.topAnchor),
+            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
         ]
 
-        locationAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        spaceView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            locationAnimationView.heightAnchor.constraint(equalToConstant: 100),
-            locationAnimationView.widthAnchor.constraint(equalToConstant: 100)
+            spaceView.widthAnchor.constraint(equalToConstant: 2)
         ]
 
         seperatorView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             seperatorView.heightAnchor.constraint(equalToConstant: 1),
-            seperatorView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor),
-            seperatorView.leadingAnchor.constraint(equalTo: headerStackView.leadingAnchor),
-            seperatorView.trailingAnchor.constraint(equalTo: headerStackView.trailingAnchor)
+            seperatorView.topAnchor.constraint(equalTo: bottomAnchor),
+            seperatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
+
+        if #available(iOS 11.0, *) {
+            animationView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
+        } else {
+            animationView.topAnchor.constraint(equalTo: topAnchor, constant: 35).isActive = true
+        }
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
     private func stylizeHeaderView() {
+        backgroundColor = GeneralColor.backgroundGray
+
+        titleLabel.textColor = GeneralColor.black
         titleLabel.text = "Алматы"
-        titleLabel.font = .systemFont(ofSize: 24, weight: .medium)
-        miladMonthName.textColor = GeneralColor.black
+        titleLabel.font = .systemFont(ofSize: 28, weight: .medium)
 
         miladMonthName.text = "19 ИЮНЬ, 2019"
-        miladMonthName.font = .systemFont(ofSize: 13, weight: .regular)
+        miladMonthName.font = .systemFont(ofSize: 15, weight: .medium)
+        miladMonthName.minimumScaleFactor = 13
         miladMonthName.textColor = GeneralColor.el_subtitle
+        miladMonthName.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         hijriMonthName.text = "16 ШАУУАЛ, 1440"
-        hijriMonthName.font = .systemFont(ofSize: 13, weight: .regular)
+        hijriMonthName.font = .systemFont(ofSize: 15, weight: .medium)
+        hijriMonthName.minimumScaleFactor = 13
         hijriMonthName.textColor = GeneralColor.el_subtitle
+        hijriMonthName.setContentHuggingPriority(.defaultLow, for: .horizontal)
+
+        spaceView.backgroundColor = GeneralColor.el_subtitle
+        spaceView.layer.cornerRadius = 1
     }
 }

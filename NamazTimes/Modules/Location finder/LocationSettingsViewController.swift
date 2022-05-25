@@ -151,7 +151,7 @@ extension LocationSettingsViewController {
     @objc func autoFindLocation() {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            present(TabBar(), animated: true, completion: nil)
+            present(UINavigationController(rootViewController: GeneralTabBarViewController()), animated: true, completion: nil)
             //Find location service
         case .restricted:
             print("Error Alert")

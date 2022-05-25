@@ -19,7 +19,7 @@ enum GeneralColor: String, CaseIterable {
     case _4EBC73, _0F0F0F, _3B4045, _82878D, _A8ACB1, _D0D3D6,  // Inspector colors
          _EAECED, _EFF0F3, _FFFFFF, _F7F7F7, _BD364F, _40B160,
          _757575, _8E8E93, _202020, _636366, _F2F2F7, _3A3A3C,
-         _DB2547
+         _DB2547, _F9F9F9
 
     public var uiColor: UIColor { UIColor(hex: hex) ?? .black }
     public var cgColor: CGColor { uiColor.cgColor }
@@ -60,6 +60,7 @@ extension GeneralColor {
     static var backgroundGray: UIColor { _F7F7F7.uiColor }
     static var red: UIColor { _BD364F.uiColor }
     static var shadowColor: UIColor { _202020.uiColor }
+    static var systemNavColor: UIColor { _F9F9F9.uiColor }
 
     //Title colors
     static var el_subtitle: UIColor { _636366.uiColor }

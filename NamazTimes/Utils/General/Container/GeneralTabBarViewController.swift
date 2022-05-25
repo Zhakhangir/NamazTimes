@@ -7,33 +7,34 @@
 
 import UIKit
 
-class TabBar: UITabBarController {
+class GeneralTabBarViewController: UITabBarController {
 
-    private let navigationView = GeneralNavigationView()
+    private let navigtionView = GeneralNavigationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = GeneralColor.primary
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
-        navigationController?.title = "Namaz Times"
+        modalTransitionStyle = .coverVertical
+        modalPresentationStyle = .fullScreen
+
         setupChilds()
         configureHeaderView()
-
     }
 
     private func configureHeaderView() {
-        view.addSubview(navigationView)
+        view.addSubview(navigtionView)
+        navigtionView.translatesAutoresizingMaskIntoConstraints = false
 
-        navigationView.translatesAutoresizingMaskIntoConstraints = false
-        navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        navigtionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        navigtionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        navigtionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeViewController(), title: "Home",  image: UIImage(named: "home")),
-            createTabBarController(with: DailyTimesListViewController(), title: "Daily times", image: UIImage(named: "calendar_1")),
+            createTabBarController(with: HomeViewController(), title: "Home",  image: UIImage(named: "clock")),
+            createTabBarController(with: DailyTimesListViewController(), title: "Daily times", image: UIImage(named: "calendar")),
             createTabBarController(with: CompassViewController(), title: "Compass", image: UIImage(named: "compass"))
         ]
     }

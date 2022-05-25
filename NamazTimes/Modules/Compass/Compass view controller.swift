@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompassViewController: UIViewController {
+class CompassViewController: GeneralViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

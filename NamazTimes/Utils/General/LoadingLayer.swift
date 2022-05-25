@@ -24,7 +24,7 @@ class LoadingLayer: NSObject {
         let animationView = AnimationView(name: "loader4")
         animationView.animationSpeed = 1
         animationView.loopMode = .loop
-
+        animationView.backgroundBehavior = .pauseAndRestore
         return animationView
     }()
 
