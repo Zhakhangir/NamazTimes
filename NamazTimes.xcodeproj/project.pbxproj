@@ -7,20 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0C928413EDB0023A64B /* HomeRouter.swift */; };
+		711DA0CD284144710023A64B /* DailyTimesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0CC284144710023A64B /* DailyTimesViewInput.swift */; };
+		711DA0CF2841448B0023A64B /* DailyTimesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0CE2841448B0023A64B /* DailyTimesInteractorInput.swift */; };
+		711DA0D1284144F20023A64B /* HomeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D0284144F20023A64B /* HomeViewInput.swift */; };
+		711DA0D32841453E0023A64B /* HomeInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D22841453E0023A64B /* HomeInteractorInput.swift */; };
+		711DA0D5284145B00023A64B /* QFCompassViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D4284145B00023A64B /* QFCompassViewInput.swift */; };
+		711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D6284145F60023A64B /* QFCompassRouter.swift */; };
+		711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D82841460A0023A64B /* QFCompassInteractor.swift */; };
+		711DA0DB2841461D0023A64B /* QFCompassInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0DA2841461D0023A64B /* QFCompassInteractorInput.swift */; };
+		71440F342840AB7500581C59 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440F332840AB7500581C59 /* Date+Extension.swift */; };
 		7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */; };
 		7147DB9527F5B7F10043CB00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7147DB9427F5B7F10043CB00 /* Assets.xcassets */; };
 		7147DB9827F5B7F10043CB00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7147DB9627F5B7F10043CB00 /* LaunchScreen.storyboard */; };
 		714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20BB2810337400E8A81A /* GeneralColor.swift */; };
 		714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20BF2810355500E8A81A /* UIColor+Extensions.swift */; };
 		714A20C2281046EB00E8A81A /* GeneralTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */; };
-		714A20C828104E5D00E8A81A /* Settings view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C728104E5D00E8A81A /* Settings view controller.swift */; };
-		714A20CA28104E7100E8A81A /* Compass view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C928104E7100E8A81A /* Compass view controller.swift */; };
-		714A20CC28104E8600E8A81A /* Home view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* Home view controller.swift */; };
-		714A20CE28104EA000E8A81A /* DayArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* DayArticleViewController.swift */; };
+		714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C928104E7100E8A81A /* QFCompassViewController.swift */; };
+		714A20CC28104E8600E8A81A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* HomeViewController.swift */; };
+		714A20CE28104EA000E8A81A /* DailyTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */; };
 		715D084928144B0B00729AFB /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D084828144B0B00729AFB /* LocationSettingsViewController.swift */; };
 		715D084C2814523000729AFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 715D084E2814523000729AFB /* Localizable.strings */; };
-		7187839328362E6F00883421 /* DailyTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* DailyTimesCell.swift */; };
-		7187839528362E8800883421 /* DailyTimesSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839428362E8800883421 /* DailyTimesSettingsCell.swift */; };
+		7187839328362E6F00883421 /* DTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* DTListView.swift */; };
+		7187839528362E8800883421 /* DTSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839428362E8800883421 /* DTSettingsView.swift */; };
+		71A68EC6283FDC59009BB374 /* PrayerTimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A68EC5283FDC59009BB374 /* PrayerTimeInfoView.swift */; };
+		71ACB2E72844DB7700371C25 /* MapQiblaFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2E62844DB7700371C25 /* MapQiblaFinderViewController.swift */; };
+		71ACB2EB2844EA2D00371C25 /* QFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2EA2844EA2D00371C25 /* QFMapViewController.swift */; };
+		71ACB2ED2844EA4600371C25 /* QFMapViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2EC2844EA4600371C25 /* QFMapViewInput.swift */; };
+		71ACB2EF2844EA5800371C25 /* QFMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2EE2844EA5800371C25 /* QFMapRouter.swift */; };
+		71ACB2F12844EA6B00371C25 /* QFMapIntractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2F02844EA6B00371C25 /* QFMapIntractor.swift */; };
+		71ACB2F32844EA8C00371C25 /* QFMapIntractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2F22844EA8C00371C25 /* QFMapIntractorInput.swift */; };
+		71ACB2F72847727000371C25 /* KaabaAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2F62847727000371C25 /* KaabaAnnotationView.swift */; };
+		71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B36B283F4CB300F5BA63 /* PagerView.swift */; };
+		71B5B36E283F6FB000F5BA63 /* DTListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B36D283F6FB000F5BA63 /* DTListItemView.swift */; };
+		71B5B372283F739A00F5BA63 /* DTSettinsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B371283F739A00F5BA63 /* DTSettinsItemView.swift */; };
+		71B5B374283F80E700F5BA63 /* DailyTimesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B373283F80E700F5BA63 /* DailyTimesInteractor.swift */; };
+		71B5B376283F88A200F5BA63 /* DailyTimesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B375283F88A200F5BA63 /* DailyTimesRouter.swift */; };
+		71B5B378283F890C00F5BA63 /* HomeInterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B377283F890C00F5BA63 /* HomeInterator.swift */; };
+		71B5B37C283F8B7C00F5BA63 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37B283F8B7C00F5BA63 /* UITableView+Extensions.swift */; };
+		71B5B380283F95C400F5BA63 /* BaseCollectionContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseCollectionContainerCell.swift */; };
+		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
+		71B5B385283FA3EB00F5BA63 /* BaseCollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseCollectionTableCell.swift */; };
 		71E50642281E07EA00F2880D /* ErrorLocationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50641281E07EA00F2880D /* ErrorLocationPage.swift */; };
 		71E50644281E11DD00F2880D /* LocationMen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50643281E11DD00F2880D /* LocationMen.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
@@ -43,6 +70,17 @@
 		04E9E5CE34E7D8B9AC9A35E8 /* Pods-NamazTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.release.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.release.xcconfig"; sourceTree = "<group>"; };
 		5672C3FE81CC010BB5C823AE /* Pods_NamazTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamazTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66197CFD6EE976FF99780D5B /* Pods-NamazTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.debug.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.debug.xcconfig"; sourceTree = "<group>"; };
+		711DA0C928413EDB0023A64B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		711DA0CC284144710023A64B /* DailyTimesViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesViewInput.swift; sourceTree = "<group>"; };
+		711DA0CE2841448B0023A64B /* DailyTimesInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesInteractorInput.swift; sourceTree = "<group>"; };
+		711DA0D0284144F20023A64B /* HomeViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewInput.swift; sourceTree = "<group>"; };
+		711DA0D22841453E0023A64B /* HomeInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorInput.swift; sourceTree = "<group>"; };
+		711DA0D4284145B00023A64B /* QFCompassViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassViewInput.swift; sourceTree = "<group>"; };
+		711DA0D6284145F60023A64B /* QFCompassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassRouter.swift; sourceTree = "<group>"; };
+		711DA0D82841460A0023A64B /* QFCompassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassInteractor.swift; sourceTree = "<group>"; };
+		711DA0DA2841461D0023A64B /* QFCompassInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassInteractorInput.swift; sourceTree = "<group>"; };
+		711DA0DC284148C70023A64B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71440F332840AB7500581C59 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7147DB8827F5B7ED0043CB00 /* NamazTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamazTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7147DB9427F5B7F10043CB00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,16 +89,33 @@
 		714A20BB2810337400E8A81A /* GeneralColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralColor.swift; sourceTree = "<group>"; };
 		714A20BF2810355500E8A81A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabBarViewController.swift; sourceTree = "<group>"; };
-		714A20C728104E5D00E8A81A /* Settings view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings view controller.swift"; sourceTree = "<group>"; };
-		714A20C928104E7100E8A81A /* Compass view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compass view controller.swift"; sourceTree = "<group>"; };
-		714A20CB28104E8600E8A81A /* Home view controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home view controller.swift"; sourceTree = "<group>"; };
-		714A20CD28104EA000E8A81A /* DayArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayArticleViewController.swift; sourceTree = "<group>"; };
+		714A20C928104E7100E8A81A /* QFCompassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassViewController.swift; sourceTree = "<group>"; };
+		714A20CB28104E8600E8A81A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesViewController.swift; sourceTree = "<group>"; };
 		715D084828144B0B00729AFB /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
 		715D084D2814523000729AFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		715D084F2814529200729AFB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		715D0850281452B900729AFB /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7187839228362E6F00883421 /* DailyTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesCell.swift; sourceTree = "<group>"; };
-		7187839428362E8800883421 /* DailyTimesSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesSettingsCell.swift; sourceTree = "<group>"; };
+		7187839228362E6F00883421 /* DTListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListView.swift; sourceTree = "<group>"; };
+		7187839428362E8800883421 /* DTSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTSettingsView.swift; sourceTree = "<group>"; };
+		71A68EC5283FDC59009BB374 /* PrayerTimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeInfoView.swift; sourceTree = "<group>"; };
+		71ACB2E62844DB7700371C25 /* MapQiblaFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapQiblaFinderViewController.swift; sourceTree = "<group>"; };
+		71ACB2EA2844EA2D00371C25 /* QFMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapViewController.swift; sourceTree = "<group>"; };
+		71ACB2EC2844EA4600371C25 /* QFMapViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapViewInput.swift; sourceTree = "<group>"; };
+		71ACB2EE2844EA5800371C25 /* QFMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapRouter.swift; sourceTree = "<group>"; };
+		71ACB2F02844EA6B00371C25 /* QFMapIntractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapIntractor.swift; sourceTree = "<group>"; };
+		71ACB2F22844EA8C00371C25 /* QFMapIntractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapIntractorInput.swift; sourceTree = "<group>"; };
+		71ACB2F62847727000371C25 /* KaabaAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaabaAnnotationView.swift; sourceTree = "<group>"; };
+		71B5B36B283F4CB300F5BA63 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
+		71B5B36D283F6FB000F5BA63 /* DTListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListItemView.swift; sourceTree = "<group>"; };
+		71B5B371283F739A00F5BA63 /* DTSettinsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTSettinsItemView.swift; sourceTree = "<group>"; };
+		71B5B373283F80E700F5BA63 /* DailyTimesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesInteractor.swift; sourceTree = "<group>"; };
+		71B5B375283F88A200F5BA63 /* DailyTimesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesRouter.swift; sourceTree = "<group>"; };
+		71B5B377283F890C00F5BA63 /* HomeInterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterator.swift; sourceTree = "<group>"; };
+		71B5B37B283F8B7C00F5BA63 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		71B5B37F283F95C400F5BA63 /* BaseCollectionContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionContainerCell.swift; sourceTree = "<group>"; };
+		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
+		71B5B384283FA3EB00F5BA63 /* BaseCollectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionTableCell.swift; sourceTree = "<group>"; };
 		71E50641281E07EA00F2880D /* ErrorLocationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLocationPage.swift; sourceTree = "<group>"; };
 		71E50643281E11DD00F2880D /* LocationMen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMen.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -98,6 +153,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		711DA0CB284143550023A64B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71B5B36D283F6FB000F5BA63 /* DTListItemView.swift */,
+				71B5B371283F739A00F5BA63 /* DTSettinsItemView.swift */,
+				7187839428362E8800883421 /* DTSettingsView.swift */,
+				7187839228362E6F00883421 /* DTListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		711DA0DD28414A570023A64B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71ACB2E62844DB7700371C25 /* MapQiblaFinderViewController.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		7147DB7F27F5B7ED0043CB00 = {
 			isa = PBXGroup;
 			children = (
@@ -130,14 +204,13 @@
 		714A20BD2810352600E8A81A /* General */ = {
 			isa = PBXGroup;
 			children = (
-				71B8A588283BE9D000D0A58B /* Container */,
 				71E5064D281E931000F2880D /* GeneralAlert */,
 				714A20BB2810337400E8A81A /* GeneralColor.swift */,
+				71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */,
 				71E50643281E11DD00F2880D /* LocationMen.swift */,
 				71E50649281E606A00F2880D /* LoadingLayer.swift */,
 				71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */,
 				71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */,
-				71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -148,61 +221,120 @@
 				714A20BF2810355500E8A81A /* UIColor+Extensions.swift */,
 				71E50645281E1FB200F2880D /* UIImage+Extensions.swift */,
 				71E80B6D2830E4AB004F8A55 /* UITextField+Extension.swift */,
+				71B5B37B283F8B7C00F5BA63 /* UITableView+Extensions.swift */,
+				71440F332840AB7500581C59 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		714A20C4281047B100E8A81A /* Daily time */ = {
+		714A20C4281047B100E8A81A /* DailyTimes */ = {
 			isa = PBXGroup;
 			children = (
-				714A20CD28104EA000E8A81A /* DayArticleViewController.swift */,
-				7187839228362E6F00883421 /* DailyTimesCell.swift */,
-				7187839428362E8800883421 /* DailyTimesSettingsCell.swift */,
+				71B5B36F283F727000F5BA63 /* Utilities */,
+				71B5B373283F80E700F5BA63 /* DailyTimesInteractor.swift */,
+				711DA0CE2841448B0023A64B /* DailyTimesInteractorInput.swift */,
+				711DA0CC284144710023A64B /* DailyTimesViewInput.swift */,
+				714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */,
+				71B5B375283F88A200F5BA63 /* DailyTimesRouter.swift */,
 			);
-			path = "Daily time";
+			path = DailyTimes;
 			sourceTree = "<group>";
 		};
-		714A20C52810481800E8A81A /* Compass */ = {
+		714A20C52810481800E8A81A /* QiblaFinder */ = {
 			isa = PBXGroup;
 			children = (
-				714A20C928104E7100E8A81A /* Compass view controller.swift */,
+				711DA0DD28414A570023A64B /* Utils */,
+				71ACB2E92844E8DF00371C25 /* QFCompassViewController */,
+				71ACB2E82844E8C400371C25 /* QFMapViewController */,
 			);
-			path = Compass;
+			path = QiblaFinder;
 			sourceTree = "<group>";
 		};
-		714A20C62810482900E8A81A /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				714A20C728104E5D00E8A81A /* Settings view controller.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		715D084728144ACD00729AFB /* Location finder */ = {
+		715D084728144ACD00729AFB /* LocationFinder */ = {
 			isa = PBXGroup;
 			children = (
 				715D084828144B0B00729AFB /* LocationSettingsViewController.swift */,
 				71E50641281E07EA00F2880D /* ErrorLocationPage.swift */,
 			);
-			path = "Location finder";
+			path = LocationFinder;
 			sourceTree = "<group>";
 		};
-		71B8A588283BE9D000D0A58B /* Container */ = {
+		71A68EC4283FDC3A009BB374 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				71A68EC5283FDC59009BB374 /* PrayerTimeInfoView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		71ACB2E82844E8C400371C25 /* QFMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71ACB2F52847725E00371C25 /* Utils */,
+				71ACB2EA2844EA2D00371C25 /* QFMapViewController.swift */,
+				71ACB2EC2844EA4600371C25 /* QFMapViewInput.swift */,
+				71ACB2EE2844EA5800371C25 /* QFMapRouter.swift */,
+				71ACB2F02844EA6B00371C25 /* QFMapIntractor.swift */,
+				71ACB2F22844EA8C00371C25 /* QFMapIntractorInput.swift */,
+			);
+			path = QFMapViewController;
+			sourceTree = "<group>";
+		};
+		71ACB2E92844E8DF00371C25 /* QFCompassViewController */ = {
+			isa = PBXGroup;
+			children = (
+				714A20C928104E7100E8A81A /* QFCompassViewController.swift */,
+				711DA0D4284145B00023A64B /* QFCompassViewInput.swift */,
+				711DA0D6284145F60023A64B /* QFCompassRouter.swift */,
+				711DA0D82841460A0023A64B /* QFCompassInteractor.swift */,
+				711DA0DA2841461D0023A64B /* QFCompassInteractorInput.swift */,
+			);
+			path = QFCompassViewController;
+			sourceTree = "<group>";
+		};
+		71ACB2F428451B4500371C25 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */,
 			);
-			path = Container;
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		71ACB2F52847725E00371C25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71ACB2F62847727000371C25 /* KaabaAnnotationView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		71B5B36F283F727000F5BA63 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				711DA0CB284143550023A64B /* Views */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		71B5B381283F960C00F5BA63 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				71B5B36B283F4CB300F5BA63 /* PagerView.swift */,
+				71B5B37F283F95C400F5BA63 /* BaseCollectionContainerCell.swift */,
+				71B5B382283F964900F5BA63 /* CleanableView.swift */,
+				71B5B384283FA3EB00F5BA63 /* BaseCollectionTableCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		71E4F739280C2EF40091B120 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				715D084728144ACD00729AFB /* Location finder */,
+				71ACB2F428451B4500371C25 /* TabBar */,
+				715D084728144ACD00729AFB /* LocationFinder */,
 				71E4F73E280C3DA00091B120 /* Home */,
-				714A20C4281047B100E8A81A /* Daily time */,
-				714A20C52810481800E8A81A /* Compass */,
-				714A20C62810482900E8A81A /* Settings */,
+				714A20C4281047B100E8A81A /* DailyTimes */,
+				714A20C52810481800E8A81A /* QiblaFinder */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -210,6 +342,7 @@
 		71E4F73A280C2F010091B120 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				71B5B381283F960C00F5BA63 /* UI */,
 				714A20BE2810353900E8A81A /* Extensions */,
 				714A20BD2810352600E8A81A /* General */,
 			);
@@ -251,7 +384,12 @@
 		71E4F73E280C3DA00091B120 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				714A20CB28104E8600E8A81A /* Home view controller.swift */,
+				71A68EC4283FDC3A009BB374 /* Utilities */,
+				714A20CB28104E8600E8A81A /* HomeViewController.swift */,
+				71B5B377283F890C00F5BA63 /* HomeInterator.swift */,
+				711DA0D22841453E0023A64B /* HomeInteractorInput.swift */,
+				711DA0C928413EDB0023A64B /* HomeRouter.swift */,
+				711DA0D0284144F20023A64B /* HomeViewInput.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -320,6 +458,7 @@
 				Base,
 				ru,
 				kk,
+				tr,
 			);
 			mainGroup = 7147DB7F27F5B7ED0043CB00;
 			productRefGroup = 7147DB8927F5B7ED0043CB00 /* Products */;
@@ -397,24 +536,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E50642281E07EA00F2880D /* ErrorLocationPage.swift in Sources */,
-				714A20CA28104E7100E8A81A /* Compass view controller.swift in Sources */,
+				714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */,
+				71B5B36E283F6FB000F5BA63 /* DTListItemView.swift in Sources */,
+				711DA0D5284145B00023A64B /* QFCompassViewInput.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
+				71B5B374283F80E700F5BA63 /* DailyTimesInteractor.swift in Sources */,
 				71E80B6A282FD0D6004F8A55 /* GeneralViewController.swift in Sources */,
+				71ACB2E72844DB7700371C25 /* MapQiblaFinderViewController.swift in Sources */,
+				71B5B372283F739A00F5BA63 /* DTSettinsItemView.swift in Sources */,
+				711DA0DB2841461D0023A64B /* QFCompassInteractorInput.swift in Sources */,
+				71ACB2F72847727000371C25 /* KaabaAnnotationView.swift in Sources */,
+				71B5B385283FA3EB00F5BA63 /* BaseCollectionTableCell.swift in Sources */,
 				71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */,
+				71440F342840AB7500581C59 /* Date+Extension.swift in Sources */,
+				711DA0CF2841448B0023A64B /* DailyTimesInteractorInput.swift in Sources */,
+				71A68EC6283FDC59009BB374 /* PrayerTimeInfoView.swift in Sources */,
+				71ACB2EB2844EA2D00371C25 /* QFMapViewController.swift in Sources */,
 				714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */,
-				714A20C828104E5D00E8A81A /* Settings view controller.swift in Sources */,
-				714A20CC28104E8600E8A81A /* Home view controller.swift in Sources */,
+				714A20CC28104E8600E8A81A /* HomeViewController.swift in Sources */,
 				71E80B6C282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift in Sources */,
 				71E80B6E2830E4AB004F8A55 /* UITextField+Extension.swift in Sources */,
-				7187839328362E6F00883421 /* DailyTimesCell.swift in Sources */,
+				7187839328362E6F00883421 /* DTListView.swift in Sources */,
 				71E50650281E936E00F2880D /* GeneralAlertCard.swift in Sources */,
+				71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */,
+				711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */,
+				711DA0D32841453E0023A64B /* HomeInteractorInput.swift in Sources */,
 				714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
 				715D084928144B0B00729AFB /* LocationSettingsViewController.swift in Sources */,
-				7187839528362E8800883421 /* DailyTimesSettingsCell.swift in Sources */,
+				711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */,
+				71B5B376283F88A200F5BA63 /* DailyTimesRouter.swift in Sources */,
+				711DA0CD284144710023A64B /* DailyTimesViewInput.swift in Sources */,
+				71ACB2EF2844EA5800371C25 /* QFMapRouter.swift in Sources */,
+				71ACB2ED2844EA4600371C25 /* QFMapViewInput.swift in Sources */,
+				71ACB2F12844EA6B00371C25 /* QFMapIntractor.swift in Sources */,
+				71B5B37C283F8B7C00F5BA63 /* UITableView+Extensions.swift in Sources */,
+				7187839528362E8800883421 /* DTSettingsView.swift in Sources */,
+				711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */,
+				71B5B380283F95C400F5BA63 /* BaseCollectionContainerCell.swift in Sources */,
 				714A20C2281046EB00E8A81A /* GeneralTabBarViewController.swift in Sources */,
-				714A20CE28104EA000E8A81A /* DayArticleViewController.swift in Sources */,
+				71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */,
+				711DA0D1284144F20023A64B /* HomeViewInput.swift in Sources */,
+				714A20CE28104EA000E8A81A /* DailyTimesViewController.swift in Sources */,
+				71ACB2F32844EA8C00371C25 /* QFMapIntractorInput.swift in Sources */,
 				71E50644281E11DD00F2880D /* LocationMen.swift in Sources */,
+				71B5B378283F890C00F5BA63 /* HomeInterator.swift in Sources */,
 				71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */,
 				71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */,
 			);
@@ -437,6 +603,7 @@
 				715D084D2814523000729AFB /* en */,
 				715D084F2814529200729AFB /* ru */,
 				715D0850281452B900729AFB /* kk */,
+				711DA0DC284148C70023A64B /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -575,6 +742,10 @@
 				DEVELOPMENT_TEAM = GZ86AFRF74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NamazTimes/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -591,7 +762,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -607,6 +778,10 @@
 				DEVELOPMENT_TEAM = GZ86AFRF74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NamazTimes/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -623,7 +798,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

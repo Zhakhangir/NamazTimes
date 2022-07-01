@@ -1,0 +1,11 @@
+/* 
+  Localization.strings
+  NamazTimes
+
+  Created by &&TairoV on 4/23/22.
+  
+*/
+
+"choose_location" = "Yer seçiniz lütfen";
+"city_name" = "Şehir adı";
+"daily_times" = "Günlük vakit";

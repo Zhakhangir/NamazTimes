@@ -15,7 +15,7 @@ class LoadingLayer: NSObject {
     private lazy var loadingView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
 
         return view
     }()

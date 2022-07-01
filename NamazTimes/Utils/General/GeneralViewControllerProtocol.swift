@@ -5,4 +5,9 @@
 //  Created by &&TairoV on 5/14/22.
 //
 
-import Foundation
+import UIKit
+
+protocol GeneralViewControllerProtocol where Self: UIViewController {
+    var timer: Timer { get }
+    var localDate: Date { get }
+}

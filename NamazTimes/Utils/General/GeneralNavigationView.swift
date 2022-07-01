@@ -114,7 +114,7 @@ class GeneralNavigationView: UIView {
 
         titleLabel.textColor = GeneralColor.black
         titleLabel.text = "Алматы"
-        titleLabel.font = .systemFont(ofSize: 28, weight: .medium)
+        titleLabel.font = .systemFont(ofSize: 28, weight: .regular)
 
         miladMonthName.text = "19 ИЮНЬ, 2019"
         miladMonthName.font = .systemFont(ofSize: 15, weight: .medium)

@@ -8,8 +8,9 @@
 import Foundation
 import CoreLocation
 
-class LocationMen {
+class LocationMen: NSObject {
 
+    private var closure: ((Double?, Double?)->Void)?
     var locmen = CLLocationManager()
 
     var status: CLAuthorizationStatus {
@@ -19,6 +20,27 @@ class LocationMen {
             return CLLocationManager.authorizationStatus()
         }
     }
+
+    override init() {
+
+    }
+
+    func getCurrentUserPosition(completion: @escaping (Double?, Double?) -> Void) {
+
+        closure = completion
+        DispatchQueue.main.async {
+            self.locmen.requestAlwaysAuthorization()
+        }
+        locmen.delegate = self
+        locmen.desiredAccuracy = kCLLocationAccuracyBest
+        locmen.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            DispatchQueue.main.async {
+                self.locmen.startUpdatingLocation()
+            }
+        }
+    }
+
 
     func checkLocationAccess(successMethod: (()->Void)? = nil) {
         switch status {
@@ -33,4 +55,14 @@ class LocationMen {
             print("error4")
         }
     }
+}
+
+extension LocationMen: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations _: [CLLocation]) {
+        guard let location: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        closure?(location.latitude, location.longitude)
+        locmen.stopUpdatingLocation()
+    }
+
 }

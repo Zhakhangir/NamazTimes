@@ -8,15 +8,13 @@
 import UIKit
 
 class GeneralTabBarViewController: UITabBarController {
-
+    
     private let navigtionView = GeneralNavigationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = GeneralColor.primary
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
-        modalTransitionStyle = .coverVertical
-        modalPresentationStyle = .fullScreen
 
         setupChilds()
         configureHeaderView()
@@ -33,9 +31,9 @@ class GeneralTabBarViewController: UITabBarController {
 
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeViewController(), title: "Home",  image: UIImage(named: "clock")),
-            createTabBarController(with: DailyTimesListViewController(), title: "Daily times", image: UIImage(named: "calendar")),
-            createTabBarController(with: CompassViewController(), title: "Compass", image: UIImage(named: "compass"))
+            createTabBarController(with: HomeRouter().build(), title: "Home",  image: UIImage(named: "clock")),
+            createTabBarController(with: DailyTimesRouter().build(), title: "Daily times", image: UIImage(named: "calendar")),
+            createTabBarController(with: QFCompassRouter().build(), title: "Compass", image: UIImage(named: "compass"))
         ]
     }
 
