@@ -7,7 +7,9 @@
 
 import Foundation
 
-class HomeInteractor: HomeInteratorInput {
+protocol HomeInteractorInput { }
+
+class HomeInteractor: HomeInteractorInput {
     
     var view: HomeViewInput
 

@@ -42,9 +42,9 @@ class DTListView: UIView {
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+            tableView.topAnchor.constraint(equalTo: topAnchor, constant: 300),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -300),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
         ])
     }

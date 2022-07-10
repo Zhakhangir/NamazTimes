@@ -35,8 +35,8 @@ final class BaseContainerCell<T: CleanableView>: UITableViewCell {
         layoutConstraints += [
             innerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: innerView.contentInset.top),
             innerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: innerView.contentInset.left),
-            innerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: innerView.contentInset.bottom),
-            innerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: innerView.contentInset.right)
+            innerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -abs(innerView.contentInset.bottom)),
+            innerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -abs(innerView.contentInset.right))
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)

@@ -35,8 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = LocationSettingsViewController()
         case .authorizedAlways, .authorizedWhenInUse:
             window?.rootViewController = GeneralTabBarViewController()
-        @unknown default:
-            return
+        default: return
         }
 
 

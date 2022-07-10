@@ -11,6 +11,10 @@ class DailyTimesViewController: GeneralViewController {
 
     var router: DailyTimesRouterInput?
     var interactor: DailyTimesInteractorInput?
+
+    private var currentVisibleIndex: IndexPath? {
+        collectionView.indexPathsForVisibleItems.first.flatMap({IndexPath(row: $0.row, section: $0.section)})
+    }
     
     private var numberOfPages = 2
     private var listCellId = "ListCellReuseId"
@@ -19,9 +23,10 @@ class DailyTimesViewController: GeneralViewController {
     private lazy var layout: UICollectionViewFlowLayout = {
         var layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: contentView.bounds.width, height: contentView.bounds.height)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
+        layout.collectionView?.clipsToBounds = false
         layout.minimumInteritemSpacing = 0
         return layout
     }()
@@ -32,21 +37,16 @@ class DailyTimesViewController: GeneralViewController {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.isScrollEnabled = false
-        collectionView.bounces = false
-        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = true
+        collectionView.clipsToBounds = false
+        collectionView.backgroundColor = .blue
 
         collectionView.register(BaseCollectionContainerCell<DTListView>.self, forCellWithReuseIdentifier: listCellId)
         collectionView.register(BaseCollectionContainerCell<DTSettingsView>.self, forCellWithReuseIdentifier: settingsCellId)
         return collectionView
     }()
 
-    private let pager: PageControl = {
-        let pager  = PageControl()
-        pager.currentPage = 0
-        pager.numberOfPages = 2
-        return pager
-    }()
+    private let pager = PagerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,10 @@ class DailyTimesViewController: GeneralViewController {
 
         addSubviews()
         setuplayout()
+
+        pager.currentPage = 0
+        pager.numberOfPages = numberOfPages
+        collectionView.reloadData()
     }
 
 
@@ -75,8 +79,10 @@ class DailyTimesViewController: GeneralViewController {
 
         pager.translatesAutoresizingMaskIntoConstraints = false
         layoutContraints += [
-            pager.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            pager.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24)
+            pager.heightAnchor.constraint(equalToConstant: 10),
+            pager.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            pager.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32),
+            pager.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ]
 
         NSLayoutConstraint.activate(layoutContraints)
@@ -94,12 +100,26 @@ extension DailyTimesViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        var collectionCell = UICollectionViewCell()
+        switch indexPath.row {
+        case 0:
+            guard let cell: BaseCollectionContainerCell<DTListView> = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? BaseCollectionContainerCell<DTListView> else { return collectionCell }
+            collectionCell = cell
+        case 1:
+            guard let cell: BaseCollectionContainerCell<DTSettingsView> = collectionView.dequeueReusableCell(withReuseIdentifier: settingsCellId, for: indexPath) as? BaseCollectionContainerCell<DTSettingsView> else { return collectionCell }
+            collectionCell = cell
+        default:  return collectionCell
+        }
+
+        return collectionCell
     }
 }
 
 extension DailyTimesViewController: UICollectionViewDelegate {
 
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pager.currentPage = currentVisibleIndex?.row ?? 0
+    }
 }
 
 extension DailyTimesViewController: DailyTimesViewInput {

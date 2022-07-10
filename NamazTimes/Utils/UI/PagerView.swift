@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageControl: UIView {
+class PagerView: UIView {
 
     private let stackView = UIStackView()
     private let itemMaxWidth = CGFloat(6)

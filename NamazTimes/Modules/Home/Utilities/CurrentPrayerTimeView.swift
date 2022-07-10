@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PrayerTimeInfoView: UIView {
+class CurrentPrayerTimeView: UIView {
 
-    private let label: UILabel = {
+    let label: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.numberOfLines = 0
@@ -49,8 +49,9 @@ class PrayerTimeInfoView: UIView {
     }
 }
 
-extension PrayerTimeInfoView: CleanableView {
-    func clean() { }
+extension CurrentPrayerTimeView: CleanableView {
 
     var contentInset: UIEdgeInsets { UIEdgeInsets(top: 25, left: 16, bottom: 25, right: 16) }
+
+    func clean() { }
 }
