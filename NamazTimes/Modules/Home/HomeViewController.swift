@@ -16,8 +16,23 @@ class HomeViewController: GeneralViewController {
 
     private let prayerTimeInfo = 3
     private let parayerCellReuseId = "PrayerTimeCell"
-    private let currentTime = UILabel()
-    private let currentTimeStatus = UILabel()
+
+    private let currentTime: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 32)
+
+        return label
+    }()
+
+    private let currentTimeStatus: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = GeneralColor.el_subtitle
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+
+        return label
+    }()
 
     private lazy var currentTimeStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [currentTimeStatus, currentTime])
@@ -79,9 +94,7 @@ class HomeViewController: GeneralViewController {
     }
 
     private func stylize() {
-        currentTime.textAlignment = .center
-        currentTime.numberOfLines = 0
-        currentTime.font = .systemFont(ofSize: 32)
+        currentTimeStatus.text = "Local time"
     }
 
     override func secondRefresh() {

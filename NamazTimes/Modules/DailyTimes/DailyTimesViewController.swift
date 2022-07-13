@@ -23,7 +23,6 @@ class DailyTimesViewController: GeneralViewController {
     private lazy var layout: UICollectionViewFlowLayout = {
         var layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.collectionView?.clipsToBounds = false
@@ -58,6 +57,12 @@ class DailyTimesViewController: GeneralViewController {
         pager.currentPage = 0
         pager.numberOfPages = numberOfPages
         collectionView.reloadData()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        layout.itemSize = CGSize(width: contentView.bounds.width, height: contentView.bounds.height)  
     }
 
 

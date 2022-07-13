@@ -31,14 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch locationManager.status {
         case .restricted:
             print("Show alert error")
+        case .notDetermined:
+            window?.rootViewController = LocationSettingsViewController()
         case .denied:
             window?.rootViewController = LocationSettingsViewController()
         case .authorizedAlways, .authorizedWhenInUse:
             window?.rootViewController = GeneralTabBarViewController()
         default: return
         }
-
-
     }
 }
 
