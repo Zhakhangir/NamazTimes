@@ -8,6 +8,6 @@ target 'Namaz Times' do
   # Pods for NamazTimes
   
   pod 'lottie-ios'
- # pod 'RealmSwift', '~>10'
+  pod 'RealmSwift', '~>10'
 
 end
