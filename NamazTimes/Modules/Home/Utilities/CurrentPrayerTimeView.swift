@@ -12,9 +12,9 @@ class CurrentPrayerTimeView: UIView {
     let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         label.numberOfLines = 0
-        label.textColor = GeneralColor.secondary
+        label.textColor = GeneralColor.black
         return label
     }()
 

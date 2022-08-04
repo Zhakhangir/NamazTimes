@@ -6,13 +6,41 @@
 //
 
 import UIKit
+import CoreLocation
+
+protocol QFCompassViewInput: GeneralViewControllerProtocol {}
 
 class QFCompassViewController: GeneralViewController {
 
     var router: QFCompassRouterInput?
     var interactor: QFCompassInteractorInput?
+    let locationService = LocationService.sharedInstance
 
-    private var mapView =  MapQiblaFinderView()
+    private var mapView =  QFMapView()
+    private let arrowView = QFArrowView()
+
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .black
+        return label
+    }()
+
+    private let messageTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = ""
+        textView.font = .systemFont(ofSize: 15, weight: .regular)
+        textView.textColor = .black
+        return textView
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, messageTextView])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
+    }()
 
     private var mapButton: UIButton = {
         let button = UIButton()
@@ -29,14 +57,34 @@ class QFCompassViewController: GeneralViewController {
         setupLayout()
         stylize()
         addActions()
+
+        locationService.delegate = self
+        locationService.startUpdatingHeading()
+        locationService.startUpdatingLocation()
+
     }
 
     private func addSubviews() {
+        contentView.addSubview(stackView)
+        contentView.addSubview(arrowView)
         contentView.addSubview(mapButton)
     }
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+        ]
+
+        arrowView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            arrowView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            arrowView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ]
 
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
@@ -58,8 +106,18 @@ class QFCompassViewController: GeneralViewController {
     }
 }
 
-extension QFCompassViewController: QFCompassViewInput {
+extension QFCompassViewController: QFCompassViewInput { }
 
+extension QFCompassViewController: LocationServiceDelegate {
+
+    func tracingLocation(currentLocation: CLLocation) { }
+
+    func tracingLocationDidFailWithError(error: NSError) { }
+
+    func tracingHeading(heading: CLHeading) {
+        guard let direction = interactor?.getDirectionOfKabah(heading: heading) else { return }
+        arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(direction));
+    }
 }
 
 extension QFCompassViewController {

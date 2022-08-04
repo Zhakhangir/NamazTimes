@@ -7,6 +7,8 @@
 
 import UIKit
 
+protocol DailyTimesViewInput: GeneralViewControllerProtocol { }
+
 class DailyTimesViewController: GeneralViewController {
 
     var router: DailyTimesRouterInput?
@@ -38,7 +40,7 @@ class DailyTimesViewController: GeneralViewController {
         collectionView.isPagingEnabled = true
         collectionView.isScrollEnabled = true
         collectionView.clipsToBounds = false
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .white
 
         collectionView.register(BaseCollectionContainerCell<DTListView>.self, forCellWithReuseIdentifier: listCellId)
         collectionView.register(BaseCollectionContainerCell<DTSettingsView>.self, forCellWithReuseIdentifier: settingsCellId)
@@ -86,7 +88,7 @@ class DailyTimesViewController: GeneralViewController {
         layoutContraints += [
             pager.heightAnchor.constraint(equalToConstant: 10),
             pager.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            pager.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32),
+            pager.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             pager.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ]
 

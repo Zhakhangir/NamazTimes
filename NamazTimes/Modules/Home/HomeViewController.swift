@@ -94,7 +94,13 @@ class HomeViewController: GeneralViewController {
     }
 
     private func stylize() {
+        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTableView)))
         currentTimeStatus.text = "Local time"
+
+    }
+
+   @objc private func tapTableView() {
+//        currentTimeStatus.text = "\(LocationService.sharedInstance.currentLocation?.coordinate)" ?? "Local time"
     }
 
     override func secondRefresh() {

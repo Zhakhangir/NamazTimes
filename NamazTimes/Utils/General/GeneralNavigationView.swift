@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import CoreLocation
 
 class GeneralNavigationView: UIView {
 
@@ -56,6 +57,9 @@ class GeneralNavigationView: UIView {
         configureHeaderView()
         setupHeaderViewLayout()
         stylizeHeaderView()
+
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
     }
 
     required init?(coder: NSCoder) {
@@ -113,7 +117,6 @@ class GeneralNavigationView: UIView {
         backgroundColor = GeneralColor.backgroundGray
 
         titleLabel.textColor = GeneralColor.black
-        titleLabel.text = "Алматы"
         titleLabel.font = .systemFont(ofSize: 28, weight: .regular)
 
         miladMonthName.text = "19 ИЮНЬ, 2019"
@@ -131,4 +134,19 @@ class GeneralNavigationView: UIView {
         spaceView.backgroundColor = GeneralColor.el_subtitle
         spaceView.layer.cornerRadius = 1
     }
+}
+
+extension GeneralNavigationView: LocationServiceDelegate {
+
+    func tracingLocation(currentLocation: CLLocation) {
+        LoadingLayer.shared.show()
+        currentLocation.fetchCityAndCountry { [weak self] city, region, country, error  in
+            self?.titleLabel.text = city ?? region ?? country ?? "-"
+            LoadingLayer.shared.hide()
+        }
+    }
+
+    func tracingLocationDidFailWithError(error: NSError) { }
+
+    func tracingHeading(heading: CLHeading) { }
 }

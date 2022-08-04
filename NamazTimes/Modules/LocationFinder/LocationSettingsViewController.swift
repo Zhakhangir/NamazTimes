@@ -6,28 +6,36 @@
 //
 
 import UIKit
-import MapKit
-import CoreLocation
+import Lottie
 
 class LocationSettingsViewController: UIViewController {
 
-    let locationManager = LocationMen()
+    let locationService = LocationService.sharedInstance
     let fieldImageView = UIImageView(frame: CGRect(x: 10, y: -10, width: 20, height: 20))
+    let resultCellId = "resultCellId"
+    private let networkManager = NetworkManager()
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(BaseContainerCell<SimpleLabelView>.self, forCellReuseIdentifier: resultCellId)
+        return  tableView
+    }()
+
+    private let animationView: AnimationView = {
+        let animationView = AnimationView(name: "search_animation_1")
+        animationView.backgroundBehavior = .pauseAndRestore
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 2.5
+        return animationView
+    }()
+
+    private let fieldRightView = UIView()
 
     lazy var fieldLeftView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: locationTextField.frame.height))
         view.addSubview(fieldImageView)
-
         return  view
     }()
-
-    private var status: CLAuthorizationStatus {
-        if #available(iOS 14.0, *) {
-            return locationManager.locmen.authorizationStatus
-        } else {
-            return CLLocationManager.authorizationStatus()
-        }
-    }
 
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, fieldStackView])
@@ -53,7 +61,15 @@ class LocationSettingsViewController: UIViewController {
         return label
     }()
 
-    private var locationTextField = UITextField()
+    private var locationTextField: UITextField = {
+        let textField = UITextField()
+        textField.keyboardType = .webSearch
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.layer.cornerRadius = 18
+        textField.returnKeyType = .go
+        textField.autocorrectionType = .no
+        return textField
+    }()
 
     private var locationButton: UIButton = {
         let button = UIButton()
@@ -65,6 +81,9 @@ class LocationSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        locationTextField.delegate = self
 
         addSubviews()
         setupLayout()
@@ -73,14 +92,25 @@ class LocationSettingsViewController: UIViewController {
     }
 
     private func addSubviews() {
+        fieldRightView.addSubview(animationView)
         view.addSubview(mainStackView)
+        view.addSubview(tableView)
+
     }
 
     private func setupLayout() {
-
         var layoutContraints = [NSLayoutConstraint]()
 
-        locationTextField.delegate = self
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        layoutContraints += [
+            animationView.heightAnchor.constraint(equalToConstant: 24),
+            animationView.widthAnchor.constraint(equalToConstant: 24),
+            animationView.topAnchor.constraint(equalTo: fieldRightView.topAnchor),
+            animationView.leadingAnchor.constraint(equalTo: fieldRightView.leadingAnchor),
+            animationView.bottomAnchor.constraint(equalTo: fieldRightView.bottomAnchor),
+            animationView.trailingAnchor.constraint(equalTo: fieldRightView.trailingAnchor, constant: -5),
+        ]
+
         locationTextField.translatesAutoresizingMaskIntoConstraints = false
         layoutContraints += [
             locationTextField.heightAnchor.constraint(equalToConstant: 42)
@@ -94,10 +124,27 @@ class LocationSettingsViewController: UIViewController {
 
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         layoutContraints += [
-            mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24)
         ]
+
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        layoutContraints += [
+            tableView.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 5),
+            tableView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -(24 + 5))
+        ]
+
+        if #available(iOS 11.0, *) {
+            layoutContraints += [
+                mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+                tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            ]
+        } else {
+           layoutContraints += [
+            mainStackView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor, constant: 32),
+            tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -16)]
+        }
 
         NSLayoutConstraint.activate(layoutContraints)
     }
@@ -107,29 +154,46 @@ class LocationSettingsViewController: UIViewController {
     }
 
     private func stylize() {
+
+        let bar = UIToolbar()
+        bar.sizeToFit()
+        bar.items = [ UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                      UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneTapped))]
+
         fieldImageView.contentMode = .scaleAspectFit
         fieldImageView.image = UIImage(named: "search")
 
         locationTextField.leftView = fieldLeftView
         locationTextField.leftViewMode = .always
 
-        locationTextField.rightView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 10, height: 10)))
+        locationTextField.rightView = fieldRightView
         locationTextField.rightViewMode = .always
-
-        locationTextField.keyboardType = .webSearch
-        locationTextField.font = UIFont.systemFont(ofSize: 16)
-        locationTextField.layer.cornerRadius = 18
 
         locationTextField.layer.borderWidth = 1
         locationTextField.layer.borderColor = GeneralColor.primary.cgColor
         locationTextField.placeholder = NSLocalizedString("city_name", comment: "city name")
+        locationTextField.inputAccessoryView = bar
+    }
 
-        locationTextField.returnKeyType = .go
-        locationTextField.autocorrectionType = .no
+    @objc private func doneTapped() {
+        view.endEditing(true)
+        
+        animationView.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.animationView.stop()
+        }
     }
 }
 
 extension LocationSettingsViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        networkManager.searchCity(cityName: textField.text ?? "") { error in
+
+        }
+        return true
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -140,46 +204,17 @@ extension LocationSettingsViewController: UITextFieldDelegate {
 
 extension LocationSettingsViewController {
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-
-    }
-
     @objc func autoFindLocation() {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            present(UINavigationController(rootViewController: GeneralTabBarViewController()), animated: true, completion: nil)
-            //Find location service
-        case .restricted:
-            print("Error Alert")
-        case .denied:
-            let alertVc = GeneralAlertPopupVc()
-            let model = GeneralAlertModel(titleLabel: "Error Location", buttonTitle: "Open", actionButtonTapped: {
-                if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
-                    UIApplication.shared.open(url)
-                }
-            })
-            let alertView = GeneralAlertPopupView()
-            alertView.configure(with: model)
-            alertVc.setContentView(alertView)
-
-            present(alertVc, animated: true, completion: nil)
-        case .notDetermined:
-            locationManager.locmen.requestAlwaysAuthorization()
-            locationManager.locmen.requestWhenInUseAuthorization()
-        @unknown default:
-            print("Location error")
-        }
     }
 }
 
-extension LocationSettingsViewController: CLLocationManagerDelegate {
+extension  LocationSettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        autoFindLocation()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
-

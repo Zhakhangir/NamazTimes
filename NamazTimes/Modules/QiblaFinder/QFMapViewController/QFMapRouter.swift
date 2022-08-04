@@ -31,29 +31,3 @@ class QFMapRouter: QFMapRouterInput {
         view?.dismiss(animated: true, completion: nil)
     }
 }
-
-
-
-
-//private func addSubviews() {
-//
-//}
-//
-//private func setupLayout() {
-//    var layoutConstraints = [NSLayoutConstraint]()
-//
-//
-//    NSLayoutConstraint.activate(layoutConstraints)
-//}
-//
-//private func stylize() {
-//
-//}
-//
-//private func addActions() {
-//
-//}
-//
-//@objc func showMap() {
-//
-//}

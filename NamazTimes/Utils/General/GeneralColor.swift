@@ -20,7 +20,7 @@ enum GeneralColor: String, CaseIterable {
     case _4EBC73, _0F0F0F, _3B4045, _82878D, _A8ACB1, _D0D3D6,  // Inspector colors
          _EAECED, _EFF0F3, _FFFFFF, _F7F7F7, _BD364F, _40B160,
          _757575, _8E8E93, _202020, _636366, _F2F2F7, _3A3A3C,
-         _DB2547, _F9F9F9
+         _DB2547, _F9F9F9, _CAE5CD
 
     public var uiColor: UIColor { UIColor(hex: hex) ?? .black }
     public var cgColor: CGColor { uiColor.cgColor }
@@ -32,6 +32,8 @@ extension GeneralColor {
     static var primary: UIColor { _3E6D7C.uiColor }
     static var secondary: UIColor { _2D4155.uiColor }
     static var el_subtitle: UIColor { _636366.uiColor }
+    static var selected: UIColor { _CAE5CD.uiColor }
+
 
     //Blur background
     static var blur: UIColor { _D6D6D6.uiColor }

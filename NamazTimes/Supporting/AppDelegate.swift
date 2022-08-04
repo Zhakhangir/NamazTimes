@@ -7,12 +7,12 @@
 
 import UIKit
 import CoreLocation
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var locationManager = LocationMen()
     var currentCityData = "Almaty"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,30 +21,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        locationManager.checkLocationAccess()
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
+        LocationService.sharedInstance.startUpdatingHeading()
         configureRoot()
 
         return true
     }
 
     func configureRoot() {
-        switch locationManager.status {
-        case .restricted:
-            print("Show alert error")
-        case .notDetermined:
-            window?.rootViewController = LocationSettingsViewController()
-        case .denied:
-            window?.rootViewController = LocationSettingsViewController()
+        switch LocationService.sharedInstance.status {
+        case .notDetermined, .denied, .restricted:
+            window?.rootViewController = LocationAccessErrorViewController()
         case .authorizedAlways, .authorizedWhenInUse:
-            window?.rootViewController = GeneralTabBarViewController()
+            window?.rootViewController = LocationSettingsViewController()
         default: return
         }
     }
 }
 
-extension AppDelegate: CLLocationManagerDelegate {
+extension AppDelegate: LocationServiceDelegate {
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    func tracingLocation(currentLocation: CLLocation) {
         configureRoot()
     }
+
+    func tracingLocationDidFailWithError(error: NSError) { }
+
+    func tracingHeading(heading: CLHeading) { }
 }

@@ -7,10 +7,15 @@
 
 import Foundation
 
-struct NamazTimesList {
-    var name: String
-    var time: String
-    var isOn: Bool
+
+protocol DailyTimesInteractorInput {
+
+}
+
+struct PrayerTimesList {
+    var name: String?
+    var time: String?
+    var show: Bool = false
 }
 
 class DailyTimesInteractor: DailyTimesInteractorInput {

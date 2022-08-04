@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum PrayerTimes {
+    
+}
+
 protocol HomeInteractorInput { }
 
 class HomeInteractor: HomeInteractorInput {

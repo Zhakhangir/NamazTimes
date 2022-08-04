@@ -9,3 +9,7 @@
 "choose_location" = "Yer seçiniz lütfen";
 "city_name" = "Şehir adı";
 "daily_times" = "Günlük vakit";
+"qibla" = "KIBLE";
+"open_settings" = "Open settings";
+"standart" = "Standart";
+"satellite" = "Satellite";

@@ -9,12 +9,16 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol QFMapViewInput where Self: UIViewController {
+}
+
+
 class QFMapViewController: UIViewController {
 
     var router: QFMapRouterInput?
     var interactor: QFMapInteractorInput?
-
-    let KaabaCordinates = CLLocationCoordinate2D(latitude: 21.4216, longitude: 39.8248)
+    let KaabaCordinates = CLLocationCoordinate2D(latitude: 21.422498, longitude: 39.826181)
+    private let mapTypes = ["Standart", "Satellite"]
 
     private lazy var annotationKaaba: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
@@ -25,6 +29,7 @@ class QFMapViewController: UIViewController {
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
+        mapView.mapType = .standard
         mapView.addAnnotation(annotationKaaba)
         mapView.showsUserLocation = true
         return mapView
@@ -39,7 +44,7 @@ class QFMapViewController: UIViewController {
 
     private var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "close-icon-rounded"), for: .normal)
+        button.setImage(UIImage(named: "close-icon"), for: .normal)
         button.backgroundColor = .clear
         return button
     }()
@@ -51,29 +56,40 @@ class QFMapViewController: UIViewController {
         return button
     }()
 
-    private var mapTypeSegment: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl()
+    private var kaabaButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "kaaba"), for: .normal)
+        button.backgroundColor = .clear
+        return button
+    }()
+
+    private lazy var mapTypeSegmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: mapTypes)
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(mapTypeChanged), for: .valueChanged)
         segmentedControl.tintColor = GeneralColor.primary
         return segmentedControl
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
 
         addSubviews()
         setupLayout()
-        stylize()
         addActions()
 
-        mapView.delegate = self
+        guard let userLocation = interactor?.getUserLocation() else { return }
+        setRegion(coordinate: userLocation)
     }
 
     private func addSubviews() {
         view.addSubview(mapView)
-        view.addSubview(aimImageView)
+        //        view.addSubview(aimImageView)
+        view.addSubview(mapTypeSegmentedControl)
         view.addSubview(closeButton)
         view.addSubview(locationButton)
+        view.addSubview(kaabaButton)
     }
 
     private func setupLayout() {
@@ -83,16 +99,30 @@ class QFMapViewController: UIViewController {
         layoutConstraints += [
             closeButton.heightAnchor.constraint(equalToConstant: 30),
             closeButton.widthAnchor.constraint(equalToConstant: 30),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
+        ]
+
+        mapTypeSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            mapTypeSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mapTypeSegmentedControl.bottomAnchor.constraint(equalTo: closeButton.bottomAnchor)
         ]
 
         locationButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             locationButton.heightAnchor.constraint(equalToConstant: 30),
             locationButton.widthAnchor.constraint(equalToConstant: 30),
-            locationButton.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            locationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            locationButton.leadingAnchor.constraint(equalTo: kaabaButton.trailingAnchor, constant: 16),
+            locationButton.bottomAnchor.constraint(equalTo: closeButton.bottomAnchor)
+        ]
+
+        kaabaButton.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            kaabaButton.heightAnchor.constraint(equalToConstant: 30),
+            kaabaButton.widthAnchor.constraint(equalToConstant: 30),
+            kaabaButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            kaabaButton.bottomAnchor.constraint(equalTo: closeButton.bottomAnchor)
         ]
 
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,34 +133,43 @@ class QFMapViewController: UIViewController {
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]
 
-        aimImageView.translatesAutoresizingMaskIntoConstraints = false
-        layoutConstraints += [
-            aimImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            aimImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ]
+        //        aimImageView.translatesAutoresizingMaskIntoConstraints = false
+        //        layoutConstraints += [
+        //            aimImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        //            aimImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        //        ]
         
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
-   @objc private func findUserLocation() {
-       guard let location = interactor?.getUserLocation() else { return }
+    private func stylize() { }
 
-       let region = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
-       mapView.setRegion(region, animated: true)
-    }
-
-    private func stylize() {
-
-        findUserLocation()
-        setPolyLine()
-    }
-
-    private func setPolyLine() {
+    private func setPolyLine(from location: CLLocationCoordinate2D) {
         mapView.removeOverlays(mapView.overlays)
-        let polyLineCoordinates = [mapView.centerCoordinate, KaabaCordinates]
-        mapView.addOverlay(MKPolyline(coordinates: polyLineCoordinates, count: polyLineCoordinates.count))
+        let polyLineCoordinates = [location, KaabaCordinates]
+        mapView.addOverlay(MKGeodesicPolyline(coordinates: polyLineCoordinates, count: polyLineCoordinates.count))
     }
 
+    private func setRegion(coordinate: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+    }
+
+    @objc private func userLocation() {
+        setRegion(coordinate: mapView.userLocation.coordinate)
+    }
+
+    @objc private func kaabaLocation() {
+        setRegion(coordinate: KaabaCordinates)
+    }
+
+    @objc func mapTypeChanged() {
+        switch mapTypeSegmentedControl.selectedSegmentIndex {
+        case 0: mapView.mapType = .standard
+        case 1: mapView.mapType = .satellite
+        default: return
+        }
+    }
 }
 
 extension QFMapViewController: QFMapViewInput { }
@@ -139,7 +178,8 @@ extension QFMapViewController {
 
     private func addActions() {
         closeButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        locationButton.addTarget(self, action: #selector(findUserLocation), for: .touchUpInside)
+        locationButton.addTarget(self, action: #selector(userLocation), for: .touchUpInside)
+        kaabaButton.addTarget(self, action: #selector(kaabaLocation), for: .touchUpInside)
     }
 
     @objc func goBack() {
@@ -150,7 +190,6 @@ extension QFMapViewController {
 extension QFMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-
         let polyLineRender = MKPolylineRenderer(overlay: overlay)
         polyLineRender.strokeColor = GeneralColor.primary
         polyLineRender.lineWidth = 5
@@ -159,7 +198,6 @@ extension QFMapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("Center", mapView.centerCoordinate)
-        setPolyLine()
+        setPolyLine(from: mapView.centerCoordinate)
     }
 }
