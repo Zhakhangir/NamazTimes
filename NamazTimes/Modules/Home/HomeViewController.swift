@@ -20,7 +20,7 @@ class HomeViewController: GeneralViewController {
     private let currentTime: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 32)
+        label.font = .monospacedDigitSystemFont(ofSize: 32, weight: .regular)
 
         return label
     }()

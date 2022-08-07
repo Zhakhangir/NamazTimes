@@ -58,5 +58,6 @@ class LoadingLayer: NSObject {
 
     @objc func hide() {
         loadingView.removeFromSuperview()
+        animationView.stop()
     }
 }

@@ -7,40 +7,39 @@
 
 import Foundation
 
-struct Regions: Decodable {
-    let cities: [Region]
+struct CitySearchApiResponse: Codable {
+    let results: [Regions]?
 }
 
-struct Region: Decodable {
-    let name: String
-    let cities: City
+struct Regions: Codable {
+    let text: String?
+    let children: [RegionCities]?
 }
 
-struct City: Decodable {
-    let id: Int
-    let name: String
+struct RegionCities: Codable {
+    let id: Int?
+    let text: String?
 }
 
-
-extension MovieApiResponse: Decodable {
-
-    private enum MovieApiResponseCodingKeys: String, CodingKey {
-        case page
-        case numberOfResults = "total_results"
-        case numberOfPages = "total_pages"
-        case movies = "results"
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: MovieApiResponseCodingKeys.self)
-
-        page = try container.decode(Int.self, forKey: .page)
-        numberOfResults = try container.decode(Int.self, forKey: .numberOfResults)
-        numberOfPages = try container.decode(Int.self, forKey: .numberOfPages)
-        movies = try container.decode([Movie].self, forKey: .movies)
-
-    }
-}
+//extension MovieApiResponse: Decodable {
+//
+//    private enum MovieApiResponseCodingKeys: String, CodingKey {
+//        case page
+//        case numberOfResults = "total_results"
+//        case numberOfPages = "total_pages"
+//        case movies = "results"
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: MovieApiResponseCodingKeys.self)
+//
+//        page = try container.decode(Int.self, forKey: .page)
+//        numberOfResults = try container.decode(Int.self, forKey: .numberOfResults)
+//        numberOfPages = try container.decode(Int.self, forKey: .numberOfPages)
+//        movies = try container.decode([Movie].self, forKey: .movies)
+//
+//    }
+//}
 
 
 struct Movie {

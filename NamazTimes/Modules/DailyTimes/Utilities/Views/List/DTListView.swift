@@ -19,6 +19,7 @@ class DTListView: UIView {
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
         tableView.rowHeight = 48
+        tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
         tableView.register(BaseContainerCell<DTListItemView>.self, forCellReuseIdentifier: cellReuseId)
 

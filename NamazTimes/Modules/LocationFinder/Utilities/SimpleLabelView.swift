@@ -11,7 +11,8 @@ class SimpleLabelView: UIView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
 
@@ -37,5 +38,5 @@ class SimpleLabelView: UIView {
 extension SimpleLabelView: CleanableView {
     func clean() { }
 
-    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8) }
+    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16) }
 }

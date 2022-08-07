@@ -48,5 +48,7 @@ class GeneralViewController: UIViewController, GeneralViewControllerProtocol {
         RunLoop.current.add(timer, forMode: .default)
     }
 
+    
+
     @objc public func secondRefresh() { }
 }

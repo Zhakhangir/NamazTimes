@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .notDetermined, .denied, .restricted:
             window?.rootViewController = LocationAccessErrorViewController()
         case .authorizedAlways, .authorizedWhenInUse:
-            window?.rootViewController = LocationSettingsViewController()
+            window?.rootViewController = LocationFinderRouter().build()
         default: return
         }
     }

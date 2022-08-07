@@ -8,7 +8,7 @@
 import Foundation
 
 enum PrayerTimesApi {
-    case parayerTimes
+    case yearTimes(cityId: Int)
     case autoFinder
     case search(name: String)
 }
@@ -23,9 +23,9 @@ extension PrayerTimesApi: EndPointType {
 
     var environmentBaseURL : String {
         switch NetworkManager.environment {
-        case .production: return "https://namaztimes.kz/json/"
-        case .qa: return "https://namaztimes.kz/json/"
-        case .staging: return "https://namaztimes.kz/json/"
+        case .production: return "https://namaztimes.kz"
+        case .qa: return "https://namaztimes.kz"
+        case .staging: return "https://namaztimes.kz"
         }
     }
 
@@ -36,12 +36,12 @@ extension PrayerTimesApi: EndPointType {
 
     var path: String {
         switch self {
-        case .parayerTimes:
-            return ""
+        case .yearTimes(let cityId):
+            return "/year-times/\(cityId)"
         case .autoFinder:
-            return "year-times/8408 year"
+            return "/year-times/8408 year"
         case .search(_):
-            return "sity"
+            return "/json/sity"
 
         }
     }
@@ -52,6 +52,8 @@ extension PrayerTimesApi: EndPointType {
 
     var task: HTTPTask? {
         switch self {
+        case .yearTimes(_):
+            return .request
         case .search(let name):
             return .requestParameters(bodyParameter: nil, urlParameters: ["q": name])
         default:

@@ -27,11 +27,11 @@ struct NetworkManager {
     static let MovieAPIKey = ""
     let router = Router<PrayerTimesApi>()
 
-    func searchCity(cityName: String, completion: @escaping (_ error: String?)->()) {
+    func searchCity(cityName: String, completion: @escaping (_ data: CitySearchApiResponse?, _ error: String?)->()) {
         router.request(.search(name: cityName)) { data, response, error in
 
             if error != nil {
-                completion("Please check your network connection.")
+                completion(nil, "Please check your network connection.")
             }
 
             if let response = response as? HTTPURLResponse {
@@ -40,21 +40,50 @@ struct NetworkManager {
                 case .success:
 
                     guard let responseData = data else {
-                        completion(NetworkResponse.noData.rawValue)
+                        completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
                     do {
-                        print("Response", String(data: responseData, encoding: .utf8))
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: responseData)
-                        completion(nil)
-                    }catch {
+                        let apiResponse = try JSONDecoder().decode(CitySearchApiResponse.self, from: responseData)
+                        completion(apiResponse,nil)
+                    } catch {
                         print(error)
-                        completion(NetworkResponse.unableToDecode.rawValue)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
-                    completion(networkFailureError)
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+
+    func yearTimes(cityId: Int, completion: @escaping (_ data: CitySearchApiResponse?, _ error: String?)->()) {
+        router.request(.yearTimes(cityId: cityId)) {data, response, error in
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        print(String(data: responseData, encoding: .utf8))
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+//                        let apiResponse = try JSONDecoder().decode(CitySearchApiResponse.self, from: responseData)
+//                        completion(apiResponse,nil)
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
                 }
             }
         }

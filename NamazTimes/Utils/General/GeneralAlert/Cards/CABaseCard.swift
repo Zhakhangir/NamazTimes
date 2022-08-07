@@ -103,8 +103,8 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
 
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            contentStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            contentStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            contentStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            contentStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             contentStack.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 4),
             contentStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
         ]
@@ -115,12 +115,14 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
     private func stylize() {
         backgroundColor = .white
 
-        titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
 
         subTitleLabel.font = .systemFont(ofSize: 16, weight: .regular)
         subTitleLabel.textAlignment = .center
+        subTitleLabel.numberOfLines = 0
         subTitleLabel.textColor = GeneralColor.el_subtitle
 
         closeButton.setImage(UIImage(named: "close_red"), for: .normal)

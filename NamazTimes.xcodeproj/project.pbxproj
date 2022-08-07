@@ -14,7 +14,6 @@
 		7128BC992896B5AB00F66896 /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */; };
 		7131309B287AF0D2005BA798 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131309A287AF0D1005BA798 /* Reachability.swift */; };
 		713487F528998F510064CEF4 /* SimpleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713487F428998F510064CEF4 /* SimpleLabelView.swift */; };
-		713487F728999DCC0064CEF4 /* search_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 713487F628999DCC0064CEF4 /* search_animation.json */; };
 		713487F92899AABF0064CEF4 /* search_animation_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 713487F82899AABF0064CEF4 /* search_animation_1.json */; };
 		714178A7287F3FDF00790E82 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714178A6287F3FDF00790E82 /* GeneralStorage.swift */; };
 		71440F342840AB7500581C59 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440F332840AB7500581C59 /* Date+Extension.swift */; };
@@ -43,9 +42,11 @@
 		715750092887093000061F91 /* PreayerTimesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750082887093000061F91 /* PreayerTimesEndPoint.swift */; };
 		7157500C288714E000061F91 /* PrayerTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157500B288714E000061F91 /* PrayerTimesModel.swift */; };
 		7157500E288716C500061F91 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157500D288716C500061F91 /* NetworkManager.swift */; };
-		715D084928144B0B00729AFB /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D084828144B0B00729AFB /* LocationSettingsViewController.swift */; };
+		715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D084828144B0B00729AFB /* LocationFinderViewController.swift */; };
 		715D084C2814523000729AFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 715D084E2814523000729AFB /* Localizable.strings */; };
 		7168A6AA289286C5004C94C1 /* QFArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7168A6A9289286C5004C94C1 /* QFArrowView.swift */; };
+		71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D43289D2220001ACDFE /* LocationFinderRouter.swift */; };
+		71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */; };
 		7187839328362E6F00883421 /* DTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* DTListView.swift */; };
 		7187839528362E8800883421 /* DTSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839428362E8800883421 /* DTSettingsView.swift */; };
 		718C03112890567A00AB7794 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C03102890567A00AB7794 /* LocationService.swift */; };
@@ -65,6 +66,7 @@
 		71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */; };
 		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
+		71D8CD80289FAC2D007B8A5F /* HomeClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8CD7F289FAC2D007B8A5F /* HomeClockView.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
 		71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertVC.swift */; };
@@ -81,9 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04E9E5CE34E7D8B9AC9A35E8 /* Pods-NamazTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.release.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.release.xcconfig"; sourceTree = "<group>"; };
 		43C3EAE52A5118280524E7D5 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.release.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
-		66197CFD6EE976FF99780D5B /* Pods-NamazTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.debug.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.debug.xcconfig"; sourceTree = "<group>"; };
 		711DA0C928413EDB0023A64B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		711DA0D6284145F60023A64B /* QFCompassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassRouter.swift; sourceTree = "<group>"; };
 		711DA0D82841460A0023A64B /* QFCompassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassInteractor.swift; sourceTree = "<group>"; };
@@ -91,7 +91,6 @@
 		7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
 		7131309A287AF0D1005BA798 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		713487F428998F510064CEF4 /* SimpleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabelView.swift; sourceTree = "<group>"; };
-		713487F628999DCC0064CEF4 /* search_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = search_animation.json; path = ../../../../../Downloads/search_animation.json; sourceTree = "<group>"; };
 		713487F82899AABF0064CEF4 /* search_animation_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = search_animation_1.json; path = ../../../../../Downloads/search_animation_1.json; sourceTree = "<group>"; };
 		714178A6287F3FDF00790E82 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
 		71440F332840AB7500581C59 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -122,11 +121,13 @@
 		715750082887093000061F91 /* PreayerTimesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreayerTimesEndPoint.swift; sourceTree = "<group>"; };
 		7157500B288714E000061F91 /* PrayerTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesModel.swift; sourceTree = "<group>"; };
 		7157500D288716C500061F91 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		715D084828144B0B00729AFB /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
+		715D084828144B0B00729AFB /* LocationFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
 		715D084D2814523000729AFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		715D084F2814529200729AFB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		715D0850281452B900729AFB /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7168A6A9289286C5004C94C1 /* QFArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFArrowView.swift; sourceTree = "<group>"; };
+		71767D43289D2220001ACDFE /* LocationFinderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderRouter.swift; sourceTree = "<group>"; };
+		71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderInteractor.swift; sourceTree = "<group>"; };
 		7187839228362E6F00883421 /* DTListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListView.swift; sourceTree = "<group>"; };
 		7187839428362E8800883421 /* DTSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTSettingsView.swift; sourceTree = "<group>"; };
 		718C03102890567A00AB7794 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerCollectionCell.swift; sourceTree = "<group>"; };
 		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
+		71D8CD7F289FAC2D007B8A5F /* HomeClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClockView.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		71E5064B281E901600F2880D /* GeneralAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertVC.swift; sourceTree = "<group>"; };
@@ -373,8 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				713487F328998F330064CEF4 /* Utilities */,
-				715D084828144B0B00729AFB /* LocationSettingsViewController.swift */,
-				714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */,
+				715D084828144B0B00729AFB /* LocationFinderViewController.swift */,
+				71767D43289D2220001ACDFE /* LocationFinderRouter.swift */,
+				71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */,
 			);
 			path = LocationFinder;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				71A68EC5283FDC59009BB374 /* CurrentPrayerTimeView.swift */,
+				71D8CD7F289FAC2D007B8A5F /* HomeClockView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -452,6 +456,7 @@
 			children = (
 				718C03102890567A00AB7794 /* LocationService.swift */,
 				7131309A287AF0D1005BA798 /* Reachability.swift */,
+				714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */,
 				714178A5287F3DDA00790E82 /* Storage */,
 				71E4F73C280C37770091B120 /* Networking */,
 				71B5B381283F960C00F5BA63 /* UI */,
@@ -479,7 +484,6 @@
 				714A82AC28919F3E00817053 /* Info.plist */,
 				7147DB9627F5B7F10043CB00 /* LaunchScreen.storyboard */,
 				713487F82899AABF0064CEF4 /* search_animation_1.json */,
-				713487F628999DCC0064CEF4 /* search_animation.json */,
 				71E80B65282FCF32004F8A55 /* loader1.json */,
 				71E80B61282FCDDA004F8A55 /* loader2.json */,
 				71E80B62282FCDDA004F8A55 /* loader3.json */,
@@ -514,8 +518,6 @@
 		AFA383F674B70E2CEBE47FA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				66197CFD6EE976FF99780D5B /* Pods-NamazTimes.debug.xcconfig */,
-				04E9E5CE34E7D8B9AC9A35E8 /* Pods-NamazTimes.release.xcconfig */,
 				9BA516327673F5C0FA9F15CE /* Pods-Namaz Times.debug.xcconfig */,
 				43C3EAE52A5118280524E7D5 /* Pods-Namaz Times.release.xcconfig */,
 			);
@@ -590,7 +592,6 @@
 				71E80B68282FD036004F8A55 /* loader4.json in Resources */,
 				71E80B64282FCDDA004F8A55 /* loader3.json in Resources */,
 				7147DB9827F5B7F10043CB00 /* LaunchScreen.storyboard in Resources */,
-				713487F728999DCC0064CEF4 /* search_animation.json in Resources */,
 				715D084C2814523000729AFB /* Localizable.strings in Resources */,
 				71E80B63282FCDDA004F8A55 /* loader2.json in Resources */,
 				71E80B66282FCF32004F8A55 /* loader1.json in Resources */,
@@ -658,6 +659,7 @@
 				71ACB2E72844DB7700371C25 /* QFMapView.swift in Sources */,
 				714178A7287F3FDF00790E82 /* GeneralStorage.swift in Sources */,
 				71B5B372283F739A00F5BA63 /* DTSettinsItemView.swift in Sources */,
+				71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */,
 				71574FEF2886AA3900061F91 /* GeneralStorageController.swift in Sources */,
 				715750032886D07800061F91 /* MKMagneticProgressBar.swift in Sources */,
 				71574FF92886B65000061F91 /* HTTPTask.swift in Sources */,
@@ -683,8 +685,9 @@
 				711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */,
 				714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
-				715D084928144B0B00729AFB /* LocationSettingsViewController.swift in Sources */,
+				715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */,
 				711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */,
+				71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */,
 				71B5B376283F88A200F5BA63 /* DailyTimesRouter.swift in Sources */,
 				71ACB2EF2844EA5800371C25 /* QFMapRouter.swift in Sources */,
 				71574FF72886B57900061F91 /* HTTPMethod.swift in Sources */,
@@ -692,6 +695,7 @@
 				7157500E288716C500061F91 /* NetworkManager.swift in Sources */,
 				71B5B37C283F8B7C00F5BA63 /* UITableView+Extensions.swift in Sources */,
 				7187839528362E8800883421 /* DTSettingsView.swift in Sources */,
+				71D8CD80289FAC2D007B8A5F /* HomeClockView.swift in Sources */,
 				711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */,
 				714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */,
 				715750092887093000061F91 /* PreayerTimesEndPoint.swift in Sources */,
@@ -787,7 +791,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -844,7 +848,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -875,7 +879,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -911,7 +915,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
