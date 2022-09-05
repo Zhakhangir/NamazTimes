@@ -7,7 +7,6 @@
 
 import UIKit
 import Lottie
-import CoreLocation
 
 class GeneralNavigationView: UIView {
 
@@ -39,7 +38,7 @@ class GeneralNavigationView: UIView {
     lazy var monthsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [miladMonthName, spaceView, hijriMonthName])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 4
 
         return stackView
     }()
@@ -57,9 +56,6 @@ class GeneralNavigationView: UIView {
         configureHeaderView()
         setupHeaderViewLayout()
         stylizeHeaderView()
-
-        LocationService.sharedInstance.delegate = self
-        LocationService.sharedInstance.startUpdatingLocation()
     }
 
     required init?(coder: NSCoder) {
@@ -87,7 +83,7 @@ class GeneralNavigationView: UIView {
         layoutConstraints += [
             infoStackView.leadingAnchor.constraint(equalTo: animationView.trailingAnchor, constant: 8),
             infoStackView.topAnchor.constraint(equalTo: animationView.topAnchor),
-            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
 
         ]
 
@@ -117,36 +113,19 @@ class GeneralNavigationView: UIView {
         backgroundColor = GeneralColor.backgroundGray
 
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = .systemFont(ofSize: 28, weight: .regular)
+        titleLabel.font = .systemFont(dynamicSize: 24, weight: .regular)
 
         miladMonthName.text = "19 ИЮНЬ, 2019"
-        miladMonthName.font = .systemFont(ofSize: 15, weight: .medium)
-        miladMonthName.minimumScaleFactor = 13
+        miladMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
         miladMonthName.textColor = GeneralColor.el_subtitle
         miladMonthName.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         hijriMonthName.text = "16 ШАУУАЛ, 1440"
-        hijriMonthName.font = .systemFont(ofSize: 15, weight: .medium)
-        hijriMonthName.minimumScaleFactor = 13
+        hijriMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
         hijriMonthName.textColor = GeneralColor.el_subtitle
         hijriMonthName.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
         spaceView.backgroundColor = GeneralColor.el_subtitle
         spaceView.layer.cornerRadius = 1
     }
-}
-
-extension GeneralNavigationView: LocationServiceDelegate {
-
-    func tracingLocation(currentLocation: CLLocation) {
-        LoadingLayer.shared.show()
-        currentLocation.fetchCityAndCountry { [weak self] city, region, country, error  in
-            self?.titleLabel.text = city ?? region ?? country ?? "-"
-            LoadingLayer.shared.hide()
-        }
-    }
-
-    func tracingLocationDidFailWithError(error: NSError) { }
-
-    func tracingHeading(heading: CLHeading) { }
 }

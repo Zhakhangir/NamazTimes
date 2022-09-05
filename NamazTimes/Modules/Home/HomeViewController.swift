@@ -6,21 +6,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol HomeViewInput: GeneralViewControllerProtocol { }
 
 class HomeViewController: GeneralViewController {
 
+    var allTime = TimeInterval(4000)
+    var interval = TimeInterval(4000)
+    var progress = TimeInterval(1000)
     var interactor: HomeInteractorInput?
     var router: HomeRouterInput?
 
+    private let circularProgressBar = CircularProgressBarView()
     private let prayerTimeInfo = 3
     private let parayerCellReuseId = "PrayerTimeCell"
-
+    
     private let currentTime: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(ofSize: 32, weight: .regular)
+        label.font = .monospacedDigitSystemFont(dynamicSize: 24, weight: .regular)
 
         return label
     }()
@@ -29,7 +34,7 @@ class HomeViewController: GeneralViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = GeneralColor.el_subtitle
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(dynamicSize: 16, weight: .regular)
 
         return label
     }()
@@ -40,22 +45,6 @@ class HomeViewController: GeneralViewController {
         return stackView
     }()
 
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = nil
-        tableView.tableHeaderView = nil
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.sectionFooterHeight = UITableView.automaticDimension
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.isScrollEnabled = false
-        tableView.isUserInteractionEnabled = false
-
-        tableView.register(BaseContainerCell<CurrentPrayerTimeView>.self, forCellReuseIdentifier: parayerCellReuseId)
-        return tableView
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -63,28 +52,28 @@ class HomeViewController: GeneralViewController {
         addSubviews()
         setupLayout()
         stylize()
+    }
 
-        tableView.reloadData()
+    override func viewDidLayoutSubviews() {
+
     }
 
     private func addSubviews() {
-        contentView.addSubview(tableView)
+        contentView.addSubview(circularProgressBar)
         contentView.addSubview(currentTimeStack)
     }
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
 
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
-            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 64),
-            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -64)
+            circularProgressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (150 + 10 + 50))
         ]
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            currentTimeStack.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 100),
             currentTimeStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             currentTimeStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32),
             currentTimeStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
@@ -94,37 +83,16 @@ class HomeViewController: GeneralViewController {
     }
 
     private func stylize() {
-        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTableView)))
         currentTimeStatus.text = "Local time"
-
-    }
-
-   @objc private func tapTableView() {
-//        currentTimeStatus.text = "\(LocationService.sharedInstance.currentLocation?.coordinate)" ?? "Local time"
+        circularProgressBar.setTimaValues(currentTime: "Ogle", nextTime: "Kearahet 13:00")
     }
 
     override func secondRefresh() {
+        interval -= 1
+        progress += 1
         currentTime.text = Date().timeString(withFormat: .full)
+        circularProgressBar.updateReminingTime(interval: interval, nextTime: "Kerahet", allTime: allTime, progress: progress)
     }
-}
-
-extension HomeViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prayerTimeInfo
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: BaseContainerCell<CurrentPrayerTimeView> = tableView.dequeueReusableCell(withIdentifier: parayerCellReuseId, for: indexPath) as? BaseContainerCell<CurrentPrayerTimeView> else {
-            return UITableViewCell()
-        }
-        cell.innerView.label.text = "Current Prayer Name"
-        return cell
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-
 }
 
 extension HomeViewController: HomeViewInput {}

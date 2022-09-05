@@ -6,18 +6,26 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum PrayerTimes {
-    
+enum PrayerTimes { }
+
+protocol HomeInteractorInput {
+    func getAnnualTimes() -> [DailyTime]?
 }
 
-protocol HomeInteractorInput { }
-
 class HomeInteractor: HomeInteractorInput {
-    
+
     var view: HomeViewInput
+    private let realm = try! Realm()
+    private var annualTimes: [DailyTime]
 
     init(view: HomeViewInput) {
         self.view = view
+        self.annualTimes = realm.objects(YearTimes.self).toArray(ofType: DailyTime.self)
+    }
+
+    func getAnnualTimes() -> [DailyTime]? {
+        return annualTimes
     }
 }

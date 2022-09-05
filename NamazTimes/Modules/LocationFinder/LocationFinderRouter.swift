@@ -9,16 +9,23 @@ import Foundation
 import UIKit
 
 protocol LocationFinderRouterInput {
+    func showAlert(with model: GeneralAlertModel)
     func routeToHome()
+    func close()
 }
 
 class LocationFinderRouter: LocationFinderRouterInput {
 
-    var view: LocationFinderViewInput?
+    private var view: LocationFinderViewInput?
+    private var closeButton: Bool
+
+    init(closeButton: Bool = false) {
+        self.closeButton = closeButton
+    }
 
     public func build() -> LocationFinderViewInput {
         let viewController = LocationFinderViewController()
-        let interactor = LocationFinderInteractor(view: viewController)
+        let interactor = LocationFinderInteractor(view: viewController, closeButton: closeButton)
 
         self.view = viewController
         viewController.router = self
@@ -28,6 +35,27 @@ class LocationFinderRouter: LocationFinderRouterInput {
     }
 
     func routeToHome() {
-        UIApplication.shared.keyWindow?.rootViewController = GeneralTabBarViewController()
+        guard let window = UIApplication.shared.keyWindow else { return }
+        let vc = GeneralTabBarViewController()
+        
+        window.rootViewController = vc
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: nil,
+                          completion: nil)
+    }
+
+    func close() {
+        view?.dismiss(animated: true, completion: nil)
+    }
+
+    func showAlert(with model: GeneralAlertModel) {
+        let alertVc = GeneralAlertPopupVc()
+        let alertView = GeneralAlertPopupView()
+        alertView.configure(with: model)
+        alertVc.setContentView(alertView)
+
+        view?.present(alertVc, animated: true, completion: nil)
     }
 }

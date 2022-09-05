@@ -21,7 +21,8 @@ class DTSettingsView: UIView {
         tableView.rowHeight = 48
         tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
-
+        tableView.tableHeaderView = nil
+        tableView.tableFooterView = nil
         tableView.register(BaseContainerCell<DTSettingsItemView>.self, forCellReuseIdentifier: cellReuseId)
         
         return tableView
@@ -35,15 +36,15 @@ class DTSettingsView: UIView {
             .init(name: "Бамдат", time: "3:22", show: true),
             .init(name: "Күн", time: "5:24", show: true),
             .init(name: "Ишрак", time: "6:50", show: true),
-            .init(name: "Керахат", time: "5:24", show: true),
-            .init(name: "Бесін", time: "13:09", show: true),
-            .init(name: "Асри аууал", time: "13:09", show: true),
-            .init(name: "Екінді", time: "18:22", show: true),
-            .init(name: "Исфирар", time: "18:22", show: true),
-            .init(name: "Ақшам", time: "20:34", show: true),
-            .init(name: "Иштибак", time: "18:22", show: true),
-            .init(name: "Құптан", time: "22:36", show: true),
-            .init(name: "Ишаи сани", time: "18:22", show: true)
+            .init(name: "Керахат", time: "5:24", show: false),
+            .init(name: "Бесін", time: "13:09", show: false),
+            .init(name: "Асри аууал", time: "13:09", show: false),
+            .init(name: "Екінді", time: "18:22", show: false),
+            .init(name: "Исфирар", time: "18:22", show: false),
+            .init(name: "Ақшам", time: "20:34", show: false),
+            .init(name: "Иштибак", time: "18:22", show: false),
+            .init(name: "Құптан", time: "22:36", show: false),
+            .init(name: "Ишаи сани", time: "18:22", show: false)
         ]
         configureSubviews()
         tableView.reloadData()
@@ -80,9 +81,7 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
         
         let item = timesList[indexPath.row]
         cell.innerView.set(name: item.name ?? "", isOn: item.show)
-        if indexPath.row == (timesList.count - 1) {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
-        }
+        cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         return cell
     }
     

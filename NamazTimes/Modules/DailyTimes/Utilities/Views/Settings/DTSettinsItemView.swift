@@ -11,7 +11,7 @@ class DTSettingsItemView: UIView {
 
     private let prayerName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 23, weight: .regular)
+        label.font = .systemFont(dynamicSize: 22, weight: .regular)
         label.textColor = GeneralColor.black
         return label
     }()
@@ -46,9 +46,9 @@ class DTSettingsItemView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
 

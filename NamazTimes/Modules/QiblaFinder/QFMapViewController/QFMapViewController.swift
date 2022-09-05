@@ -44,7 +44,7 @@ class QFMapViewController: UIViewController {
 
     private var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "close-icon"), for: .normal)
+        button.setImage(UIImage(named: "close_icon"), for: .normal)
         button.backgroundColor = .clear
         return button
     }()
@@ -100,7 +100,6 @@ class QFMapViewController: UIViewController {
             closeButton.heightAnchor.constraint(equalToConstant: 30),
             closeButton.widthAnchor.constraint(equalToConstant: 30),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
         ]
 
         mapTypeSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -132,6 +131,17 @@ class QFMapViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]
+
+        if #available(iOS 11.0, *) {
+            layoutConstraints += [
+                closeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+            ]
+        } else {
+            layoutConstraints += [
+                closeButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -32),
+            ]
+        }
+
 
         //        aimImageView.translatesAutoresizingMaskIntoConstraints = false
         //        layoutConstraints += [

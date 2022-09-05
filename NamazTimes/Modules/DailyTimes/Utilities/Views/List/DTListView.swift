@@ -21,6 +21,8 @@ class DTListView: UIView {
         tableView.rowHeight = 48
         tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
+        tableView.tableHeaderView = nil
+        tableView.tableFooterView = UIView()
         tableView.register(BaseContainerCell<DTListItemView>.self, forCellReuseIdentifier: cellReuseId)
 
         return tableView
@@ -44,6 +46,7 @@ class DTListView: UIView {
             .init(name: "Құптан", time: "22:36", show: true),
             .init(name: "Ишаи сани", time: "18:22", show: true)
         ]
+        
         configureSubviews()
         tableView.reloadData()
     }
@@ -79,18 +82,13 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
 
         let item = timesList[indexPath.row]
         cell.innerView.set(name: item.name ?? "", time: item.time ?? "")
-        if indexPath.row == (timesList.count - 1) {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
-        }
+        cell.innerView.isSelected(indexPath.row == 0)
+        cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timesList.count
-    }
-
-    func setSelected() {
-        
     }
 }
 

@@ -22,20 +22,11 @@ class QFMapInteractor: QFMapInteractorInput {
 
     init(view: QFMapViewInput) {
         self.view = view
-        LocationService.sharedInstance.delegate = self
+//        self.userLocation = userLocation
     }
 
     func getUserLocation() -> CLLocationCoordinate2D {
         LocationService.sharedInstance.currentLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
     }
-}
-
-extension QFMapInteractor: LocationServiceDelegate {
-
-    func tracingHeading(heading: CLHeading) { }
-
-    func tracingLocation(currentLocation: CLLocation) { }
-
-    func tracingLocationDidFailWithError(error: NSError) { }
 }
 

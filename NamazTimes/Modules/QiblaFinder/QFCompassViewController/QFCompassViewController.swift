@@ -22,7 +22,7 @@ class QFCompassViewController: GeneralViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(dynamicSize: 16, weight: .medium)
         label.textColor = .black
         return label
     }()
@@ -30,7 +30,7 @@ class QFCompassViewController: GeneralViewController {
     private let messageTextView: UITextView = {
         let textView = UITextView()
         textView.text = ""
-        textView.font = .systemFont(ofSize: 15, weight: .regular)
+        textView.font = .systemFont(dynamicSize: 14, weight: .regular)
         textView.textColor = .black
         return textView
     }()
@@ -61,7 +61,6 @@ class QFCompassViewController: GeneralViewController {
         locationService.delegate = self
         locationService.startUpdatingHeading()
         locationService.startUpdatingLocation()
-
     }
 
     private func addSubviews() {

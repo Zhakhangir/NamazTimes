@@ -32,4 +32,3 @@ class QFCompassRouter: QFCompassRouterInput {
         view?.present(vc, animated: true, completion: nil)
     }
 }
-

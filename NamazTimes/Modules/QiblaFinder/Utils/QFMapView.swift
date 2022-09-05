@@ -12,7 +12,7 @@ class QFMapView: MKMapView {
 
     private var closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "close-icon-rounded"), for: .normal)
+        button.setImage(UIImage(named: "close_icon"), for: .normal)
         button.backgroundColor = .clear
         return button
     }()
