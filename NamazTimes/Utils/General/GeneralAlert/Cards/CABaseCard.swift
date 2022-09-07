@@ -49,7 +49,7 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
         let stackView = UIStackView(arrangedSubviews: [messageStackView, buttonStackView])
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 16
+        stackView.spacing = 48  
         return stackView
     }()
 
@@ -115,17 +115,17 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
     private func stylize() {
         backgroundColor = .white
 
-        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        titleLabel.font = .systemFont(dynamicSize: 18, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
 
-        subTitleLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        subTitleLabel.font = .systemFont(dynamicSize: 16, weight: .regular)
         subTitleLabel.textAlignment = .center
         subTitleLabel.numberOfLines = 0
         subTitleLabel.textColor = GeneralColor.el_subtitle
 
-        closeButton.setImage(UIImage(named: "close_red"), for: .normal)
+        closeButton.setImage(UIImage(named: "close_icon_red"), for: .normal)
 
         actionButton.backgroundColor = GeneralColor.primary
         actionButton.titleLabel?.textColor = .white

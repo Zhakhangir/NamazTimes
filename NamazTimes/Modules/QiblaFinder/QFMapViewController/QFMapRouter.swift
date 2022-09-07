@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol QFMapRouterInput {
     func goBack()

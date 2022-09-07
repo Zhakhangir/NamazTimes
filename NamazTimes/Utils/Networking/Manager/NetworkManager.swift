@@ -30,15 +30,10 @@ struct NetworkManager {
     func searchCity(cityName: String, completion: @escaping (_ data: CitySearchApiResponse?, _ error: String?)->()) {
         router.request(.search(name: cityName)) { data, response, error in
 
-            if error != nil {
-                completion(nil, "Please check your network connection.")
-            }
-
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 switch result {
                 case .success:
-
                     guard let responseData = data else {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
@@ -49,7 +44,6 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(CitySearchApiResponse.self, from: responseData)
                         completion(apiResponse,nil)
                     } catch {
-                        print(error)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
@@ -59,11 +53,8 @@ struct NetworkManager {
         }
     }
 
-    func yearTimes(cityId: Int, completion: @escaping (_ data: CitySearchApiResponse?, _ error: String?)->()) {
+    func yearTimes(cityId: Int, completion: @escaping (_ data: AnnualTime?, _ error: String?)->()) {
         router.request(.yearTimes(cityId: cityId)) {data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
-            }
 
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
@@ -74,11 +65,10 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(String(data: responseData, encoding: .utf8))
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
-//                        let apiResponse = try JSONDecoder().decode(CitySearchApiResponse.self, from: responseData)
-//                        completion(apiResponse,nil)
+                        let apiResponse = try JSONDecoder().decode(AnnualTime.self, from: responseData)
+                        completion(apiResponse,nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }

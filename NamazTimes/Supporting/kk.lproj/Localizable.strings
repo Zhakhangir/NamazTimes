@@ -14,3 +14,5 @@
 "standart" = "Standart";
 "satellite" = "Satellite";
 "done" = "Done";
+"error" = "Ошибка";
+"network_error" = "Network connection error. Please try again later.";

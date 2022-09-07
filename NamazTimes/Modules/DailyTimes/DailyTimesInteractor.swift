@@ -8,9 +8,7 @@
 import Foundation
 
 
-protocol DailyTimesInteractorInput {
-
-}
+protocol DailyTimesInteractorInput {}
 
 struct PrayerTimesList {
     var name: String?

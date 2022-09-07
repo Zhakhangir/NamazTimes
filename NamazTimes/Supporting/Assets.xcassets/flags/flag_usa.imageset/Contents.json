@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "flag_usa.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

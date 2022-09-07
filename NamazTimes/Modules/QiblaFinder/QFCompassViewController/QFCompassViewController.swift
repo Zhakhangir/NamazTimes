@@ -22,7 +22,7 @@ class QFCompassViewController: GeneralViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(dynamicSize: 16, weight: .medium)
         label.textColor = .black
         return label
     }()
@@ -30,7 +30,7 @@ class QFCompassViewController: GeneralViewController {
     private let messageTextView: UITextView = {
         let textView = UITextView()
         textView.text = ""
-        textView.font = .systemFont(ofSize: 15, weight: .regular)
+        textView.font = .systemFont(dynamicSize: 14, weight: .regular)
         textView.textColor = .black
         return textView
     }()
@@ -44,7 +44,7 @@ class QFCompassViewController: GeneralViewController {
 
     private var mapButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "mapLocation"), for: .normal)
+        button.setImage(UIImage(named: "location_map"), for: .normal)
         button.backgroundColor = .clear
         return button
     }()
@@ -61,7 +61,6 @@ class QFCompassViewController: GeneralViewController {
         locationService.delegate = self
         locationService.startUpdatingHeading()
         locationService.startUpdatingLocation()
-
     }
 
     private func addSubviews() {
@@ -117,6 +116,7 @@ extension QFCompassViewController: LocationServiceDelegate {
     func tracingHeading(heading: CLHeading) {
         guard let direction = interactor?.getDirectionOfKabah(heading: heading) else { return }
         arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(direction));
+        arrowView.arrowTitle.transform = CGAffineTransform(rotationAngle:  (direction > 0 ? 3*CGFloat.pi/2 : CGFloat.pi/2))
     }
 }
 

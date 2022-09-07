@@ -13,7 +13,8 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var currentCityData = "Almaty"
+    var currentCityData = UserDefaults.standard.string(forKey: "currentCity")
+    lazy var realm = try? Realm()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -21,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
+        print(realm?.configuration.fileURL)
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
-        LocationService.sharedInstance.startUpdatingHeading()
         configureRoot()
-
+        
         return true
     }
 
@@ -34,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .notDetermined, .denied, .restricted:
             window?.rootViewController = LocationAccessErrorViewController()
         case .authorizedAlways, .authorizedWhenInUse:
-            window?.rootViewController = LocationFinderRouter().build()
+            window?.rootViewController = GeneralTabBarViewController()
         default: return
         }
     }

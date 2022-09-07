@@ -6,23 +6,26 @@
 //
 
 import UIKit
+import CoreLocation
 
 class GeneralTabBarViewController: UITabBarController {
     
-    private let navigationView = GeneralNavigationView()
+    let navigationView = GeneralNavigationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = GeneralColor.primary
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
 
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
         setupChilds()
         configureHeaderView()
     }
 
     private func configureHeaderView() {
         view.addSubview(navigationView)
-        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationDetail)))
+        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
         navigationView.translatesAutoresizingMaskIntoConstraints = false
 
         navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -34,7 +37,8 @@ class GeneralTabBarViewController: UITabBarController {
         viewControllers = [
             createTabBarController(with: HomeRouter().build(), title: "Home",  image: UIImage(named: "clock")),
             createTabBarController(with: DailyTimesRouter().build(), title: "Daily times", image: UIImage(named: "calendar")),
-            createTabBarController(with: QFCompassRouter().build(), title: "Compass", image: UIImage(named: "compass"))
+            createTabBarController(with: QFCompassRouter().build(), title: "Compass", image: UIImage(named: "compass")),
+            createTabBarController(with: SettingsRouter().build(), title: "Settings", image: UIImage(named: "settings"))
         ]
     }
 
@@ -48,13 +52,25 @@ class GeneralTabBarViewController: UITabBarController {
         return rootViewController
     }
 
-   @objc private func showLocationDetail() {
-       let alertVc = GeneralAlertPopupVc()
-       let model = GeneralAlertModel(titleLabel: "Аlmaty", buttonTitle: "OK")
-       let alertView = GeneralAlertPopupView()
-       alertView.configure(with: model)
-       alertVc.setContentView(alertView)
+   @objc private func showLocationSettings() {
 
-       present(alertVc, animated: true, completion: nil)
+       let vc = LocationFinderRouter().build()
+       vc.modalPresentationStyle = .fullScreen
+       present(vc, animated: true, completion: nil)
+    }
+}
+
+extension GeneralTabBarViewController: LocationServiceDelegate {
+
+    func tracingLocation(currentLocation: CLLocation) {
+        
+    }
+
+    func tracingLocationDidFailWithError(error: NSError) {
+
+    }
+
+    func tracingHeading(heading: CLHeading) {
+
     }
 }

@@ -19,7 +19,6 @@ class QFCompassInteractor: QFCompassInteractorInput {
 
     init(view: QFCompassViewInput) {
         self.view = view
-        
     }
 
     func getDirectionOfKabah(heading: CLHeading) -> CGFloat {

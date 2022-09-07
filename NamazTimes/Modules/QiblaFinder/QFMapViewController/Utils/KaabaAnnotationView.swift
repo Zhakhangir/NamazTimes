@@ -12,7 +12,7 @@ class KaabaAnnotaionView: MKAnnotationView {
 
     override var annotation: MKAnnotation? {
         willSet {
-            self.image = UIImage(named: "Kaaba")
+            self.image = UIImage(named: "kaaba")
         }
     }
 

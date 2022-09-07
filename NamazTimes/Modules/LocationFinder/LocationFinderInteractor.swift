@@ -6,33 +6,34 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol LocationFinderInteractorInput {
+    var closeButton: Bool { get }
+
     func getNumberOfSection() -> Int
     func getNumberOfRows(in section: Int) -> Int
     func getItem(at index: IndexPath) -> RegionCities?
     func getTitle(for section: Int) -> String?
     func searchCity(name: String?)
     func didSelectItem(at index: IndexPath)
+    func checkNetworkConnection()
 }
 
 class LocationFinderInteractor {
 
     var view: LocationFinderViewInput
+    var closeButton: Bool
+    private let reachability = try! Reachability()
+    private let realm = try! Realm()
     private let networkManager = NetworkManager()
     private var regions = [Regions]()
 
-    init(view: LocationFinderViewInput) {
+    init(view: LocationFinderViewInput, closeButton: Bool) {
         self.view = view
-    }
+        self.closeButton = closeButton
 
-    private func showAlert(with model: GeneralAlertModel) {
-        let alertVc = GeneralAlertPopupVc()
-        let alertView = GeneralAlertPopupView()
-        alertView.configure(with: model)
-        alertVc.setContentView(alertView)
-
-        view.present(alertVc, animated: true, completion: nil)
+        checkNetworkConnection()
     }
 }
 
@@ -48,37 +49,41 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
 
     func didSelectItem(at index: IndexPath) {
         guard let cityId = getItem(at: index)?.id else { return }
-        
-        LoadingLayer.shared.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.view.routeToHome()
-            LoadingLayer.shared.hide()
+        view.cellSpinnerState(at: index, animate: true)
+        networkManager.yearTimes(cityId: cityId) { data, error in
+            DispatchQueue.main.async {
+                self.view.cellSpinnerState(at: index, animate: false)
 
+                if let error = error {
+                    self.view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: error , buttonTitle: "OK"))
+                }
+
+                guard let data = data else { return }
+                UserDefaults.standard.set(data.cityname, forKey: "currentCity")
+
+                let realmData = YearTimes()
+                let list = List<DailyTime>()
+                list.append(objectsIn: data.dailyTimes ?? [DailyTime]())
+                realmData.cityName = data.cityname ?? ""
+                realmData.times = list
+
+                try! self.realm.write {
+                    let allDataType = self.realm.objects(YearTimes.self)
+                    self.realm.delete(allDataType)
+                    self.realm.add(realmData)
+                }
+                self.view.routeToHome()
+            }
         }
-//        view.fieldSpinner(animate: true)
-//        networkManager.yearTimes(cityId: cityId) { data, error in
-//            DispatchQueue.main.async {
-//                self.view.fieldSpinner(animate: false)
-//
-//                if let _ = data {
-//                    self.showAlert(with: GeneralAlertModel.init(titleLabel: "Succes", buttonTitle: "Ok"))
-//                }
-//
-//                if let error = error {
-//                    self.showAlert(with: GeneralAlertModel(titleLabel: error, buttonTitle: "OK"))
-//                }
-//            }
-//        }
     }
 
     func searchCity(name: String?) {
-        if (name?.count ?? 0) > 1 {
-            view.fieldSpinner(animate: true)
+        if (name?.count ?? 0) > 1 || (name?.count ?? 0) == 0 {
+            view.spinnerState(animate: true)
             networkManager.searchCity(cityName: name ?? "") {data, error in
                 DispatchQueue.main.async {
-                    guard let data = data else { return }
-                    self.regions = data.results ?? [Regions]()
-                    self.view.fieldSpinner(animate: false)
+                    self.view.spinnerState(animate: false)
+                    self.regions = data?.results ?? [Regions]()
                     self.view.reload()
                 }
             }
@@ -91,5 +96,11 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
 
     func getNumberOfRows(in section: Int) -> Int {
         regions[section].children?.count ?? 0
+    }
+
+    func checkNetworkConnection() {
+        if reachability.connection == .unavailable {
+            view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: NSLocalizedString("network_error", comment: "error"), buttonTitle: "OK"))
+        }
     }
 }

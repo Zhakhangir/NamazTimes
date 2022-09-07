@@ -12,16 +12,17 @@ class DTListItemView: UIView {
     let prayerName: UILabel = {
         let label = UILabel()
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        label.font = .systemFont(ofSize: 23, weight: .regular)
-        label.textColor = GeneralColor.black
+        label.font = .systemFont(dynamicSize: 18, weight: .regular)
+        label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         return label
     }()
 
     let prayerTime: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .regular)
+        label.font = .systemFont(dynamicSize: 18, weight: .regular)
         label.textAlignment = .right
-        label.textColor = GeneralColor.black
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         return label
     }()
 
@@ -59,11 +60,15 @@ class DTListItemView: UIView {
         prayerTime.text = time
     }
 
-    func setSelected() {
+    func isSelected(_ selected: Bool = false) {
+        prayerName.font = selected ? .systemFont(dynamicSize: 18, weight: .medium) : .systemFont(dynamicSize: 18, weight: .regular)
+        prayerTime.font = selected ? .systemFont(dynamicSize: 18, weight: .medium) : .systemFont(dynamicSize: 18, weight: .regular)
         
+        backgroundColor = selected ? GeneralColor.selected : .white
     }
 }
 
 extension DTListItemView: CleanableView {
+
     func clean() { }
 }

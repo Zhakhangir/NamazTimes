@@ -36,8 +36,8 @@ extension PrayerTimesApi: EndPointType {
 
     var path: String {
         switch self {
-        case .yearTimes(let cityId):
-            return "/year-times/\(cityId)"
+        case .yearTimes(_):
+            return "/api/year"
         case .autoFinder:
             return "/year-times/8408 year"
         case .search(_):
@@ -52,8 +52,8 @@ extension PrayerTimesApi: EndPointType {
 
     var task: HTTPTask? {
         switch self {
-        case .yearTimes(_):
-            return .request
+        case .yearTimes(let cityId):
+            return .requestParameters(bodyParameter: nil, urlParameters: ["id": cityId])
         case .search(let name):
             return .requestParameters(bodyParameter: nil, urlParameters: ["q": name])
         default:

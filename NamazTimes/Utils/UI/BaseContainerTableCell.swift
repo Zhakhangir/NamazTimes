@@ -41,9 +41,4 @@ final class BaseContainerCell<T: CleanableView>: UITableViewCell {
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
-
-
-    func removeLine() {
-        separatorInset.left = UIScreen.main.bounds.width
-    }
 }
