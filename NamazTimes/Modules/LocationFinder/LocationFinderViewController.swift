@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 protocol LocationFinderViewInput: GeneralViewControllerProtocol {
     func reload()

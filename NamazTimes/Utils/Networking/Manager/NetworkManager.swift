@@ -34,7 +34,6 @@ struct NetworkManager {
                 let result = self.handleNetworkResponse(response)
                 switch result {
                 case .success:
-
                     guard let responseData = data else {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
@@ -66,12 +65,11 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(String(data: responseData, encoding: .utf8))
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(AnnualTime.self, from: responseData)
                         completion(apiResponse,nil)
-                    } catch { error
+                    } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):

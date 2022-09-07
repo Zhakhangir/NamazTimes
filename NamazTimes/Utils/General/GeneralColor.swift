@@ -6,12 +6,14 @@
 //
 
 import UIKit.UIColor
+import UIKit
 
 enum GeneralColor: String, CaseIterable {
 
-    case _3E6D7C                                                // Primary
+    case _3579F6                                                // Primary
     case _C5C7C6                                                // Secondary
     case _CAE5CD                                                // Selected
+    case _937424
     case _2D4155
     case _F4C751
     case _D6D6D6                                                // Blur background
@@ -30,10 +32,11 @@ enum GeneralColor: String, CaseIterable {
 
 extension GeneralColor {
 
-    static var primary: UIColor { _3E6D7C.uiColor }
+    static var primary: UIColor { _3579F6.uiColor }
     static var secondary: UIColor { _2D4155.uiColor }
     static var el_subtitle: UIColor { _636366.uiColor }
     static var selected: UIColor { _CAE5CD.uiColor }
+    static var selection_gold: UIColor { _937424.uiColor }
 
 
     //Blur background

@@ -57,29 +57,13 @@ class GeneralTabBarViewController: UITabBarController {
        let vc = LocationFinderRouter().build()
        vc.modalPresentationStyle = .fullScreen
        present(vc, animated: true, completion: nil)
-
-
-//              guard let window = UIApplication.shared.keyWindow else { return }
-//              window.rootViewController = vc
-//       UIView.transition(with: window,
-//                             duration: 0.3,
-//                             options: .transitionCrossDissolve,
-//                             animations: nil,
-//                             completion: nil)
-//       let alertVc = GeneralAlertPopupVc()
-//       let model = GeneralAlertModel(titleLabel: "Аlmaty", buttonTitle: "OK")
-//       let alertView = GeneralAlertPopupView()
-//       alertView.configure(with: model)
-//       alertVc.setContentView(alertView)
-//
-//       present(alertVc, animated: true, completion: nil)
     }
 }
 
 extension GeneralTabBarViewController: LocationServiceDelegate {
 
     func tracingLocation(currentLocation: CLLocation) {
-        navigationView.titleLabel.text = currentLocation.getLongLatString()
+        
     }
 
     func tracingLocationDidFailWithError(error: NSError) {

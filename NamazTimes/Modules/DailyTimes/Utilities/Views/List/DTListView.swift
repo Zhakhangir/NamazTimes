@@ -11,6 +11,7 @@ class DTListView: UIView {
 
     private var timesList = [PrayerTimesList]()
     private let cellReuseId  = "DTListCell"
+    private let  rowHeight = 48
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -18,7 +19,7 @@ class DTListView: UIView {
         tableView.dataSource = self
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
-        tableView.rowHeight = 48
+        tableView.rowHeight = CGFloat(rowHeight)
         tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = nil
@@ -48,7 +49,7 @@ class DTListView: UIView {
         ]
         
         configureSubviews()
-        tableView.reloadData()
+        reload()
     }
 
     required init?(coder: NSCoder) {
@@ -56,20 +57,41 @@ class DTListView: UIView {
     }
 
     private func configureSubviews() {
+
         addSubview(tableView)
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor, constant: 32),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48)
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
     func set(data: [PrayerTimesList]) {
         timesList = data
+        reload()
+    }
+
+    func set(rowHeight: CGFloat) {
+        tableView.rowHeight = rowHeight
+        reload()
+    }
+
+    func updateTableViewContentInset() {
+        let viewHeight: CGFloat = frame.size.height
+        let tableViewContentHeight: CGFloat = tableView.contentSize.height
+        let marginHeight: CGFloat = (viewHeight - tableViewContentHeight) / 2.0
+
+        if marginHeight > 0 {
+            self.tableView.contentInset = UIEdgeInsets(top: marginHeight, left: 0, bottom:  -marginHeight, right: 0)
+        }
+    }
+
+    func reload() {
         tableView.reloadData()
+        updateTableViewContentInset()
     }
 }
 
@@ -93,6 +115,6 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DTListView: CleanableView {
-    
+    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 32, left: 32, bottom: -32, right: -32)}
     func clean() {}
 }

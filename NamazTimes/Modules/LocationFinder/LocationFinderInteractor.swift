@@ -58,12 +58,19 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
                     self.view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: error , buttonTitle: "OK"))
                 }
 
-                guard let data = data?.dailyTimes else { return }
-                let yearTimes = YearTimes()
-                yearTimes.yaerTimes.append(objectsIn: data)
-                UserDefaults.standard.set("Almaty", forKey: "currentCity")
+                guard let data = data else { return }
+                UserDefaults.standard.set(data.cityname, forKey: "currentCity")
+
+                let realmData = YearTimes()
+                let list = List<DailyTime>()
+                list.append(objectsIn: data.dailyTimes ?? [DailyTime]())
+                realmData.cityName = data.cityname ?? ""
+                realmData.times = list
+
                 try! self.realm.write {
-                    self.realm.add(yearTimes)
+                    let allDataType = self.realm.objects(YearTimes.self)
+                    self.realm.delete(allDataType)
+                    self.realm.add(realmData)
                 }
                 self.view.routeToHome()
             }
@@ -92,8 +99,8 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
     }
 
     func checkNetworkConnection() {
-       if reachability.connection == .unavailable {
-           view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: NSLocalizedString("network_error", comment: "error"), buttonTitle: "OK"))
+        if reachability.connection == .unavailable {
+            view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: NSLocalizedString("network_error", comment: "error"), buttonTitle: "OK"))
         }
     }
 }

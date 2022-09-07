@@ -59,10 +59,10 @@ class DTSettingsView: UIView {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor, constant: 32),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48)
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
@@ -91,6 +91,8 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DTSettingsView: CleanableView {
+
+    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 32, left: 32, bottom: -32, right: -32)}
 
     func clean() { }
 }

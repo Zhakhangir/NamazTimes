@@ -15,10 +15,9 @@ extension UIFont {
 
         switch width {
         case 320: multiplier = 1.0
-        case 375: multiplier = 1.2
-        case 390: multiplier = 1.3
-        case 414, 428: multiplier = 1.4
-        case 476: multiplier = 1.5
+        case 375, 390: multiplier = 1.1
+        case 414, 428: multiplier = 1.3
+        case 476: multiplier = 1.4
         default:  multiplier = 1.0
         }
 

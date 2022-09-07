@@ -16,13 +16,15 @@
 		711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0C928413EDB0023A64B /* HomeRouter.swift */; };
 		711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D6284145F60023A64B /* QFCompassRouter.swift */; };
 		711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D82841460A0023A64B /* QFCompassInteractor.swift */; };
-		7127A60C28C385A1000EA212 /* LanguageSelectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127A60B28C385A1000EA212 /* LanguageSelectItemView.swift */; };
 		7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127A60E28C3E67E000EA212 /* LanguageSettingsViewControlller.swift */; };
 		7127A61128C3F3B1000EA212 /* LocationFinderViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127A61028C3F3B1000EA212 /* LocationFinderViewController+Extension.swift */; };
 		7128BC992896B5AB00F66896 /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */; };
+		712AEB0328C6F34900544F4B /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0228C6F34900544F4B /* LanguageCell.swift */; };
+		712AEB0628C79A7800544F4B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0428C79A7800544F4B /* loader.json */; };
+		712AEB0728C79A7800544F4B /* locate_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0528C79A7800544F4B /* locate_animation.json */; };
+		712AEB0928C7A75700544F4B /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0828C7A75700544F4B /* BaseHeaderView.swift */; };
 		7131309B287AF0D2005BA798 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131309A287AF0D1005BA798 /* Reachability.swift */; };
 		713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713487F428998F510064CEF4 /* LoadingLabelView.swift */; };
-		713487F92899AABF0064CEF4 /* search_animation_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 713487F82899AABF0064CEF4 /* search_animation_1.json */; };
 		714178A7287F3FDF00790E82 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714178A6287F3FDF00790E82 /* GeneralStorage.swift */; };
 		71440F342840AB7500581C59 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440F332840AB7500581C59 /* Date+Extension.swift */; };
 		7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */; };
@@ -87,14 +89,9 @@
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
 		71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertVC.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
-		71E80B63282FCDDA004F8A55 /* loader2.json in Resources */ = {isa = PBXBuildFile; fileRef = 71E80B61282FCDDA004F8A55 /* loader2.json */; };
-		71E80B64282FCDDA004F8A55 /* loader3.json in Resources */ = {isa = PBXBuildFile; fileRef = 71E80B62282FCDDA004F8A55 /* loader3.json */; };
-		71E80B66282FCF32004F8A55 /* loader1.json in Resources */ = {isa = PBXBuildFile; fileRef = 71E80B65282FCF32004F8A55 /* loader1.json */; };
-		71E80B68282FD036004F8A55 /* loader4.json in Resources */ = {isa = PBXBuildFile; fileRef = 71E80B67282FD036004F8A55 /* loader4.json */; };
 		71E80B6A282FD0D6004F8A55 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */; };
 		71E80B6C282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */; };
 		71E80B6E2830E4AB004F8A55 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B6D2830E4AB004F8A55 /* UITextField+Extension.swift */; };
-		71E80B702830F958004F8A55 /* loader5.json in Resources */ = {isa = PBXBuildFile; fileRef = 71E80B6F2830F957004F8A55 /* loader5.json */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
 		71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37B628A54A8A003B693A /* ModeTextField.swift */; };
 /* End PBXBuildFile section */
@@ -110,13 +107,15 @@
 		711DA0D6284145F60023A64B /* QFCompassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassRouter.swift; sourceTree = "<group>"; };
 		711DA0D82841460A0023A64B /* QFCompassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassInteractor.swift; sourceTree = "<group>"; };
 		711DA0DC284148C70023A64B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7127A60B28C385A1000EA212 /* LanguageSelectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectItemView.swift; sourceTree = "<group>"; };
 		7127A60E28C3E67E000EA212 /* LanguageSettingsViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsViewControlller.swift; sourceTree = "<group>"; };
 		7127A61028C3F3B1000EA212 /* LocationFinderViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationFinderViewController+Extension.swift"; sourceTree = "<group>"; };
 		7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		712AEB0228C6F34900544F4B /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		712AEB0428C79A7800544F4B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		712AEB0528C79A7800544F4B /* locate_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locate_animation.json; sourceTree = "<group>"; };
+		712AEB0828C7A75700544F4B /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		7131309A287AF0D1005BA798 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		713487F428998F510064CEF4 /* LoadingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLabelView.swift; sourceTree = "<group>"; };
-		713487F82899AABF0064CEF4 /* search_animation_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = search_animation_1.json; path = ../../../../../Downloads/search_animation_1.json; sourceTree = "<group>"; };
 		714178A6287F3FDF00790E82 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
 		71440F332840AB7500581C59 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7147DB8827F5B7ED0043CB00 /* Namaz Times.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Namaz Times.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,14 +184,9 @@
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		71E5064B281E901600F2880D /* GeneralAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertVC.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
-		71E80B61282FCDDA004F8A55 /* loader2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader2.json; sourceTree = "<group>"; };
-		71E80B62282FCDDA004F8A55 /* loader3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader3.json; sourceTree = "<group>"; };
-		71E80B65282FCF32004F8A55 /* loader1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader1.json; sourceTree = "<group>"; };
-		71E80B67282FD036004F8A55 /* loader4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader4.json; sourceTree = "<group>"; };
 		71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewControllerProtocol.swift; sourceTree = "<group>"; };
 		71E80B6D2830E4AB004F8A55 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
-		71E80B6F2830F957004F8A55 /* loader5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader5.json; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
 		71FA37B628A54A8A003B693A /* ModeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTextField.swift; sourceTree = "<group>"; };
 		9BA516327673F5C0FA9F15CE /* Pods-Namaz Times.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.debug.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.debug.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				7127A60E28C3E67E000EA212 /* LanguageSettingsViewControlller.swift */,
+				712AEB0228C6F34900544F4B /* LanguageCell.swift */,
 			);
 			path = LanguageSettings;
 			sourceTree = "<group>";
@@ -436,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				7167DB8528C2194B00BA4134 /* SettingsItemView.swift */,
-				7127A60B28C385A1000EA212 /* LanguageSelectItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -508,6 +502,7 @@
 				71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */,
 				71B5B382283F964900F5BA63 /* CleanableView.swift */,
 				71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */,
+				712AEB0828C7A75700544F4B /* BaseHeaderView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -564,14 +559,10 @@
 			isa = PBXGroup;
 			children = (
 				7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */,
+				712AEB0428C79A7800544F4B /* loader.json */,
+				712AEB0528C79A7800544F4B /* locate_animation.json */,
 				7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */,
 				714A82AC28919F3E00817053 /* Info.plist */,
-				713487F82899AABF0064CEF4 /* search_animation_1.json */,
-				71E80B65282FCF32004F8A55 /* loader1.json */,
-				71E80B61282FCDDA004F8A55 /* loader2.json */,
-				71E80B62282FCDDA004F8A55 /* loader3.json */,
-				71E80B67282FD036004F8A55 /* loader4.json */,
-				71E80B6F2830F957004F8A55 /* loader5.json */,
 				7147DB9427F5B7F10043CB00 /* Assets.xcassets */,
 				715D084E2814523000729AFB /* Localizable.strings */,
 			);
@@ -671,13 +662,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7107A45628B49C5C007E18BA /* LaunchScreen.storyboard in Resources */,
-				713487F92899AABF0064CEF4 /* search_animation_1.json in Resources */,
-				71E80B702830F958004F8A55 /* loader5.json in Resources */,
-				71E80B68282FD036004F8A55 /* loader4.json in Resources */,
-				71E80B64282FCDDA004F8A55 /* loader3.json in Resources */,
 				715D084C2814523000729AFB /* Localizable.strings in Resources */,
-				71E80B63282FCDDA004F8A55 /* loader2.json in Resources */,
-				71E80B66282FCF32004F8A55 /* loader1.json in Resources */,
+				712AEB0628C79A7800544F4B /* loader.json in Resources */,
+				712AEB0728C79A7800544F4B /* locate_animation.json in Resources */,
 				7147DB9527F5B7F10043CB00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,7 +723,6 @@
 				71B5B36E283F6FB000F5BA63 /* DTListItemView.swift in Sources */,
 				714FD8E728A1107200113C5F /* AnnualTimesModel.swift in Sources */,
 				714A82B02891C2A800817053 /* CAListCard.swift in Sources */,
-				7127A60C28C385A1000EA212 /* LanguageSelectItemView.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
 				7167DB8628C2194B00BA4134 /* SettingsItemView.swift in Sources */,
 				71B5B374283F80E700F5BA63 /* DailyTimesInteractor.swift in Sources */,
@@ -761,6 +747,7 @@
 				71574FFB2886BB6900061F91 /* ParameterEncoding.swift in Sources */,
 				71AF5BFC28C5FBC1004319D5 /* CircularProgressBar.swift in Sources */,
 				7173733428B5D80F00339EF1 /* SettingsViewController.swift in Sources */,
+				712AEB0928C7A75700544F4B /* BaseHeaderView.swift in Sources */,
 				71A68EC6283FDC59009BB374 /* CurrentPrayerTimeView.swift in Sources */,
 				71ACB2EB2844EA2D00371C25 /* QFMapViewController.swift in Sources */,
 				714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */,
@@ -776,6 +763,7 @@
 				71E50650281E936E00F2880D /* CABaseCard.swift in Sources */,
 				71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */,
 				711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */,
+				712AEB0328C6F34900544F4B /* LanguageCell.swift in Sources */,
 				714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */,
 				711C990728BBD60200841934 /* DeviceFinder.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
@@ -969,7 +957,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -1007,7 +995,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;

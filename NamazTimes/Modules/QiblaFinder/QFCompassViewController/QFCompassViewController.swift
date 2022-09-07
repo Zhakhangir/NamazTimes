@@ -44,7 +44,7 @@ class QFCompassViewController: GeneralViewController {
 
     private var mapButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "mapLocation"), for: .normal)
+        button.setImage(UIImage(named: "location_map"), for: .normal)
         button.backgroundColor = .clear
         return button
     }()
@@ -116,6 +116,7 @@ extension QFCompassViewController: LocationServiceDelegate {
     func tracingHeading(heading: CLHeading) {
         guard let direction = interactor?.getDirectionOfKabah(heading: heading) else { return }
         arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(direction));
+        arrowView.arrowTitle.transform = CGAffineTransform(rotationAngle:  (direction > 0 ? 3*CGFloat.pi/2 : CGFloat.pi/2))
     }
 }
 

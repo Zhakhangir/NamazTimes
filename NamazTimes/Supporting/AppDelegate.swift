@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        print(realm?.configuration.fileURL?.path)
+        print(realm?.configuration.fileURL)
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
         configureRoot()

@@ -125,7 +125,7 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
         subTitleLabel.numberOfLines = 0
         subTitleLabel.textColor = GeneralColor.el_subtitle
 
-        closeButton.setImage(UIImage(named: "close_red"), for: .normal)
+        closeButton.setImage(UIImage(named: "close_icon_red"), for: .normal)
 
         actionButton.backgroundColor = GeneralColor.primary
         actionButton.titleLabel?.textColor = .white

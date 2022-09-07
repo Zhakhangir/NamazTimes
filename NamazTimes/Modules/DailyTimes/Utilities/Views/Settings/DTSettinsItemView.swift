@@ -11,8 +11,8 @@ class DTSettingsItemView: UIView {
 
     private let prayerName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 22, weight: .regular)
-        label.textColor = GeneralColor.black
+        label.font = .systemFont(dynamicSize: 18, weight: .regular)
+        label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         return label
     }()
 

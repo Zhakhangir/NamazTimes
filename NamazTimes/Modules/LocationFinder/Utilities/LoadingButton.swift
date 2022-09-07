@@ -18,6 +18,7 @@ class LoadingButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        imageView?.contentMode = .scaleAspectFit
         addSubview(activityIndicator)
 
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +33,7 @@ class LoadingButton: UIButton {
     }
 
     func clearMode(isOn: Bool) {
-        isOn ? setImage( UIImage(named: "close_icon"), for: .normal) : setImage(nil, for: .normal)
+        isOn ? setImage(UIImage(named: "close_icon"), for: .normal) : setImage(nil, for: .normal)
         isUserInteractionEnabled = isOn
     }
 

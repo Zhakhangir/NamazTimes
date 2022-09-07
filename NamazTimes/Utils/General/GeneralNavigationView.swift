@@ -15,7 +15,7 @@ class GeneralNavigationView: UIView {
     let hijriMonthName = UILabel()
 
     private lazy var animationView: AnimationView = {
-        let animationView = AnimationView(name: "loader2")
+        let animationView = AnimationView(name: "locate_animation")
         animationView.backgroundBehavior = .pauseAndRestore
         animationView.loopMode = .loop
         animationView.animationSpeed = 1
@@ -29,7 +29,7 @@ class GeneralNavigationView: UIView {
     lazy var infoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, monthsStackView])
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 8
         stackView.alignment = .fill
 
         return stackView

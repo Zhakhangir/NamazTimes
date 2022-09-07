@@ -19,10 +19,10 @@ class QFArrowView: UIView {
 
     private let arrowTitleView = UIView()
 
-    private let arrowTitle: UILabel = {
+    let arrowTitle: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 30, weight: .semibold)
-        label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        label.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
         label.text = "QIBLA"
         label.textColor = .white
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
@@ -48,8 +48,6 @@ class QFArrowView: UIView {
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
-
-
 
         arrowTitle.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [

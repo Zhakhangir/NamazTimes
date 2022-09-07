@@ -12,7 +12,7 @@ class GeneralStorageController {
 
     let localRealm = try! Realm()
 
-    func writeData(name: String, owner: String, status: Bool) {
+    class func writeData(name: String, owner: String, status: Bool) {
 //        let data  = GeneralStorage(name: name, owner: owner, status: status)
 //        try! localRealm.write {
 //            localRealm.add(data)
