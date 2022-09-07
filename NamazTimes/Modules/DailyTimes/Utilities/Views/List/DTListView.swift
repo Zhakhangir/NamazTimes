@@ -11,6 +11,7 @@ class DTListView: UIView {
 
     private var timesList = [PrayerTimesList]()
     private let cellReuseId  = "DTListCell"
+    private var mode: DeviceSize = .big
     private let  rowHeight = 48
 
     private lazy var tableView: UITableView = {
@@ -29,11 +30,17 @@ class DTListView: UIView {
         return tableView
     }()
 
+    convenience init(mode: DeviceSize = .big) {
+        self.init(frame: .zero)
+        self.mode = mode
+
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         timesList += [
-            .init(name: "Имсак", time: "3:02", show: true),
+            .init(name: "Имсак", time: "3:02", show: true, isSelected: true),
             .init(name: "Бамдат", time: "3:22", show: true),
             .init(name: "Күн", time: "5:24", show: true),
             .init(name: "Ишрак", time: "6:50", show: true),
@@ -47,9 +54,10 @@ class DTListView: UIView {
             .init(name: "Құптан", time: "22:36", show: true),
             .init(name: "Ишаи сани", time: "18:22", show: true)
         ]
-        
+
         configureSubviews()
         reload()
+
     }
 
     required init?(coder: NSCoder) {
@@ -103,8 +111,7 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
         }
 
         let item = timesList[indexPath.row]
-        cell.innerView.set(name: item.name ?? "", time: item.time ?? "")
-        cell.innerView.isSelected(indexPath.row == 0)
+        cell.innerView.configure(viewModel: item, mode: mode)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         return cell
     }

@@ -9,17 +9,18 @@ import UIKit
 
 class DTListItemView: UIView {
 
-    let prayerName: UILabel = {
+    private var dynamicFontSize: CGFloat = 22
+
+    lazy var prayerName: UILabel = {
         let label = UILabel()
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        label.font = .systemFont(dynamicSize: 18, weight: .regular)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         return label
     }()
 
-    let prayerTime: UILabel = {
+    lazy var prayerTime: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 18, weight: .regular)
+        label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
         label.textAlignment = .right
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
@@ -55,16 +56,16 @@ class DTListItemView: UIView {
         ])
     }
 
-    func set(name: String = "-", time: String = "-" ) {
-        prayerName.text = name
-        prayerTime.text = time
-    }
+    func configure(viewModel: PrayerTimesList, mode: DeviceSize) {
+        dynamicFontSize = mode == .big ? 22 : 18
+        backgroundColor = viewModel.isSelected ? GeneralColor.selected : .white
 
-    func isSelected(_ selected: Bool = false) {
-        prayerName.font = selected ? .systemFont(dynamicSize: 18, weight: .medium) : .systemFont(dynamicSize: 18, weight: .regular)
-        prayerTime.font = selected ? .systemFont(dynamicSize: 18, weight: .medium) : .systemFont(dynamicSize: 18, weight: .regular)
-        
-        backgroundColor = selected ? GeneralColor.selected : .white
+        prayerName.font = viewModel.isSelected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
+        prayerTime.font = viewModel.isSelected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
+
+        prayerName.text = viewModel.name
+        prayerTime.text = viewModel.time
+
     }
 }
 

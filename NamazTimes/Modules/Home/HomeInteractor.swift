@@ -13,6 +13,7 @@ enum PrayerTimes { }
 protocol HomeInteractorInput {
     func getAnnualTimes() -> YearTimes?
     func getTimesList() -> [PrayerTimesList]
+    func getTimesListHeight() -> CGFloat
 }
 
 class HomeInteractor: HomeInteractorInput {
@@ -22,7 +23,7 @@ class HomeInteractor: HomeInteractorInput {
     private var annualTimes: [YearTimes]
 
     private let dailyTimes: [PrayerTimesList] = [
-        .init(name: "Имсак", time: "3:02", show: true),
+        .init(name: "Имсак", time: "3:02", show: true, isSelected: true),
         .init(name: "Бамдат", time: "3:22", show: true),
         .init(name: "Күн", time: "5:24", show: true),
         .init(name: "Бесін", time: "13:09", show: true),
@@ -42,5 +43,9 @@ class HomeInteractor: HomeInteractorInput {
 
     func getTimesList() -> [PrayerTimesList] {
         return dailyTimes
+    }
+
+    func getTimesListHeight() -> CGFloat {
+        return CGFloat(dailyTimes.count * 36)
     }
 }

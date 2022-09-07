@@ -1,4 +1,5 @@
 PODS:
+  - FLEX (4.7.0)
   - lottie-ios (3.2.3)
   - Realm (10.27.0):
     - Realm/Headers (= 10.27.0)
@@ -7,20 +8,23 @@ PODS:
     - Realm (= 10.27.0)
 
 DEPENDENCIES:
+  - FLEX
   - lottie-ios
   - RealmSwift (~> 10)
 
 SPEC REPOS:
   trunk:
+    - FLEX
     - lottie-ios
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  FLEX: bdc9ac7d4a239e3d04c298c01221203257d63a80
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Realm: 9ca328bd7e700cc19703799785e37f77d1a130f2
   RealmSwift: 271de77b09a73c5e46ee3252283878153bd5d288
 
-PODFILE CHECKSUM: 273501cc23b1efea02c5d80a4d1d3d07c246c1f6
+PODFILE CHECKSUM: a438390f7cb1fc69932fea065ca1c1d0f1da2e7f
 
 COCOAPODS: 1.11.2

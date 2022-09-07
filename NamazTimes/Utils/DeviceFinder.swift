@@ -105,3 +105,17 @@ public extension UIDevice {
     }()
 
 }
+
+enum DeviceSize {
+    case small, big
+}
+
+struct DeviceType {
+    static var heightType: DeviceSize {
+        UIScreen.main.bounds.height > 700 ? .big : .small
+    }
+
+    static var widthType: DeviceSize {
+        UIScreen.main.bounds.width > 150 ? .big : .small
+    }
+}

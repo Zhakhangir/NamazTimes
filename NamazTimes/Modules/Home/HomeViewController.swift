@@ -22,7 +22,12 @@ class HomeViewController: GeneralViewController {
     private let prayerTimeInfo = 3
     private let parayerCellReuseId = "PrayerTimeCell"
 
-    private let timesList = DTListView()
+    private let timesList: DTListView = {
+        let list = DTListView(mode: .small)
+        list.isUserInteractionEnabled = false
+        list.set(rowHeight: 36)
+        return list
+    }()
     
     private let currentTime: UILabel = {
         let label = UILabel()
@@ -61,14 +66,15 @@ class HomeViewController: GeneralViewController {
         contentView.addSubview(circularProgressBar)
         contentView.addSubview(currentTimeStack)
 
-        if UIScreen.main.bounds.height > 700 {
+        if DeviceType.heightType == .big {
             contentView.addSubview(timesList)
         }
     }
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
-        let list = interactor?.getTimesList() ?? [PrayerTimesList]()
+        let listHeight = interactor?.getTimesListHeight() ?? 0
+
         circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             circularProgressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -77,11 +83,11 @@ class HomeViewController: GeneralViewController {
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         timesList.translatesAutoresizingMaskIntoConstraints = false
-        if UIScreen.main.bounds.height > 700 {
+        if DeviceType.heightType == .big {
             layoutConstraints += [
                 timesList.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 timesList.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-                timesList.heightAnchor.constraint(equalToConstant: CGFloat(36*list.count))
+                timesList.heightAnchor.constraint(equalToConstant: listHeight)
             ]
 
             layoutConstraints += [
@@ -102,7 +108,6 @@ class HomeViewController: GeneralViewController {
 
     private func stylize() {
         timesList.set(data: interactor?.getTimesList() ?? [PrayerTimesList]())
-        timesList.set(rowHeight: 36)
         currentTimeStatus.text = "Local time"
         circularProgressBar.setTimaValues(currentTime: "Ogle", nextTime: "Kearahet 13:00")
     }

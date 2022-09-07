@@ -14,6 +14,7 @@ struct PrayerTimesList {
     var name: String?
     var time: String?
     var show: Bool = false
+    var isSelected: Bool = false
 }
 
 class DailyTimesInteractor: DailyTimesInteractorInput {

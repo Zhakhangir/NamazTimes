@@ -96,16 +96,3 @@ class PagerView: UIView {
         return view
     }
 }
-
-//private let pageControl = PageControl()
-//pageControl.numberOfPages = items.count
-//        pageControl.currentPage = currentIndex
-//
-// pageControl.translatesAutoresizingMaskIntoConstraints = false
-//        layoutConstraints += [
-//            pageControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            pageControl.widthAnchor.constraint(equalToConstant: width - 32),
-//            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8),
-//            pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-//            pageControl.heightAnchor.constraint(equalToConstant: 10)
-//        ]
