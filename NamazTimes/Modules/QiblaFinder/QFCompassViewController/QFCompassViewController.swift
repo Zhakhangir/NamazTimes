@@ -21,22 +21,24 @@ class QFCompassViewController: GeneralViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.font = .systemFont(dynamicSize: 16, weight: .medium)
+        label.text = "Kuzeyden Kible acisi"
+        label.font = .systemFont(dynamicSize: 22, weight: .regular)
+        label.textAlignment = .center
         label.textColor = .black
         return label
     }()
 
-    private let messageTextView: UITextView = {
-        let textView = UITextView()
-        textView.text = ""
-        textView.font = .systemFont(dynamicSize: 14, weight: .regular)
-        textView.textColor = .black
-        return textView
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "247° saat yonunde"
+        label.font = .systemFont(dynamicSize: 18, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = .black
+        return label
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, messageTextView])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
         stackView.axis = .vertical
         stackView.spacing = 4
         return stackView
@@ -74,7 +76,7 @@ class QFCompassViewController: GeneralViewController {
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ]

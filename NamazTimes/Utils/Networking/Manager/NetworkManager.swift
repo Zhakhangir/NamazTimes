@@ -49,6 +49,8 @@ struct NetworkManager {
                 case .failure(let networkFailureError):
                     completion(nil, networkFailureError)
                 }
+            } else if error != nil {
+                completion(nil, error?.localizedDescription)
             }
         }
     }
@@ -75,6 +77,8 @@ struct NetworkManager {
                 case .failure(let networkFailureError):
                     completion(nil, networkFailureError)
                 }
+            } else if error != nil {
+                completion(nil, error?.localizedDescription)
             }
         }
     }

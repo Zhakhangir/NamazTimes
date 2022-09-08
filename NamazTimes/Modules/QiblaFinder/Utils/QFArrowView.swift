@@ -21,7 +21,7 @@ class QFArrowView: UIView {
 
     let arrowTitle: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 30, weight: .semibold)
+        label.font = .systemFont(dynamicSize: 22, weight: .semibold)
         label.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
         label.text = "QIBLA"
         label.textColor = .white
