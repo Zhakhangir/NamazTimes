@@ -6,13 +6,48 @@
   
 */
 
-"choose_location" = "Otinish qala tandanyz";
-"city_name" = "Qala atauy";
-"daily_times" = "Kúndelikti ýaqyttar";
-"qibla" = "QIBLA";
-"open_settings" = "Open settings";
-"standart" = "Standart";
-"satellite" = "Satellite";
-"done" = "Done";
-"error" = "Ошибка";
-"network_error" = "Network connection error. Please try again later.";
+"choose_location" = "Өтінеміз, өз қалаңызды таңдаңыз";
+"city_name" = "Қала атауы";
+"daily_times" = "Күндік уақыт";
+"qibla" = "ҚЫБЛА";
+"open_settings" = "Баптауларды ашу";
+"standart" = "Стандарт";
+"satellite" = "Спутник";
+"done" = "Дайын";
+"error" = "Қателік";
+"network_error" = "Желілік қосылу қатесі. Кейінірек қайталап көріңіз.";
+"interval" = "Аралық уақыт";
+"settings" = "Баптаулар";
+"qibla_st" = "Қыбла";
+"location" = "Орналасқан жер";
+"language" = "Тіл";
+"about_us" = "Біз туралы";
+"warning" = "Назар аударыңыз";
+"choose_language" = "Тілді таңдаңыз";
+"local_time" = "Жергілікті уақыт";
+"minutes" = "минут";
+"seconds" = "секунд";
+"remaining" = "уақытына калған";
+"open_settings" = "Баптауларды ашу";
+"location_access" = "Namaz Times қосымшасы намаз уақыттарын анықтау үшін сіздің орналасқан жеріңізді пайдаланады. Өтінеміз орналасқан жерді анықтауға рұқсат берініз";
+
+//PrayerTimes
+"imsak" = "Имсак";
+"bamdat" = "Бамдат";
+"kun" = "Күн";
+"ishraq" = "Ишрак";
+"kerahat" = "Керахат";
+"besin" = "Бесін";
+"asriauual" = "Асри Әууал";
+"ekindi" = "Екінді";
+"isfirar" = "Исфирар";
+"aqsham" = "Ақшам";
+"ishtibaq" = "Иштибак";
+"quptan" = "Құптан";
+"ishaisani" = "Ишаи Сани";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";

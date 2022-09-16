@@ -8,11 +8,10 @@
 import Foundation
 import RealmSwift
 
-enum PrayerTimes { }
-
 protocol HomeInteractorInput {
     func getAnnualTimes() -> YearTimes?
     func getTimesList() -> [PrayerTimesList]
+    func getCurrentNextTime() -> (current: PrayerTimes, next: PrayerTimes)
     func getTimesListHeight() -> CGFloat
 }
 
@@ -20,32 +19,39 @@ class HomeInteractor: HomeInteractorInput {
 
     var view: HomeViewInput
     private let realm = try! Realm()
-    private var annualTimes: [YearTimes]
-
-    private let dailyTimes: [PrayerTimesList] = [
-        .init(name: "Имсак", time: "3:02", show: true, isSelected: true),
-        .init(name: "Бамдат", time: "3:22", show: true),
-        .init(name: "Күн", time: "5:24", show: true),
-        .init(name: "Бесін", time: "13:09", show: true),
-        .init(name: "Екінді", time: "18:22", show: true),
-        .init(name: "Ақшам", time: "20:34", show: true),
-        .init(name: "Құптан", time: "22:36", show: true)
-    ]
+    
+    private var annualTimes = GeneralStorageController.shared.getAnnualTime()
+    private var dailyTime = GeneralStorageController.shared.getDailyTimes()
+    private let requiredTimes = GeneralStorageController.shared.getRequiredList()
+    private var timesList: [PrayerTimesList] = []
 
     init(view: HomeViewInput) {
         self.view = view
-        self.annualTimes = realm.objects(YearTimes.self).toArray(ofType: YearTimes.self)
+        
     }
 
     func getAnnualTimes() -> YearTimes? {
-        return annualTimes.first
+        return annualTimes
     }
 
     func getTimesList() -> [PrayerTimesList] {
-        return dailyTimes
+        timesList.removeAll()
+        
+        for item in requiredTimes {
+            var listItem = PrayerTimesList()
+            listItem.name = item.code.localized
+            listItem.time = dailyTime.value(forKey: item.code) as? String
+            timesList.append(listItem)
+        }
+        return timesList
     }
 
     func getTimesListHeight() -> CGFloat {
-        return CGFloat(dailyTimes.count * 36)
+        return CGFloat(requiredTimes.count * 38)
+    }
+    
+    func getCurrentNextTime() -> (current: PrayerTimes, next: PrayerTimes) {
+        let current = GeneralStorageController.shared.currentPrayerTime()
+        return (current: current.current, next: current.next)
     }
 }

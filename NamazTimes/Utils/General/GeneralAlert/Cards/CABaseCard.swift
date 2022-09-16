@@ -10,7 +10,7 @@ import UIKit
 struct GeneralAlertModel {
     let titleLabel: String
     var descriptionLabel: String? = nil
-    let buttonTitle: String
+    let buttonTitle: String = "Ok"
     var actionButtonTapped: (() -> Void)?
     var withCancel: Bool = false
 }

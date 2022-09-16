@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CitySearchApiResponse: Codable {
+struct CitySearchModel: Codable {
     let results: [Regions]?
 }
 

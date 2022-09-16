@@ -14,11 +14,11 @@ extension UIFont {
         var multiplier: CGFloat = 1.0
 
         switch width {
-        case 320: multiplier = 1.0
-        case 375, 390: multiplier = 1.1
-        case 414, 428: multiplier = 1.3
-        case 476: multiplier = 1.4
-        default:  multiplier = 1.0
+        case 0...320: multiplier = 0.9
+        case 321...400: multiplier =  1.1
+        case 401...475: multiplier = 1.3
+        case 476...: multiplier = 1.4
+        default: multiplier = 0.9
         }
 
         return multiplier

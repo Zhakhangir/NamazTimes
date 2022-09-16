@@ -25,7 +25,7 @@ class DTListView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = nil
         tableView.tableFooterView = UIView()
-        tableView.register(BaseContainerCell<DTListItemView>.self, forCellReuseIdentifier: cellReuseId)
+        tableView.register(DTListItemCell.self, forCellReuseIdentifier: cellReuseId)
 
         return tableView
     }()
@@ -38,26 +38,11 @@ class DTListView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        timesList += [
-            .init(name: "Имсак", time: "3:02", show: true, isSelected: true),
-            .init(name: "Бамдат", time: "3:22", show: true),
-            .init(name: "Күн", time: "5:24", show: true),
-            .init(name: "Ишрак", time: "6:50", show: true),
-            .init(name: "Керахат", time: "5:24", show: true),
-            .init(name: "Бесін", time: "13:09", show: true),
-            .init(name: "Асри аууал", time: "13:09", show: true),
-            .init(name: "Екінді", time: "18:22", show: true),
-            .init(name: "Исфирар", time: "18:22", show: true),
-            .init(name: "Ақшам", time: "20:34", show: true),
-            .init(name: "Иштибак", time: "18:22", show: true),
-            .init(name: "Құптан", time: "22:36", show: true),
-            .init(name: "Ишаи сани", time: "18:22", show: true)
-        ]
-
+    }
+    
+    override func layoutSubviews() {
         configureSubviews()
         reload()
-
     }
 
     required init?(coder: NSCoder) {
@@ -88,13 +73,14 @@ class DTListView: UIView {
     }
 
     func updateTableViewContentInset() {
-        let viewHeight: CGFloat = frame.size.height
+        let viewHeight: CGFloat = bounds.size.height
         let tableViewContentHeight: CGFloat = tableView.contentSize.height
         let marginHeight: CGFloat = (viewHeight - tableViewContentHeight) / 2.0
 
-        if marginHeight > 0 {
-            self.tableView.contentInset = UIEdgeInsets(top: marginHeight, left: 0, bottom:  -marginHeight, right: 0)
-        }
+        self.tableView.contentInset = marginHeight > 0 ?
+        UIEdgeInsets(top: marginHeight, left: 0, bottom:  -marginHeight, right: 0):
+        UIEdgeInsets(top: 0, left: 0, bottom:  0, right: 0)
+
     }
 
     func reload() {
@@ -106,13 +92,18 @@ class DTListView: UIView {
 extension DTListView: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: BaseContainerCell<DTListItemView> = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as? BaseContainerCell<DTListItemView> else {
+        guard let cell: DTListItemCell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as? DTListItemCell else {
             return UITableViewCell()
         }
 
         let item = timesList[indexPath.row]
-        cell.innerView.configure(viewModel: item, mode: mode)
+        let current = GeneralStorageController.shared.currentPrayerTime().current
+        cell.configure(viewModel: item, mode: mode)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
+        
+        if current.code.localized == item.name {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
         return cell
     }
 

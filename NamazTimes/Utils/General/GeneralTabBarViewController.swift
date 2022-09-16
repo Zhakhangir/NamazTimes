@@ -22,6 +22,13 @@ class GeneralTabBarViewController: UITabBarController {
         setupChilds()
         configureHeaderView()
     }
+    
+    convenience init(selectedIndex: Int?) {
+        self.init(nibName: nil, bundle: nil)
+        
+        guard let selectedIndex = selectedIndex else {  return }
+        self.selectedIndex = selectedIndex
+    }
 
     private func configureHeaderView() {
         view.addSubview(navigationView)
@@ -35,10 +42,10 @@ class GeneralTabBarViewController: UITabBarController {
 
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeRouter().build(), title: "Home",  image: UIImage(named: "clock")),
-            createTabBarController(with: DailyTimesRouter().build(), title: "Daily times", image: UIImage(named: "calendar")),
-            createTabBarController(with: QFCompassRouter().build(), title: "Compass", image: UIImage(named: "compass")),
-            createTabBarController(with: SettingsRouter().build(), title: "Settings", image: UIImage(named: "settings"))
+            createTabBarController(with: HomeRouter().build(), title: "interval".localized,  image: UIImage(named: "clock")),
+            createTabBarController(with: DailyTimesRouter().build(), title: "daily_times".localized, image: UIImage(named: "calendar")),
+            createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass")),
+            createTabBarController(with: SettingsRouter().build(), title: "settings".localized, image: UIImage(named: "settings"))
         ]
     }
 

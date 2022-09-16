@@ -13,8 +13,6 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var currentCityData = UserDefaults.standard.string(forKey: "currentCity")
-    lazy var realm = try? Realm()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -22,32 +20,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        print(realm?.configuration.fileURL)
-        LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
-        configureRoot()
-        
+        configure()
+
         return true
     }
 
-    func configureRoot() {
-        switch LocationService.sharedInstance.status {
-        case .notDetermined, .denied, .restricted:
-            window?.rootViewController = LocationAccessErrorViewController()
-        case .authorizedAlways, .authorizedWhenInUse:
-            window?.rootViewController = GeneralTabBarViewController()
-        default: return
+    func configure() {
+        if UserDefaults.standard.string(forKey: "language") == nil {
+            UserDefaults.standard.set(LanguageHelper().code, forKey: "language")
         }
+        
+        GeneralStorageController.shared.baseConfiguration()
+        
+        window?.rootViewController =  LocationService.sharedInstance.getConfiguredRoot()
     }
-}
-
-extension AppDelegate: LocationServiceDelegate {
-
-    func tracingLocation(currentLocation: CLLocation) {
-        configureRoot()
-    }
-
-    func tracingLocationDidFailWithError(error: NSError) { }
-
-    func tracingHeading(heading: CLHeading) { }
+    
+//    func applicationWillResignActive(_ application: UIApplication) {
+////        print("1")
+//    }
+//
+//    func applicationDidBecomeActive(_ application: UIApplication) {
+////        print("2")
+//    }
+//
+//    func applicationWillEnterForeground(_ application: UIApplication) {
+////        LoadingLayer.shared.show()
+////        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+////            LoadingLayer.shared.hide()
+////        }
+//    }
+//
+//    func applicationDidEnterBackground(_ application: UIApplication) {
+////        print("4")
+//    }
+//
+//    func applicationWillTerminate(_ application: UIApplication) {
+////        print("5")
+//    }
 }

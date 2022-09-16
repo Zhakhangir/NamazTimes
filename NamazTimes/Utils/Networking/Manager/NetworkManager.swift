@@ -27,63 +27,52 @@ struct NetworkManager {
     static let MovieAPIKey = ""
     let router = Router<PrayerTimesApi>()
 
-    func searchCity(cityName: String, completion: @escaping (_ data: CitySearchApiResponse?, _ error: String?)->()) {
+    func searchCity(cityName: String, completion: @escaping (_ data: CitySearchModel?, _ error: String?)->()) {
         router.request(.search(name: cityName)) { data, response, error in
 
-            if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
+            if error != nil {
+                completion(nil, error?.localizedDescription)
+            }
+            else {
+                do {
                     guard let responseData = data else {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-                    do {
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(CitySearchApiResponse.self, from: responseData)
-                        completion(apiResponse,nil)
-                    } catch {
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
-            } else if error != nil {
-                completion(nil, error?.localizedDescription)
+                    let apiResponse = try JSONDecoder().decode(CitySearchModel.self, from: responseData)
+                    completion(apiResponse,nil)
+                } catch { }
             }
         }
     }
+    
+//    func getAnnualTime(cityId: Int,  completion: @escaping (_ data: AnnualTimes?, _ error: String?)->()) {
+//
+//
+//    }
 
     func yearTimes(cityId: Int, completion: @escaping (_ data: AnnualTime?, _ error: String?)->()) {
         router.request(.yearTimes(cityId: cityId)) {data, response, error in
 
-            if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(AnnualTime.self, from: responseData)
-                        completion(apiResponse,nil)
-                    } catch {
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
-            } else if error != nil {
+            if error != nil {
                 completion(nil, error?.localizedDescription)
+            }
+            else {
+                guard let responseData = data else {
+                    completion(nil, NetworkResponse.noData.rawValue)
+                    return
+                }
+                do {
+                    let apiResponse = try JSONDecoder().decode(AnnualTime.self, from: responseData)
+                    completion(apiResponse,nil)
+                } catch {
+                    completion(nil, NetworkResponse.unableToDecode.rawValue)
+                }
             }
         }
     }
 
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+    private func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
         case 200...299: return .success
         case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)

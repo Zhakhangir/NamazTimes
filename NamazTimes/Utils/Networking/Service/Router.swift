@@ -12,7 +12,10 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
 
     func request(_ route: EndPoint, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let session = URLSession.shared
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 15.0
+        configuration.waitsForConnectivity = true
+        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
 
         do {
             let request = try self.buildRequest(from: route)
@@ -33,7 +36,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     private func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                 timeoutInterval: 1.0)
+                                 timeoutInterval: 0.5)
         request.httpMethod = route.httpMethod?.rawValue
 
         do {

@@ -9,7 +9,7 @@ import UIKit
 
 protocol SettingsViewInput: GeneralViewControllerProtocol {
     func reload()
-    func routeToLanuageSettings()
+    func routeToLanuageSettings(delegate: LanguageSelectionDelegate?)
     func routeToLocationSettings()
 }
 
@@ -99,7 +99,11 @@ extension SettingsViewtroller: SettingsViewInput {
 
     func reload() {tableView.reloadData() }
 
-    func routeToLanuageSettings() { router?.routeToLanuageSettings() }
+    func routeToLanuageSettings(delegate: LanguageSelectionDelegate?) {
+        router?.routeToLanuageSettings(delegate: delegate)
+    }
 
-    func routeToLocationSettings() { router?.routeToLocationSettings() }
+    func routeToLocationSettings() {
+        router?.routeToLocationSettings()
+    }
 }

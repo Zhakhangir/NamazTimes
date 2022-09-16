@@ -32,13 +32,13 @@ extension SettingsInteractor: SettingsInteractorInput {
 
     func createElements() {
         sections += [
-            .init(title: "Настройки", elements: [
-                .init(icon: UIImage(named: "settings_location"), title: "Местоположения", description: "Алматы", fieldType: .location),
-                .init(icon: UIImage(named: "settings_language"), title: "Язык", description: "Русский", fieldType: .language)
+            .init(title: "settings".localized, elements: [
+                .init(icon: UIImage(named: "settings_location"), title: "location".localized, description: "Алматы", fieldType: .location),
+                .init(icon: UIImage(named: "settings_language"), title: "language".localized, description: LanguageHelper().name, fieldType: .language)
             ]),
 
                 .init(elements: [
-                    .init(icon: UIImage(named: "settings_info"), title: "О нас", fieldType: .aboutUs)
+                    .init(icon: UIImage(named: "settings_info"), title: "about_us".localized, description: "namaztimes.kz", fieldType: .aboutUs)
                 ])
         ]
 
@@ -66,12 +66,18 @@ extension SettingsInteractor: SettingsInteractorInput {
 
         switch item.fieldType {
         case .location: view.routeToLocationSettings()
-        case .language: view.routeToLanuageSettings()
+        case .language: view.routeToLanuageSettings(delegate: self)
         case .aboutUs:
             if let url = URL(string: "https://namaztimes.kz/information/18") {
                 UIApplication.shared.open(url)
             }
         }
+    }
+}
+
+extension SettingsInteractor: LanguageSelectionDelegate {
+    func didSelectLanguage() {
+        view.reload()
     }
 }
 

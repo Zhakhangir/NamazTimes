@@ -2,6 +2,14 @@ import Foundation
 
 extension Date {
     
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
+    }
+    
     func toString(format: String) -> String {
         let df = DateFormatter()
         df.dateFormat = format
@@ -11,9 +19,12 @@ extension Date {
 
     enum Time {
         case full, fullMilliseconds, fullTimeZone, fullMillisecondsTimeZone, display
+        case dateTimeDisplay
 
         var string: String {
             switch self {
+            case .dateTimeDisplay:
+                return "YYYY-MM-dd HH:mm"
             case .full:
                 return "HH:mm:ss"
             case .fullMilliseconds:

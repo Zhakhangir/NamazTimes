@@ -5,11 +5,12 @@
 //  Created by &&TairoV on 19.07.2022.
 //
 
-import Foundation
+import UIKit
 
 enum PrayerTimesApi {
     case yearTimes(cityId: Int)
-    case autoFinder
+    case annualTimes(cityId: Int)
+    case autoFinder(long: CGFloat, lat: CGFloat)
     case search(name: String)
 }
 
@@ -20,7 +21,7 @@ enum NetworkEnvironment {
 }
 
 extension PrayerTimesApi: EndPointType {
-
+    
     var environmentBaseURL : String {
         switch NetworkManager.environment {
         case .production: return "https://namaztimes.kz"
@@ -28,30 +29,34 @@ extension PrayerTimesApi: EndPointType {
         case .staging: return "https://namaztimes.kz"
         }
     }
-
+    
     var baseURL: URL {
         guard let url = URL(string: environmentBaseURL) else { fatalError("baseURL could not be configured.")}
         return url
     }
-
+    
     var path: String {
         switch self {
-        case .yearTimes(_):
+        case .yearTimes:
             return "/api/year"
+        case .annualTimes:
+            return "api/year-times"
         case .autoFinder:
             return "/year-times/8408 year"
-        case .search(_):
+        case .search:
             return "/json/sity"
-
+            
         }
     }
-
+    
     var httpMethod: HTTPMethod? {
         return .get
     }
-
+    
     var task: HTTPTask? {
         switch self {
+        case .annualTimes(let cityId):
+            return .requestParameters(bodyParameter: nil, urlParameters: ["id": cityId])
         case .yearTimes(let cityId):
             return .requestParameters(bodyParameter: nil, urlParameters: ["id": cityId])
         case .search(let name):
@@ -60,7 +65,7 @@ extension PrayerTimesApi: EndPointType {
             return .request
         }
     }
-
+    
     var headers: HTTPHeaders? {
         return nil
     }

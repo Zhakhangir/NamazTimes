@@ -16,3 +16,38 @@
 "done" = "Done";
 "error" = "Error";
 "network_error" = "Network connection error. Please try again later.";
+"interval" = "Interval time";
+"daily" = "Daily times";
+"settings" = "Settings";
+"qibla_st" = "Qibla";
+"location" = "Location";
+"language" = "Language";
+"about_us" = "About us";
+"warning" = "Warning";
+"choose_language" = "Choose language";
+"local_time" = "Local time";
+"remaining" = "remaining time";
+"minutes" = "minutes";
+"seconds" = "seconds";
+"open_settings" = "Open settings";
+"location_access" = "Namaz Times application uses your location to determine the place of Namaz. Please give access to the location";
+
+//PrayerTimes
+"imsak" = "Имсак";
+"bamdat" = "Бамдат";
+"kun" = "Күн";
+"ishraq" = "Ишрак";
+"kerahat" = "Керахат";
+"besin" = "Бесін";
+"asriauual" = "Асри Әууал";
+"ekindi" = "Екінді";
+"isfirar" = "Исфирар";
+"aqsham" = "Ақшам";
+"ishtibaq" = "Иштибак";
+"quptan" = "Құптан";
+"ishaisani" = "Имсак";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+

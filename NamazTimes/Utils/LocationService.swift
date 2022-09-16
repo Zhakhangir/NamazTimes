@@ -13,9 +13,8 @@
 //  Created by &&TairoV on 26.07.2022.
 //
 
-
-import Foundation
 import CoreLocation
+import UIKit
 
 protocol LocationServiceDelegate {
     func tracingLocation(currentLocation: CLLocation)
@@ -121,6 +120,24 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 }
 
 extension LocationService {
+
+    func getConfiguredRoot() -> UIViewController {
+        var vc = UIViewController()
+
+        switch status {
+        case .notDetermined, .denied, .restricted:
+            vc = LocationAccessErrorViewController()
+        case .authorizedAlways, .authorizedWhenInUse:
+            vc = UserDefaults.standard.object(forKey: "cityInfo") == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
+        default: vc = LocationAccessErrorViewController()
+        }
+
+        return vc
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        UIApplication.shared.keyWindow?.rootViewController = getConfiguredRoot()
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         delegate?.tracingHeading(heading: newHeading)

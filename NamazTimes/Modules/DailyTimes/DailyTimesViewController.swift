@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol DailyTimesViewInput: GeneralViewControllerProtocol { }
+protocol DailyTimesViewInput: GeneralViewControllerProtocol {
+    func reload()
+}
 
 class DailyTimesViewController: GeneralViewController {
 
@@ -64,7 +66,7 @@ class DailyTimesViewController: GeneralViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        layout.itemSize = CGSize(width: contentView.bounds.width, height: contentView.bounds.height)  
+        layout.itemSize = CGSize(width: contentView.bounds.width, height: contentView.bounds.height)
     }
 
 
@@ -108,13 +110,22 @@ extension DailyTimesViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionCell = UICollectionViewCell()
+        let data = interactor?.getData() ?? [PrayerTimesList]()
         switch indexPath.row {
         case 0:
             guard let cell: BaseCollectionContainerCell<DTListView> = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? BaseCollectionContainerCell<DTListView> else { return collectionCell }
+            
+            cell.innerView.set(data: data.filter({$0.isHidden == false }))
             collectionCell = cell
         case 1:
             guard let cell: BaseCollectionContainerCell<DTSettingsView> = collectionView.dequeueReusableCell(withReuseIdentifier: settingsCellId, for: indexPath) as? BaseCollectionContainerCell<DTSettingsView> else { return collectionCell }
+            
+            cell.innerView.set(data: data)
+            cell.innerView.settingsDidChanged = { [weak self] value, index in
+                self?.interactor?.didChageSwitch(for: index, to: value)
+            }
             collectionCell = cell
+
         default:  return collectionCell
         }
 
@@ -126,9 +137,12 @@ extension DailyTimesViewController: UICollectionViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pager.currentPage = currentVisibleIndex?.row ?? 0
+        reload()
     }
 }
 
 extension DailyTimesViewController: DailyTimesViewInput {
-    
+    func reload() {
+        collectionView.reloadData()
+    }
 }

@@ -67,7 +67,7 @@ class LocationFinderViewController: GeneralViewController {
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 24)
-        label.text = NSLocalizedString("choose_location", comment: "choose location")
+        label.text = "choose_location".localized
         label.numberOfLines = 0
         return label
     }()
@@ -199,7 +199,7 @@ class LocationFinderViewController: GeneralViewController {
 
         locationTextField.layer.borderWidth = 1
         locationTextField.layer.borderColor = GeneralColor.primary.cgColor
-        locationTextField.placeholder = NSLocalizedString("city_name", comment: "city name")
+        locationTextField.placeholder = "city_name".localized
         locationTextField.inputAccessoryView = bar
     }
 

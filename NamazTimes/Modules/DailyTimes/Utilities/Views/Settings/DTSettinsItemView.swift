@@ -7,18 +7,23 @@
 
 import UIKit
 
+protocol PrayerTimesSettingsDelegate {
+    func switchDidChange(to value: Bool)
+}
+
 class DTSettingsItemView: UIView {
 
-    private let prayerName: UILabel = {
+    @objc var switchDidChangeAction: ((_ value: Bool)-> Void)?
+
+     let prayerName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 22, weight: .regular)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         return label
     }()
 
-    private let switcher: UISwitch = {
+    let switcher: UISwitch = {
         let switcher = UISwitch()
-
         switcher.onTintColor = GeneralColor.primary
         return switcher
     }()
@@ -43,6 +48,8 @@ class DTSettingsItemView: UIView {
     private func configureSubviews() {
         addSubview(stackView)
 
+        switcher.addTarget(self, action: #selector(switchDidChange), for: .valueChanged)
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
@@ -52,9 +59,15 @@ class DTSettingsItemView: UIView {
         ])
     }
 
-    func set(name: String = "-", isOn: Bool = false ) {
+    func set(name: String = "-", isHidden: Bool = false, switchEnabled: Bool = true) {
         prayerName.text = name
-        switcher.isOn = isOn
+        switcher.isOn = !isHidden
+        switcher.isEnabled = switchEnabled
+    }
+
+    @objc private func switchDidChange(settingsSwitch: UISwitch) {
+
+        switchDidChangeAction?(settingsSwitch.isOn)
     }
 }
 

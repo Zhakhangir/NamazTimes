@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DTListItemView: UIView {
+class DTListItemCell: UITableViewCell {
 
     private var dynamicFontSize: CGFloat = 22
 
@@ -34,9 +34,10 @@ class DTListItemView: UIView {
         return stackView
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.selectionStyle = .none
         configureSubviews()
     }
 
@@ -55,21 +56,19 @@ class DTListItemView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        backgroundColor = selected ? GeneralColor.selected : .white
+        prayerName.font = selected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
+        prayerTime.font = selected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
+    }
 
     func configure(viewModel: PrayerTimesList, mode: DeviceSize) {
-        dynamicFontSize = mode == .big ? 22 : 18
-        backgroundColor = viewModel.isSelected ? GeneralColor.selected : .white
-
-        prayerName.font = viewModel.isSelected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
-        prayerTime.font = viewModel.isSelected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
-
+        dynamicFontSize = mode == .big ? 20 : 18
         prayerName.text = viewModel.name
         prayerTime.text = viewModel.time
 
     }
-}
-
-extension DTListItemView: CleanableView {
-
-    func clean() { }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SettingsRouterInput {
-    func routeToLanuageSettings()
+    func routeToLanuageSettings(delegate: LanguageSelectionDelegate?)
     func routeToLocationSettings()
 }
 
@@ -27,8 +27,8 @@ class SettingsRouter: SettingsRouterInput {
         return viewController
     }
 
-    func routeToLanuageSettings() {
-        let vc = LanguageSelectionViewController()
+    func routeToLanuageSettings(delegate: LanguageSelectionDelegate?) {
+        let vc = LanguageSelectionViewController(delegate: delegate)
         view?.present(vc, animated: true, completion: nil)
     }
 

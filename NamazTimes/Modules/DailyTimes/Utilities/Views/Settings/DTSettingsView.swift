@@ -8,9 +8,12 @@
 import UIKit
 
 class DTSettingsView: UIView {
-    
+
+    var settingsDidChanged: ((_ value: Bool, _ index: IndexPath)-> Void)?
+
     private var timesList = [PrayerTimesList]()
     private let cellReuseId  = "DTSettingsCell"
+    private let requiredTimes: [PrayerTimes] = GeneralStorageController.shared.getRequiredList()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -31,21 +34,6 @@ class DTSettingsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        timesList += [
-            .init(name: "Имсак", time: "3:02", show: true),
-            .init(name: "Бамдат", time: "3:22", show: true),
-            .init(name: "Күн", time: "5:24", show: true),
-            .init(name: "Ишрак", time: "6:50", show: true),
-            .init(name: "Керахат", time: "5:24", show: false),
-            .init(name: "Бесін", time: "13:09", show: false),
-            .init(name: "Асри аууал", time: "13:09", show: false),
-            .init(name: "Екінді", time: "18:22", show: false),
-            .init(name: "Исфирар", time: "18:22", show: false),
-            .init(name: "Ақшам", time: "20:34", show: false),
-            .init(name: "Иштибак", time: "18:22", show: false),
-            .init(name: "Құптан", time: "22:36", show: false),
-            .init(name: "Ишаи сани", time: "18:22", show: false)
-        ]
         configureSubviews()
         tableView.reloadData()
     }
@@ -80,8 +68,12 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
         }
         
         let item = timesList[indexPath.row]
-        cell.innerView.set(name: item.name ?? "", isOn: item.show)
+        let enabled = !requiredTimes.contains(where: {$0.code.localized == item.name ?? ""})
+        cell.innerView.set(name: item.name ?? "", isHidden: item.isHidden, switchEnabled: enabled)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
+        cell.innerView.switchDidChangeAction = { [weak self]  value in
+            self?.settingsDidChanged?(value, indexPath)
+        }
         return cell
     }
     

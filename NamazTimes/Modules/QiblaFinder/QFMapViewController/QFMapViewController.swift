@@ -18,11 +18,11 @@ class QFMapViewController: UIViewController {
     var router: QFMapRouterInput?
     var interactor: QFMapInteractorInput?
     let KaabaCordinates = CLLocationCoordinate2D(latitude: 21.422498, longitude: 39.826181)
-    private let mapTypes = ["Standart", "Satellite"]
+    private let mapTypes = ["standart".localized, "satellite".localized]
 
     private lazy var annotationKaaba: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.title = "Kaaba"
+        annotation.title = "kaaba".localized
         annotation.coordinate = KaabaCordinates
         return annotation
     }()

@@ -25,14 +25,14 @@ class HomeViewController: GeneralViewController {
     private let timesList: DTListView = {
         let list = DTListView(mode: .small)
         list.isUserInteractionEnabled = false
-        list.set(rowHeight: 36)
+        list.set(rowHeight: 38)
         return list
     }()
     
     private let currentTime: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(dynamicSize: 24, weight: .regular)
+        label.font = .monospacedDigitSystemFont(dynamicSize: 21, weight: .semibold)
 
         return label
     }()
@@ -40,8 +40,8 @@ class HomeViewController: GeneralViewController {
     private let currentTimeStatus: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = GeneralColor.el_subtitle
-        label.font = .systemFont(dynamicSize: 16, weight: .regular)
+        label.textColor = .black
+        label.font = .systemFont(dynamicSize: 18, weight: .light)
 
         return label
     }()
@@ -49,6 +49,7 @@ class HomeViewController: GeneralViewController {
     private lazy var currentTimeStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [currentTimeStatus, currentTime])
         stackView.axis = .vertical
+        stackView.spacing = 4
         return stackView
     }()
 
@@ -108,8 +109,7 @@ class HomeViewController: GeneralViewController {
 
     private func stylize() {
         timesList.set(data: interactor?.getTimesList() ?? [PrayerTimesList]())
-        currentTimeStatus.text = "Local time"
-        circularProgressBar.setTimaValues(currentTime: "Ogle", nextTime: "Kearahet 13:00")
+        currentTimeStatus.text = "local_time".localized
     }
 
     private func configureTimes() {
@@ -122,7 +122,8 @@ class HomeViewController: GeneralViewController {
         interval -= 1
         progress += 1
         currentTime.text = Date().timeString(withFormat: .full)
-        circularProgressBar.updateReminingTime(interval: interval, nextTime: "Kerahet", allTime: allTime, progress: progress)
+        circularProgressBar.setTimaValues(currentTime:  interactor?.getCurrentNextTime().current, nextTime:  interactor?.getCurrentNextTime().next)
+        circularProgressBar.updateReminingTime(interval: interval, nextTime:  interactor?.getCurrentNextTime().next, allTime: allTime, progress: progress)
     }
 }
 

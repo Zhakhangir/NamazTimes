@@ -50,17 +50,17 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
     func didSelectItem(at index: IndexPath) {
         guard let cityId = getItem(at: index)?.id else { return }
         view.cellSpinnerState(at: index, animate: true)
+
         networkManager.yearTimes(cityId: cityId) { data, error in
             DispatchQueue.main.async {
                 self.view.cellSpinnerState(at: index, animate: false)
 
                 if let error = error {
-                    self.view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: error , buttonTitle: "OK"))
+                    self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
                 }
 
                 guard let data = data else { return }
-                UserDefaults.standard.set(data.cityname, forKey: "currentCity")
-
+                UserDefaults.standard.set(true, forKey: "cityInfo")
                 let realmData = YearTimes()
                 let list = List<DailyTime>()
                 list.append(objectsIn: data.dailyTimes ?? [DailyTime]())
@@ -82,6 +82,11 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
             view.spinnerState(animate: true)
             networkManager.searchCity(cityName: name ?? "") {data, error in
                 DispatchQueue.main.async {
+
+                    if let error = error {
+                        self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
+                    }
+
                     self.view.spinnerState(animate: false)
                     self.regions = data?.results ?? [Regions]()
                     self.view.reload()
@@ -100,7 +105,7 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
 
     func checkNetworkConnection() {
         if reachability.connection == .unavailable {
-            view.showAlert(with: GeneralAlertModel(titleLabel: NSLocalizedString("error", comment: "error"),descriptionLabel: NSLocalizedString("network_error", comment: "error"), buttonTitle: "OK"))
+            view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized,descriptionLabel: "network_error".localized))
         }
     }
 }

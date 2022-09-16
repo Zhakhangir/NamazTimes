@@ -59,16 +59,11 @@ class LanguageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        setSelected(selected: selected)
+        accessoryType = selected ? .checkmark : .none
     }
 
     func configure(viewModel: LanguageSettings) {
         titleLabel.text = viewModel.title
         icon.image = viewModel.icon
-        self.setSelected(selected: viewModel.isSelected)
-    }
-
-    private func setSelected(selected: Bool) {
-        accessoryType = selected ? .checkmark : .none
     }
 }

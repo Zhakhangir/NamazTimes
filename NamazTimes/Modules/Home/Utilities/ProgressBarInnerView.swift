@@ -36,7 +36,7 @@ class ProgressBarInnerView: UIView {
 
     lazy var currentTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 36, weight: .medium)
+        label.font = .systemFont(dynamicSize: 40, weight: .medium)
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
         return label
@@ -44,7 +44,7 @@ class ProgressBarInnerView: UIView {
 
     lazy var remainingTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 24, weight: .light)
+        label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -52,7 +52,7 @@ class ProgressBarInnerView: UIView {
 
     lazy var nextTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 24, weight: .light)
+        label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.textAlignment = .center
         return label
     }()
@@ -107,12 +107,12 @@ class ProgressBarInnerView: UIView {
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
-    func setTimaValues(currentTime: String, nextTime: String) {
-        currentTimeLabel.text = currentTime
-        nextTimeLabel.text = nextTime
+    func setTimaValues(currentTime: PrayerTimes?, nextTime: PrayerTimes?) {
+        currentTimeLabel.text = currentTime?.code.localized
+        nextTimeLabel.text = nextTime?.code.localized
     }
 
-    func updateReminingTime(interval: TimeInterval, nextTime: String) {
+    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimes?) {
 
         let time = NSInteger(interval)
         let seconds = time % 60
@@ -120,8 +120,14 @@ class ProgressBarInnerView: UIView {
         let hours = (time / 3600)
 
         let attrString = NSMutableAttributedString()
-        let nextTime = NSAttributedString(string: nextTime + " " + "vaktine kalan")
-        let reminigTime = NSAttributedString(string: "\n\(minutes) dakika \(seconds) saniye", attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 22, weight: .medium) ])
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        let nextTime = NSAttributedString(string: (nextTime?.code.localized ?? "") + " " + "remaining".localized, attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
+        let reminigTime = NSAttributedString(string: "\n\(minutes)" + " " + "minutes".localized + " " + "\(seconds)" + " " + "seconds".localized, attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
+        
+        paragraphStyle.lineSpacing = 2
+        paragraphStyle.lineHeightMultiple = 2
+        attrString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attrString.length))
         attrString.append(nextTime)
         attrString.append(reminigTime)
         remainingTimeLabel.attributedText = attrString

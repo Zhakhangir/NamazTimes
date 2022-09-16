@@ -21,7 +21,6 @@ class QFCompassViewController: GeneralViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Kuzeyden Kible acisi"
         label.font = .systemFont(dynamicSize: 22, weight: .regular)
         label.textAlignment = .center
         label.textColor = .black
@@ -30,8 +29,8 @@ class QFCompassViewController: GeneralViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "247° saat yonunde"
-        label.font = .systemFont(dynamicSize: 18, weight: .medium)
+        label.text = "N 247°"
+        label.font = .systemFont(dynamicSize: 22, weight: .medium)
         label.textAlignment = .center
         label.textColor = .black
         return label
@@ -66,20 +65,20 @@ class QFCompassViewController: GeneralViewController {
     }
 
     private func addSubviews() {
-        contentView.addSubview(stackView)
         contentView.addSubview(arrowView)
         contentView.addSubview(mapButton)
+        contentView.addSubview(subtitleLabel)
     }
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
 
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        layoutConstraints += [
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
-        ]
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        layoutConstraints += [
+//            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+//            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+//            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+//        ]
 
         arrowView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
@@ -87,12 +86,19 @@ class QFCompassViewController: GeneralViewController {
             arrowView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ]
 
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32)
+        ]
+
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             mapButton.heightAnchor.constraint(equalToConstant: 30),
             mapButton.widthAnchor.constraint(equalToConstant: 30),
-            mapButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
-            mapButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            mapButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            mapButton.centerYAnchor.constraint(equalTo: subtitleLabel.centerYAnchor)
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)

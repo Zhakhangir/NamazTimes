@@ -10,26 +10,30 @@ import UIKit
 struct LanguageSettings {
     var title: String?
     var icon: UIImage?
-    var isSelected: Bool = false
+    var code: String
+}
+
+protocol LanguageSelectionDelegate {
+    func didSelectLanguage()
 }
 
 class LanguageSelectionViewController: UIViewController {
 
     private let languageCellId = "languageSelectCellId"
-
+    var delegate: LanguageSelectionDelegate?
     let headerView = BaseHeaderView()
 
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 24)
-        label.text = NSLocalizedString("choose_location", comment: "choose location")
+        label.text = "choose_location".localized
         label.numberOfLines = 0
         return label
     }()
 
     var languages: [LanguageSettings] = [
-        .init(title: "Қазақ", icon: UIImage(named: "flag_kaz"), isSelected: false),
-        .init(title: "Русский", icon: UIImage(named: "flag_rus"), isSelected: true)
+        .init(title: "Қазақ",icon: UIImage(named: "flag_kaz"), code: "kk"),
+        .init(title: "Русский", icon: UIImage(named: "flag_rus"), code: "ru")
     ]
 
     private lazy var tableView: UITableView = {
@@ -45,12 +49,17 @@ class LanguageSelectionViewController: UIViewController {
         return tableView
     }()
 
+    convenience init(delegate: LanguageSelectionDelegate?) {
+        self.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = GeneralColor.backgroundGray
 
-        headerView.titleLabel.text = "Выберите язык"
+        headerView.titleLabel.text = "choose_language".localized
         headerView.closeAction = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
@@ -96,7 +105,8 @@ extension LanguageSelectionViewController: UITableViewDataSource {
         let item = languages[indexPath.row]
         guard let cell: LanguageCell = tableView.dequeueReusableCell(withIdentifier: languageCellId, for: indexPath) as? LanguageCell else { return UITableViewCell() }
         cell.configure(viewModel: item)
-        if item.isSelected {
+        let selectedLanguage = UserDefaults.standard.string(forKey: "language") ?? ""
+        if item.code == selectedLanguage {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
         return cell
@@ -104,9 +114,13 @@ extension LanguageSelectionViewController: UITableViewDataSource {
 }
 
 extension LanguageSelectionViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for (index, _) in languages.enumerated() {
-            languages[index].isSelected = indexPath.row == index
-        }
+        UserDefaults.standard.set(languages[indexPath.row].code, forKey: "language")
+        UserDefaults().synchronize()
+       
+        self.dismiss(animated: true, completion: {
+            UIApplication.shared.keyWindow?.rootViewController = GeneralTabBarViewController(selectedIndex: 3)
+        })
     }
 }

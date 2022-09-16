@@ -8,11 +8,45 @@
 
 "choose_location" = "Пожалуйста выберите ваш город";
 "city_name" = "Название города";
-"dily_times" = "Ежедневная время";
+"daily_times" = "Ежедневное время";
 "qibla" = "КИБЛА";
 "open_settings" = "Открыт настройки";
 "standart" = "Стандарт";
 "satellite" = "Спутник";
 "done" = "Готово";
 "error" = "Ошибка";
-"network_error" = "Network connection error. Please try again later.";
+"network_error" = "Ошибка сетевого подключения. Пожалуйста, повторите попытку позже";
+"interval" = "Промежуток";
+"daily" = "Дневное время";
+"settings" = "Настройки";
+"qibla_st" = "Кибла";
+"location" = "Местоположение";
+"language" = "Язык";
+"about_us" = "О нас";
+"warning" = "Внимание";
+"choose_language" = "Выберите язык";
+"local_time" = "Местное время";
+"minutes" = "минут";
+"seconds" = "секунд";
+"remaining" = "оставшееся время";
+"open_settings" = "Открыть настройки";
+"location_access" = "Приложения Namaz Times использует вашу местоположению для определеления веремена Намазов. Пожалуйста дайте доступ к местоположению";
+
+//PrayerTimes
+"imsak" = "Имсак";
+"bamdat" = "Фаджр";
+"kun" = "Восход";
+"ishraq" = "Ишрак";
+"kerahat" = "Зауаль Карахат";
+"besin" = "Зухр";
+"asriauual" = "Аср-и Аууаль";
+"ekindi" = "Аср";
+"isfirar" = "Исфирар";
+"aqsham" = "Магриб";
+"ishtibaq" = "Иштибак";
+"quptan" = "Иша’а";
+"ishaisani" = "Иша’а-и Сани";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";
+//"location" = "Location";

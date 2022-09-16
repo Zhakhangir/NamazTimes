@@ -13,16 +13,14 @@ class LocationAccessErrorViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .red
-        label.text = "Внимание!"
+        label.text = "warning".localized + "!"
         label.font = .systemFont(dynamicSize: 25, weight: .regular)
         return label
     }()
 
     private let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.text = """
-        Приложения Namaz Times использует вашу местоположению для вычисления и определеления веремена Намазов. Вы можете в настройках изменить доступ нажав кнопку открыт настройки.
-        """
+        textView.text = "location_access".localized
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = .systemFont(dynamicSize: 16, weight: .regular)
@@ -32,7 +30,7 @@ class LocationAccessErrorViewController: UIViewController {
     private let actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = GeneralColor.primary
-        button.setTitle("Open settings", for: .normal)
+        button.setTitle("open_settings".localized, for: .normal)
         button.layer.cornerRadius = 12
         return button
     }()
