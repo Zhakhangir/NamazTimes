@@ -17,8 +17,6 @@ class GeneralTabBarViewController: UITabBarController {
         tabBar.tintColor = GeneralColor.primary
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
 
-        LocationService.sharedInstance.delegate = self
-        LocationService.sharedInstance.startUpdatingLocation()
         setupChilds()
         configureHeaderView()
     }
@@ -65,19 +63,8 @@ class GeneralTabBarViewController: UITabBarController {
        vc.modalPresentationStyle = .fullScreen
        present(vc, animated: true, completion: nil)
     }
-}
-
-extension GeneralTabBarViewController: LocationServiceDelegate {
-
-    func tracingLocation(currentLocation: CLLocation) {
-        
-    }
-
-    func tracingLocationDidFailWithError(error: NSError) {
-
-    }
-
-    func tracingHeading(heading: CLHeading) {
-
+    
+    func configure(with viewModel: CityInfo) {
+        navigationView.configure(with: viewModel)
     }
 }

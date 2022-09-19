@@ -55,14 +55,7 @@ class SettingsItemView: UIView {
         addSubview(accessoryImageView)
 
         var layoutConstraints = [NSLayoutConstraint]()
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        layoutConstraints += [
-            stackView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: accessoryImageView.leadingAnchor, constant: -8),
-        ]
-
+        
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -70,6 +63,13 @@ class SettingsItemView: UIView {
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             iconImageView.heightAnchor.constraint(equalToConstant: 30),
             iconImageView.widthAnchor.constraint(equalToConstant: 30)
+        ]
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            stackView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: accessoryImageView.leadingAnchor, constant: -8),
         ]
 
         accessoryImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +89,7 @@ class SettingsItemView: UIView {
 }
 
 extension SettingsItemView: CleanableView {
-    var contentInset: UIEdgeInsets { .zero }
+    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  }
 
     func clean() { }
 }

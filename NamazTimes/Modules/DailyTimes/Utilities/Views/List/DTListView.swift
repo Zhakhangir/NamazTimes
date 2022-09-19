@@ -9,7 +9,7 @@ import UIKit
 
 class DTListView: UIView {
 
-    private var timesList = [PrayerTimesList]()
+    private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTListCell"
     private var mode: DeviceSize = .big
     private let  rowHeight = 48
@@ -62,7 +62,7 @@ class DTListView: UIView {
         ])
     }
 
-    func set(data: [PrayerTimesList]) {
+    func set(data: [DailyPrayerTime]) {
         timesList = data
         reload()
     }
@@ -97,13 +97,12 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
         }
 
         let item = timesList[indexPath.row]
-        let current = GeneralStorageController.shared.currentPrayerTime().current
         cell.configure(viewModel: item, mode: mode)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
-        
-        if current.code.localized == item.name {
+        if item.isCurrent {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
+        
         return cell
     }
 

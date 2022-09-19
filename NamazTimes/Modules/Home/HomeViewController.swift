@@ -108,14 +108,13 @@ class HomeViewController: GeneralViewController {
     }
 
     private func stylize() {
-        timesList.set(data: interactor?.getTimesList() ?? [PrayerTimesList]())
+        timesList.set(data: interactor?.getTimesList() ?? [DailyPrayerTime]())
         currentTimeStatus.text = "local_time".localized
     }
 
     private func configureTimes() {
-        let annualTime = interactor?.getAnnualTimes()
-        (parent as? GeneralTabBarViewController)?.navigationView.titleLabel.text = annualTime?.cityName
-
+        guard let cityInfo = interactor?.getCityInfo() else { return }
+        (parent as? GeneralTabBarViewController)?.configure(with: cityInfo)
     }
 
     override func secondRefresh() {

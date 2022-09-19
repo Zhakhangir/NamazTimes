@@ -6,49 +6,36 @@
 //
 
 import Foundation
-import RealmSwift
 
 protocol DailyTimesInteractorInput {
-    func getData() -> [PrayerTimesList]
+    func getData() -> [DailyPrayerTime]
     func didChageSwitch(for index: IndexPath, to value: Bool)
 }
 
-struct PrayerTimesList {
-    var name: String?
+struct DailyPrayerTime {
+    var code: String?
     var time: String?
     var isHidden: Bool = false
+    var isCurrent: Bool = false
 }
 
 class DailyTimesInteractor: DailyTimesInteractorInput {
 
     var view: DailyTimesViewInput
-    private var prayerTimesSettings = PrayerTimesListSettings()
-    private var timesList = [PrayerTimesList]()
-    private var dailyTime = DailyTime()
-    private let realm = try! Realm()
-
+    private var prayerTimesVisibilitySettings = [PrayerTimesVisibilitySettings]()
+    private var dailyTimes = [DailyPrayerTime]()
+    
     init(view: DailyTimesViewInput) {
         self.view = view
         
-        prayerTimesSettings = GeneralStorageController.shared.getPrayerTimesListSettings()
-        dailyTime = GeneralStorageController.shared.getDailyTimes()
+        dailyTimes = GeneralStorageController.shared.getDailyTimes()
     }
 
-    func getData() -> [PrayerTimesList] {
-        timesList.removeAll()
-        for (_, item) in prayerTimesSettings.prayerTimes.enumerated() {
-            var listItem = PrayerTimesList()
-            listItem.name = item.name.localized
-            listItem.isHidden = item.isHidden
-            listItem.time = dailyTime.value(forKey: item.name) as? String
-            timesList.append(listItem)
-        }
-        return timesList
+    func getData() -> [DailyPrayerTime] {
+        return dailyTimes
     }
 
     func didChageSwitch(for index: IndexPath, to value: Bool) {
-        try! realm.write {
-            prayerTimesSettings.prayerTimes[index.row].isHidden = !value
-        }
+        GeneralStorageController.shared.changeTimesVisibilitySettings(for: index.row, to: value)
     }
 }

@@ -65,9 +65,9 @@ class DTListItemCell: UITableViewCell {
         prayerTime.font = selected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
     }
 
-    func configure(viewModel: PrayerTimesList, mode: DeviceSize) {
+    func configure(viewModel: DailyPrayerTime, mode: DeviceSize) {
         dynamicFontSize = mode == .big ? 20 : 18
-        prayerName.text = viewModel.name
+        prayerName.text = viewModel.code?.localized
         prayerTime.text = viewModel.time
 
     }

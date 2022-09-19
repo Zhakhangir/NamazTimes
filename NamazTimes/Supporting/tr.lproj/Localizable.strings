@@ -35,3 +35,9 @@
 "ishtibaq" = "";
 "quptan" = "";
 "ishaisani" = "";
+
+// Network errors
+"network_error" = "Location";
+"time_out" = "Location";
+"decode_error" = "Location";
+"no_data" = "Location";

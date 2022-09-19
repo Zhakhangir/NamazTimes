@@ -45,9 +45,10 @@
 "ishtibaq" = "Иштибак";
 "quptan" = "Құптан";
 "ishaisani" = "Ишаи Сани";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
+
+// Network errors
+"bad_request" = "Қате сұраныс";
+"network_error" = "Интернетке қосылу жоқ";
+"time_out" = "Cұрау уақыты аяқталды";
+"decode_error" = "Деректeрді оқу мүмкін емес";
+"no_data" = "Деректeр табылмады";

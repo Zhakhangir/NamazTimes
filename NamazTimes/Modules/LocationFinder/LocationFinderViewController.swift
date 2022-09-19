@@ -10,10 +10,10 @@ import UIKit
 protocol LocationFinderViewInput: GeneralViewControllerProtocol {
     func reload()
     func close()
-    func spinnerState(animate: Bool)
-    func cellSpinnerState(at indexPath: IndexPath, animate: Bool)
     func routeToHome()
     func showAlert(with model: GeneralAlertModel)
+    func spinnerState(animate: Bool)
+    func cellSpinnerState(at indexPath: IndexPath, animate: Bool)
 }
 
 class LocationFinderViewController: GeneralViewController {
@@ -214,7 +214,7 @@ class LocationFinderViewController: GeneralViewController {
 }
 
 extension LocationFinderViewController: LocationFinderViewInput {
-
+   
     func showAlert(with model: GeneralAlertModel) {
         router?.showAlert(with: model)
     }
@@ -234,6 +234,7 @@ extension LocationFinderViewController: LocationFinderViewInput {
     func cellSpinnerState(at indexPath: IndexPath, animate: Bool) {
         guard let cell = tableView.cellForRow(at: indexPath) as? BaseContainerCell<LoadingLabelView> else { return }
         cell.innerView.spinnerState(animate: animate)
+        tableView.isUserInteractionEnabled = !animate
     }
 
     @objc func close() {

@@ -29,7 +29,6 @@ class QFCompassViewController: GeneralViewController {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "N 247°"
         label.font = .systemFont(dynamicSize: 22, weight: .medium)
         label.textAlignment = .center
         label.textColor = .black
@@ -56,12 +55,14 @@ class QFCompassViewController: GeneralViewController {
 
         addSubviews()
         setupLayout()
-        stylize()
         addActions()
 
         locationService.delegate = self
         locationService.startUpdatingHeading()
         locationService.startUpdatingLocation()
+        
+        guard let interactor = interactor else { return }
+        subtitleLabel.text = "N " + interactor.getQiblaAngle() + "°"
     }
 
     private func addSubviews() {
@@ -72,13 +73,6 @@ class QFCompassViewController: GeneralViewController {
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
-
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        layoutConstraints += [
-//            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-//            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-//            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
-//        ]
 
         arrowView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
@@ -102,10 +96,6 @@ class QFCompassViewController: GeneralViewController {
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)
-    }
-
-    private func stylize() {
-        modalPresentationStyle = .currentContext
     }
 
     private func addActions() {

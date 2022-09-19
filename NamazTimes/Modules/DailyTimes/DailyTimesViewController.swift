@@ -110,7 +110,7 @@ extension DailyTimesViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionCell = UICollectionViewCell()
-        let data = interactor?.getData() ?? [PrayerTimesList]()
+        let data = interactor?.getData() ?? [DailyPrayerTime]()
         switch indexPath.row {
         case 0:
             guard let cell: BaseCollectionContainerCell<DTListView> = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? BaseCollectionContainerCell<DTListView> else { return collectionCell }

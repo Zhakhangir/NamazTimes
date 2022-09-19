@@ -114,18 +114,20 @@ class GeneralNavigationView: UIView {
 
         titleLabel.textColor = GeneralColor.black
         titleLabel.font = .systemFont(dynamicSize: 24, weight: .regular)
-
-        miladMonthName.text = "19 ИЮНЬ, 2019"
+        
         miladMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
         miladMonthName.textColor = GeneralColor.el_subtitle
         miladMonthName.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
-        hijriMonthName.text = "16 ШАУУАЛ, 1440"
         hijriMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
         hijriMonthName.textColor = GeneralColor.el_subtitle
         hijriMonthName.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
         spaceView.backgroundColor = GeneralColor.el_subtitle
         spaceView.layer.cornerRadius = 1
+    }
+    
+    func configure(with viewModel: CityInfo) {
+        titleLabel.text = viewModel.cityName
     }
 }

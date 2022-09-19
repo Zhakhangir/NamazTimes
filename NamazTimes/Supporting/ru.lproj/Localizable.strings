@@ -46,7 +46,10 @@
 "ishtibaq" = "Иштибак";
 "quptan" = "Иша’а";
 "ishaisani" = "Иша’а-и Сани";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
+
+// Network errors
+"bad_request" = "Неверный запрос";
+"network_error" = "Нет подключения к интернету";
+"time_out" = "Превышен лимит времени на запрос";
+"decode_error" = "Не удалось расшифровать";
+"no_data" = "Нет данных";

@@ -8,13 +8,28 @@
 import Foundation
 
 enum NetworkResponse:String {
-    case success
-    case authenticationError = "You need to be authenticated first."
-    case badRequest = "Bad request"
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
+    case success, authenticationError, badRequest, outdated, failed, noData, unableToDecode, timeOut
+    
+    var value: String {
+        switch self {
+        case .success:
+            return  "success"
+        case .authenticationError:
+            return "auth"
+        case .badRequest:
+            return "bad_reques".localized
+        case .outdated:
+            return "The url you requested is outdated."
+        case .failed:
+            return "bad_request".localized
+        case .noData:
+            return "no_data".localized
+        case .unableToDecode:
+            return "decode_error".localized
+        case .timeOut:
+            return "time_out".localized
+        }
+    }
 }
 
 enum Result<String>{
@@ -31,12 +46,12 @@ struct NetworkManager {
         router.request(.search(name: cityName)) { data, response, error in
 
             if error != nil {
-                completion(nil, error?.localizedDescription)
+                completion(nil, NetworkResponse.timeOut.value)
             }
             else {
                 do {
                     guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
+                        completion(nil, NetworkResponse.noData.value)
                         return
                     }
                     let apiResponse = try JSONDecoder().decode(CitySearchModel.self, from: responseData)
@@ -45,40 +60,36 @@ struct NetworkManager {
             }
         }
     }
-    
-//    func getAnnualTime(cityId: Int,  completion: @escaping (_ data: AnnualTimes?, _ error: String?)->()) {
-//
-//
-//    }
 
-    func yearTimes(cityId: Int, completion: @escaping (_ data: AnnualTime?, _ error: String?)->()) {
-        router.request(.yearTimes(cityId: cityId)) {data, response, error in
+    func annualTimes(cityId: Int, completion: @escaping (_ data: CityData?, _ error: String?)->()) {
+        router.request(.annualTimes(cityId: cityId)) {data, response, error in
 
             if error != nil {
-                completion(nil, error?.localizedDescription)
+                completion(nil, NetworkResponse.timeOut.value)
             }
             else {
                 guard let responseData = data else {
-                    completion(nil, NetworkResponse.noData.rawValue)
+                    completion(nil, NetworkResponse.noData.value)
                     return
                 }
                 do {
-                    let apiResponse = try JSONDecoder().decode(AnnualTime.self, from: responseData)
+                    print(String(data: responseData, encoding: .utf8), data)
+                    let apiResponse = try JSONDecoder().decode(CityData.self, from: responseData)
                     completion(apiResponse,nil)
                 } catch {
-                    completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    completion(nil, NetworkResponse.unableToDecode.value)
                 }
             }
         }
     }
 
-    private func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+    private func handleNetworkResponse(_ response: HTTPURLResponse) -> String{
         switch response.statusCode {
-        case 200...299: return .success
-        case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
-        case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-        case 600: return .failure(NetworkResponse.outdated.rawValue)
-        default: return .failure(NetworkResponse.failed.rawValue)
+        case 200...299: return NetworkResponse.success.value
+        case 401...500: return NetworkResponse.authenticationError.value
+        case 501...599: return NetworkResponse.badRequest.value
+        case 600: return NetworkResponse.outdated.value
+        default: return NetworkResponse.failed.value
         }
     }
 }

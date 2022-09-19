@@ -128,7 +128,7 @@ extension LocationService {
         case .notDetermined, .denied, .restricted:
             vc = LocationAccessErrorViewController()
         case .authorizedAlways, .authorizedWhenInUse:
-            vc = UserDefaults.standard.object(forKey: "cityInfo") == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
+            vc = GeneralStorageController.shared.getCityInfo() == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
         default: vc = LocationAccessErrorViewController()
         }
 

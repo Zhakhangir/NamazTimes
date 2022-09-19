@@ -22,6 +22,7 @@ class SettingsInteractor {
     var view: SettingsViewInput
     private let realm = try! Realm()
     private var sections = [SettingsTableSection]()
+    private var cityName = GeneralStorageController.shared.getCityInfo()?.cityName
 
     init(view: SettingsViewInput) {
         self.view = view
@@ -33,7 +34,7 @@ extension SettingsInteractor: SettingsInteractorInput {
     func createElements() {
         sections += [
             .init(title: "settings".localized, elements: [
-                .init(icon: UIImage(named: "settings_location"), title: "location".localized, description: "Алматы", fieldType: .location),
+                .init(icon: UIImage(named: "settings_location"), title: "location".localized, description: cityName, fieldType: .location),
                 .init(icon: UIImage(named: "settings_language"), title: "language".localized, description: LanguageHelper().name, fieldType: .language)
             ]),
 

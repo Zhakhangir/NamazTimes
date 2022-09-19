@@ -9,6 +9,5 @@ target 'Namaz Times' do
   
   pod 'lottie-ios'
   pod 'RealmSwift', '~>10'
-  pod 'FLEX'
 
 end

@@ -1,5 +1,5 @@
 //
-//  PreayerTimesEndPOint.swift
+//  PrayerTimesEndPOint.swift
 //  NamazTimes
 //
 //  Created by &&TairoV on 19.07.2022.
@@ -8,7 +8,6 @@
 import UIKit
 
 enum PrayerTimesApi {
-    case yearTimes(cityId: Int)
     case annualTimes(cityId: Int)
     case autoFinder(long: CGFloat, lat: CGFloat)
     case search(name: String)
@@ -37,8 +36,6 @@ extension PrayerTimesApi: EndPointType {
     
     var path: String {
         switch self {
-        case .yearTimes:
-            return "/api/year"
         case .annualTimes:
             return "api/year-times"
         case .autoFinder:
@@ -56,9 +53,7 @@ extension PrayerTimesApi: EndPointType {
     var task: HTTPTask? {
         switch self {
         case .annualTimes(let cityId):
-            return .requestParameters(bodyParameter: nil, urlParameters: ["id": cityId])
-        case .yearTimes(let cityId):
-            return .requestParameters(bodyParameter: nil, urlParameters: ["id": cityId])
+            return .requestParameters(bodyParameter: nil, urlParameters: ["cityId": cityId])
         case .search(let name):
             return .requestParameters(bodyParameter: nil, urlParameters: ["q": name])
         default:

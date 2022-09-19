@@ -10,14 +10,21 @@ import CoreLocation
 
 protocol QFCompassInteractorInput {
     func getDirectionOfKabah(heading: CLHeading) -> CGFloat
+    func getQiblaAngle() -> String
 }
 
 class QFCompassInteractor: QFCompassInteractorInput {
-
+    
     var view: QFCompassViewInput
-    private let qiblaAngle = 247.0
+    private var qiblaAngle: Double = 0.0
 
+    let cityInfo = GeneralStorageController.shared.getCityInfo()
+    
     init(view: QFCompassViewInput) {
+        
+        
+        qiblaAngle = (Double((cityInfo?.QiblaDir ?? "0.0")) ?? 0.0) - (Double((cityInfo?.MagnetDev ?? "0.0")) ?? 0.0)
+        
         self.view = view
     }
 
@@ -25,5 +32,9 @@ class QFCompassInteractor: QFCompassInteractorInput {
         let north = -1 * heading.magneticHeading * Double.pi/180
         let directionOfKabah = qiblaAngle * Double.pi/180 + north
         return directionOfKabah
+    }
+    
+    func getQiblaAngle() -> String {
+        return cityInfo?.QiblaDir ?? ""
     }
 }

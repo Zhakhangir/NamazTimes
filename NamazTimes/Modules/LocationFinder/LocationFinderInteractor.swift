@@ -46,37 +46,7 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
     func getTitle(for section: Int) -> String? {
         regions[section].text
     }
-
-    func didSelectItem(at index: IndexPath) {
-        guard let cityId = getItem(at: index)?.id else { return }
-        view.cellSpinnerState(at: index, animate: true)
-
-        networkManager.yearTimes(cityId: cityId) { data, error in
-            DispatchQueue.main.async {
-                self.view.cellSpinnerState(at: index, animate: false)
-
-                if let error = error {
-                    self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
-                }
-
-                guard let data = data else { return }
-                UserDefaults.standard.set(true, forKey: "cityInfo")
-                let realmData = YearTimes()
-                let list = List<DailyTime>()
-                list.append(objectsIn: data.dailyTimes ?? [DailyTime]())
-                realmData.cityName = data.cityname ?? ""
-                realmData.times = list
-
-                try! self.realm.write {
-                    let allDataType = self.realm.objects(YearTimes.self)
-                    self.realm.delete(allDataType)
-                    self.realm.add(realmData)
-                }
-                self.view.routeToHome()
-            }
-        }
-    }
-
+    
     func searchCity(name: String?) {
         if (name?.count ?? 0) > 1 || (name?.count ?? 0) == 0 {
             view.spinnerState(animate: true)
@@ -91,6 +61,32 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
                     self.regions = data?.results ?? [Regions]()
                     self.view.reload()
                 }
+            }
+        }
+    }
+
+    func didSelectItem(at index: IndexPath) {
+        guard let cityId = getItem(at: index)?.id else { return }
+        view.cellSpinnerState(at: index, animate: true)
+
+        networkManager.annualTimes(cityId: cityId) { data, error in
+            DispatchQueue.main.async {
+                self.view.cellSpinnerState(at: index, animate: false)
+
+                if let error = error {
+                    self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
+                }
+
+                guard let data = data else { return }
+                let storageData = CityPrayerData(data: data)
+                
+                try! self.realm.write {
+                    self.realm.delete(self.realm.objects(CityPrayerData.self))
+                    self.realm.delete(self.realm.objects(CityInfo.self))
+                    self.realm.delete(self.realm.objects(DailyTime.self))
+                    self.realm.add(storageData)
+                }
+                self.view.routeToHome()
             }
         }
     }

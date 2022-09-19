@@ -59,14 +59,12 @@ class DTSettingsItemView: UIView {
         ])
     }
 
-    func set(name: String = "-", isHidden: Bool = false, switchEnabled: Bool = true) {
+    func set(name: String = "-", isHidden: Bool = false) {
         prayerName.text = name
         switcher.isOn = !isHidden
-        switcher.isEnabled = switchEnabled
     }
 
     @objc private func switchDidChange(settingsSwitch: UISwitch) {
-
         switchDidChangeAction?(settingsSwitch.isOn)
     }
 }

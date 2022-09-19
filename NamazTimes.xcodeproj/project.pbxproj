@@ -37,7 +37,6 @@
 		714A20CE28104EA000E8A81A /* DailyTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */; };
 		714A82B02891C2A800817053 /* CAListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82AF2891C2A800817053 /* CAListCard.swift */; };
 		714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */; };
-		714FD8E728A1107200113C5F /* AnnualTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E628A1107200113C5F /* AnnualTimeModel.swift */; };
 		714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E828A12EF700113C5F /* Results+Extensions.swift */; };
 		71574FEF2886AA3900061F91 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FEE2886AA3900061F91 /* GeneralStorage.swift */; };
 		71574FF52886B4B800061F91 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FF42886B4B800061F91 /* EndPointType.swift */; };
@@ -49,7 +48,7 @@
 		715750012886CB2D00061F91 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750002886CB2D00061F91 /* JSONParameterEncoder.swift */; };
 		715750052886F9B800061F91 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750042886F9B800061F91 /* NetworkRouter.swift */; };
 		715750072886FAD300061F91 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750062886FAD300061F91 /* Router.swift */; };
-		715750092887093000061F91 /* PreayerTimesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750082887093000061F91 /* PreayerTimesEndPoint.swift */; };
+		715750092887093000061F91 /* PrayerTimesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715750082887093000061F91 /* PrayerTimesEndPoint.swift */; };
 		7157500C288714E000061F91 /* CitySearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157500B288714E000061F91 /* CitySearchModel.swift */; };
 		7157500E288716C500061F91 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157500D288716C500061F91 /* NetworkManager.swift */; };
 		715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715D084828144B0B00729AFB /* LocationFinderViewController.swift */; };
@@ -62,7 +61,7 @@
 		7173733828B5D84100339EF1 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173733728B5D84100339EF1 /* SettingsInteractor.swift */; };
 		71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D43289D2220001ACDFE /* LocationFinderRouter.swift */; };
 		71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */; };
-		71849C0728CA503500721915 /* CityInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0628CA503500721915 /* CityInfoModel.swift */; };
+		71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0628CA503500721915 /* AnnualTimeModel.swift */; };
 		71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0828CAF5F000721915 /* String+Extensions.swift */; };
 		71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0A28CB400100721915 /* LanguageHelper.swift */; };
 		7187839328362E6F00883421 /* DTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* DTListView.swift */; };
@@ -134,7 +133,6 @@
 		714A82AC28919F3E00817053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		714A82AF2891C2A800817053 /* CAListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListCard.swift; sourceTree = "<group>"; };
 		714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessErrorViewController.swift; sourceTree = "<group>"; };
-		714FD8E628A1107200113C5F /* AnnualTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualTimeModel.swift; sourceTree = "<group>"; };
 		714FD8E828A12EF700113C5F /* Results+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extensions.swift"; sourceTree = "<group>"; };
 		71574FEE2886AA3900061F91 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
 		71574FF42886B4B800061F91 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
@@ -146,7 +144,7 @@
 		715750002886CB2D00061F91 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		715750042886F9B800061F91 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		715750062886FAD300061F91 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		715750082887093000061F91 /* PreayerTimesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreayerTimesEndPoint.swift; sourceTree = "<group>"; };
+		715750082887093000061F91 /* PrayerTimesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesEndPoint.swift; sourceTree = "<group>"; };
 		7157500B288714E000061F91 /* CitySearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchModel.swift; sourceTree = "<group>"; };
 		7157500D288716C500061F91 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		715D084828144B0B00729AFB /* LocationFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +159,7 @@
 		7173733728B5D84100339EF1 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		71767D43289D2220001ACDFE /* LocationFinderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderRouter.swift; sourceTree = "<group>"; };
 		71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderInteractor.swift; sourceTree = "<group>"; };
-		71849C0628CA503500721915 /* CityInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoModel.swift; sourceTree = "<group>"; };
+		71849C0628CA503500721915 /* AnnualTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualTimeModel.swift; sourceTree = "<group>"; };
 		71849C0828CAF5F000721915 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		71849C0A28CB400100721915 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		7187839228362E6F00883421 /* DTListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListView.swift; sourceTree = "<group>"; };
@@ -379,7 +377,7 @@
 		71574FF02886B42100061F91 /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
-				715750082887093000061F91 /* PreayerTimesEndPoint.swift */,
+				715750082887093000061F91 /* PrayerTimesEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -419,8 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				7157500B288714E000061F91 /* CitySearchModel.swift */,
-				714FD8E628A1107200113C5F /* AnnualTimeModel.swift */,
-				71849C0628CA503500721915 /* CityInfoModel.swift */,
+				71849C0628CA503500721915 /* AnnualTimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -682,7 +679,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		7B12AEE9668CFB65CACBA66F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -692,7 +689,7 @@
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
@@ -729,7 +726,6 @@
 				71574FFF2886BDE600061F91 /* NetworkError.swift in Sources */,
 				714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */,
 				71B5B36E283F6FB000F5BA63 /* DTListItemCell.swift in Sources */,
-				714FD8E728A1107200113C5F /* AnnualTimeModel.swift in Sources */,
 				714A82B02891C2A800817053 /* CAListCard.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
 				7167DB8628C2194B00BA4134 /* SettingsItemView.swift in Sources */,
@@ -751,7 +747,7 @@
 				718C03112890567A00AB7794 /* LocationService.swift in Sources */,
 				71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */,
 				71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */,
-				71849C0728CA503500721915 /* CityInfoModel.swift in Sources */,
+				71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */,
 				71440F342840AB7500581C59 /* Date+Extension.swift in Sources */,
 				7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */,
 				71574FFB2886BB6900061F91 /* ParameterEncoding.swift in Sources */,
@@ -791,7 +787,7 @@
 				711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */,
 				714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */,
 				71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */,
-				715750092887093000061F91 /* PreayerTimesEndPoint.swift in Sources */,
+				715750092887093000061F91 /* PrayerTimesEndPoint.swift in Sources */,
 				71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */,
 				71482F8F28A4F00D007EAE0A /* LoadingButton.swift in Sources */,
 				7131309B287AF0D2005BA798 /* Reachability.swift in Sources */,
@@ -868,7 +864,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -933,7 +929,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -962,8 +958,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GZ86AFRF74;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NamazTimes/Supporting/Info.plist;
+				INFOPLIST_FILE = "";
+				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
@@ -1003,8 +1001,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GZ86AFRF74;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NamazTimes/Supporting/Info.plist;
+				INFOPLIST_FILE = "";
+				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";

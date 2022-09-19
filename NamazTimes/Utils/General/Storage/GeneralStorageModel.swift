@@ -8,22 +8,25 @@
 import Foundation
 import RealmSwift
 
-class YearTimes: Object {
-    @Persisted var cityName: String = ""
-    @Persisted var times = List<DailyTime>()
+class CityPrayerData: Object {
+    @objc dynamic var cityInfo: CityInfo?
+    var times = List<DailyTime>()
+    
+    required convenience init(data: CityData) {
+        self.init()
+        self.cityInfo = data.attributes
+        self.times.append(objectsIn: data.days ?? [DailyTime]())
+        
+    }
 }
 
-class PrayerTimesListSettings: Object {
-    @Persisted var prayerTimes: List<PrayerTime>
-}
-
-class PrayerTime: Object {
-    @objc dynamic var name: String = ""
+class PrayerTimesVisibilitySettings: Object {
+    @objc dynamic var code: String = ""
     @objc dynamic var isHidden: Bool = false
 
-    required convenience init(name: String, isHidden: Bool) {
+    required convenience init(code: String, isHidden: Bool) {
         self.init()
-        self.name = name
+        self.code = code
         self.isHidden = isHidden
     }
 }

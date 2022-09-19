@@ -11,7 +11,7 @@ class DTSettingsView: UIView {
 
     var settingsDidChanged: ((_ value: Bool, _ index: IndexPath)-> Void)?
 
-    private var timesList = [PrayerTimesList]()
+    private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTSettingsCell"
     private let requiredTimes: [PrayerTimes] = GeneralStorageController.shared.getRequiredList()
     
@@ -35,11 +35,14 @@ class DTSettingsView: UIView {
         super.init(frame: frame)
 
         configureSubviews()
-        tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        reload()
     }
     
     private func configureSubviews() {
@@ -54,7 +57,7 @@ class DTSettingsView: UIView {
         ])
     }
     
-    func set(data: [PrayerTimesList]) {
+    func set(data: [DailyPrayerTime]) {
         timesList = data
         tableView.reloadData()
     }
@@ -68,8 +71,7 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
         }
         
         let item = timesList[indexPath.row]
-        let enabled = !requiredTimes.contains(where: {$0.code.localized == item.name ?? ""})
-        cell.innerView.set(name: item.name ?? "", isHidden: item.isHidden, switchEnabled: enabled)
+        cell.innerView.set(name: item.code?.localized ?? "", isHidden: item.isHidden)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         cell.innerView.switchDidChangeAction = { [weak self]  value in
             self?.settingsDidChanged?(value, indexPath)
@@ -79,6 +81,22 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timesList.count
+    }
+    
+    func updateTableViewContentInset() {
+        let viewHeight: CGFloat = bounds.size.height
+        let tableViewContentHeight: CGFloat = tableView.contentSize.height
+        let marginHeight: CGFloat = (viewHeight - tableViewContentHeight) / 2.0
+
+        self.tableView.contentInset = marginHeight > 0 ?
+        UIEdgeInsets(top: marginHeight, left: 0, bottom:  -marginHeight, right: 0):
+        UIEdgeInsets(top: 0, left: 0, bottom:  0, right: 0)
+
+    }
+    
+    func reload() {
+        tableView.reloadData()
+        updateTableViewContentInset()
     }
 }
 

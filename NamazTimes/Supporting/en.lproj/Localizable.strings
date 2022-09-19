@@ -46,8 +46,11 @@
 "ishtibaq" = "Иштибак";
 "quptan" = "Құптан";
 "ishaisani" = "Имсак";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
-//"location" = "Location";
+
+// Network errors
+"bad_request" = "Bad request";
+"network_error" = "No internet connection";
+"time_out" = "Request limit exceeded";
+"decode_error" = "Unable to decode";
+"no_data" = "No data";
 
