@@ -115,12 +115,12 @@ extension DailyTimesViewController: UICollectionViewDataSource {
         case 0:
             guard let cell: BaseCollectionContainerCell<DTListView> = collectionView.dequeueReusableCell(withReuseIdentifier: listCellId, for: indexPath) as? BaseCollectionContainerCell<DTListView> else { return collectionCell }
             
-            cell.innerView.set(data: data.filter({$0.isHidden == false }))
+            cell.innerView.set(data: data.filter({!$0.isHidden}))
             collectionCell = cell
         case 1:
             guard let cell: BaseCollectionContainerCell<DTSettingsView> = collectionView.dequeueReusableCell(withReuseIdentifier: settingsCellId, for: indexPath) as? BaseCollectionContainerCell<DTSettingsView> else { return collectionCell }
             
-            cell.innerView.set(data: data)
+            cell.innerView.set(data: data.filter({!$0.required }))
             cell.innerView.settingsDidChanged = { [weak self] value, index in
                 self?.interactor?.didChageSwitch(for: index, to: value)
             }

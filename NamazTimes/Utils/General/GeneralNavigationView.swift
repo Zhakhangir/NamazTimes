@@ -113,7 +113,7 @@ class GeneralNavigationView: UIView {
         backgroundColor = GeneralColor.backgroundGray
 
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = .systemFont(dynamicSize: 24, weight: .regular)
+        titleLabel.font = BaseFont.regular.withSize(25)
         
         miladMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
         miladMonthName.textColor = GeneralColor.el_subtitle
@@ -127,7 +127,7 @@ class GeneralNavigationView: UIView {
         spaceView.layer.cornerRadius = 1
     }
     
-    func configure(with viewModel: CityInfo) {
-        titleLabel.text = viewModel.cityName
+    func configure(with viewModel: CityInfo?) {
+        titleLabel.text = viewModel?.cityName
     }
 }

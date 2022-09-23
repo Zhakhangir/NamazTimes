@@ -9,11 +9,10 @@ import UIKit
 
 class DTSettingsView: UIView {
 
-    var settingsDidChanged: ((_ value: Bool, _ index: IndexPath)-> Void)?
+    var settingsDidChanged: ((_ value: Bool, _ code: String)-> Void)?
 
     private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTSettingsCell"
-    private let requiredTimes: [PrayerTimes] = GeneralStorageController.shared.getRequiredList()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -74,7 +73,7 @@ extension DTSettingsView: UITableViewDataSource, UITableViewDelegate {
         cell.innerView.set(name: item.code?.localized ?? "", isHidden: item.isHidden)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         cell.innerView.switchDidChangeAction = { [weak self]  value in
-            self?.settingsDidChanged?(value, indexPath)
+            self?.settingsDidChanged?(value, item.code ?? "")
         }
         return cell
     }

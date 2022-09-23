@@ -13,7 +13,7 @@ class BaseHeaderView: UIView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 16, weight: .medium)
+        label.font = BaseFont.medium.withSize(16)
         label.textColor = .black
         return label
     }()

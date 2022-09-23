@@ -11,26 +11,15 @@ import RealmSwift
 struct GeneralStorageController {
     
     static var shared = GeneralStorageController()
-    private let requiredTimes: [PrayerTimes] = [.imsak, .bamdat, .kun, .besin, .ekindi, .aqsham, .quptan]
     private let realm = try! Realm()
     
-    let currentDateTime = Date().toString(format: "YYYY-MM-dd HH:mm")
-    
-    private let timesVisibilitySettings: [PrayerTimesVisibilitySettings] = [
-        .init(code: "imsak", isHidden: false),
-        .init(code: "bamdat", isHidden: false),
-        .init(code: "kun", isHidden: false),
-        .init(code: "ishraq", isHidden: true),
-        .init(code: "kerahat", isHidden: true),
-        .init(code: "besin", isHidden: false),
-        .init(code: "asriauual", isHidden: true),
-        .init(code: "ekindi", isHidden: false),
-        .init(code: "isfirar", isHidden: true),
-        .init(code: "aqsham", isHidden: false),
-        .init(code: "ishtibaq", isHidden: true),
-        .init(code: "quptan", isHidden: false),
-        .init(code: "ishaisani", isHidden: true)
-    ]
+    private let timesVisibilitySettings: [PrayerTimesVisibilitySettings] = {
+        var settings = [PrayerTimesVisibilitySettings]()
+        for (index, item) in PrayerTimes.allCases.enumerated() {
+            settings.append(.init(code: item.code, isHidden: !item.required))
+        }
+        return settings
+    }()
     
     func baseConfiguration() {
         if getTimesVisibilitySettings().isEmpty {
@@ -43,17 +32,6 @@ struct GeneralStorageController {
         }
     }
     
-    private func getTimesVisibilitySettings() -> [PrayerTimesVisibilitySettings] {
-        return realm.objects(PrayerTimesVisibilitySettings.self).toArray(ofType: PrayerTimesVisibilitySettings.self)
-    }
-    
-    func changeTimesVisibilitySettings(for index: Int, to value: Bool) {
-        let settings = realm.objects(PrayerTimesVisibilitySettings.self)
-        try! realm.write {
-            settings[index].isHidden = value
-        }
-    }
-    
     func getCityInfo() -> CityInfo? {
         return realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first?.cityInfo
     }
@@ -61,15 +39,33 @@ struct GeneralStorageController {
     func getDailyTimes(for day: PrayerTimeDays = .today) -> [DailyPrayerTime] {
         let mainData = realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first
         let times = mainData?.times.first(where: { $0.date == PrayerTimeDays.today.date })
+        let settings = getTimesVisibilitySettings()
         
-        let dailyPrayerTimes = PrayerTimes.allCases.map { item in
-            DailyPrayerTime(code: item.code,
-                            time: (times?.value(forKey:  item.code) as? String),
-                            isHidden: false,
-                            isCurrent: false)
+        var dailyPrayerTimes = [DailyPrayerTime]()
+        
+        for (index,item) in PrayerTimes.allCases.enumerated() {
+            let prayerTime = DailyPrayerTime(code: item.code,
+                                             time: times?.value(forKey: item.code) as? String,
+                                             isHidden: settings[index].isHidden,
+                                             required: item.required)
+            dailyPrayerTimes.append(prayerTime)
         }
+        
         return dailyPrayerTimes
     }
+    
+    func changeTimesVisibilitySettings(for code: String, to value: Bool) {
+        let settings = realm.objects(PrayerTimesVisibilitySettings.self)
+        let index = settings.firstIndex(where: { $0.code == code }) ?? 0
+        try! realm.write {
+            settings[index].isHidden = !value
+        }
+    }
+    
+    private func getTimesVisibilitySettings() -> [PrayerTimesVisibilitySettings] {
+        return realm.objects(PrayerTimesVisibilitySettings.self).toArray(ofType: PrayerTimesVisibilitySettings.self)
+    }
+    
 //
 //    func currentPrayerTime(for day: PrayerTimeDays = .today) -> (current: PrayerTimes, next: PrayerTimes) {
 //        let dailyTimes = getDailyTimes()
@@ -93,9 +89,5 @@ struct GeneralStorageController {
 //
 //        return (current: current, next: next)
 //    }
-    
 
-    func getRequiredList() -> [PrayerTimes] {
-        return requiredTimes
-    }
 }

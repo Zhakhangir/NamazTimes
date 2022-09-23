@@ -13,11 +13,11 @@ enum PrayerTimeDays {
     var date: String {
         switch self {
         case .today:
-            return Date().toString(format: "YYYY-MM-dd")
+            return Date().toString(format: "dd-MM-YYYY")
         case .yesterdas:
-            return Date().dayAfter.toString(format: "YYYY-MM-dd")
+            return Date().dayAfter.toString(format: "dd-MM-YYYY")
         case .tomorrow:
-           return  Date().dayBefore.toString(format: "YYYY-MM-dd")
+           return  Date().dayBefore.toString(format: "dd-MM-YYYY")
         }
     }
 }

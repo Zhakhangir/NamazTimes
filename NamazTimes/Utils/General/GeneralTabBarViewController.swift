@@ -11,14 +11,24 @@ import CoreLocation
 class GeneralTabBarViewController: UITabBarController {
     
     let navigationView = GeneralNavigationView()
+    
+    let seperatorView: UIView = {
+        let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
+        view.backgroundColor = GeneralColor.black.withAlphaComponent(0.2)
+
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = GeneralColor.primary
+        
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
+        
 
         setupChilds()
-        configureHeaderView()
+        configureSubviews()
+        stylize()
+        addActions()
     }
     
     convenience init(selectedIndex: Int?) {
@@ -28,14 +38,29 @@ class GeneralTabBarViewController: UITabBarController {
         self.selectedIndex = selectedIndex
     }
 
-    private func configureHeaderView() {
+    private func configureSubviews() {
+        
         view.addSubview(navigationView)
-        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
+        view.addSubview(seperatorView)
+        
+        var layoutConstraints = [NSLayoutConstraint]()
+        
+        seperatorView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            seperatorView.bottomAnchor.constraint(equalTo: tabBar.topAnchor),
+            seperatorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            seperatorView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+        
         navigationView.translatesAutoresizingMaskIntoConstraints = false
-
-        navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        layoutConstraints += [
+            navigationView.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+       
+       
+        NSLayoutConstraint.activate(layoutConstraints)
     }
 
     private func setupChilds() {
@@ -64,7 +89,10 @@ class GeneralTabBarViewController: UITabBarController {
        present(vc, animated: true, completion: nil)
     }
     
-    func configure(with viewModel: CityInfo) {
-        navigationView.configure(with: viewModel)
+    private func addActions() {
+        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
+    }
+    private func stylize() {
+        navigationView.configure(with: GeneralStorageController.shared.getCityInfo())
     }
 }
