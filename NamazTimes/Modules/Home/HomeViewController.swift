@@ -25,7 +25,6 @@ class HomeViewController: GeneralViewController {
     private let timesList: DTListView = {
         let list = DTListView(mode: .small)
         list.isUserInteractionEnabled = false
-        list.set(rowHeight: 38)
         return list
     }()
     
@@ -52,12 +51,16 @@ class HomeViewController: GeneralViewController {
         stackView.spacing = 4
         return stackView
     }()
+    
+    override func viewDidLayoutSubviews() {
+//        circularProgressBar.frame = CGRect(x: contentView.center.x , y: contentView.center.y, width: contentView.bounds.width, height: contentView.bounds.height)
+//        circularProgressBar.backgroundColor = .darkGray
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        configureTimes()
         addSubviews()
         setupLayout()
         stylize()
@@ -78,8 +81,12 @@ class HomeViewController: GeneralViewController {
 
         circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            circularProgressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (150 + 10 + 50))
+            circularProgressBar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor),
+            circularProgressBar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            circularProgressBar.heightAnchor.constraint(equalToConstant:200)
+//            circularProgressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor)
         ]
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
@@ -109,12 +116,8 @@ class HomeViewController: GeneralViewController {
 
     private func stylize() {
         timesList.set(data: interactor?.getTimesList() ?? [DailyPrayerTime]())
+        timesList.set(rowHeight: 40)
         currentTimeStatus.text = "local_time".localized
-    }
-
-    private func configureTimes() {
-        guard let cityInfo = interactor?.getCityInfo() else { return }
-        (parent as? GeneralTabBarViewController)?.configure(with: cityInfo)
     }
 
     override func secondRefresh() {

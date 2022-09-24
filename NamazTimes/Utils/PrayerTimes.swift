@@ -43,4 +43,35 @@ enum PrayerTimes: CaseIterable {
             return "ishaisani"
         }
     }
+    
+    var required: Bool {
+        switch self {
+        case .imsak:
+            return true
+        case .bamdat:
+            return true
+        case .kun:
+            return true
+        case .ishraq:
+            return false
+        case .kerahat:
+            return false
+        case .besin:
+            return true
+        case .asriauual:
+            return false
+        case .ekindi:
+            return true
+        case .isfirar:
+            return false
+        case .aqsham:
+            return true
+        case .ishtibaq:
+            return false
+        case .quptan:
+            return true
+        case .ishaisani:
+            return false
+        }
+    }
 }

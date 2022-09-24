@@ -9,33 +9,30 @@ import Foundation
 
 protocol DailyTimesInteractorInput {
     func getData() -> [DailyPrayerTime]
-    func didChageSwitch(for index: IndexPath, to value: Bool)
+    func didChageSwitch(for code: String, to value: Bool)
 }
 
 struct DailyPrayerTime {
     var code: String?
     var time: String?
     var isHidden: Bool = false
-    var isCurrent: Bool = false
+    var required: Bool = false
 }
 
 class DailyTimesInteractor: DailyTimesInteractorInput {
 
     var view: DailyTimesViewInput
     private var prayerTimesVisibilitySettings = [PrayerTimesVisibilitySettings]()
-    private var dailyTimes = [DailyPrayerTime]()
     
     init(view: DailyTimesViewInput) {
         self.view = view
-        
-        dailyTimes = GeneralStorageController.shared.getDailyTimes()
     }
 
     func getData() -> [DailyPrayerTime] {
-        return dailyTimes
+        return GeneralStorageController.shared.getDailyTimes()
     }
 
-    func didChageSwitch(for index: IndexPath, to value: Bool) {
-        GeneralStorageController.shared.changeTimesVisibilitySettings(for: index.row, to: value)
+    func didChageSwitch(for code: String, to value: Bool) {
+        GeneralStorageController.shared.changeTimesVisibilitySettings(for: code, to: value)
     }
 }

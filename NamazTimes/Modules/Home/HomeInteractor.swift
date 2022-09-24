@@ -12,6 +12,7 @@ protocol HomeInteractorInput {
     func getCityInfo() -> CityInfo?
     func getTimesList() -> [DailyPrayerTime]
     func getCurrentNextTime() -> (current: PrayerTimes, next: PrayerTimes)
+    func getRowHeight() -> CGFloat
     func getTimesListHeight() -> CGFloat
 }
 
@@ -22,7 +23,6 @@ class HomeInteractor: HomeInteractorInput {
     
     private var cityInfo = GeneralStorageController.shared.getCityInfo()
     private var dailyTime = GeneralStorageController.shared.getDailyTimes()
-    private let requiredTimes = GeneralStorageController.shared.getRequiredList()
     private var timesList: [DailyPrayerTime] = []
 
     init(view: HomeViewInput) {
@@ -36,11 +36,16 @@ class HomeInteractor: HomeInteractorInput {
     }
 
     func getTimesList() -> [DailyPrayerTime] {
-        return GeneralStorageController.shared.getDailyTimes()
+        let times = GeneralStorageController.shared.getDailyTimes()
+        return times.filter({$0.required})
     }
 
     func getTimesListHeight() -> CGFloat {
-        return CGFloat(requiredTimes.count * 38)
+        return CGFloat(PrayerTimes.allCases.filter({$0.required}).count) * getRowHeight()
+    }
+    
+    func getRowHeight() -> CGFloat {
+        return (view.contentView.frame.height / 7)
     }
     
     func getCurrentNextTime() -> (current: PrayerTimes, next: PrayerTimes) {

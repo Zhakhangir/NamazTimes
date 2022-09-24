@@ -85,6 +85,8 @@
 		71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */; };
 		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
+		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
+		71BDCE8F28DA53770073DBDF /* PrigressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8E28DA53770073DBDF /* PrigressBar.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
 		71E1E62F28D489380042246E /* PrayerTimeDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* PrayerTimeDays.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
@@ -183,6 +185,8 @@
 		71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerCollectionCell.swift; sourceTree = "<group>"; };
 		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
+		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
+		71BDCE8E28DA53770073DBDF /* PrigressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrigressBar.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
 		71E1E62E28D489370042246E /* PrayerTimeDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeDays.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -460,6 +464,7 @@
 				71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */,
 				71A68EC5283FDC59009BB374 /* CurrentPrayerTimeView.swift */,
 				711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */,
+				71BDCE8E28DA53770073DBDF /* PrigressBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -514,6 +519,13 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		71BDCE7F28DA33DA0073DBDF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		71D8AAC128C06DAB00EB65FC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +558,7 @@
 				714A20BE2810353900E8A81A /* Extensions */,
 				714A20BD2810352600E8A81A /* General */,
 				711C990628BBD60100841934 /* DeviceFinder.swift */,
+				71BDCE8C28DA37F50073DBDF /* BaseFont.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -564,6 +577,7 @@
 		71E4F73D280C37B00091B120 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				71BDCE7F28DA33DA0073DBDF /* Fonts */,
 				7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */,
 				712AEB0428C79A7800544F4B /* loader.json */,
 				712AEB0528C79A7800544F4B /* locate_animation.json */,
@@ -750,11 +764,13 @@
 				71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */,
 				71440F342840AB7500581C59 /* Date+Extension.swift in Sources */,
 				7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */,
+				71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */,
 				71574FFB2886BB6900061F91 /* ParameterEncoding.swift in Sources */,
 				71AF5BFC28C5FBC1004319D5 /* CircularProgressBar.swift in Sources */,
 				7173733428B5D80F00339EF1 /* SettingsViewController.swift in Sources */,
 				712AEB0928C7A75700544F4B /* BaseHeaderView.swift in Sources */,
 				71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */,
+				71BDCE8F28DA53770073DBDF /* PrigressBar.swift in Sources */,
 				71A68EC6283FDC59009BB374 /* CurrentPrayerTimeView.swift in Sources */,
 				71ACB2EB2844EA2D00371C25 /* QFMapViewController.swift in Sources */,
 				714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */,
@@ -957,7 +973,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GZ86AFRF74;
+				DEVELOPMENT_TEAM = M358H5F32F;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
@@ -1000,7 +1016,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GZ86AFRF74;
+				DEVELOPMENT_TEAM = M358H5F32F;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";

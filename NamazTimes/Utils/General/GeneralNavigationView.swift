@@ -11,38 +11,17 @@ import Lottie
 class GeneralNavigationView: UIView {
 
     let titleLabel = UILabel()
-    let miladMonthName = UILabel()
-    let hijriMonthName = UILabel()
+    let rightButton = UIButton()
+    let leftButton = UIButton()
 
-    private lazy var animationView: AnimationView = {
-        let animationView = AnimationView(name: "locate_animation")
-        animationView.backgroundBehavior = .pauseAndRestore
-        animationView.loopMode = .loop
-        animationView.animationSpeed = 1
-        animationView.play()
-
-        return animationView
-    }()
-
-    private let spaceView = UIView()
-
-    lazy var infoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, monthsStackView])
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftButton ,titleLabel, rightButton])
         stackView.axis = .vertical
         stackView.spacing = 8
-        stackView.alignment = .fill
 
         return stackView
     }()
-
-    lazy var monthsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [miladMonthName, spaceView, hijriMonthName])
-        stackView.axis = .horizontal
-        stackView.spacing = 4
-
-        return stackView
-    }()
-
+    
     let seperatorView: UIView = {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
         view.backgroundColor = GeneralColor.black.withAlphaComponent(0.2)
@@ -53,81 +32,57 @@ class GeneralNavigationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        configureHeaderView()
-        setupHeaderViewLayout()
-        stylizeHeaderView()
+        configureSubviews()
+        stylize()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configureHeaderView() {
-        addSubview(animationView)
-        addSubview(infoStackView)
+    private func configureSubviews() {
+
+        addSubview(stackView)
         addSubview(seperatorView)
-    }
-
-    private func setupHeaderViewLayout() {
-
+        
         var layoutConstraints = [NSLayoutConstraint]()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
+            
+        leftButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            animationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            animationView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            animationView.heightAnchor.constraint(equalToConstant: 70),
-            animationView.widthAnchor.constraint(equalToConstant: 70)
+            leftButton.heightAnchor.constraint(equalToConstant: 30),
+            leftButton.widthAnchor.constraint(equalToConstant: 30)
         ]
 
-        infoStackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            infoStackView.leadingAnchor.constraint(equalTo: animationView.trailingAnchor, constant: 8),
-            infoStackView.topAnchor.constraint(equalTo: animationView.topAnchor),
-            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
 
         ]
 
-        spaceView.translatesAutoresizingMaskIntoConstraints = false
+        rightButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            spaceView.widthAnchor.constraint(equalToConstant: 2)
+            rightButton.heightAnchor.constraint(equalToConstant: 30),
+            rightButton.widthAnchor.constraint(equalToConstant: 30)
         ]
-
+        
         seperatorView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            seperatorView.heightAnchor.constraint(equalToConstant: 1),
             seperatorView.topAnchor.constraint(equalTo: bottomAnchor),
             seperatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
 
-        if #available(iOS 11.0, *) {
-            animationView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        } else {
-            animationView.topAnchor.constraint(equalTo: topAnchor, constant: 35).isActive = true
-        }
-
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
-    private func stylizeHeaderView() {
+    private func stylize() {
         backgroundColor = GeneralColor.backgroundGray
 
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = .systemFont(dynamicSize: 24, weight: .regular)
-        
-        miladMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
-        miladMonthName.textColor = GeneralColor.el_subtitle
-        miladMonthName.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-
-        hijriMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
-        hijriMonthName.textColor = GeneralColor.el_subtitle
-        hijriMonthName.setContentHuggingPriority(.defaultLow, for: .horizontal)
-
-        spaceView.backgroundColor = GeneralColor.el_subtitle
-        spaceView.layer.cornerRadius = 1
-    }
-    
-    func configure(with viewModel: CityInfo) {
-        titleLabel.text = viewModel.cityName
+        titleLabel.font = BaseFont.regular.withSize(25)
+        titleLabel.textAlignment = .left
     }
 }

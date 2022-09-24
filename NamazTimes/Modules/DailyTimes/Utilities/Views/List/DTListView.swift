@@ -99,9 +99,6 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
         let item = timesList[indexPath.row]
         cell.configure(viewModel: item, mode: mode)
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
-        if item.isCurrent {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         
         return cell
     }

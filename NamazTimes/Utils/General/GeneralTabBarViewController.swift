@@ -11,14 +11,19 @@ import CoreLocation
 class GeneralTabBarViewController: UITabBarController {
     
     let navigationView = GeneralNavigationView()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = GeneralColor.primary
+        
         tabBar.layer.borderColor = GeneralColor.primary.cgColor
+        
 
         setupChilds()
-        configureHeaderView()
+        configureSubviews()
+        stylize()
+        addActions()
     }
     
     convenience init(selectedIndex: Int?) {
@@ -28,22 +33,27 @@ class GeneralTabBarViewController: UITabBarController {
         self.selectedIndex = selectedIndex
     }
 
-    private func configureHeaderView() {
+    private func configureSubviews() {
+        
         view.addSubview(navigationView)
-        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
+        
+        var layoutConstraints = [NSLayoutConstraint]()
+        
         navigationView.translatesAutoresizingMaskIntoConstraints = false
-
-        navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        layoutConstraints += [
+            navigationView.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+       
+       
+        NSLayoutConstraint.activate(layoutConstraints)
     }
 
     private func setupChilds() {
         viewControllers = [
             createTabBarController(with: HomeRouter().build(), title: "interval".localized,  image: UIImage(named: "clock")),
-            createTabBarController(with: DailyTimesRouter().build(), title: "daily_times".localized, image: UIImage(named: "calendar")),
-            createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass")),
-            createTabBarController(with: SettingsRouter().build(), title: "settings".localized, image: UIImage(named: "settings"))
+            createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass"))
         ]
     }
 
@@ -64,7 +74,11 @@ class GeneralTabBarViewController: UITabBarController {
        present(vc, animated: true, completion: nil)
     }
     
-    func configure(with viewModel: CityInfo) {
-        navigationView.configure(with: viewModel)
+    private func addActions() {
+        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
+    }
+    
+    private func stylize() {
+    
     }
 }

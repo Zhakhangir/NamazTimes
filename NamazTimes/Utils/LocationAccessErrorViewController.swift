@@ -14,7 +14,7 @@ class LocationAccessErrorViewController: UIViewController {
         label.textAlignment = .center
         label.textColor = .red
         label.text = "warning".localized + "!"
-        label.font = .systemFont(dynamicSize: 25, weight: .regular)
+        label.font = BaseFont.regular.withSize(25)
         return label
     }()
 
@@ -23,7 +23,7 @@ class LocationAccessErrorViewController: UIViewController {
         textView.text = "location_access".localized
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = .systemFont(dynamicSize: 16, weight: .regular)
+        textView.font = BaseFont.regular.withSize(16)
         return textView
     }()
 

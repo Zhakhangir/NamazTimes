@@ -20,6 +20,7 @@ class CircularProgressBarView: UIView {
         super.init(frame: frame)
 
         createCircularPath()
+        backgroundColor = .red
         addSubviews()
     }
 
@@ -32,14 +33,14 @@ class CircularProgressBarView: UIView {
         innerView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            innerView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+            innerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             innerView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 
     private func createCircularPath() {
 
-        let radius = ((UIScreen.main.bounds.width / 2) - 30)
+        let radius = (UIScreen.main.bounds.width / 2)
         let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 5*Double.pi/6, endAngle: Double.pi/6, clockwise: true)
 
         let greyLayer = CAShapeLayer()
