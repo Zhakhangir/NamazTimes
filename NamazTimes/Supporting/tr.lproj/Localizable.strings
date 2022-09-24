@@ -16,7 +16,7 @@
 "done" = "Done";
 "error" = "Ошибка";
 "network_error" = "Network connection error. Please try again later.";
-"interval" = "interval";
+"times" = "Times";
 "minutes" = "minutes";
 "seconds" = "seconds";
 "remaining" = "";

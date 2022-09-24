@@ -16,7 +16,7 @@
 "done" = "Done";
 "error" = "Error";
 "network_error" = "Network connection error. Please try again later.";
-"interval" = "Interval time";
+"times" = "Times";
 "daily" = "Daily times";
 "settings" = "Settings";
 "qibla_st" = "Qibla";
@@ -53,4 +53,3 @@
 "time_out" = "Request limit exceeded";
 "decode_error" = "Unable to decode";
 "no_data" = "No data";
-
