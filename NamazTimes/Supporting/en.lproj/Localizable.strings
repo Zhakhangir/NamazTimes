@@ -31,7 +31,7 @@
 "seconds" = "seconds";
 "open_settings" = "Open settings";
 "location_access" = "Namaz Times application uses your location to determine the place of Namaz. Please give access to the location";
-
+"app_settings" = "Application settings";
 //PrayerTimes
 "imsak" = "Имсак";
 "bamdat" = "Бамдат";

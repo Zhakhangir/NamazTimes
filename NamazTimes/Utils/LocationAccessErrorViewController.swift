@@ -67,25 +67,15 @@ class LocationAccessErrorViewController: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             actionButton.heightAnchor.constraint(equalToConstant: 48),
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ]
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         layoutContraints += [
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ]
-
-        if #available(iOS 11.0, *) {
-            layoutContraints += [
-                stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-                actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-            ]
-        } else {
-            layoutContraints += [
-                stackView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor, constant: 16),
-                actionButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor, constant: -16)
-            ]
-        }
 
         NSLayoutConstraint.activate(layoutContraints)
     }

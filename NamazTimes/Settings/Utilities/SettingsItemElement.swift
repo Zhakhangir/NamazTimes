@@ -10,10 +10,8 @@ import UIKit
 struct SettingsTableSection {
     var title: String?
     var description: String?
-    var elements: SettingsSection
+    var elements: [SettingsItemElement]
 }
-
-typealias SettingsSection = [SettingsItemElement]
 
 struct SettingsItemElement {
     var icon: UIImage?

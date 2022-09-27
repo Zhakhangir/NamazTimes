@@ -116,11 +116,14 @@ extension LanguageSelectionViewController: UITableViewDataSource {
 extension LanguageSelectionViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserDefaults.standard.set(languages[indexPath.row].code, forKey: "language")
-        UserDefaults().synchronize()
-       
-        self.dismiss(animated: true, completion: {
-            UIApplication.shared.keyWindow?.rootViewController = GeneralTabBarViewController(selectedIndex: 3)
-        })
+        let code = languages[indexPath.row].code
+        if code != UserDefaults.standard.string(forKey: "language") ?? "" {
+            UserDefaults.standard.set(code, forKey: "language")
+            UserDefaults().synchronize()
+           
+            self.dismiss(animated: true, completion: {
+                self.delegate?.didSelectLanguage()
+            })
+        }
     }
 }

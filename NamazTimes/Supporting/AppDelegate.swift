@@ -26,12 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func configure() {
+        
         if UserDefaults.standard.string(forKey: "language") == nil {
             UserDefaults.standard.set(LanguageHelper().code, forKey: "language")
         }
-        
-        GeneralStorageController.shared.baseConfiguration()
-        
+    
         window?.rootViewController =  LocationService.sharedInstance.getConfiguredRoot()
     }
     

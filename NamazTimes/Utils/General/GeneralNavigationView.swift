@@ -8,25 +8,28 @@
 import UIKit
 import Lottie
 
+enum NavigationButton: Int {
+    case location = 1, settings
+}
+
+protocol NavigationButtonDelegate {
+    func didTapButton(type: NavigationButton)
+}
+
 class GeneralNavigationView: UIView {
 
     let titleLabel = UILabel()
     let rightButton = UIButton()
     let leftButton = UIButton()
+    let seperatorView = UIView()
+    var delegate: NavigationButtonDelegate?
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [leftButton ,titleLabel, rightButton])
-        stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.axis = .horizontal
+        stackView.setCustomSpacing(8, after: rightButton)
 
         return stackView
-    }()
-    
-    let seperatorView: UIView = {
-        let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
-        view.backgroundColor = GeneralColor.black.withAlphaComponent(0.2)
-
-        return view
     }()
 
     override init(frame: CGRect) {
@@ -49,27 +52,28 @@ class GeneralNavigationView: UIView {
             
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            leftButton.heightAnchor.constraint(equalToConstant: 30),
-            leftButton.widthAnchor.constraint(equalToConstant: 30)
+            leftButton.heightAnchor.constraint(equalToConstant: 32),
+            leftButton.widthAnchor.constraint(equalToConstant: 32)
         ]
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
 
         ]
 
         rightButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            rightButton.heightAnchor.constraint(equalToConstant: 30),
-            rightButton.widthAnchor.constraint(equalToConstant: 30)
+            rightButton.heightAnchor.constraint(equalToConstant: 32),
+            rightButton.widthAnchor.constraint(equalToConstant: 32)
         ]
         
         seperatorView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
+            seperatorView.heightAnchor.constraint(equalToConstant: 1),
             seperatorView.topAnchor.constraint(equalTo: bottomAnchor),
             seperatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
@@ -81,8 +85,25 @@ class GeneralNavigationView: UIView {
     private func stylize() {
         backgroundColor = GeneralColor.backgroundGray
 
+        titleLabel.text = GeneralStorageController.shared.getCityInfo()?.cityName
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = BaseFont.regular.withSize(25)
+        titleLabel.font = BaseFont.medium.withSize(20)
         titleLabel.textAlignment = .left
+        
+        leftButton.setImage(UIImage(named: "location_point"), for: .normal)
+        leftButton.tag = 1
+        rightButton.setImage(UIImage(named: "settings"), for: .normal)
+        rightButton.tag = 2
+        
+        seperatorView.backgroundColor = .black.withAlphaComponent(0.2)
+        
+        leftButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func didTapButton(_ sender: UIButton?) {
+        guard let sender = sender else { return }
+        
+        delegate?.didTapButton(type: NavigationButton(rawValue: sender.tag) ?? .location)
     }
 }

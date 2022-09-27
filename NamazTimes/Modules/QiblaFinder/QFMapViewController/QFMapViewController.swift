@@ -85,7 +85,6 @@ class QFMapViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(mapView)
-        //        view.addSubview(aimImageView)
         view.addSubview(mapTypeSegmentedControl)
         view.addSubview(closeButton)
         view.addSubview(locationButton)
@@ -126,7 +125,7 @@ class QFMapViewController: UIViewController {
 
         mapView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)

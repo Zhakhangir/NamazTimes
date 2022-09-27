@@ -5,15 +5,16 @@
 //  Created by &&TairoV on 24.08.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol SettingsRouterInput {
     func routeToLanuageSettings(delegate: LanguageSelectionDelegate?)
     func routeToLocationSettings()
+    func routeToParent()
 }
 
 class SettingsRouter: SettingsRouterInput {
-
+   
     var view: SettingsViewInput?
 
     public func build() -> SettingsViewInput {
@@ -33,9 +34,16 @@ class SettingsRouter: SettingsRouterInput {
     }
 
     func routeToLocationSettings() {
-        let vc = LocationFinderRouter().build()
+        let vc = LocationFinderRouter(hideCloseButton: false).build()
         vc.modalPresentationStyle = .fullScreen
         view?.present(vc, animated: true, completion: nil)
+    }
+    
+    func routeToParent() {
+        let vc = GeneralTabBarViewController(selectedIndex: 0)
+        view?.dismiss(animated: true, completion: {
+            UIApplication.shared.keyWindow?.rootViewController = vc
+        })
     }
 }
 

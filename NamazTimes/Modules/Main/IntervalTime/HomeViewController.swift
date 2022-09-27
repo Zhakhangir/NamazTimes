@@ -51,63 +51,59 @@ class HomeViewController: GeneralViewController {
         stackView.spacing = 4
         return stackView
     }()
-    
-    override func viewDidLayoutSubviews() {
-//        circularProgressBar.frame = CGRect(x: contentView.center.x , y: contentView.center.y, width: contentView.bounds.width, height: contentView.bounds.height)
-//        circularProgressBar.backgroundColor = .darkGray
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-
+        
         addSubviews()
         setupLayout()
         stylize()
     }
 
     private func addSubviews() {
-        contentView.addSubview(circularProgressBar)
-        contentView.addSubview(currentTimeStack)
+        view.addSubview(circularProgressBar)
+        view.addSubview(currentTimeStack)
 
         if DeviceType.heightType == .big {
-            contentView.addSubview(timesList)
+            view.addSubview(timesList)
         }
     }
 
     private func setupLayout() {
         var layoutConstraints = [NSLayoutConstraint]()
-        let listHeight = interactor?.getTimesListHeight() ?? 0
 
         circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            circularProgressBar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor),
-            circularProgressBar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            circularProgressBar.heightAnchor.constraint(equalToConstant:200)
-//            circularProgressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            circularProgressBar.topAnchor.constraint(equalTo: contentView.topAnchor)
+            circularProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            circularProgressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
+            circularProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         timesList.translatesAutoresizingMaskIntoConstraints = false
         if DeviceType.heightType == .big {
+            
             layoutConstraints += [
-                timesList.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                timesList.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-                timesList.heightAnchor.constraint(equalToConstant: listHeight)
+                circularProgressBar.bottomAnchor.constraint(equalTo: timesList.topAnchor),
+                circularProgressBar.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width/2) * 1.5)
+            ]
+            
+            layoutConstraints += [
+                timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                timesList.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
             ]
 
             layoutConstraints += [
                 currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
-                currentTimeStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 currentTimeStack.leadingAnchor.constraint(equalTo: timesList.trailingAnchor, constant: 16)
             ]
         } else {
             layoutConstraints += [
-                currentTimeStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                currentTimeStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32),
-                currentTimeStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+                currentTimeStack.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor),
+                currentTimeStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                currentTimeStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+                currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
             ]
         }
 

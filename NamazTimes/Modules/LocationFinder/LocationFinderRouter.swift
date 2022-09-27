@@ -17,15 +17,15 @@ protocol LocationFinderRouterInput {
 class LocationFinderRouter: LocationFinderRouterInput {
 
     private var view: LocationFinderViewInput?
-    private var closeButton: Bool
+    private var hideCloseButton: Bool
 
-    init(closeButton: Bool = false) {
-        self.closeButton = closeButton
+    init(hideCloseButton: Bool = true) {
+        self.hideCloseButton = hideCloseButton
     }
 
     public func build() -> LocationFinderViewInput {
         let viewController = LocationFinderViewController()
-        let interactor = LocationFinderInteractor(view: viewController, closeButton: closeButton)
+        let interactor = LocationFinderInteractor(view: viewController, hideCloseButton: hideCloseButton)
 
         self.view = viewController
         viewController.router = self

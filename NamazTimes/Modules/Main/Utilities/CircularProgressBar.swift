@@ -10,17 +10,18 @@ import UIKit
 class CircularProgressBarView: UIView {
 
     private var progressLayer = CAShapeLayer()
-    private var startPoint = CGFloat(5 * Double.pi / 4)
-    private var endPoint = CGFloat(7 * Double.pi / 4)
+    let secondaryLayer = CAShapeLayer()
+    private var startPoint = CGFloat(5*Double.pi/6)
+    private var endPoint = CGFloat(Double.pi/6)
+    let radius = (UIScreen.main.bounds.width / 2 - 30)
     var totalDuration = 0
 
-    let innerView = ProgressBarInnerView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    let innerView = ProgressBarInnerView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         createCircularPath()
-        backgroundColor = .red
         addSubviews()
     }
 
@@ -33,28 +34,31 @@ class CircularProgressBarView: UIView {
         innerView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            innerView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            innerView.topAnchor.constraint(equalTo: topAnchor, constant: radius/2),
             innerView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 
     private func createCircularPath() {
 
-        let radius = (UIScreen.main.bounds.width / 2)
-        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 5*Double.pi/6, endAngle: Double.pi/6, clockwise: true)
-
-        let greyLayer = CAShapeLayer()
-        greyLayer.strokeColor = GeneralColor.primary.cgColor.copy(alpha: 0.5)
-        greyLayer.lineWidth = 13.0
-        greyLayer.path = circularPath.cgPath
-        greyLayer.fillColor = UIColor.clear.cgColor
-        layer.addSublayer(greyLayer)
+        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
+        
+        secondaryLayer.strokeColor = GeneralColor.primary.cgColor.copy(alpha: 0.5)
+        secondaryLayer.lineWidth = 13.0
+        secondaryLayer.path = circularPath.cgPath
+        secondaryLayer.fillColor = UIColor.clear.cgColor
+        layer.addSublayer(secondaryLayer)
 
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineWidth = 13.0
         progressLayer.strokeColor = GeneralColor.primary.cgColor
         layer.addSublayer(progressLayer)
+    }
+    
+    override func layoutSubviews() {
+        secondaryLayer.position = CGPoint(x: bounds.midX, y: (UIScreen.main.bounds.width / 2))
+        progressLayer.position = CGPoint(x: bounds.midX, y: (UIScreen.main.bounds.width / 2))
     }
 
     func setTimaValues(currentTime: PrayerTimes?, nextTime: PrayerTimes?) {

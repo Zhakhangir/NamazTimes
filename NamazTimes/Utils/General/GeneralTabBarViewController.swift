@@ -12,18 +12,15 @@ class GeneralTabBarViewController: UITabBarController {
     
     let navigationView = GeneralNavigationView()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.layer.borderColor = GeneralColor.primary.cgColor
+        view.backgroundColor = GeneralColor.backgroundGray
+        navigationView.delegate = self
         
-
         setupChilds()
         configureSubviews()
-        stylize()
-        addActions()
+        configure()
     }
     
     convenience init(selectedIndex: Int?) {
@@ -32,11 +29,20 @@ class GeneralTabBarViewController: UITabBarController {
         guard let selectedIndex = selectedIndex else {  return }
         self.selectedIndex = selectedIndex
     }
-
+    
+    private func configure() {
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithDefaultBackground()
+            
+            self.tabBar.standardAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = appearance
+        }
+    }
+    
     private func configureSubviews() {
         
         view.addSubview(navigationView)
-        
         var layoutConstraints = [NSLayoutConstraint]()
         
         navigationView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,40 +51,48 @@ class GeneralTabBarViewController: UITabBarController {
             navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]
-       
-       
+        
+        
         NSLayoutConstraint.activate(layoutConstraints)
     }
-
+    
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeRouter().build(), title: "interval".localized,  image: UIImage(named: "clock")),
+            createTabBarController(with: MainPageRouter().build(), title: "times".localized,  image: UIImage(named: "clock")),
             createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass"))
         ]
     }
-
+    
     private func createTabBarController( with rootViewController: UIViewController,
                                          title: String = "",
                                          image: UIImage?) -> UIViewController {
-
+        
         rootViewController.tabBarItem.title = title
         rootViewController.tabBarItem.image = image
-
+        
         return rootViewController
     }
-
-   @objc private func showLocationSettings() {
-
-       let vc = LocationFinderRouter().build()
-       vc.modalPresentationStyle = .fullScreen
-       present(vc, animated: true, completion: nil)
+    
+    func routeToLocationSettings() {
+        let vc = LocationFinderRouter(hideCloseButton: false).build()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
-    private func addActions() {
-        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
+    func routeToSettings(animate: Bool = false) {
+        let vc = SettingsRouter().build()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: animate, completion: nil)
     }
-    
-    private func stylize() {
-    
+}
+
+extension GeneralTabBarViewController: NavigationButtonDelegate {
+    func didTapButton(type: NavigationButton) {
+        switch type {
+        case .location:
+            routeToLocationSettings()
+        case .settings:
+            routeToSettings(animate: true)
+        }
     }
 }

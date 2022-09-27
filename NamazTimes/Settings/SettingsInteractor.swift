@@ -33,7 +33,7 @@ extension SettingsInteractor: SettingsInteractorInput {
 
     func createElements() {
         sections += [
-            .init(title: "settings".localized, elements: [
+            .init(elements: [
                 .init(icon: UIImage(named: "settings_location"), title: "location".localized, description: cityName, fieldType: .location),
                 .init(icon: UIImage(named: "settings_language"), title: "language".localized, description: LanguageHelper().name, fieldType: .language)
             ]),
@@ -78,7 +78,7 @@ extension SettingsInteractor: SettingsInteractorInput {
 
 extension SettingsInteractor: LanguageSelectionDelegate {
     func didSelectLanguage() {
-        view.reload()
+        view.routeToParent()
     }
 }
 

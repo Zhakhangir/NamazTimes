@@ -42,7 +42,6 @@ class SettingsItemView: UIView {
 
         backgroundColor = .white
         addSubviews()
-        setupLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -81,10 +80,6 @@ class SettingsItemView: UIView {
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)
-    }
-
-    private func setupLayout() {
-
     }
 }
 

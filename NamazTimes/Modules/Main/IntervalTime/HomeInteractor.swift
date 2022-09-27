@@ -45,7 +45,7 @@ class HomeInteractor: HomeInteractorInput {
     }
     
     func getRowHeight() -> CGFloat {
-        return (view.contentView.frame.height / 7)
+        return (view.view.frame.height / 7)
     }
     
     func getCurrentNextTime() -> (current: PrayerTimes, next: PrayerTimes) {

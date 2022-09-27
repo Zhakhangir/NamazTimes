@@ -54,9 +54,10 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.value)
                         return
                     }
+                    
                     let apiResponse = try JSONDecoder().decode(CitySearchModel.self, from: responseData)
                     completion(apiResponse,nil)
-                } catch { }
+                } catch { completion(nil, nil) }
             }
         }
     }
@@ -73,7 +74,6 @@ struct NetworkManager {
                     return
                 }
                 do {
-                    print(String(data: responseData, encoding: .utf8), data)
                     let apiResponse = try JSONDecoder().decode(CityData.self, from: responseData)
                     completion(apiResponse,nil)
                 } catch {

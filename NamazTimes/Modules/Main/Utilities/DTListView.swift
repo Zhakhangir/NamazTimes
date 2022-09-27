@@ -12,21 +12,22 @@ class DTListView: UIView {
     private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTListCell"
     private var mode: DeviceSize = .big
-    private let  rowHeight = 48
+    private let defaultRowHeight: CGFloat = 48.0
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
-        tableView.rowHeight = CGFloat(rowHeight)
+        tableView.rowHeight = defaultRowHeight
         tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = nil
         tableView.tableFooterView = UIView()
+        tableView.allowsSelection = false
         tableView.register(DTListItemCell.self, forCellReuseIdentifier: cellReuseId)
 
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
 
@@ -38,9 +39,7 @@ class DTListView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    override func layoutSubviews() {
+        
         configureSubviews()
         reload()
     }
@@ -72,20 +71,8 @@ class DTListView: UIView {
         reload()
     }
 
-    func updateTableViewContentInset() {
-        let viewHeight: CGFloat = bounds.size.height
-        let tableViewContentHeight: CGFloat = tableView.contentSize.height
-        let marginHeight: CGFloat = (viewHeight - tableViewContentHeight) / 2.0
-
-        self.tableView.contentInset = marginHeight > 0 ?
-        UIEdgeInsets(top: marginHeight, left: 0, bottom:  -marginHeight, right: 0):
-        UIEdgeInsets(top: 0, left: 0, bottom:  0, right: 0)
-
-    }
-
     func reload() {
         tableView.reloadData()
-        updateTableViewContentInset()
     }
 }
 
@@ -98,6 +85,9 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
 
         let item = timesList[indexPath.row]
         cell.configure(viewModel: item, mode: mode)
+        if item.selected {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
         cell.separatorInset.left = indexPath.row == timesList.count-1 ? tableView.frame.width : 0
         
         return cell
@@ -106,9 +96,4 @@ extension DTListView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timesList.count
     }
-}
-
-extension DTListView: CleanableView {
-    var contentInset: UIEdgeInsets { UIEdgeInsets(top: 32, left: 32, bottom: -32, right: -32)}
-    func clean() {}
 }
