@@ -91,8 +91,6 @@
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
 		71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertVC.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
-		71E80B6A282FD0D6004F8A55 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */; };
-		71E80B6C282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
 		71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37B628A54A8A003B693A /* ModeTextField.swift */; };
 		C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */; };
@@ -189,8 +187,6 @@
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		71E5064B281E901600F2880D /* GeneralAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertVC.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
-		71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
-		71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewControllerProtocol.swift; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
 		71FA37B628A54A8A003B693A /* ModeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTextField.swift; sourceTree = "<group>"; };
 		9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.release.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
@@ -281,7 +277,6 @@
 				7157500A288714AE00061F91 /* Model */,
 				71E4F73A280C2F010091B120 /* Utils */,
 				71E4F739280C2EF40091B120 /* Modules */,
-				7173733228B5D7FB00339EF1 /* Settings */,
 			);
 			path = NamazTimes;
 			sourceTree = "<group>";
@@ -293,8 +288,6 @@
 				71E5064D281E931000F2880D /* GeneralAlert */,
 				714A20BB2810337400E8A81A /* GeneralColor.swift */,
 				714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */,
-				71E80B69282FD0D6004F8A55 /* GeneralViewController.swift */,
-				71E80B6B282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift */,
 				71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */,
 				71E50649281E606A00F2880D /* LoadingLayer.swift */,
 			);
@@ -507,6 +500,7 @@
 		71E4F739280C2EF40091B120 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7173733228B5D7FB00339EF1 /* Settings */,
 				715D084728144ACD00729AFB /* LocationFinder */,
 				71E4F73E280C3DA00091B120 /* Main */,
 				714A20C52810481800E8A81A /* QiblaFinder */,
@@ -713,7 +707,6 @@
 				714A82B02891C2A800817053 /* CAListCard.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
 				7167DB8628C2194B00BA4134 /* SettingsItemView.swift in Sources */,
-				71E80B6A282FD0D6004F8A55 /* GeneralViewController.swift in Sources */,
 				715750052886F9B800061F91 /* NetworkRouter.swift in Sources */,
 				71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */,
 				71ACB2E72844DB7700371C25 /* QFMapView.swift in Sources */,
@@ -748,7 +741,6 @@
 				7157500C288714E000061F91 /* CitySearchModel.swift in Sources */,
 				714A20CC28104E8600E8A81A /* HomeViewController.swift in Sources */,
 				713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */,
-				71E80B6C282FD0EB004F8A55 /* GeneralViewControllerProtocol.swift in Sources */,
 				719B2B6628CC861D008D5063 /* PrayerTimes.swift in Sources */,
 				7187839328362E6F00883421 /* DTListView.swift in Sources */,
 				71E50650281E936E00F2880D /* CABaseCard.swift in Sources */,

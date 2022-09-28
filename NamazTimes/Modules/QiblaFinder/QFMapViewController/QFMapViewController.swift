@@ -125,7 +125,7 @@ class QFMapViewController: UIViewController {
 
         mapView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)

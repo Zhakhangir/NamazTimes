@@ -13,12 +13,20 @@ protocol MainPageViewInput where Self: UIViewController {
 
 class MainPageViewController: UIPageViewController {
     
+    private var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.backgroundColor = .clear
+        pageControl.pageIndicatorTintColor = GeneralColor.el_subtitle
+        pageControl.currentPageIndicatorTintColor = GeneralColor.primary
+        pageControl.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        return pageControl
+    }()
+    
     var router: MainPageRouterInput?
     var interactor: MainPageInteractorInput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         dataSource = self
         delegate = self
@@ -27,6 +35,8 @@ class MainPageViewController: UIPageViewController {
         configureSubviews()
         
         guard let interactor = interactor else { return }
+        pageControl.numberOfPages = interactor.getControllers().count
+        pageControl.currentPage = 0
         setViewControllers(interactor.getInitialVC(),
                            direction: .forward,
                            animated: true)
@@ -42,11 +52,15 @@ class MainPageViewController: UIPageViewController {
     }
     
     private func configureSubviews() {
+     
+        view.addSubview(pageControl)
         
-        let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = GeneralColor.el_subtitle
-        appearance.currentPageIndicatorTintColor = GeneralColor.primary
-        appearance.backgroundColor = .clear
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+        ])
     }
 }
 
@@ -61,12 +75,13 @@ extension MainPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         return interactor?.getBeforeVC(current: viewController)
     }
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return interactor?.getControllers().count ?? 0
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+       
+        guard let current = interactor?.getCurrentIndex(current: viewControllers?.first ?? UIViewController()), completed else {
+            return
+        }
+        pageControl.currentPage = current
     }
 }
 

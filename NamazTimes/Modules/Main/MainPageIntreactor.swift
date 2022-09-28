@@ -12,11 +12,12 @@ protocol MainPageInteractorInput {
     func getControllers() -> [UIViewController]
     func getAfterVC(current: UIViewController) -> UIViewController?
     func getBeforeVC(current: UIViewController) -> UIViewController?
+    func getCurrentIndex(current: UIViewController) -> Int?
 }
 
 class MainPageInteractor: MainPageInteractorInput {
-    
-    private var controllers = [HomeRouter().build(), DailyTimesRouter().build()]
+   
+    private var controllers: [UIViewController] = [HomeRouter().build(), DailyTimesRouter().build()]
     var view: MainPageViewInput
     
     init(view: MainPageViewInput) {
@@ -35,7 +36,7 @@ class MainPageInteractor: MainPageInteractorInput {
     
     func getBeforeVC(current: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = controllers.firstIndex(where: { $0 == current }) else {
+        guard let currentIndex = getCurrentIndex(current: current) else {
             return nil
         }
         
@@ -54,7 +55,7 @@ class MainPageInteractor: MainPageInteractorInput {
     
     func getAfterVC(current: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = controllers.firstIndex(where: { $0 == current }) else {
+        guard let currentIndex = getCurrentIndex(current: current) else {
             return nil
         }
         
@@ -70,5 +71,13 @@ class MainPageInteractor: MainPageInteractorInput {
         }
         
         return controllers[nextIndex]
+    }
+    
+    func getCurrentIndex(current: UIViewController) -> Int? {
+        guard let currentIndex = controllers.firstIndex(where: { $0 == current }) else {
+            return nil
+        }
+        
+        return currentIndex
     }
 }

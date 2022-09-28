@@ -8,15 +8,18 @@
 import UIKit
 import RealmSwift
 
-protocol HomeViewInput: GeneralViewControllerProtocol { }
+protocol HomeViewInput where Self: UIViewController { }
 
-class HomeViewController: GeneralViewController {
+class HomeViewController: UIViewController {
 
     var allTime = TimeInterval(4000)
     var interval = TimeInterval(4000)
     var progress = TimeInterval(1000)
     var interactor: HomeInteractorInput?
     var router: HomeRouterInput?
+    
+    var timer = Timer()
+    var localDate: Date { Date() }
 
     private let circularProgressBar = CircularProgressBarView()
     private let prayerTimeInfo = 3
@@ -55,6 +58,7 @@ class HomeViewController: GeneralViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        runTimer()
         addSubviews()
         setupLayout()
         stylize()
@@ -67,6 +71,12 @@ class HomeViewController: GeneralViewController {
         if DeviceType.heightType == .big {
             view.addSubview(timesList)
         }
+    }
+    
+    private func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(secondRefresh), userInfo: nil, repeats: true)
+        timer.fire()
+        RunLoop.current.add(timer, forMode: .default)
     }
 
     private func setupLayout() {
@@ -90,7 +100,7 @@ class HomeViewController: GeneralViewController {
             
             layoutConstraints += [
                 timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                timesList.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
+                timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
             ]
 
             layoutConstraints += [
@@ -102,7 +112,7 @@ class HomeViewController: GeneralViewController {
             layoutConstraints += [
                 currentTimeStack.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor),
                 currentTimeStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                currentTimeStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+                currentTimeStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -48),
                 currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
             ]
         }
@@ -116,7 +126,7 @@ class HomeViewController: GeneralViewController {
         currentTimeStatus.text = "local_time".localized
     }
 
-    override func secondRefresh() {
+    @objc private func secondRefresh() {
         interval -= 1
         progress += 1
         currentTime.text = Date().timeString(withFormat: .full)

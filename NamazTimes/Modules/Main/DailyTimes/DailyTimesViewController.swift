@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol DailyTimesViewInput: GeneralViewControllerProtocol {
+protocol DailyTimesViewInput where Self: UIViewController {
     func reload()
 }
 
-class DailyTimesViewController: GeneralViewController {
+class DailyTimesViewController: UIViewController {
    
     var router: DailyTimesRouterInput?
     var interactor: DailyTimesInteractorInput?
@@ -39,7 +39,7 @@ class DailyTimesViewController: GeneralViewController {
         NSLayoutConstraint.activate([
             timesList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 32 + 64),
             timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 32),
-            timesList.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
             timesList.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
     }

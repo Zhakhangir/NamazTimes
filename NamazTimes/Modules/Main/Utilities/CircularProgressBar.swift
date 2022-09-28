@@ -44,14 +44,14 @@ class CircularProgressBarView: UIView {
         let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
         
         secondaryLayer.strokeColor = GeneralColor.primary.cgColor.copy(alpha: 0.5)
-        secondaryLayer.lineWidth = 13.0
+        secondaryLayer.lineWidth = 11.0
         secondaryLayer.path = circularPath.cgPath
         secondaryLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(secondaryLayer)
 
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineWidth = 13.0
+        progressLayer.lineWidth = 11.0
         progressLayer.strokeColor = GeneralColor.primary.cgColor
         layer.addSublayer(progressLayer)
     }
