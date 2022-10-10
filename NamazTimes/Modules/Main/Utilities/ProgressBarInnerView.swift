@@ -107,12 +107,12 @@ class ProgressBarInnerView: UIView {
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
-    func setTimaValues(currentTime: PrayerTimes?, nextTime: PrayerTimes?) {
+    func setTimaValues(currentTime: PrayerTimesInfo?, nextTime: PrayerTimesInfo?) {
         currentTimeLabel.text = currentTime?.code.localized
         nextTimeLabel.text = nextTime?.code.localized
     }
 
-    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimes?) {
+    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimesInfo?) {
 
         let time = NSInteger(interval)
         let seconds = time % 60

@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol DailyTimesViewInput where Self: UIViewController {
+protocol PrayerTimesListViewInput where Self: UIViewController {
     func reload()
 }
 
-class DailyTimesViewController: UIViewController {
+class PrayerTimesListViewController: UIViewController {
    
-    var router: DailyTimesRouterInput?
-    var interactor: DailyTimesInteractorInput?
+    var router: PrayerTimesListRouterInput?
+    var interactor: PrayerTimesListIntercatorInput?
     
-    private let timesList = DTListView()
+    private let timesList = PrayerTimesListView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,8 @@ class DailyTimesViewController: UIViewController {
         timesList.set(data: interactor.getData())
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         timesList.reload()
     }
@@ -45,7 +45,7 @@ class DailyTimesViewController: UIViewController {
     }
 }
 
-extension DailyTimesViewController: DailyTimesViewInput {
+extension PrayerTimesListViewController: PrayerTimesListViewInput {
     
     func reload() {
         

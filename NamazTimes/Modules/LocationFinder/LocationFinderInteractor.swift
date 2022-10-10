@@ -78,11 +78,11 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
 
                 guard let data = data else { return }
                 let storageData = CityPrayerData(data: data)
-                
+                UserDefaults.standard.set("cityId", forKey: cityId.description)
                 try! self.realm.write {
                     self.realm.delete(self.realm.objects(CityPrayerData.self))
                     self.realm.delete(self.realm.objects(CityInfo.self))
-                    self.realm.delete(self.realm.objects(DailyTime.self))
+                    self.realm.delete(self.realm.objects(PreyerTimes.self))
                     self.realm.add(storageData)
                 }
                 self.view.routeToHome()

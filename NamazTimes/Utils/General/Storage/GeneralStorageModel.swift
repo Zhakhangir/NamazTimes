@@ -10,12 +10,12 @@ import RealmSwift
 
 class CityPrayerData: Object {
     @objc dynamic var cityInfo: CityInfo?
-    var times = List<DailyTime>()
+    var times = List<PreyerTimes>()
     
     required convenience init(data: CityData) {
         self.init()
         self.cityInfo = data.attributes
-        self.times.append(objectsIn: data.days ?? [DailyTime]())
+        self.times.append(objectsIn: data.days ?? [PreyerTimes]())
         
     }
 }

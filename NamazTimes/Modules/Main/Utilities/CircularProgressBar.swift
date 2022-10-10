@@ -61,11 +61,11 @@ class CircularProgressBarView: UIView {
         progressLayer.position = CGPoint(x: bounds.midX, y: (UIScreen.main.bounds.width / 2))
     }
 
-    func setTimaValues(currentTime: PrayerTimes?, nextTime: PrayerTimes?) {
+    func setTimaValues(currentTime: PrayerTimesInfo?, nextTime: PrayerTimesInfo?) {
         innerView.setTimaValues(currentTime: currentTime, nextTime: nextTime)
     }
 
-    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimes?, allTime: TimeInterval, progress: TimeInterval) {
+    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimesInfo?, allTime: TimeInterval, progress: TimeInterval) {
         innerView.updateReminingTime(interval: interval, nextTime: nextTime)
         progressLayer.strokeEnd = Double(progress/allTime)
     }

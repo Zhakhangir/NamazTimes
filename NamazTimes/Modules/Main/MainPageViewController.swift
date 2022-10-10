@@ -19,6 +19,7 @@ class MainPageViewController: UIPageViewController {
         pageControl.pageIndicatorTintColor = GeneralColor.el_subtitle
         pageControl.currentPageIndicatorTintColor = GeneralColor.primary
         pageControl.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        pageControl.layer.position.x = UIScreen.main.bounds.width
         return pageControl
     }()
     
@@ -57,7 +58,6 @@ class MainPageViewController: UIPageViewController {
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
         ])

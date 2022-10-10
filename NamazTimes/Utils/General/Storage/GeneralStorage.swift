@@ -17,45 +17,46 @@ struct GeneralStorageController {
         return realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first?.cityInfo
     }
     
-    func getDailyTimes(for day: PrayerTimeDays = .today) -> [DailyPrayerTime] {
+    private func dailyPrayerTimesList(for day: DateHelper = .today, shortList: Bool = false) -> [DailyPrayerTime] {
         let mainData = realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first
-        let times = mainData?.times.first(where: { $0.date == PrayerTimeDays.today.date })
+        let times = mainData?.times.first(where: { $0.date == day.date })
+        var timesList = [DailyPrayerTime]()
+        let items = shortList ? PrayerTimesInfo.allCases.filter({ $0.required }) : PrayerTimesInfo.allCases
         
-        var dailyPrayerTimes = [DailyPrayerTime]()
-        
-        for (_, item) in PrayerTimes.allCases.enumerated() {
+        for item in items {
             let prayerTime = DailyPrayerTime(code: item.code,
-                                             time: times?.value(forKey: item.code) as? String,
-                                             selected: false ,
-                                             required: item.required)
-            dailyPrayerTimes.append(prayerTime)
+                                             time: (times?.value(forKey: item.code) as? String) ?? "",
+                                             requiredTime: item.required,
+                                             forDate: day.date)
+            timesList.append(prayerTime)
         }
         
-        return dailyPrayerTimes
+        return timesList
     }
     
-//
-//    func currentPrayerTime(for day: PrayerTimeDays = .today) -> (current: PrayerTimes, next: PrayerTimes) {
-//        let dailyTimes = getDailyTimes()
-//
-//        let currentIndex = requiredTimes.firstIndex(where: { item in
-//            let dateTime = day.date.concatenateWithSapce(dailyTimes.value(forKey: item.code))
-//            return currentDateTime.toTimeInterval(format: .dateTimeDisplay)  < dateTime.toTimeInterval(format: .dateTimeDisplay)
-//        })
-//
-//        var current = PrayerTimes.imsak
-//        var next = PrayerTimes.kun
-//
-//        if currentIndex == 0 {
-//            //before day imsak
-//        } else if currentIndex == nil {
-//            //after day imsak
-//        } else if (currentIndex ?? 0) > 0 {
-//            current = requiredTimes[((currentIndex ?? 1) - 1)]
-//            next = requiredTimes[(currentIndex ?? 1)]
-//        }
-//
-//        return (current: current, next: next)
-//    }
+    
+    func getConfiguredPrayerTimes(shortList: Bool = false) -> [DailyPrayerTime] {
+        var prayerTimes = dailyPrayerTimesList(shortList: shortList)
+        let timeInterval = TimeInterval(TimeZone.current.secondsFromGMT())
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Date.Time.dateTimeDisplay.string
+        dateFormatter.locale = .current
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
+        let currentTime = Date().addingTimeInterval(timeInterval)
+        
+        let index = prayerTimes.firstIndex(where: { item in
+            guard let prayerTime = dateFormatter.date(from: item.forDate.concatenateWithSapce(item.time))?.addingTimeInterval(timeInterval) else { return false }
+            print(prayerTime)
+            return currentTime < prayerTime
+        })
+        
+        if let index = index, index > 1, index < (prayerTimes.count - 1) {
+            prayerTimes[index-1].selected = true
+        } else {
+            prayerTimes[prayerTimes.count - 1].selected = true
+        }
+        
+        return prayerTimes
+    }
 }

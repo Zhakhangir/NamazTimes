@@ -7,23 +7,26 @@
 
 import UIKit
 
-class DTListItemCell: UITableViewCell {
+class PrayerTimesListItemView: UIView {
 
     private var dynamicFontSize: CGFloat = 22
 
     lazy var prayerName: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
     lazy var prayerTime: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
+        label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .medium)
         label.textAlignment = .right
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
@@ -34,10 +37,9 @@ class DTListItemCell: UITableViewCell {
         return stackView
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        selectionStyle = .none
         configureSubviews()
     }
 
@@ -51,24 +53,27 @@ class DTListItemCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
         ])
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+    func setSelected(_ selected: Bool) {
         backgroundColor = selected ? GeneralColor.selected : .white
         prayerName.font = selected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
         prayerTime.font = selected ? .systemFont(dynamicSize: dynamicFontSize, weight: .medium) : .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
     }
 
-    func configure(viewModel: DailyPrayerTime, mode: DeviceSize) {
-        dynamicFontSize = mode == .big ? 20 : 18
-        prayerName.text = viewModel.code?.localized
+    func configure(viewModel: DailyPrayerTime) {
+        dynamicFontSize = DeviceType.heightType == .big ? 20 : 18
+        prayerName.text = viewModel.code.localized
         prayerTime.text = viewModel.time
-
+        setSelected(viewModel.selected)
     }
+}
+
+extension PrayerTimesListItemView: CleanableView {
+    
+    func clean() { }
 }

@@ -7,11 +7,10 @@
 
 import UIKit
 
-class DTListView: UIView {
+class PrayerTimesListView: UIView {
 
     private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTListCell"
-    private var mode: DeviceSize = .big
     private let defaultRowHeight: CGFloat = 48.0
 
     private lazy var tableView: UITableView = {
@@ -24,24 +23,25 @@ class DTListView: UIView {
         tableView.tableHeaderView = nil
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
-        tableView.register(DTListItemCell.self, forCellReuseIdentifier: cellReuseId)
+        tableView.register(BaseContainerCell<PrayerTimesListItemView>.self, forCellReuseIdentifier: cellReuseId)
 
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
     }()
 
-    convenience init(mode: DeviceSize = .big) {
-        self.init(frame: .zero)
-        self.mode = mode
-
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configureSubviews()
         reload()
+    }
+    
+    override func layoutSubviews() {
+        let numberOfRows =  CGFloat(tableView.numberOfRows(inSection: 0))
+        if numberOfRows <= 7 {
+            tableView.rowHeight = bounds.height / numberOfRows
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -76,15 +76,15 @@ class DTListView: UIView {
     }
 }
 
-extension DTListView: UITableViewDataSource, UITableViewDelegate {
+extension PrayerTimesListView: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: DTListItemCell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as? DTListItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId) as? BaseContainerCell<PrayerTimesListItemView> else {
             return UITableViewCell()
         }
-
+        
         let item = timesList[indexPath.row]
-        cell.configure(viewModel: item, mode: mode)
+        cell.innerView.configure(viewModel: item)
         if item.selected {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }

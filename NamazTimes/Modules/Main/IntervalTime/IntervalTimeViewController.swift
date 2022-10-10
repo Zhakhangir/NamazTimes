@@ -8,25 +8,25 @@
 import UIKit
 import RealmSwift
 
-protocol HomeViewInput where Self: UIViewController { }
+protocol IntervalTimeViewInput where Self: UIViewController { }
 
-class HomeViewController: UIViewController {
+class IntervalTimeViewController: UIViewController {
 
     var allTime = TimeInterval(4000)
     var interval = TimeInterval(4000)
     var progress = TimeInterval(1000)
-    var interactor: HomeInteractorInput?
-    var router: HomeRouterInput?
+    
+    var interactor: IntervalTimeInteractorInput?
+    var router: IntervalTimeRouterInput?
     
     var timer = Timer()
     var localDate: Date { Date() }
 
     private let circularProgressBar = CircularProgressBarView()
-    private let prayerTimeInfo = 3
     private let parayerCellReuseId = "PrayerTimeCell"
 
-    private let timesList: DTListView = {
-        let list = DTListView(mode: .small)
+    private let timesList: PrayerTimesListView = {
+        let list = PrayerTimesListView()
         list.isUserInteractionEnabled = false
         return list
     }()
@@ -67,10 +67,7 @@ class HomeViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(circularProgressBar)
         view.addSubview(currentTimeStack)
-
-        if DeviceType.heightType == .big {
-            view.addSubview(timesList)
-        }
+        view.addSubview(timesList)
     }
     
     private func runTimer() {
@@ -84,45 +81,32 @@ class HomeViewController: UIViewController {
 
         circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
+            circularProgressBar.bottomAnchor.constraint(equalTo: timesList.topAnchor),
             circularProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             circularProgressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
-            circularProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            circularProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            circularProgressBar.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width/2) * 1.5)
         ]
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
+            currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            currentTimeStack.leadingAnchor.constraint(equalTo: timesList.trailingAnchor, constant: 8)
+        ]
+        
+        
         timesList.translatesAutoresizingMaskIntoConstraints = false
-        if DeviceType.heightType == .big {
-            
-            layoutConstraints += [
-                circularProgressBar.bottomAnchor.constraint(equalTo: timesList.topAnchor),
-                circularProgressBar.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width/2) * 1.5)
-            ]
-            
-            layoutConstraints += [
-                timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-            ]
-
-            layoutConstraints += [
-                currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
-                currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-                currentTimeStack.leadingAnchor.constraint(equalTo: timesList.trailingAnchor, constant: 16)
-            ]
-        } else {
-            layoutConstraints += [
-                currentTimeStack.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor),
-                currentTimeStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                currentTimeStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -48),
-                currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
-            ]
-        }
+        layoutConstraints += [
+            timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ]
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
     private func stylize() {
         timesList.set(data: interactor?.getTimesList() ?? [DailyPrayerTime]())
-        timesList.set(rowHeight: 40)
         currentTimeStatus.text = "local_time".localized
     }
 
@@ -135,4 +119,4 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: HomeViewInput {}
+extension IntervalTimeViewController: IntervalTimeViewInput {}

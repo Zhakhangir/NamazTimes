@@ -12,7 +12,7 @@
 		711C990728BBD60200841934 /* DeviceFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990628BBD60100841934 /* DeviceFinder.swift */; };
 		711C990D28BC7E3500841934 /* ProgressBarInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */; };
 		711C990F28BCC94F00841934 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990E28BCC94F00841934 /* CALayer+Extensions.swift */; };
-		711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0C928413EDB0023A64B /* HomeRouter.swift */; };
+		711DA0CA28413EDB0023A64B /* IntervalTimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0C928413EDB0023A64B /* IntervalTimeRouter.swift */; };
 		711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D6284145F60023A64B /* QFCompassRouter.swift */; };
 		711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D82841460A0023A64B /* QFCompassInteractor.swift */; };
 		7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127A60E28C3E67E000EA212 /* LanguageSettingsViewControlller.swift */; };
@@ -32,8 +32,8 @@
 		714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20BF2810355500E8A81A /* UIColor+Extensions.swift */; };
 		714A20C2281046EB00E8A81A /* GeneralTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */; };
 		714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C928104E7100E8A81A /* QFCompassViewController.swift */; };
-		714A20CC28104E8600E8A81A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* HomeViewController.swift */; };
-		714A20CE28104EA000E8A81A /* DailyTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */; };
+		714A20CC28104E8600E8A81A /* IntervalTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */; };
+		714A20CE28104EA000E8A81A /* PrayerTimesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */; };
 		714A82B02891C2A800817053 /* CAListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82AF2891C2A800817053 /* CAListCard.swift */; };
 		714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */; };
 		714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E828A12EF700113C5F /* Results+Extensions.swift */; };
@@ -63,12 +63,12 @@
 		71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0628CA503500721915 /* AnnualTimeModel.swift */; };
 		71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0828CAF5F000721915 /* String+Extensions.swift */; };
 		71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0A28CB400100721915 /* LanguageHelper.swift */; };
-		7187839328362E6F00883421 /* DTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* DTListView.swift */; };
+		7187839328362E6F00883421 /* PrayerTimesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* PrayerTimesListView.swift */; };
 		718C03112890567A00AB7794 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C03102890567A00AB7794 /* LocationService.swift */; };
-		719B2B6628CC861D008D5063 /* PrayerTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B2B6528CC861D008D5063 /* PrayerTimes.swift */; };
+		719B2B6628CC861D008D5063 /* PrayerTimesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */; };
 		71AC767428E1EF4B000E33EF /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767328E1EF4B000E33EF /* MainPageViewController.swift */; };
-		71AC767C28E1F136000E33EF /* DailyTimesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767B28E1F136000E33EF /* DailyTimesInteractor.swift */; };
-		71AC767E28E1F13E000E33EF /* DailyTimesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767D28E1F13E000E33EF /* DailyTimesRouter.swift */; };
+		71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */; };
+		71AC767E28E1F13E000E33EF /* PrayerTimerListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767D28E1F13E000E33EF /* PrayerTimerListRouter.swift */; };
 		71AC768028E1F376000E33EF /* MainPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767F28E1F376000E33EF /* MainPageRouter.swift */; };
 		71AC768228E1F38D000E33EF /* MainPageIntreactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC768128E1F38D000E33EF /* MainPageIntreactor.swift */; };
 		71ACB2E72844DB7700371C25 /* QFMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ACB2E62844DB7700371C25 /* QFMapView.swift */; };
@@ -79,17 +79,17 @@
 		71AF5BFA28C5F6F4004319D5 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AF5BF928C5F6F4004319D5 /* UIFont+Extensions.swift */; };
 		71AF5BFC28C5FBC1004319D5 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */; };
 		71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B36B283F4CB300F5BA63 /* PagerView.swift */; };
-		71B5B36E283F6FB000F5BA63 /* DTListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B36D283F6FB000F5BA63 /* DTListItemCell.swift */; };
-		71B5B378283F890C00F5BA63 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B377283F890C00F5BA63 /* HomeInteractor.swift */; };
+		71B5B36E283F6FB000F5BA63 /* PrayerTimesListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B36D283F6FB000F5BA63 /* PrayerTimesListItemView.swift */; };
+		71B5B378283F890C00F5BA63 /* IntervalTimeIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B377283F890C00F5BA63 /* IntervalTimeIntercator.swift */; };
 		71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */; };
 		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
 		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
-		71E1E62F28D489380042246E /* PrayerTimeDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* PrayerTimeDays.swift */; };
+		71E1E62F28D489380042246E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* DateHelper.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
-		71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertVC.swift */; };
+		71E5064C281E901700F2880D /* GeneralAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertViewController.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
 		71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37B628A54A8A003B693A /* ModeTextField.swift */; };
@@ -103,7 +103,7 @@
 		711C990628BBD60100841934 /* DeviceFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFinder.swift; sourceTree = "<group>"; };
 		711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarInnerView.swift; sourceTree = "<group>"; };
 		711C990E28BCC94F00841934 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
-		711DA0C928413EDB0023A64B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		711DA0C928413EDB0023A64B /* IntervalTimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimeRouter.swift; sourceTree = "<group>"; };
 		711DA0D6284145F60023A64B /* QFCompassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassRouter.swift; sourceTree = "<group>"; };
 		711DA0D82841460A0023A64B /* QFCompassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassInteractor.swift; sourceTree = "<group>"; };
 		711DA0DC284148C70023A64B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 		714A20BF2810355500E8A81A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		714A20C1281046EB00E8A81A /* GeneralTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabBarViewController.swift; sourceTree = "<group>"; };
 		714A20C928104E7100E8A81A /* QFCompassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassViewController.swift; sourceTree = "<group>"; };
-		714A20CB28104E8600E8A81A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTimesViewController.swift; sourceTree = "<group>"; };
+		714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimeViewController.swift; sourceTree = "<group>"; };
+		714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListViewController.swift; sourceTree = "<group>"; };
 		714A82AC28919F3E00817053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		714A82AF2891C2A800817053 /* CAListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListCard.swift; sourceTree = "<group>"; };
 		714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessErrorViewController.swift; sourceTree = "<group>"; };
@@ -159,12 +159,12 @@
 		71849C0628CA503500721915 /* AnnualTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualTimeModel.swift; sourceTree = "<group>"; };
 		71849C0828CAF5F000721915 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		71849C0A28CB400100721915 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
-		7187839228362E6F00883421 /* DTListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListView.swift; sourceTree = "<group>"; };
+		7187839228362E6F00883421 /* PrayerTimesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListView.swift; sourceTree = "<group>"; };
 		718C03102890567A00AB7794 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		719B2B6528CC861D008D5063 /* PrayerTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimes.swift; sourceTree = "<group>"; };
+		719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesInfo.swift; sourceTree = "<group>"; };
 		71AC767328E1EF4B000E33EF /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		71AC767B28E1F136000E33EF /* DailyTimesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTimesInteractor.swift; sourceTree = "<group>"; };
-		71AC767D28E1F13E000E33EF /* DailyTimesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTimesRouter.swift; sourceTree = "<group>"; };
+		71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimesListInteractor.swift; sourceTree = "<group>"; };
+		71AC767D28E1F13E000E33EF /* PrayerTimerListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimerListRouter.swift; sourceTree = "<group>"; };
 		71AC767F28E1F376000E33EF /* MainPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageRouter.swift; sourceTree = "<group>"; };
 		71AC768128E1F38D000E33EF /* MainPageIntreactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageIntreactor.swift; sourceTree = "<group>"; };
 		71ACB2E62844DB7700371C25 /* QFMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFMapView.swift; sourceTree = "<group>"; };
@@ -175,17 +175,17 @@
 		71AF5BF928C5F6F4004319D5 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		71B5B36B283F4CB300F5BA63 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
-		71B5B36D283F6FB000F5BA63 /* DTListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTListItemCell.swift; sourceTree = "<group>"; };
-		71B5B377283F890C00F5BA63 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		71B5B36D283F6FB000F5BA63 /* PrayerTimesListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListItemView.swift; sourceTree = "<group>"; };
+		71B5B377283F890C00F5BA63 /* IntervalTimeIntercator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimeIntercator.swift; sourceTree = "<group>"; };
 		71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerCollectionCell.swift; sourceTree = "<group>"; };
 		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
 		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
-		71E1E62E28D489370042246E /* PrayerTimeDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeDays.swift; sourceTree = "<group>"; };
+		71E1E62E28D489370042246E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
-		71E5064B281E901600F2880D /* GeneralAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertVC.swift; sourceTree = "<group>"; };
+		71E5064B281E901600F2880D /* GeneralAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertViewController.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
 		71FA37B628A54A8A003B693A /* ModeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTextField.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 			children = (
 				714178A6287F3FDF00790E82 /* GeneralStorageModel.swift */,
 				71574FEE2886AA3900061F91 /* GeneralStorage.swift */,
-				71E1E62E28D489370042246E /* PrayerTimeDays.swift */,
+				71E1E62E28D489370042246E /* DateHelper.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -313,9 +313,9 @@
 		714A20C4281047B100E8A81A /* DailyTimes */ = {
 			isa = PBXGroup;
 			children = (
-				71AC767D28E1F13E000E33EF /* DailyTimesRouter.swift */,
-				71AC767B28E1F136000E33EF /* DailyTimesInteractor.swift */,
-				714A20CD28104EA000E8A81A /* DailyTimesViewController.swift */,
+				71AC767D28E1F13E000E33EF /* PrayerTimerListRouter.swift */,
+				71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */,
+				714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */,
 			);
 			path = DailyTimes;
 			sourceTree = "<group>";
@@ -421,8 +421,8 @@
 		71A68EC4283FDC3A009BB374 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				71B5B36D283F6FB000F5BA63 /* DTListItemCell.swift */,
-				7187839228362E6F00883421 /* DTListView.swift */,
+				71B5B36D283F6FB000F5BA63 /* PrayerTimesListItemView.swift */,
+				7187839228362E6F00883421 /* PrayerTimesListView.swift */,
 				71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */,
 				711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */,
 			);
@@ -432,9 +432,9 @@
 		71AC767228E1EF12000E33EF /* IntervalTime */ = {
 			isa = PBXGroup;
 			children = (
-				714A20CB28104E8600E8A81A /* HomeViewController.swift */,
-				71B5B377283F890C00F5BA63 /* HomeInteractor.swift */,
-				711DA0C928413EDB0023A64B /* HomeRouter.swift */,
+				714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */,
+				71B5B377283F890C00F5BA63 /* IntervalTimeIntercator.swift */,
+				711DA0C928413EDB0023A64B /* IntervalTimeRouter.swift */,
 			);
 			path = IntervalTime;
 			sourceTree = "<group>";
@@ -511,7 +511,7 @@
 		71E4F73A280C2F010091B120 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				719B2B6528CC861D008D5063 /* PrayerTimes.swift */,
+				719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */,
 				718C03102890567A00AB7794 /* LocationService.swift */,
 				7131309A287AF0D1005BA798 /* Reachability.swift */,
 				714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */,
@@ -554,8 +554,8 @@
 		71E4F73E280C3DA00091B120 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				71AC767228E1EF12000E33EF /* IntervalTime */,
 				71A68EC4283FDC3A009BB374 /* Utilities */,
+				71AC767228E1EF12000E33EF /* IntervalTime */,
 				714A20C4281047B100E8A81A /* DailyTimes */,
 				71AC767328E1EF4B000E33EF /* MainPageViewController.swift */,
 				71AC767F28E1F376000E33EF /* MainPageRouter.swift */,
@@ -568,7 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				714A82AE2891C29900817053 /* Cards */,
-				71E5064B281E901600F2880D /* GeneralAlertVC.swift */,
+				71E5064B281E901600F2880D /* GeneralAlertViewController.swift */,
 			);
 			path = GeneralAlert;
 			sourceTree = "<group>";
@@ -703,7 +703,7 @@
 			files = (
 				71574FFF2886BDE600061F91 /* NetworkError.swift in Sources */,
 				714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */,
-				71B5B36E283F6FB000F5BA63 /* DTListItemCell.swift in Sources */,
+				71B5B36E283F6FB000F5BA63 /* PrayerTimesListItemView.swift in Sources */,
 				714A82B02891C2A800817053 /* CAListCard.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
 				7167DB8628C2194B00BA4134 /* SettingsItemView.swift in Sources */,
@@ -712,7 +712,7 @@
 				71ACB2E72844DB7700371C25 /* QFMapView.swift in Sources */,
 				714178A7287F3FDF00790E82 /* GeneralStorageModel.swift in Sources */,
 				711C990D28BC7E3500841934 /* ProgressBarInnerView.swift in Sources */,
-				71E1E62F28D489380042246E /* PrayerTimeDays.swift in Sources */,
+				71E1E62F28D489380042246E /* DateHelper.swift in Sources */,
 				711C990528B89A8A00841934 /* UITabBar+Extensions.swift in Sources */,
 				71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */,
 				71AC768228E1F38D000E33EF /* MainPageIntreactor.swift in Sources */,
@@ -739,10 +739,10 @@
 				7167DB8828C21A1000BA4134 /* BaseSectionHeadFooterView.swift in Sources */,
 				7128BC992896B5AB00F66896 /* CLLocation+Extensions.swift in Sources */,
 				7157500C288714E000061F91 /* CitySearchModel.swift in Sources */,
-				714A20CC28104E8600E8A81A /* HomeViewController.swift in Sources */,
+				714A20CC28104E8600E8A81A /* IntervalTimeViewController.swift in Sources */,
 				713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */,
-				719B2B6628CC861D008D5063 /* PrayerTimes.swift in Sources */,
-				7187839328362E6F00883421 /* DTListView.swift in Sources */,
+				719B2B6628CC861D008D5063 /* PrayerTimesInfo.swift in Sources */,
+				7187839328362E6F00883421 /* PrayerTimesListView.swift in Sources */,
 				71E50650281E936E00F2880D /* CABaseCard.swift in Sources */,
 				71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */,
 				711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */,
@@ -757,7 +757,7 @@
 				71574FF72886B57900061F91 /* HTTPMethod.swift in Sources */,
 				71ACB2F12844EA6B00371C25 /* QFMapIntractor.swift in Sources */,
 				7157500E288716C500061F91 /* NetworkManager.swift in Sources */,
-				711DA0CA28413EDB0023A64B /* HomeRouter.swift in Sources */,
+				711DA0CA28413EDB0023A64B /* IntervalTimeRouter.swift in Sources */,
 				714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */,
 				71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */,
 				71AC768028E1F376000E33EF /* MainPageRouter.swift in Sources */,
@@ -768,18 +768,18 @@
 				7173733628B5D82900339EF1 /* SettingsRouter.swift in Sources */,
 				714A20C2281046EB00E8A81A /* GeneralTabBarViewController.swift in Sources */,
 				71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */,
-				714A20CE28104EA000E8A81A /* DailyTimesViewController.swift in Sources */,
-				71AC767E28E1F13E000E33EF /* DailyTimesRouter.swift in Sources */,
+				714A20CE28104EA000E8A81A /* PrayerTimesListViewController.swift in Sources */,
+				71AC767E28E1F13E000E33EF /* PrayerTimerListRouter.swift in Sources */,
 				71AF5BFA28C5F6F4004319D5 /* UIFont+Extensions.swift in Sources */,
 				71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */,
 				714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */,
 				715750072886FAD300061F91 /* Router.swift in Sources */,
 				71574FF52886B4B800061F91 /* EndPointType.swift in Sources */,
-				71B5B378283F890C00F5BA63 /* HomeInteractor.swift in Sources */,
+				71B5B378283F890C00F5BA63 /* IntervalTimeIntercator.swift in Sources */,
 				7168A6AA289286C5004C94C1 /* QFArrowView.swift in Sources */,
-				71AC767C28E1F136000E33EF /* DailyTimesInteractor.swift in Sources */,
+				71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */,
 				71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */,
-				71E5064C281E901700F2880D /* GeneralAlertVC.swift in Sources */,
+				71E5064C281E901700F2880D /* GeneralAlertViewController.swift in Sources */,
 				715750012886CB2D00061F91 /* JSONParameterEncoder.swift in Sources */,
 				7173733828B5D84100339EF1 /* SettingsInteractor.swift in Sources */,
 			);
@@ -949,7 +949,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -992,7 +992,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,7 +11,7 @@ import RealmSwift
 // MARK: - AnnualTimes
 class CityData: Codable {
     var attributes: CityInfo?
-    var days: [DailyTime]?
+    var days: [PreyerTimes]?
 }
 
 // MARK: - CityInfo
@@ -21,7 +21,7 @@ class CityInfo: Object, Codable {
 }
 
 // MARK: - Day
-class DailyTime: Object, Codable {
+class PreyerTimes: Object, Codable {
     @objc dynamic var imsak, bamdat, kun, ishraq: String?
     @objc dynamic var kerahat, besin, asriauual, ekindi: String?
     @objc dynamic var isfirar, aqsham, ishtibaq, quptan: String?

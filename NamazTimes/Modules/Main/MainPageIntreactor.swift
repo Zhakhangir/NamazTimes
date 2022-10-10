@@ -17,7 +17,7 @@ protocol MainPageInteractorInput {
 
 class MainPageInteractor: MainPageInteractorInput {
    
-    private var controllers: [UIViewController] = [HomeRouter().build(), DailyTimesRouter().build()]
+    private var controllers: [UIViewController] = [IntervalTimeRouter().build(), PrayerTimerListRouter().build()]
     var view: MainPageViewInput
     
     init(view: MainPageViewInput) {

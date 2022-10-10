@@ -34,7 +34,7 @@ extension String {
         return date.timeIntervalSince1970
     }
     
-    func concatenateWithSapce(_ word: Any?) -> String {
-        return self + " " + ((word as? String) ?? "")
+    func concatenateWithSapce(_ word: String?) -> String {
+        return self + " " + ((word ?? "") ?? "")
     }
 }
