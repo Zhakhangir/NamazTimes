@@ -34,7 +34,7 @@ class PrayerTimesListView: UIView {
         super.init(frame: frame)
         
         configureSubviews()
-        reload()
+        tableView.reloadData()
     }
     
     override func layoutSubviews() {
@@ -60,18 +60,14 @@ class PrayerTimesListView: UIView {
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-
-    func set(data: [DailyPrayerTime]) {
-        timesList = data
-        reload()
-    }
-
+    
     func set(rowHeight: CGFloat) {
         tableView.rowHeight = rowHeight
-        reload()
+        tableView.reloadData()
     }
 
-    func reload() {
+    func reload(with data: [DailyPrayerTime]) {
+        timesList = data
         tableView.reloadData()
     }
 }

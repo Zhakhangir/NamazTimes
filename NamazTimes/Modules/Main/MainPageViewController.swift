@@ -57,10 +57,12 @@ class MainPageViewController: UIPageViewController {
         view.addSubview(pageControl)
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
-        ])
+        pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
+        if DeviceType.heightType == .big {
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        } else {
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        }
     }
 }
 

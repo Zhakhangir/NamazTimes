@@ -17,13 +17,13 @@ enum DateHelper {
         case .todayDT:
             return Date().toString(format: "dd-MM-yyyy HH:mm")
         case .yesterday:
-            return Date().dayAfter.toString(format: "dd-MM-yyyy")
+            return Date().dayBefore.toString(format: "dd-MM-yyyy")
         case .yesterdayDT:
-            return Date().dayAfter.toString(format: "dd-MM-yyyy HH:mm")
+            return Date().dayBefore.toString(format: "dd-MM-yyyy HH:mm")
         case .tomorrow:
-           return  Date().dayBefore.toString(format: "dd-MM-yyyy")
+           return  Date().dayAfter.toString(format: "dd-MM-yyyy")
         case .tomorrowDT:
-           return  Date().dayBefore.toString(format: "dd-MM-yyyy HH:mm")
+           return  Date().dayAfter.toString(format: "dd-MM-yyyy HH:mm")
         case .currentTime:
             return Date().toString(format: "HH:mm")
         }

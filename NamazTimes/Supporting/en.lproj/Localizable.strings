@@ -24,6 +24,7 @@
 "language" = "Language";
 "about_us" = "About us";
 "warning" = "Warning";
+"hours" = "hour";
 "choose_language" = "Choose language";
 "local_time" = "Local time";
 "remaining" = "remaining time";

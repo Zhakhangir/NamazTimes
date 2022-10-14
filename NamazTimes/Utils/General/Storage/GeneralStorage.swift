@@ -20,14 +20,24 @@ struct GeneralStorageController {
     private func dailyPrayerTimesList(for day: DateHelper = .today, shortList: Bool = false) -> [DailyPrayerTime] {
         let mainData = realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first
         let times = mainData?.times.first(where: { $0.date == day.date })
+        let tomorrowTimes = mainData?.times.first(where: { $0.date == DateHelper.tomorrow.date })
+        
+        var endTime = ""
         var timesList = [DailyPrayerTime]()
         let items = shortList ? PrayerTimesInfo.allCases.filter({ $0.required }) : PrayerTimesInfo.allCases
         
-        for item in items {
+        for (index, item) in items.enumerated() {
+            if  (index + 1) >= items.count {
+                endTime = (tomorrowTimes?.value(forKey: (items[0].code)) as? String) ?? ""
+            } else {
+                endTime = (times?.value(forKey: (items[index+1].code)) as? String) ?? ""
+            }
             let prayerTime = DailyPrayerTime(code: item.code,
-                                             time: (times?.value(forKey: item.code) as? String) ?? "",
-                                             requiredTime: item.required,
-                                             forDate: day.date)
+                                             date: day.date,
+                                             startTime: (times?.value(forKey: item.code) as? String) ?? "",
+                                             endTime: endTime,
+                                             nextDate: DateHelper.tomorrow.date,
+                                             requiredTime: item.required)
             timesList.append(prayerTime)
         }
         
@@ -36,27 +46,41 @@ struct GeneralStorageController {
     
     
     func getConfiguredPrayerTimes(shortList: Bool = false) -> [DailyPrayerTime] {
+        
         var prayerTimes = dailyPrayerTimesList(shortList: shortList)
-        let timeInterval = TimeInterval(TimeZone.current.secondsFromGMT())
-
+        var currentTimeIndex = findCurrentTimeIndex(from: prayerTimes)
+            
+        if currentTimeIndex == nil {
+            prayerTimes = dailyPrayerTimesList(for: .yesterday, shortList: shortList)
+            currentTimeIndex = findCurrentTimeIndex(from: prayerTimes)
+        }
+        
+        currentTimeIndex != nil ? { prayerTimes[currentTimeIndex ?? 0].selected = true }() : nil
+        return prayerTimes
+    }
+    
+    private func findCurrentTimeIndex(from prayerTimes: [DailyPrayerTime]) -> Int? {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Date.Time.dateTimeDisplay.string
         dateFormatter.locale = .current
-        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
-        let currentTime = Date().addingTimeInterval(timeInterval)
+        dateFormatter.timeZone = TimeZone(identifier:  TimeZone.current.abbreviation() ?? "UTC")
+        var currentIndex: Int?
         
-        let index = prayerTimes.firstIndex(where: { item in
-            guard let prayerTime = dateFormatter.date(from: item.forDate.concatenateWithSapce(item.time))?.addingTimeInterval(timeInterval) else { return false }
-            print(prayerTime)
-            return currentTime < prayerTime
-        })
-        
-        if let index = index, index > 1, index < (prayerTimes.count - 1) {
-            prayerTimes[index-1].selected = true
-        } else {
-            prayerTimes[prayerTimes.count - 1].selected = true
+        for (index, item) in prayerTimes.enumerated() {
+            let current = dateFormatter.string(from: Date())
+            let startTime = item.date.concatenateWithSapce(item.startTime.count == 4 ? "0" + item.startTime : item.startTime)
+            let endTime = index == (prayerTimes.count - 1) ?
+            (item.nextDate.concatenateWithSapce(item.endTime.count == 4 ? "0" + item.endTime : item.endTime)):
+            (item.date.concatenateWithSapce(item.endTime.count == 4 ? "0" + item.endTime : item.endTime))
+            
+            if (startTime < current) && (current < endTime) {
+                currentIndex = index
+                break
+            }
         }
+    
         
-        return prayerTimes
+        return currentIndex
     }
 }

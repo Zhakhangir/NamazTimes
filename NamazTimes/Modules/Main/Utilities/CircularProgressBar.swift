@@ -7,6 +7,20 @@
 
 import UIKit
 
+enum ProgressBarStates {
+    
+    case waiting, red, normal
+    
+    var color: UIColor {
+        switch self {
+        case .waiting, .normal:
+            return GeneralColor.primary
+        case .red:
+            return GeneralColor.red
+        }
+    }
+}
+
 class CircularProgressBarView: UIView {
 
     private var progressLayer = CAShapeLayer()
@@ -34,8 +48,10 @@ class CircularProgressBarView: UIView {
         innerView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            innerView.topAnchor.constraint(equalTo: topAnchor, constant: radius/2),
-            innerView.centerXAnchor.constraint(equalTo: centerXAnchor)
+//            innerView.heightAnchor.constraint(equalToConstant: 200),
+            innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32),
+            innerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            innerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 
@@ -57,16 +73,16 @@ class CircularProgressBarView: UIView {
     }
     
     override func layoutSubviews() {
-        secondaryLayer.position = CGPoint(x: bounds.midX, y: (UIScreen.main.bounds.width / 2))
-        progressLayer.position = CGPoint(x: bounds.midX, y: (UIScreen.main.bounds.width / 2))
+        secondaryLayer.position = CGPoint(x: bounds.midX, y: radius + 11)
+        progressLayer.position = CGPoint(x: bounds.midX, y: radius + 11)
     }
 
-    func setTimaValues(currentTime: PrayerTimesInfo?, nextTime: PrayerTimesInfo?) {
+    func setTimeValues(currentTime: PrayerTimesInfo?, nextTime: PrayerTimesInfo?) {
         innerView.setTimaValues(currentTime: currentTime, nextTime: nextTime)
     }
 
-    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimesInfo?, allTime: TimeInterval, progress: TimeInterval) {
-        innerView.updateReminingTime(interval: interval, nextTime: nextTime)
+    func updateReminingTime(reminingTime: TimeInterval, nextTime: PrayerTimesInfo?, allTime: TimeInterval, progress: TimeInterval) {
+        innerView.updateReminingTime(interval: reminingTime, nextTime: nextTime)
         progressLayer.strokeEnd = Double(progress/allTime)
     }
 
@@ -78,5 +94,9 @@ class CircularProgressBarView: UIView {
 //        circularProgressAnimation.fillMode = .forwards
 //        circularProgressAnimation.isRemovedOnCompletion = false
 //        progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
+    }
+    
+    func getProgressLayerBox() -> CGRect {
+       return secondaryLayer.path?.boundingBox ?? CGRect(x: 0, y: 0, width: 0, height: 0)
     }
 }

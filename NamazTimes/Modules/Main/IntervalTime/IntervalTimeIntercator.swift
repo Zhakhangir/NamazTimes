@@ -35,6 +35,7 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
     }
     
     func getCurrentNextTime() -> (current: PrayerTimesInfo, next: PrayerTimesInfo) {
+        
         return (current: PrayerTimesInfo.kun, next: PrayerTimesInfo.besin)
     }
 }

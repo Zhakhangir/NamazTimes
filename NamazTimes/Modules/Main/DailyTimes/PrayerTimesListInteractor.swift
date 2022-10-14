@@ -13,10 +13,12 @@ protocol PrayerTimesListIntercatorInput {
 
 struct DailyPrayerTime {
     var code: String
-    var time: String
+    var date: String
+    var startTime: String
+    var endTime: String
+    var nextDate: String
     var selected: Bool = false
     var requiredTime: Bool = false
-    var forDate: String
 }
 
 class PrayerTimesListInteractor: PrayerTimesListIntercatorInput {
@@ -26,7 +28,6 @@ class PrayerTimesListInteractor: PrayerTimesListIntercatorInput {
     
     init(view: PrayerTimesListViewInput) {
         self.view = view
-        
     }
 
     func getData() -> [DailyPrayerTime] {

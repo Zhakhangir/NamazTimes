@@ -8,12 +8,14 @@
 import UIKit
 import RealmSwift
 
-protocol IntervalTimeViewInput where Self: UIViewController { }
+protocol IntervalTimeViewInput where Self: UIViewController {
+    func setTimer()
+}
 
 class IntervalTimeViewController: UIViewController {
 
     var allTime = TimeInterval(4000)
-    var interval = TimeInterval(4000)
+    var reminingTime = TimeInterval(4000)
     var progress = TimeInterval(1000)
     
     var interactor: IntervalTimeInteractorInput?
@@ -31,11 +33,32 @@ class IntervalTimeViewController: UIViewController {
         return list
     }()
     
+    private let miladMonth : UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = GeneralColor.primary
+        label.text = "16 Июнь, 2022"
+        label.font = .systemFont(dynamicSize: 16, weight: .semibold)
+
+        return label
+    }()
+    
+    private let hijriMonth : UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = GeneralColor.primary
+        label.text = "16 Шаууал, 2022"
+        label.font = .systemFont(dynamicSize: 16, weight: .semibold)
+        
+        return label
+    }()
+    
     private let currentTime: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(dynamicSize: 21, weight: .semibold)
-
+        label.font = .monospacedDigitSystemFont(dynamicSize: 18, weight: .semibold)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
@@ -43,20 +66,23 @@ class IntervalTimeViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .black
-        label.font = .systemFont(dynamicSize: 18, weight: .light)
-
+        label.font = .systemFont(dynamicSize: 16, weight: .light)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
     private lazy var currentTimeStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [currentTimeStatus, currentTime])
+        let stackView = UIStackView(arrangedSubviews: [miladMonth, hijriMonth, currentTimeStatus, currentTime])
         stackView.axis = .vertical
         stackView.spacing = 4
+        stackView.setCustomSpacing(32, after: hijriMonth)
         return stackView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        timesList.backgroundColor = .clear
         
         runTimer()
         addSubviews()
@@ -77,46 +103,62 @@ class IntervalTimeViewController: UIViewController {
     }
 
     private func setupLayout() {
+        
         var layoutConstraints = [NSLayoutConstraint]()
-
+        let box = circularProgressBar.getProgressLayerBox()
+        
         circularProgressBar.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            circularProgressBar.bottomAnchor.constraint(equalTo: timesList.topAnchor),
-            circularProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            circularProgressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
-            circularProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            circularProgressBar.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width/2) * 1.5)
+            circularProgressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            circularProgressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64 + 32),
+            circularProgressBar.widthAnchor.constraint(equalToConstant: box.width),
+            circularProgressBar.heightAnchor.constraint(equalToConstant:  box.height)
         ]
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
             currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            currentTimeStack.leadingAnchor.constraint(equalTo: timesList.trailingAnchor, constant: 8)
+            currentTimeStack.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8)
         ]
         
         
         timesList.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
+            timesList.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor, constant: 16),
             timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            timesList.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -8),
+            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: DeviceType.heightType == .big ? -48 : -16)
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
     private func stylize() {
-        timesList.set(data: interactor?.getTimesList() ?? [DailyPrayerTime]())
         currentTimeStatus.text = "local_time".localized
+        timesList.reload(with: interactor?.getTimesList() ?? [DailyPrayerTime]())
     }
 
     @objc private func secondRefresh() {
-        interval -= 1
+        reminingTime -= 1
         progress += 1
         currentTime.text = Date().timeString(withFormat: .full)
-        circularProgressBar.setTimaValues(currentTime:  interactor?.getCurrentNextTime().current, nextTime:  interactor?.getCurrentNextTime().next)
-        circularProgressBar.updateReminingTime(interval: interval, nextTime:  interactor?.getCurrentNextTime().next, allTime: allTime, progress: progress)
+        circularProgressBar.setTimeValues(currentTime: interactor?.getCurrentNextTime().current, nextTime:  interactor?.getCurrentNextTime().next)
+        circularProgressBar.updateReminingTime(reminingTime: reminingTime, nextTime: interactor?.getCurrentNextTime().next, allTime: allTime, progress: progress)
+        
+        if progress == allTime {
+            //get from interactor next time data
+        }
+    }
+    
+    deinit {
+        timer.invalidate()
     }
 }
 
-extension IntervalTimeViewController: IntervalTimeViewInput {}
+extension IntervalTimeViewController: IntervalTimeViewInput {
+    
+    func setTimer() {
+        
+    }
+}

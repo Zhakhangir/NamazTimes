@@ -17,6 +17,7 @@ class PrayerTimesListItemView: UIView {
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
@@ -27,6 +28,7 @@ class PrayerTimesListItemView: UIView {
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
@@ -68,7 +70,7 @@ class PrayerTimesListItemView: UIView {
     func configure(viewModel: DailyPrayerTime) {
         dynamicFontSize = DeviceType.heightType == .big ? 20 : 18
         prayerName.text = viewModel.code.localized
-        prayerTime.text = viewModel.time
+        prayerTime.text = viewModel.startTime
         setSelected(viewModel.selected)
     }
 }

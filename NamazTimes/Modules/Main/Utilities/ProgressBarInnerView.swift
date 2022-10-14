@@ -39,6 +39,7 @@ class ProgressBarInnerView: UIView {
         label.font = .systemFont(dynamicSize: 40, weight: .medium)
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
@@ -47,6 +48,8 @@ class ProgressBarInnerView: UIView {
         label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
@@ -54,6 +57,8 @@ class ProgressBarInnerView: UIView {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.textAlignment = .center
+        label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
@@ -79,6 +84,11 @@ class ProgressBarInnerView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        topSeparator.position = CGPoint(x: topSpace.bounds.midX, y: topSpace.bounds.midY)
+        bottomSeparator.position = CGPoint(x: topSpace.bounds.midX, y: topSpace.bounds.midY)
+    }
 
     private func configureSubviews() {
         addSubview(stackView)
@@ -96,12 +106,12 @@ class ProgressBarInnerView: UIView {
 
         topSpace.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            topSpace.heightAnchor.constraint(equalToConstant: 15)
+            topSpace.heightAnchor.constraint(equalToConstant: 10)
         ]
 
         bottomSpace.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            bottomSpace.heightAnchor.constraint(equalToConstant: 15)
+            bottomSpace.heightAnchor.constraint(equalToConstant: 10)
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)
@@ -113,17 +123,13 @@ class ProgressBarInnerView: UIView {
     }
 
     func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimesInfo?) {
-
-        let time = NSInteger(interval)
-        let seconds = time % 60
-        let minutes = (time / 60) % 60
-        let hours = (time / 3600)
-
+        
         let attrString = NSMutableAttributedString()
         let paragraphStyle = NSMutableParagraphStyle()
         
-        let nextTime = NSAttributedString(string: (nextTime?.code.localized ?? "") + " " + "remaining".localized, attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
-        let reminigTime = NSAttributedString(string: "\n\(minutes)" + " " + "minutes".localized + " " + "\(seconds)" + " " + "seconds".localized, attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
+        let nextTime = NSAttributedString(string: (nextTime?.code.localized ?? "").concatenateWithSapce("remaining".localized), attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
+        let reminigTime = NSAttributedString(string: getReminingTime(from: interval),
+                                            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
         
         paragraphStyle.lineSpacing = 2
         paragraphStyle.lineHeightMultiple = 2
@@ -133,11 +139,27 @@ class ProgressBarInnerView: UIView {
         remainingTimeLabel.attributedText = attrString
 
     }
-
-    let separatorLine = CALayer()
-
-    override func layoutSubviews() {
-        topSeparator.position = CGPoint(x: topSpace.bounds.midX, y: topSpace.bounds.midY)
-        bottomSeparator.position = CGPoint(x: topSpace.bounds.midX, y: topSpace.bounds.midY)
+    
+    private func getReminingTime(from interval: TimeInterval) -> String {
+        
+        let time = NSInteger(interval)
+        let seconds = (time % 60)
+        let minutes = ((time / 60) % 60)
+        let hours = (time / 3600)
+        
+        var string = "\n"
+        
+        if hours == 0 && minutes == 0 {
+            return string + "\(seconds)".concatenateWithSapce("seconds".localized)
+        } else if  hours == 0 && minutes > 10 {
+            return string + "\(minutes)".concatenateWithSapce("minutes".localized)
+        }
+            
+        string += "\(hours == 0 ? minutes : hours)"
+                  .concatenateWithSapce((hours == 0 ? "minutes".localized : "hours".localized))
+                  .concatenateWithSapce("\(minutes == 0 ? seconds : minutes)")
+                  .concatenateWithSapce((minutes == 0 ? "seconds".localized : "minutes".localized))
+        
+        return string
     }
 }
