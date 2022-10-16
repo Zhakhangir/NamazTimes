@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ProgressBarInnerView: UIView {
+class CircularProgressBarInnerView: UIView {
 
+    private var prayerInfo: DailyPrayerTime?
+    
     private let topSeparator: CALayer = {
         let layer = CALayer()
         layer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 0.7)
@@ -34,16 +36,17 @@ class ProgressBarInnerView: UIView {
         return view
     }()
 
-    lazy var currentTimeLabel: UILabel = {
+    var currentTimeLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 40, weight: .medium)
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
         label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.7
         return label
     }()
 
-    lazy var remainingTimeLabel: UILabel = {
+    var remainingTimeLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.numberOfLines = 0
@@ -53,7 +56,7 @@ class ProgressBarInnerView: UIView {
         return label
     }()
 
-    lazy var nextTimeLabel: UILabel = {
+    var nextTimeLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 21, weight: .light)
         label.textAlignment = .center
@@ -116,18 +119,18 @@ class ProgressBarInnerView: UIView {
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
-
-    func setTimaValues(currentTime: PrayerTimesInfo?, nextTime: PrayerTimesInfo?) {
-        currentTimeLabel.text = currentTime?.code.localized
-        nextTimeLabel.text = nextTime?.code.localized
+    
+    func configure(with data: DailyPrayerTime?) {
+        prayerInfo = data
+        currentTimeLabel.text = data?.code.localized
+        nextTimeLabel.text = data?.nextCode.localized.concatenateWithSapce(data?.nextTime)
     }
 
-    func updateReminingTime(interval: TimeInterval, nextTime: PrayerTimesInfo?) {
-        
+    func updateReminingTime(interval: Int) {
         let attrString = NSMutableAttributedString()
         let paragraphStyle = NSMutableParagraphStyle()
         
-        let nextTime = NSAttributedString(string: (nextTime?.code.localized ?? "").concatenateWithSapce("remaining".localized), attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
+        let nextTime = NSAttributedString(string: (prayerInfo?.nextCode.localized ?? "").concatenateWithSapce("remaining".localized), attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
         let reminigTime = NSAttributedString(string: getReminingTime(from: interval),
                                             attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
         
@@ -140,7 +143,7 @@ class ProgressBarInnerView: UIView {
 
     }
     
-    private func getReminingTime(from interval: TimeInterval) -> String {
+    private func getReminingTime(from interval: Int) -> String {
         
         let time = NSInteger(interval)
         let seconds = (time % 60)
@@ -151,14 +154,16 @@ class ProgressBarInnerView: UIView {
         
         if hours == 0 && minutes == 0 {
             return string + "\(seconds)".concatenateWithSapce("seconds".localized)
-        } else if  hours == 0 && minutes > 10 {
+        } else if  hours == 0 && minutes >= 10 {
             return string + "\(minutes)".concatenateWithSapce("minutes".localized)
+        } else if hours > 0 && minutes == 0 {
+            return string + "\(hours)".concatenateWithSapce("hours".localized)
         }
             
         string += "\(hours == 0 ? minutes : hours)"
                   .concatenateWithSapce((hours == 0 ? "minutes".localized : "hours".localized))
-                  .concatenateWithSapce("\(minutes == 0 ? seconds : minutes)")
-                  .concatenateWithSapce((minutes == 0 ? "seconds".localized : "minutes".localized))
+                  .concatenateWithSapce("\((hours == 0 && minutes < 10) ? seconds : minutes)")
+                  .concatenateWithSapce((hours == 0 && minutes < 10) ? "seconds".localized : "minutes".localized)
         
         return string
     }

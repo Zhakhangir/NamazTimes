@@ -21,20 +21,22 @@ extension String {
         }
     }
     
-    func toDate(format: Date.Time) -> Date {
+    func toDate(format: Date.Time = .dateTimeDisplay) -> Date {
+        let timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
         let df = DateFormatter()
         df.dateFormat = format.string
-        df.locale = .current
-        let date = df.date(from: self)
+        df.timeZone = timeZone
+        let date = df.date(from: self)?.addingTimeInterval(TimeInterval(timeZone?.secondsFromGMT() ?? 0))
         return date ?? Date()
     }
         
-    func toTimeInterval(format: Date.Time) -> TimeInterval {
-        let date = self.toDate(format: format)
+    func toTimeInterval() -> TimeInterval {
+        let timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
+        let date = self.toDate().addingTimeInterval(TimeInterval(timeZone?.secondsFromGMT() ?? 0))
         return date.timeIntervalSince1970
     }
     
     func concatenateWithSapce(_ word: String?) -> String {
-        return self + " " + ((word ?? "") ?? "")
+        return self + " " + ((word ?? ""))
     }
 }

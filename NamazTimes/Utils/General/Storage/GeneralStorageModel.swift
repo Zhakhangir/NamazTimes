@@ -16,7 +16,6 @@ class CityPrayerData: Object {
         self.init()
         self.cityInfo = data.attributes
         self.times.append(objectsIn: data.days ?? [PreyerTimes]())
-        
     }
 }
 

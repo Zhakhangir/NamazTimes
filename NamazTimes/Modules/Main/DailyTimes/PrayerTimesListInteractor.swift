@@ -13,9 +13,10 @@ protocol PrayerTimesListIntercatorInput {
 
 struct DailyPrayerTime {
     var code: String
-    var date: String
+    var startDate: String
     var startTime: String
-    var endTime: String
+    var nextCode: String
+    var nextTime: String
     var nextDate: String
     var selected: Bool = false
     var requiredTime: Bool = false

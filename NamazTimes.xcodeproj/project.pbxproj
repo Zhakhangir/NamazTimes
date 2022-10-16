@@ -10,7 +10,7 @@
 		7107A45628B49C5C007E18BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */; };
 		711C990528B89A8A00841934 /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990428B89A8A00841934 /* UITabBar+Extensions.swift */; };
 		711C990728BBD60200841934 /* DeviceFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990628BBD60100841934 /* DeviceFinder.swift */; };
-		711C990D28BC7E3500841934 /* ProgressBarInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */; };
+		711C990D28BC7E3500841934 /* CircularProgressBarInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990C28BC7E3500841934 /* CircularProgressBarInnerView.swift */; };
 		711C990F28BCC94F00841934 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990E28BCC94F00841934 /* CALayer+Extensions.swift */; };
 		711DA0CA28413EDB0023A64B /* IntervalTimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0C928413EDB0023A64B /* IntervalTimeRouter.swift */; };
 		711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DA0D6284145F60023A64B /* QFCompassRouter.swift */; };
@@ -65,6 +65,7 @@
 		71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0A28CB400100721915 /* LanguageHelper.swift */; };
 		7187839328362E6F00883421 /* PrayerTimesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187839228362E6F00883421 /* PrayerTimesListView.swift */; };
 		718C03112890567A00AB7794 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C03102890567A00AB7794 /* LocationService.swift */; };
+		718F3B3E28F9F1790011C41C /* CircularProgressBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */; };
 		719B2B6628CC861D008D5063 /* PrayerTimesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */; };
 		71AC767428E1EF4B000E33EF /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767328E1EF4B000E33EF /* MainPageViewController.swift */; };
 		71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */; };
@@ -101,7 +102,7 @@
 		7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711C990428B89A8A00841934 /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
 		711C990628BBD60100841934 /* DeviceFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFinder.swift; sourceTree = "<group>"; };
-		711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarInnerView.swift; sourceTree = "<group>"; };
+		711C990C28BC7E3500841934 /* CircularProgressBarInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarInnerView.swift; sourceTree = "<group>"; };
 		711C990E28BCC94F00841934 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		711DA0C928413EDB0023A64B /* IntervalTimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimeRouter.swift; sourceTree = "<group>"; };
 		711DA0D6284145F60023A64B /* QFCompassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFCompassRouter.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		71849C0A28CB400100721915 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		7187839228362E6F00883421 /* PrayerTimesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListView.swift; sourceTree = "<group>"; };
 		718C03102890567A00AB7794 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarViewModel.swift; sourceTree = "<group>"; };
 		719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesInfo.swift; sourceTree = "<group>"; };
 		71AC767328E1EF4B000E33EF /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimesListInteractor.swift; sourceTree = "<group>"; };
@@ -424,7 +426,8 @@
 				71B5B36D283F6FB000F5BA63 /* PrayerTimesListItemView.swift */,
 				7187839228362E6F00883421 /* PrayerTimesListView.swift */,
 				71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */,
-				711C990C28BC7E3500841934 /* ProgressBarInnerView.swift */,
+				711C990C28BC7E3500841934 /* CircularProgressBarInnerView.swift */,
+				718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718F3B3E28F9F1790011C41C /* CircularProgressBarViewModel.swift in Sources */,
 				71574FFF2886BDE600061F91 /* NetworkError.swift in Sources */,
 				714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */,
 				71B5B36E283F6FB000F5BA63 /* PrayerTimesListItemView.swift in Sources */,
@@ -711,7 +715,7 @@
 				71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */,
 				71ACB2E72844DB7700371C25 /* QFMapView.swift in Sources */,
 				714178A7287F3FDF00790E82 /* GeneralStorageModel.swift in Sources */,
-				711C990D28BC7E3500841934 /* ProgressBarInnerView.swift in Sources */,
+				711C990D28BC7E3500841934 /* CircularProgressBarInnerView.swift in Sources */,
 				71E1E62F28D489380042246E /* DateHelper.swift in Sources */,
 				711C990528B89A8A00841934 /* UITabBar+Extensions.swift in Sources */,
 				71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */,
