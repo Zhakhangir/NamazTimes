@@ -32,6 +32,7 @@ class CircularProgressBarView: UIView {
         addSubview(innerView)
         innerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            innerView.topAnchor.constraint(equalTo: topAnchor, constant: 48),
             innerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             innerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)

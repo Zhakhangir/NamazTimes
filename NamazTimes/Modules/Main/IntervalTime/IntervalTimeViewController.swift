@@ -36,7 +36,7 @@ class IntervalTimeViewController: UIViewController {
         label.textColor = GeneralColor.primary
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
-//        label.minimumScaleFactor = 0.7
+        label.minimumScaleFactor = 0.7
         label.font = .systemFont(dynamicSize: 16, weight: .semibold)
 
         return label
@@ -75,10 +75,9 @@ class IntervalTimeViewController: UIViewController {
     }()
 
     private lazy var currentTimeStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [miladMonth, hijriMonth, currentTimeStatus, currentTime])
+        let stackView = UIStackView(arrangedSubviews: [currentTimeStatus, currentTime])
         stackView.axis = .vertical
         stackView.spacing = 4
-        stackView.distribution = .fillProportionally
         return stackView
     }()
 
@@ -122,9 +121,8 @@ class IntervalTimeViewController: UIViewController {
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            currentTimeStack.topAnchor.constraint(equalTo: timesList.topAnchor),
+            currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
             currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            currentTime.bottomAnchor.constraint(equalTo: timesList.bottomAnchor),
             currentTimeStack.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8)
         ]
         

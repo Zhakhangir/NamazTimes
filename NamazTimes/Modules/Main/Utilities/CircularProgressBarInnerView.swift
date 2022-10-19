@@ -38,29 +38,32 @@ class CircularProgressBarInnerView: UIView {
 
     var currentTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 40, weight: .medium)
+        label.font = .systemFont(ofSize: 40, weight: .medium)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
-        label.adjustsFontForContentSizeCategory = true
+        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
         return label
     }()
 
     var remainingTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 21, weight: .light)
+        label.font = .systemFont(ofSize: 40, weight: .regular)
+        label.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.adjustsFontForContentSizeCategory = true
+        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
         return label
     }()
 
     var nextTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: 21, weight: .light)
+        label.font = .systemFont(ofSize: 40, weight: .regular)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.textAlignment = .center
-        label.adjustsFontForContentSizeCategory = true
+        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
         return label
     }()

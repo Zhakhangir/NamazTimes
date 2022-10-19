@@ -88,6 +88,7 @@
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
 		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
+		71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78C829005B7E00C85C51 /* CalendarView.swift */; };
 		71E1E62F28D489380042246E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* DateHelper.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
@@ -186,6 +187,7 @@
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
 		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
+		71DA78C829005B7E00C85C51 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		71E1E62E28D489370042246E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				71AF5BFB28C5FBC1004319D5 /* CircularProgressBar.swift */,
 				711C990C28BC7E3500841934 /* CircularProgressBarInnerView.swift */,
 				718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */,
+				71DA78C829005B7E00C85C51 /* CalendarView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				714A20C02810355500E8A81A /* UIColor+Extensions.swift in Sources */,
 				711C990728BBD60200841934 /* DeviceFinder.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
+				71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */,
 				715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */,
 				711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */,
 				71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */,
