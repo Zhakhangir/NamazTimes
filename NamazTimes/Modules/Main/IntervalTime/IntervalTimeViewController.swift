@@ -9,8 +9,8 @@ import UIKit
 import RealmSwift
 
 protocol IntervalTimeViewInput where Self: UIViewController {
-    func setTimer()
     func reload()
+    func reloadDate()
 }
 
 class IntervalTimeViewController: UIViewController {
@@ -34,8 +34,9 @@ class IntervalTimeViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
+        label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.7
+//        label.minimumScaleFactor = 0.7
         label.font = .systemFont(dynamicSize: 16, weight: .semibold)
 
         return label
@@ -78,27 +79,21 @@ class IntervalTimeViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.setCustomSpacing(32, after: hijriMonth)
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         timesList.backgroundColor = .clear
-    
+        currentTimeStatus.text = "local_time".localized
+        
         addSubviews()
         setupLayout()
-        stylize()
         reload()
+        reloadDate()
         runTimer()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard let interactor = interactor else { return }
-        let status = interactor.getCurrentProgressStatus()
-        circularProgressBar.configureInnerView(with: interactor.getCurrentTime())
-        circularProgressBar.updateTimer(progress: status.progress, remining: status.remining)
     }
     
     private func addSubviews() {
@@ -128,8 +123,9 @@ class IntervalTimeViewController: UIViewController {
 
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            currentTimeStack.centerYAnchor.constraint(equalTo: timesList.centerYAnchor),
+            currentTimeStack.topAnchor.constraint(equalTo: timesList.topAnchor),
             currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            currentTime.bottomAnchor.constraint(equalTo: timesList.bottomAnchor),
             currentTimeStack.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8)
         ]
         
@@ -144,14 +140,7 @@ class IntervalTimeViewController: UIViewController {
 
         NSLayoutConstraint.activate(layoutConstraints)
     }
-
-    private func stylize() {
-        let dateNames = interactor?.getDateNames()
-        currentTimeStatus.text = "local_time".localized
-        miladMonth.text = dateNames?.dateName
-        hijriMonth.text = dateNames?.islamicDateName
-    }
-
+    
     @objc private func secondRefresh() {
         currentTime.text = Date().timeString(withFormat: .full)
         
@@ -159,18 +148,30 @@ class IntervalTimeViewController: UIViewController {
         let status = interactor.getCurrentProgressStatus()
         interactor.didUpdateTimer()
         circularProgressBar.updateTimer(progress: status.progress, remining: status.remining)
-        print(status)
+        
         if status.remining == 0 {
-            interactor.didFinishTimer()
+            interactor.reloadTimes()
+            NotificationCenter.default.post(name: Notification.Name(GeneralNotifications.DID_PRAYER_TIME_CHANGE.rawValue), object: nil)
+        }
+        
+        if currentTime.text ?? "" == "00:00:00" {
+            reloadDate()
         }
     }
     
     deinit {
         timer.invalidate()
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
 extension IntervalTimeViewController: IntervalTimeViewInput {
+    
+    func reloadDate() {
+        let dateNames = interactor?.getDateNames()
+        miladMonth.attributedText = dateNames?.dateName
+        hijriMonth.attributedText = dateNames?.islamicDateName
+    }
     
     func reload() {
         guard let interactor = interactor else { return }
@@ -178,9 +179,5 @@ extension IntervalTimeViewController: IntervalTimeViewInput {
         let status = interactor.getCurrentProgressStatus()
         circularProgressBar.configureInnerView(with: interactor.getCurrentTime())
         circularProgressBar.updateTimer(progress: status.progress, remining: status.remining)
-    }
-    
-    func setTimer() {
-        
     }
 }

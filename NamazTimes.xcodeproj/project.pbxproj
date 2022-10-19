@@ -67,6 +67,7 @@
 		718C03112890567A00AB7794 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C03102890567A00AB7794 /* LocationService.swift */; };
 		718F3B3E28F9F1790011C41C /* CircularProgressBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */; };
 		719B2B6628CC861D008D5063 /* PrayerTimesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */; };
+		71AA453628FD4485000F02A6 /* GeneralNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA453528FD4485000F02A6 /* GeneralNotification.swift */; };
 		71AC767428E1EF4B000E33EF /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767328E1EF4B000E33EF /* MainPageViewController.swift */; };
 		71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */; };
 		71AC767E28E1F13E000E33EF /* PrayerTimerListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC767D28E1F13E000E33EF /* PrayerTimerListRouter.swift */; };
@@ -164,6 +165,7 @@
 		718C03102890567A00AB7794 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		718F3B3D28F9F1790011C41C /* CircularProgressBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarViewModel.swift; sourceTree = "<group>"; };
 		719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesInfo.swift; sourceTree = "<group>"; };
+		71AA453528FD4485000F02A6 /* GeneralNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNotification.swift; sourceTree = "<group>"; };
 		71AC767328E1EF4B000E33EF /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		71AC767B28E1F136000E33EF /* PrayerTimesListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimesListInteractor.swift; sourceTree = "<group>"; };
 		71AC767D28E1F13E000E33EF /* PrayerTimerListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimerListRouter.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				714178A6287F3FDF00790E82 /* GeneralStorageModel.swift */,
 				71574FEE2886AA3900061F91 /* GeneralStorage.swift */,
 				71E1E62E28D489370042246E /* DateHelper.swift */,
+				71AA453528FD4485000F02A6 /* GeneralNotification.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */,
 				71AC768028E1F376000E33EF /* MainPageRouter.swift in Sources */,
 				715750092887093000061F91 /* PrayerTimesEndPoint.swift in Sources */,
+				71AA453628FD4485000F02A6 /* GeneralNotification.swift in Sources */,
 				71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */,
 				71482F8F28A4F00D007EAE0A /* LoadingButton.swift in Sources */,
 				7131309B287AF0D2005BA798 /* Reachability.swift in Sources */,

@@ -41,9 +41,17 @@ struct GeneralStorageController {
         return prayerTimes
     }
     
-    mutating func getDateNames() -> (dateName: String?, islamicDateName: String?) {
+    mutating func getDateNameViewModel() -> DateNameViewModel {
+        var viewModel = DateNameViewModel()
         let times = mainData?.times.first(where: { $0.date == DateHelper.today.date })
-        return (times?.day?.concatenateWithSapce(Date().toString(format: "yyyy")), times?.islamicDateInWords)
+                
+        viewModel.weekDay = times?.dayName
+        // 1 Nюнь 2022
+        viewModel.dateName = times?.day?.replacingOccurrences(of: " -", with: "").concatenateWithSapce(Date().toString(format: "yyyy"))
+        viewModel.islamicName = times?.islamicDateInWords
+        viewModel.date = times?.date
+        viewModel.islamicDate = times?.islamicDate
+        return viewModel
     }
     
     private mutating func dailyPrayerTimesList(for day: DateHelper = .today, shortList: Bool = false) -> [DailyPrayerTime] {

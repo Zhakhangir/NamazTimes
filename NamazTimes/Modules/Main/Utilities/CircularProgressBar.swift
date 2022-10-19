@@ -9,11 +9,11 @@ import UIKit
 
 class CircularProgressBarView: UIView {
 
-    private var progressLayer = CAShapeLayer()
-    let secondaryLayer = CAShapeLayer()
-    private var startPoint = CGFloat(5*Double.pi/6)
-    private var endPoint = CGFloat(Double.pi/6)
-    let radius = (UIScreen.main.bounds.width / 2 - 40)
+    private let progressLayer = CAShapeLayer()
+    private let secondaryLayer = CAShapeLayer()
+    private let startPoint = CGFloat(5*Double.pi/6)
+    private let endPoint = CGFloat(Double.pi/6)
+    private let radius = (UIScreen.main.bounds.width / 2 - 40)
 
     let innerView = CircularProgressBarInnerView()
 
@@ -31,10 +31,12 @@ class CircularProgressBarView: UIView {
     private func addSubviews() {
         addSubview(innerView)
         innerView.translatesAutoresizingMaskIntoConstraints = false
-
+        print(getProgressLayerBox(), "fksjfksajfkjas")
         NSLayoutConstraint.activate([
-            innerView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            innerView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            innerView.topAnchor.constraint(equalTo: topAnchor, constant: 48),
+            innerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            innerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 
@@ -43,15 +45,15 @@ class CircularProgressBarView: UIView {
         let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
         
         secondaryLayer.strokeColor = GeneralColor.primary.cgColor.copy(alpha: 0.5)
-        secondaryLayer.lineWidth = 11.0
         secondaryLayer.path = circularPath.cgPath
         secondaryLayer.fillColor = UIColor.clear.cgColor
+        secondaryLayer.lineWidth = 11.0
         layer.addSublayer(secondaryLayer)
 
+        progressLayer.strokeColor = GeneralColor.primary.cgColor
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineWidth = 11.0
-        progressLayer.strokeColor = GeneralColor.primary.cgColor
         layer.addSublayer(progressLayer)
     }
     

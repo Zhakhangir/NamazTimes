@@ -61,7 +61,7 @@ class MainPageViewController: UIPageViewController {
         if DeviceType.heightType == .big {
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         } else {
-            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: CGFloat(UIScreen.main.bounds.width/4)).isActive = true
         }
     }
 }

@@ -22,7 +22,7 @@ class PrayerTimesListViewController: UIViewController {
         super.viewDidLoad()
         
         configureSubviews()
-        timesList.reload(with: interactor?.getData() ?? [DailyPrayerTime]())
+        reload()
     }
     
     private func configureSubviews() {
@@ -41,6 +41,6 @@ class PrayerTimesListViewController: UIViewController {
 extension PrayerTimesListViewController: PrayerTimesListViewInput {
     
     func reload() {
-        
+        timesList.reload(with: interactor?.getData() ?? [DailyPrayerTime]())
     }
 }

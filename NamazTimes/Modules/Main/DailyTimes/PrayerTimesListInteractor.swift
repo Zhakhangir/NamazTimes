@@ -5,7 +5,7 @@
 //  Created by &&TairoV on 26.05.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol PrayerTimesListIntercatorInput {
     func getData() -> [DailyPrayerTime]
@@ -29,9 +29,23 @@ class PrayerTimesListInteractor: PrayerTimesListIntercatorInput {
     
     init(view: PrayerTimesListViewInput) {
         self.view = view
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: Notification.Name(GeneralNotifications.DID_PRAYER_TIME_CHANGE.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(update),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
     }
 
     func getData() -> [DailyPrayerTime] {
         return prayerTimes
+    }
+    
+    @objc private func update() {
+        view.reload()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
