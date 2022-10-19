@@ -8,9 +8,9 @@
 import UIKit
 import CoreLocation
 
-protocol QFCompassViewInput: GeneralViewControllerProtocol {}
+protocol QFCompassViewInput where Self: UIViewController {}
 
-class QFCompassViewController: GeneralViewController {
+class QFCompassViewController: UIViewController {
 
     var router: QFCompassRouterInput?
     var interactor: QFCompassInteractorInput?
@@ -66,9 +66,9 @@ class QFCompassViewController: GeneralViewController {
     }
 
     private func addSubviews() {
-        contentView.addSubview(arrowView)
-        contentView.addSubview(mapButton)
-        contentView.addSubview(subtitleLabel)
+        view.addSubview(arrowView)
+        view.addSubview(mapButton)
+        view.addSubview(subtitleLabel)
     }
 
     private func setupLayout() {
@@ -76,22 +76,22 @@ class QFCompassViewController: GeneralViewController {
 
         arrowView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            arrowView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            arrowView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            arrowView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            arrowView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32)
+            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            subtitleLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
         ]
 
         mapButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             mapButton.heightAnchor.constraint(equalToConstant: 30),
             mapButton.widthAnchor.constraint(equalToConstant: 30),
-            mapButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            mapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mapButton.centerYAnchor.constraint(equalTo: subtitleLabel.centerYAnchor)
         ]
 

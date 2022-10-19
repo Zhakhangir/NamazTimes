@@ -28,7 +28,7 @@ class QFCompassRouter: QFCompassRouterInput {
 
     func showQFMap() {
         let vc = QFMapRouter().build()
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overFullScreen
         view?.present(vc, animated: true, completion: nil)
     }
 }

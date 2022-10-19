@@ -11,14 +11,16 @@ import CoreLocation
 class GeneralTabBarViewController: UITabBarController {
     
     let navigationView = GeneralNavigationView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = GeneralColor.primary
-        tabBar.layer.borderColor = GeneralColor.primary.cgColor
-
+        
+        view.backgroundColor = GeneralColor.backgroundGray
+        navigationView.delegate = self
+        
         setupChilds()
-        configureHeaderView()
+        configureSubviews()
+        configure()
     }
     
     convenience init(selectedIndex: Int?) {
@@ -27,44 +29,70 @@ class GeneralTabBarViewController: UITabBarController {
         guard let selectedIndex = selectedIndex else {  return }
         self.selectedIndex = selectedIndex
     }
-
-    private func configureHeaderView() {
-        view.addSubview(navigationView)
-        navigationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLocationSettings)))
-        navigationView.translatesAutoresizingMaskIntoConstraints = false
-
-        navigationView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    
+    private func configure() {
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithDefaultBackground()
+            
+            self.tabBar.standardAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = appearance
+        }
     }
-
+    
+    private func configureSubviews() {
+        
+        view.addSubview(navigationView)
+        var layoutConstraints = [NSLayoutConstraint]()
+        
+        navigationView.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            navigationView.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+        
+        
+        NSLayoutConstraint.activate(layoutConstraints)
+    }
+    
     private func setupChilds() {
         viewControllers = [
-            createTabBarController(with: HomeRouter().build(), title: "interval".localized,  image: UIImage(named: "clock")),
-            createTabBarController(with: DailyTimesRouter().build(), title: "daily_times".localized, image: UIImage(named: "calendar")),
-            createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass")),
-            createTabBarController(with: SettingsRouter().build(), title: "settings".localized, image: UIImage(named: "settings"))
+            createTabBarController(with: MainPageRouter().build(), title: "times".localized,  image: UIImage(named: "clock")),
+            createTabBarController(with: QFCompassRouter().build(), title: "qibla_st".localized, image: UIImage(named: "compass"))
         ]
     }
-
+    
     private func createTabBarController( with rootViewController: UIViewController,
                                          title: String = "",
                                          image: UIImage?) -> UIViewController {
-
+        
         rootViewController.tabBarItem.title = title
         rootViewController.tabBarItem.image = image
-
+        
         return rootViewController
     }
-
-   @objc private func showLocationSettings() {
-
-       let vc = LocationFinderRouter().build()
-       vc.modalPresentationStyle = .fullScreen
-       present(vc, animated: true, completion: nil)
+    
+    func routeToLocationSettings() {
+        let vc = LocationFinderRouter(hideCloseButton: false).build()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
-    func configure(with viewModel: CityInfo) {
-        navigationView.configure(with: viewModel)
+    func routeToSettings(animate: Bool = false) {
+        let vc = SettingsRouter().build()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: animate, completion: nil)
+    }
+}
+
+extension GeneralTabBarViewController: NavigationButtonDelegate {
+    func didTapButton(type: NavigationButton) {
+        switch type {
+        case .location:
+            routeToLocationSettings()
+        case .settings:
+            routeToSettings(animate: true)
+        }
     }
 }

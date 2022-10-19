@@ -111,6 +111,7 @@ enum DeviceSize {
 }
 
 struct DeviceType {
+    
     static var heightType: DeviceSize {
         UIScreen.main.bounds.height > 700 ? .big : .small
     }

@@ -8,90 +8,69 @@
 import UIKit
 import Lottie
 
+enum NavigationButton: Int {
+    case location = 1, settings
+}
+
+protocol NavigationButtonDelegate {
+    func didTapButton(type: NavigationButton)
+}
+
 class GeneralNavigationView: UIView {
 
     let titleLabel = UILabel()
-    let miladMonthName = UILabel()
-    let hijriMonthName = UILabel()
+    let rightButton = UIButton()
+    let leftButton = UIButton()
+    let seperatorView = UIView()
+    var delegate: NavigationButtonDelegate?
 
-    private lazy var animationView: AnimationView = {
-        let animationView = AnimationView(name: "locate_animation")
-        animationView.backgroundBehavior = .pauseAndRestore
-        animationView.loopMode = .loop
-        animationView.animationSpeed = 1
-        animationView.play()
-
-        return animationView
-    }()
-
-    private let spaceView = UIView()
-
-    lazy var infoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, monthsStackView])
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.alignment = .fill
-
-        return stackView
-    }()
-
-    lazy var monthsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [miladMonthName, spaceView, hijriMonthName])
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftButton ,titleLabel, rightButton])
         stackView.axis = .horizontal
-        stackView.spacing = 4
+        stackView.setCustomSpacing(8, after: rightButton)
 
         return stackView
-    }()
-
-    let seperatorView: UIView = {
-        let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
-        view.backgroundColor = GeneralColor.black.withAlphaComponent(0.2)
-
-        return view
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        configureHeaderView()
-        setupHeaderViewLayout()
-        stylizeHeaderView()
+        configureSubviews()
+        stylize()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configureHeaderView() {
-        addSubview(animationView)
-        addSubview(infoStackView)
+    private func configureSubviews() {
+
+        addSubview(stackView)
         addSubview(seperatorView)
-    }
-
-    private func setupHeaderViewLayout() {
-
+        
         var layoutConstraints = [NSLayoutConstraint]()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
+            
+        leftButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            animationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            animationView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            animationView.heightAnchor.constraint(equalToConstant: 70),
-            animationView.widthAnchor.constraint(equalToConstant: 70)
+            leftButton.heightAnchor.constraint(equalToConstant: 32),
+            leftButton.widthAnchor.constraint(equalToConstant: 32)
         ]
 
-        infoStackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            infoStackView.leadingAnchor.constraint(equalTo: animationView.trailingAnchor, constant: 8),
-            infoStackView.topAnchor.constraint(equalTo: animationView.topAnchor),
-            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
 
         ]
 
-        spaceView.translatesAutoresizingMaskIntoConstraints = false
+        rightButton.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            spaceView.widthAnchor.constraint(equalToConstant: 2)
+            rightButton.heightAnchor.constraint(equalToConstant: 32),
+            rightButton.widthAnchor.constraint(equalToConstant: 32)
         ]
-
+        
         seperatorView.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             seperatorView.heightAnchor.constraint(equalToConstant: 1),
@@ -100,34 +79,31 @@ class GeneralNavigationView: UIView {
             seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
 
-        if #available(iOS 11.0, *) {
-            animationView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        } else {
-            animationView.topAnchor.constraint(equalTo: topAnchor, constant: 35).isActive = true
-        }
-
         NSLayoutConstraint.activate(layoutConstraints)
     }
 
-    private func stylizeHeaderView() {
+    private func stylize() {
         backgroundColor = GeneralColor.backgroundGray
 
+        titleLabel.text = GeneralStorageController.shared.getCityInfo()?.cityName
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = .systemFont(dynamicSize: 24, weight: .regular)
+        titleLabel.font = BaseFont.medium.withSize(20)
+        titleLabel.textAlignment = .left
         
-        miladMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
-        miladMonthName.textColor = GeneralColor.el_subtitle
-        miladMonthName.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-
-        hijriMonthName.font = .systemFont(dynamicSize: 12, weight: .medium)
-        hijriMonthName.textColor = GeneralColor.el_subtitle
-        hijriMonthName.setContentHuggingPriority(.defaultLow, for: .horizontal)
-
-        spaceView.backgroundColor = GeneralColor.el_subtitle
-        spaceView.layer.cornerRadius = 1
+        leftButton.setImage(UIImage(named: "location_point"), for: .normal)
+        leftButton.tag = 1
+        rightButton.setImage(UIImage(named: "settings"), for: .normal)
+        rightButton.tag = 2
+        
+        seperatorView.backgroundColor = .black.withAlphaComponent(0.2)
+        
+        leftButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
     }
     
-    func configure(with viewModel: CityInfo) {
-        titleLabel.text = viewModel.cityName
+    @objc private func didTapButton(_ sender: UIButton?) {
+        guard let sender = sender else { return }
+        
+        delegate?.didTapButton(type: NavigationButton(rawValue: sender.tag) ?? .location)
     }
 }

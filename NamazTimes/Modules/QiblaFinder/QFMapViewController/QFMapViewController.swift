@@ -85,7 +85,6 @@ class QFMapViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(mapView)
-        //        view.addSubview(aimImageView)
         view.addSubview(mapTypeSegmentedControl)
         view.addSubview(closeButton)
         view.addSubview(locationButton)

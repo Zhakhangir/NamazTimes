@@ -24,7 +24,7 @@ extension Date {
         var string: String {
             switch self {
             case .dateTimeDisplay:
-                return "YYYY-MM-dd HH:mm"
+                return "dd-MM-yyyy HH:mm"
             case .full:
                 return "HH:mm:ss"
             case .fullMilliseconds:

@@ -23,8 +23,8 @@ class QFCompassInteractor: QFCompassInteractorInput {
     init(view: QFCompassViewInput) {
         
         
-        qiblaAngle = (Double((cityInfo?.QiblaDir ?? "0.0")) ?? 0.0) - (Double((cityInfo?.MagnetDev ?? "0.0")) ?? 0.0)
-        
+        qiblaAngle = (Double((cityInfo?.QiblaDir ?? "0.0")) ?? 0.0)
+        print("Qibla Dir", qiblaAngle)
         self.view = view
     }
 

@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol LocationFinderInteractorInput {
-    var closeButton: Bool { get }
+    var hideCloseButton: Bool { get }
 
     func getNumberOfSection() -> Int
     func getNumberOfRows(in section: Int) -> Int
@@ -23,15 +23,15 @@ protocol LocationFinderInteractorInput {
 class LocationFinderInteractor {
 
     var view: LocationFinderViewInput
-    var closeButton: Bool
+    var hideCloseButton: Bool
     private let reachability = try! Reachability()
     private let realm = try! Realm()
     private let networkManager = NetworkManager()
     private var regions = [Regions]()
 
-    init(view: LocationFinderViewInput, closeButton: Bool) {
+    init(view: LocationFinderViewInput, hideCloseButton: Bool) {
         self.view = view
-        self.closeButton = closeButton
+        self.hideCloseButton = hideCloseButton
 
         checkNetworkConnection()
     }
@@ -52,7 +52,6 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
             view.spinnerState(animate: true)
             networkManager.searchCity(cityName: name ?? "") {data, error in
                 DispatchQueue.main.async {
-
                     if let error = error {
                         self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
                     }
@@ -79,11 +78,11 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
 
                 guard let data = data else { return }
                 let storageData = CityPrayerData(data: data)
-                
+                UserDefaults.standard.set("cityId", forKey: cityId.description)
                 try! self.realm.write {
                     self.realm.delete(self.realm.objects(CityPrayerData.self))
                     self.realm.delete(self.realm.objects(CityInfo.self))
-                    self.realm.delete(self.realm.objects(DailyTime.self))
+                    self.realm.delete(self.realm.objects(PreyerTimes.self))
                     self.realm.add(storageData)
                 }
                 self.view.routeToHome()
