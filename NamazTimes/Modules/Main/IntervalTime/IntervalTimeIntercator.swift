@@ -14,7 +14,7 @@ protocol IntervalTimeInteractorInput {
     func didUpdateTimer()
     func getCurrentProgressStatus() -> (progress: Double, remining: Int)
     func getDateNames() -> (dateName: NSAttributedString, islamicDateName: NSAttributedString)
-    func reloadTimes()
+    func reloadTimer()
 }
 
 struct DateNameViewModel {
@@ -78,7 +78,7 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
         return (passedTimeInterval/totalTimeInterval, Int(totalTimeInterval - passedTimeInterval))
     }
     
-    func reloadTimes() {
+    func reloadTimer() {
         let timeIntervals = getTotalPassedTimeInterval()
         totalTimeInterval = timeIntervals.total
         passedTimeInterval = timeIntervals.passed
@@ -86,6 +86,7 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
     }
     
     @objc  private func didBecomeActive() {
+        reloadTimer()
         view.reload()
         view.reloadDate()
     }
@@ -104,13 +105,13 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
         
         for (index, item) in date.enumerated() {
             switch index {
-            case 0:
+            case 0: //Day
                 attrString.append(NSAttributedString(string: item + "\n", attributes: [
-                    .font: UIFont.systemFont(ofSize: 32, weight: .bold)
+                    .font: UIFont.systemFont(ofSize: 18, weight: .bold)
                 ]))
-            case 1,2:
-                attrString.append(NSAttributedString(string: item + "\n", attributes: [
-                    .font: UIFont.systemFont(ofSize: 24, weight: .regular)
+            case 1,2: //Month name & year
+                attrString.append(NSAttributedString(string: item, attributes: [
+                    .font: UIFont.systemFont(ofSize: 13, weight: .regular)
                 ]))
             default: break;
             }

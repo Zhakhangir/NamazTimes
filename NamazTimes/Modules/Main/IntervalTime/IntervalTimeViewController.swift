@@ -78,7 +78,6 @@ class IntervalTimeViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [miladMonth, hijriMonth, currentTimeStatus, currentTime])
         stackView.axis = .vertical
         stackView.spacing = 4
-        stackView.setCustomSpacing(32, after: hijriMonth)
         stackView.distribution = .fillProportionally
         return stackView
     }()
@@ -150,7 +149,7 @@ class IntervalTimeViewController: UIViewController {
         circularProgressBar.updateTimer(progress: status.progress, remining: status.remining)
         
         if status.remining == 0 {
-            interactor.reloadTimes()
+            interactor.reloadTimer()
             NotificationCenter.default.post(name: Notification.Name(GeneralNotifications.DID_PRAYER_TIME_CHANGE.rawValue), object: nil)
         }
         
