@@ -7,7 +7,17 @@
 
 import UIKit
 
-class LocationAccessErrorViewController: UIViewController {
+
+import UIKit
+
+protocol ErrorPageViewInput where Self: UIViewController {
+    
+}
+
+class ErrorPageViewController: UIViewController {
+    
+    var router: ErrorPageRouterInput?
+    var interactor: ErrorPageInteractorInput?
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -85,8 +95,10 @@ class LocationAccessErrorViewController: UIViewController {
     }
 
     @objc func buttonTap() {
-        if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
-            UIApplication.shared.open(url)
-        }
+    
     }
+}
+
+extension ErrorPageViewController: ErrorPageViewInput {
+    
 }

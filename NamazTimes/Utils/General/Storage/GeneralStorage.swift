@@ -26,6 +26,36 @@ struct GeneralStorageController {
         return realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first?.cityInfo
     }
     
+    mutating func getDateNameViewModel() -> DateNameViewModel {
+        var viewModel = DateNameViewModel()
+        let times = mainData?.times.first(where: { $0.date == DateHelper.today.date })
+                
+        viewModel.weekDay = times?.dayName
+        // 1 Nюнь 2022
+        viewModel.gregorioanCalendar = getCalendarViewModel(for: times?.day?.replacingOccurrences(of: " -", with: "").concatenateWithSapce(Date().toString(format: "yyyy")).components(separatedBy: " "))
+        viewModel.hijriCalendar = getCalendarViewModel(for: times?.islamicDateInWords?.components(separatedBy: " "))
+        viewModel.gregorioanDate = times?.date
+        viewModel.hijriDate = times?.islamicDate
+        return viewModel
+    }
+    
+    private func getCalendarViewModel(for calendar: [String]?) -> CalendarViewModel? {
+        var viewModel = CalendarViewModel()
+        guard let dateArray = calendar else { return nil }
+        for (index, item) in dateArray.enumerated() {
+            switch index {
+            case 0: //day
+                viewModel.day = item
+            case 1: //month
+                viewModel.month = item
+            case 2: //year
+                viewModel.year = item
+            default: break;
+            }
+        }
+        
+        return viewModel
+    }
     
     mutating func getConfiguredPrayerTimes(shortList: Bool = false) -> [DailyPrayerTime] {
         
@@ -39,19 +69,6 @@ struct GeneralStorageController {
         
         currentTimeIndex != nil ? { prayerTimes[currentTimeIndex ?? 0].selected = true }() : nil
         return prayerTimes
-    }
-    
-    mutating func getDateNameViewModel() -> DateNameViewModel {
-        var viewModel = DateNameViewModel()
-        let times = mainData?.times.first(where: { $0.date == DateHelper.today.date })
-                
-        viewModel.weekDay = times?.dayName
-        // 1 Nюнь 2022
-        viewModel.dateName = times?.day?.replacingOccurrences(of: " -", with: "").concatenateWithSapce(Date().toString(format: "yyyy"))
-        viewModel.islamicName = times?.islamicDateInWords
-        viewModel.date = times?.date
-        viewModel.islamicDate = times?.islamicDate
-        return viewModel
     }
     
     private mutating func dailyPrayerTimesList(for day: DateHelper = .today, shortList: Bool = false) -> [DailyPrayerTime] {

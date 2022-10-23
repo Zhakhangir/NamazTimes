@@ -16,8 +16,7 @@ class PrayerTimesListItemView: UIView {
         label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .regular)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
-        label.adjustsFontForContentSizeCategory = true
-        label.minimumScaleFactor = 0.7
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -27,8 +26,7 @@ class PrayerTimesListItemView: UIView {
         label.textAlignment = .right
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
-        label.adjustsFontForContentSizeCategory = true
-        label.minimumScaleFactor = 0.7
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 

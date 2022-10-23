@@ -126,10 +126,10 @@ extension LocationService {
 
         switch status {
         case .notDetermined, .denied, .restricted:
-            vc = LocationAccessErrorViewController()
+            vc = ErrorPageViewController()
         case .authorizedAlways, .authorizedWhenInUse:
             vc = GeneralStorageController.shared.getCityInfo() == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
-        default: vc = LocationAccessErrorViewController()
+        default: vc = ErrorPageViewController()
         }
 
         return vc

@@ -13,15 +13,15 @@ protocol IntervalTimeInteractorInput {
     func getCurrentTime() -> DailyPrayerTime?
     func didUpdateTimer()
     func getCurrentProgressStatus() -> (progress: Double, remining: Int)
-    func getDateNames() -> (dateName: NSAttributedString, islamicDateName: NSAttributedString)
+    func getCalendarViewModels() -> DateNameViewModel
     func reloadTimer()
 }
 
 struct DateNameViewModel {
-    var dateName: String?
-    var islamicName: String?
-    var date: String?
-    var islamicDate: String?
+    var hijriCalendar: CalendarViewModel?
+    var gregorioanCalendar: CalendarViewModel?
+    var hijriDate: String?
+    var gregorioanDate: String?
     var weekDay: String?
 }
 
@@ -64,14 +64,8 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
         passedTimeInterval += 1
     }
     
-    func getDateNames() -> (dateName: NSAttributedString, islamicDateName: NSAttributedString) {
-        let dates = GeneralStorageController.shared.getDateNameViewModel()
-        
-        // 12 Iyun 2022
-        let dateName = dates.dateName?.components(separatedBy: " ") ?? [""]
-        let islamicDateName = dates.islamicName?.components(separatedBy: " ") ?? [""]
-        
-        return (getAttributedDateName(date: dateName), getAttributedDateName(date: islamicDateName))
+    func getCalendarViewModels() -> DateNameViewModel {
+        return GeneralStorageController.shared.getDateNameViewModel()
     }
     
     func getCurrentProgressStatus() -> (progress: Double, remining: Int) {
@@ -88,7 +82,7 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
     @objc  private func didBecomeActive() {
         reloadTimer()
         view.reload()
-        view.reloadDate()
+        view.reloadCalendar()
     }
     
     private func getTotalPassedTimeInterval() -> (total: TimeInterval, passed: TimeInterval) {
@@ -98,26 +92,6 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
         let currentTime = Date().addingTimeInterval(TimeInterval(timeZone?.secondsFromGMT() ?? 0))
 
         return (endTime.timeIntervalSince(startTime), currentTime.timeIntervalSince(startTime))
-    }
-    
-    private func getAttributedDateName(date: [String]) -> NSAttributedString {
-        let attrString = NSMutableAttributedString()
-        
-        for (index, item) in date.enumerated() {
-            switch index {
-            case 0: //Day
-                attrString.append(NSAttributedString(string: item + "\n", attributes: [
-                    .font: UIFont.systemFont(ofSize: 18, weight: .bold)
-                ]))
-            case 1,2: //Month name & year
-                attrString.append(NSAttributedString(string: item, attributes: [
-                    .font: UIFont.systemFont(ofSize: 13, weight: .regular)
-                ]))
-            default: break;
-            }
-        }
-        
-        return attrString
     }
     
     deinit {

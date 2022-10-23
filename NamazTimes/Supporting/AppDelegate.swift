@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UserDefaults.standard.string(forKey: "language") == nil {
             UserDefaults.standard.set(LanguageHelper().code, forKey: "language")
+            UserDefaults().synchronize()
         }
     
         window?.rootViewController =  LocationService.sharedInstance.getConfiguredRoot()

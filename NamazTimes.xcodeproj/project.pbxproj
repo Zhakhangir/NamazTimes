@@ -35,7 +35,7 @@
 		714A20CC28104E8600E8A81A /* IntervalTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */; };
 		714A20CE28104EA000E8A81A /* PrayerTimesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */; };
 		714A82B02891C2A800817053 /* CAListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82AF2891C2A800817053 /* CAListCard.swift */; };
-		714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */; };
+		714A82B22891C7B300817053 /* ErrorPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* ErrorPageViewController.swift */; };
 		714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E828A12EF700113C5F /* Results+Extensions.swift */; };
 		71574FEF2886AA3900061F91 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FEE2886AA3900061F91 /* GeneralStorage.swift */; };
 		71574FF52886B4B800061F91 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FF42886B4B800061F91 /* EndPointType.swift */; };
@@ -89,13 +89,14 @@
 		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
 		71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78C829005B7E00C85C51 /* CalendarView.swift */; };
+		71DA78CC2903B71400C85C51 /* ErrorPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */; };
+		71DA78CE2903B72000C85C51 /* ErrorPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */; };
 		71E1E62F28D489380042246E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* DateHelper.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
 		71E5064C281E901700F2880D /* GeneralAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertViewController.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
-		71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37B628A54A8A003B693A /* ModeTextField.swift */; };
 		C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +133,7 @@
 		714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListViewController.swift; sourceTree = "<group>"; };
 		714A82AC28919F3E00817053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		714A82AF2891C2A800817053 /* CAListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListCard.swift; sourceTree = "<group>"; };
-		714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessErrorViewController.swift; sourceTree = "<group>"; };
+		714A82B12891C7B300817053 /* ErrorPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageViewController.swift; sourceTree = "<group>"; };
 		714FD8E828A12EF700113C5F /* Results+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extensions.swift"; sourceTree = "<group>"; };
 		71574FEE2886AA3900061F91 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
 		71574FF42886B4B800061F91 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
@@ -188,13 +189,14 @@
 		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
 		71DA78C829005B7E00C85C51 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageRouter.swift; sourceTree = "<group>"; };
+		71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageInteractor.swift; sourceTree = "<group>"; };
 		71E1E62E28D489370042246E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		71E5064B281E901600F2880D /* GeneralAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertViewController.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
-		71FA37B628A54A8A003B693A /* ModeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTextField.swift; sourceTree = "<group>"; };
 		9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.release.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
 		E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.debug.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,7 +243,8 @@
 		713487F328998F330064CEF4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				71FA37B628A54A8A003B693A /* ModeTextField.swift */,
+				71849C0628CA503500721915 /* AnnualTimeModel.swift */,
+				7157500B288714E000061F91 /* CitySearchModel.swift */,
 				713487F428998F510064CEF4 /* LoadingLabelView.swift */,
 				71482F8E28A4F00D007EAE0A /* LoadingButton.swift */,
 			);
@@ -281,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				71E4F73D280C37B00091B120 /* Supporting */,
-				7157500A288714AE00061F91 /* Model */,
 				71E4F73A280C2F010091B120 /* Utils */,
 				71E4F739280C2EF40091B120 /* Modules */,
 			);
@@ -385,15 +387,6 @@
 			path = Encoding;
 			sourceTree = "<group>";
 		};
-		7157500A288714AE00061F91 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7157500B288714E000061F91 /* CitySearchModel.swift */,
-				71849C0628CA503500721915 /* AnnualTimeModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		715D084728144ACD00729AFB /* LocationFinder */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,13 +483,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		71BDCE7F28DA33DA0073DBDF /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		71D8AAC128C06DAB00EB65FC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +490,16 @@
 				71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		71DA78CA2903B6F700C85C51 /* ErrorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				714A82B12891C7B300817053 /* ErrorPageViewController.swift */,
+				71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */,
+				71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */,
+			);
+			path = ErrorViewController;
 			sourceTree = "<group>";
 		};
 		71E4F739280C2EF40091B120 /* Modules */ = {
@@ -520,14 +516,14 @@
 		71E4F73A280C2F010091B120 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				714A20BD2810352600E8A81A /* General */,
+				71DA78CA2903B6F700C85C51 /* ErrorViewController */,
 				719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */,
 				718C03102890567A00AB7794 /* LocationService.swift */,
 				7131309A287AF0D1005BA798 /* Reachability.swift */,
-				714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */,
 				71E4F73C280C37770091B120 /* Networking */,
 				71B5B381283F960C00F5BA63 /* UI */,
 				714A20BE2810353900E8A81A /* Extensions */,
-				714A20BD2810352600E8A81A /* General */,
 				711C990628BBD60100841934 /* DeviceFinder.swift */,
 				71BDCE8C28DA37F50073DBDF /* BaseFont.swift */,
 			);
@@ -548,7 +544,6 @@
 		71E4F73D280C37B00091B120 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				71BDCE7F28DA33DA0073DBDF /* Fonts */,
 				7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */,
 				712AEB0428C79A7800544F4B /* loader.json */,
 				712AEB0528C79A7800544F4B /* locate_animation.json */,
@@ -761,6 +756,7 @@
 				711C990728BBD60200841934 /* DeviceFinder.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
 				71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */,
+				71DA78CC2903B71400C85C51 /* ErrorPageRouter.swift in Sources */,
 				715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */,
 				711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */,
 				71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */,
@@ -769,10 +765,10 @@
 				71ACB2F12844EA6B00371C25 /* QFMapIntractor.swift in Sources */,
 				7157500E288716C500061F91 /* NetworkManager.swift in Sources */,
 				711DA0CA28413EDB0023A64B /* IntervalTimeRouter.swift in Sources */,
-				714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */,
-				71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */,
+				714A82B22891C7B300817053 /* ErrorPageViewController.swift in Sources */,
 				71AC768028E1F376000E33EF /* MainPageRouter.swift in Sources */,
 				715750092887093000061F91 /* PrayerTimesEndPoint.swift in Sources */,
+				71DA78CE2903B72000C85C51 /* ErrorPageInteractor.swift in Sources */,
 				71AA453628FD4485000F02A6 /* GeneralNotification.swift in Sources */,
 				71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */,
 				71482F8F28A4F00D007EAE0A /* LoadingButton.swift in Sources */,
@@ -945,7 +941,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M358H5F32F;
+				DEVELOPMENT_TEAM = 8V6G95GKNP;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
@@ -967,7 +963,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TairoV-devlopment.NamazTimes";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alzhanov-devlopment.NamazTimes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -988,7 +984,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M358H5F32F;
+				DEVELOPMENT_TEAM = 8V6G95GKNP;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
@@ -1010,7 +1006,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TairoV-devlopment.NamazTimes";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alzhanov-devlopment.NamazTimes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

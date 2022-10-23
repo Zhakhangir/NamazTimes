@@ -9,8 +9,8 @@ import Foundation
 import RealmSwift
 
 class CityPrayerData: Object {
-    @objc dynamic var cityInfo: CityInfo?
-    var times = List<PreyerTimes>()
+    @Persisted var cityInfo: CityInfo?
+    @Persisted var times = List<PreyerTimes>()
     
     required convenience init(data: CityData) {
         self.init()

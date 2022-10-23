@@ -25,7 +25,7 @@ class LocationFinderInteractor {
     var view: LocationFinderViewInput
     var hideCloseButton: Bool
     private let reachability = try! Reachability()
-    private let realm = try! Realm()
+    private var realm = try! Realm()
     private let networkManager = NetworkManager()
     private var regions = [Regions]()
 
@@ -75,16 +75,12 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
                 if let error = error {
                     self.view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized, descriptionLabel: error))
                 }
-
+                
                 guard let data = data else { return }
-                let storageData = CityPrayerData(data: data)
-                UserDefaults.standard.set("cityId", forKey: cityId.description)
-                try! self.realm.write {
-                    self.realm.delete(self.realm.objects(CityPrayerData.self))
-                    self.realm.delete(self.realm.objects(CityInfo.self))
-                    self.realm.delete(self.realm.objects(PreyerTimes.self))
-                    self.realm.add(storageData)
-                }
+                UserDefaults.standard.string(forKey: "cityId") == nil ?
+                self.createStorage(with: data, save: cityId):
+                self.updateStorage(with: data)
+               
                 self.view.routeToHome()
             }
         }
@@ -101,6 +97,27 @@ extension LocationFinderInteractor: LocationFinderInteractorInput {
     func checkNetworkConnection() {
         if reachability.connection == .unavailable {
             view.showAlert(with: GeneralAlertModel(titleLabel: "error".localized,descriptionLabel: "network_error".localized))
+        }
+    }
+    
+    private func createStorage(with data: CityData, save cityId: Int) {
+        UserDefaults.standard.set(cityId.description, forKey:"cityId")
+        UserDefaults().synchronize()
+        try! self.realm.write {
+            let storageData = CityPrayerData(data: data)
+            self.realm.add(storageData)
+        }
+    }
+    
+    private func updateStorage(with data: CityData) {
+        guard let storageData = realm.objects(CityPrayerData.self).first else { return }
+        
+        try! self.realm.write {
+            let times = List<PreyerTimes>()
+            times.append(objectsIn: data.days ?? [PreyerTimes]())
+            
+            storageData.times = times
+            storageData.cityInfo = data.attributes
         }
     }
 }
