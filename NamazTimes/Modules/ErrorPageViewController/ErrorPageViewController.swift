@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-import UIKit
-
 protocol ErrorPageViewInput where Self: UIViewController {
     
 }
@@ -24,7 +21,7 @@ class ErrorPageViewController: UIViewController {
         label.textAlignment = .center
         label.textColor = .red
         label.text = "warning".localized + "!"
-        label.font = BaseFont.regular.withSize(25)
+        label.font = UIFont.systemFont(dynamicSize: 24, weight: .regular)
         return label
     }()
 
@@ -33,7 +30,7 @@ class ErrorPageViewController: UIViewController {
         textView.text = "location_access".localized
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = BaseFont.regular.withSize(16)
+        textView.font =  UIFont.systemFont(dynamicSize: 16, weight: .regular)
         return textView
     }()
 

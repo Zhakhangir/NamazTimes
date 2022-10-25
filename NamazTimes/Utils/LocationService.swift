@@ -124,12 +124,12 @@ extension LocationService {
     func getConfiguredRoot() -> UIViewController {
         var vc = UIViewController()
 
-        switch status {
+        switch status { 
         case .notDetermined, .denied, .restricted:
-            vc = ErrorPageViewController()
+            vc = ErrorPageRouter(errorType: .lcoationError).build()
         case .authorizedAlways, .authorizedWhenInUse:
             vc = GeneralStorageController.shared.getCityInfo() == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
-        default: vc = ErrorPageViewController()
+        default: vc = ErrorPageRouter(errorType: .unknown).build()
         }
 
         return vc

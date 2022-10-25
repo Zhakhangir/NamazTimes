@@ -87,7 +87,7 @@ class GeneralNavigationView: UIView {
 
         titleLabel.text = GeneralStorageController.shared.getCityInfo()?.cityName
         titleLabel.textColor = GeneralColor.black
-        titleLabel.font = BaseFont.medium.withSize(20)
+        titleLabel.font = UIFont.systemFont(dynamicSize: 20, weight: .medium)
         titleLabel.textAlignment = .left
         
         leftButton.setImage(UIImage(named: "location_point"), for: .normal)

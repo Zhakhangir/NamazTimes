@@ -33,19 +33,19 @@ class IntervalTimeViewController: UIViewController {
     
     private let currentTime: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.font = .monospacedDigitSystemFont(dynamicSize: 18, weight: .semibold)
-        label.minimumScaleFactor = 0.5
         return label
     }()
     
     private let weekDay: UILabel = {
         let label = UILabel()
+        label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.font = .systemFont(dynamicSize: 18, weight: .medium)
-        label.minimumScaleFactor = 0.5
         label.textColor = GeneralColor.primary
         return label
     }()
@@ -55,7 +55,6 @@ class IntervalTimeViewController: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.font = .systemFont(dynamicSize: 16, weight: .light)
-        label.minimumScaleFactor = 0.5
         return label
     }()
     private lazy var calendarStack: UIStackView = {
@@ -69,7 +68,7 @@ class IntervalTimeViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [weekDay, currentTimeStatus, currentTime])
         stackView.axis = .vertical
         stackView.spacing = 4
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 

@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import RealmSwift
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

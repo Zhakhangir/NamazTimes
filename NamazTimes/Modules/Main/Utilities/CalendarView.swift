@@ -22,33 +22,33 @@ class CalendarView: UIView {
         label.font = .systemFont(dynamicSize: 13, weight: .regular)
         label.textAlignment = .right
         label.textColor = .white
+        label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
-        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     let day: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 24, weight: .medium)
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
-        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     let month: UILabel = {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 16, weight: .regular)
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
-        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [year, day, month])
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         return stackView
     }()
     

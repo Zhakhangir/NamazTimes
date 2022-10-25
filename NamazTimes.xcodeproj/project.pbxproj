@@ -19,7 +19,6 @@
 		7128BC992896B5AB00F66896 /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */; };
 		712AEB0328C6F34900544F4B /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0228C6F34900544F4B /* LanguageCell.swift */; };
 		712AEB0628C79A7800544F4B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0428C79A7800544F4B /* loader.json */; };
-		712AEB0728C79A7800544F4B /* locate_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0528C79A7800544F4B /* locate_animation.json */; };
 		712AEB0928C7A75700544F4B /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0828C7A75700544F4B /* BaseHeaderView.swift */; };
 		7131309B287AF0D2005BA798 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131309A287AF0D1005BA798 /* Reachability.swift */; };
 		713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713487F428998F510064CEF4 /* LoadingLabelView.swift */; };
@@ -60,6 +59,8 @@
 		7173733828B5D84100339EF1 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173733728B5D84100339EF1 /* SettingsInteractor.swift */; };
 		71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D43289D2220001ACDFE /* LocationFinderRouter.swift */; };
 		71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */; };
+		7183A8F52905CA59002D5E4E /* no_data_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7183A8F42905CA59002D5E4E /* no_data_animation.json */; };
+		7183A8F72906DF6C002D5E4E /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */; };
 		71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0628CA503500721915 /* AnnualTimeModel.swift */; };
 		71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0828CAF5F000721915 /* String+Extensions.swift */; };
 		71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0A28CB400100721915 /* LanguageHelper.swift */; };
@@ -86,7 +87,6 @@
 		71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */; };
 		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
-		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
 		71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78C829005B7E00C85C51 /* CalendarView.swift */; };
 		71DA78CC2903B71400C85C51 /* ErrorPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */; };
@@ -115,13 +115,12 @@
 		7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
 		712AEB0228C6F34900544F4B /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		712AEB0428C79A7800544F4B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
-		712AEB0528C79A7800544F4B /* locate_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locate_animation.json; sourceTree = "<group>"; };
 		712AEB0828C7A75700544F4B /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		7131309A287AF0D1005BA798 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		713487F428998F510064CEF4 /* LoadingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLabelView.swift; sourceTree = "<group>"; };
 		714178A6287F3FDF00790E82 /* GeneralStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorageModel.swift; sourceTree = "<group>"; };
 		71440F332840AB7500581C59 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		7147DB8827F5B7ED0043CB00 /* Namaz Times.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Namaz Times.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7147DB8827F5B7ED0043CB00 /* NamazTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamazTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7147DB9427F5B7F10043CB00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71482F8E28A4F00D007EAE0A /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -160,6 +159,8 @@
 		7173733728B5D84100339EF1 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		71767D43289D2220001ACDFE /* LocationFinderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderRouter.swift; sourceTree = "<group>"; };
 		71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderInteractor.swift; sourceTree = "<group>"; };
+		7183A8F42905CA59002D5E4E /* no_data_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = no_data_animation.json; sourceTree = "<group>"; };
+		7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		71849C0628CA503500721915 /* AnnualTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualTimeModel.swift; sourceTree = "<group>"; };
 		71849C0828CAF5F000721915 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		71849C0A28CB400100721915 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerCollectionCell.swift; sourceTree = "<group>"; };
 		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
-		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
 		71DA78C829005B7E00C85C51 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageRouter.swift; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 		7147DB8927F5B7ED0043CB00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7147DB8827F5B7ED0043CB00 /* Namaz Times.app */,
+				7147DB8827F5B7ED0043CB00 /* NamazTimes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -479,6 +479,7 @@
 				71B5B382283F964900F5BA63 /* CleanableView.swift */,
 				71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */,
 				712AEB0828C7A75700544F4B /* BaseHeaderView.swift */,
+				7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -492,19 +493,20 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		71DA78CA2903B6F700C85C51 /* ErrorViewController */ = {
+		71DA78CA2903B6F700C85C51 /* ErrorPageViewController */ = {
 			isa = PBXGroup;
 			children = (
 				714A82B12891C7B300817053 /* ErrorPageViewController.swift */,
 				71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */,
 				71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */,
 			);
-			path = ErrorViewController;
+			path = ErrorPageViewController;
 			sourceTree = "<group>";
 		};
 		71E4F739280C2EF40091B120 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				71DA78CA2903B6F700C85C51 /* ErrorPageViewController */,
 				7173733228B5D7FB00339EF1 /* Settings */,
 				715D084728144ACD00729AFB /* LocationFinder */,
 				71E4F73E280C3DA00091B120 /* Main */,
@@ -517,7 +519,6 @@
 			isa = PBXGroup;
 			children = (
 				714A20BD2810352600E8A81A /* General */,
-				71DA78CA2903B6F700C85C51 /* ErrorViewController */,
 				719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */,
 				718C03102890567A00AB7794 /* LocationService.swift */,
 				7131309A287AF0D1005BA798 /* Reachability.swift */,
@@ -525,7 +526,6 @@
 				71B5B381283F960C00F5BA63 /* UI */,
 				714A20BE2810353900E8A81A /* Extensions */,
 				711C990628BBD60100841934 /* DeviceFinder.swift */,
-				71BDCE8C28DA37F50073DBDF /* BaseFont.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 			children = (
 				7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */,
 				712AEB0428C79A7800544F4B /* loader.json */,
-				712AEB0528C79A7800544F4B /* locate_animation.json */,
+				7183A8F42905CA59002D5E4E /* no_data_animation.json */,
 				7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */,
 				714A82AC28919F3E00817053 /* Info.plist */,
 				7147DB9427F5B7F10043CB00 /* Assets.xcassets */,
@@ -589,9 +589,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7147DB8727F5B7ED0043CB00 /* Namaz Times */ = {
+		7147DB8727F5B7ED0043CB00 /* NamazTimes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "Namaz Times" */;
+			buildConfigurationList = 7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "NamazTimes" */;
 			buildPhases = (
 				88B3DBE18388F80C4DF45322 /* [CP] Check Pods Manifest.lock */,
 				7147DB8427F5B7ED0043CB00 /* Sources */,
@@ -603,9 +603,9 @@
 			);
 			dependencies = (
 			);
-			name = "Namaz Times";
+			name = NamazTimes;
 			productName = NamazTimes;
-			productReference = 7147DB8827F5B7ED0043CB00 /* Namaz Times.app */;
+			productReference = 7147DB8827F5B7ED0043CB00 /* NamazTimes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -638,7 +638,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7147DB8727F5B7ED0043CB00 /* Namaz Times */,
+				7147DB8727F5B7ED0043CB00 /* NamazTimes */,
 			);
 		};
 /* End PBXProject section */
@@ -650,8 +650,8 @@
 			files = (
 				7107A45628B49C5C007E18BA /* LaunchScreen.storyboard in Resources */,
 				715D084C2814523000729AFB /* Localizable.strings in Resources */,
+				7183A8F52905CA59002D5E4E /* no_data_animation.json in Resources */,
 				712AEB0628C79A7800544F4B /* loader.json in Resources */,
-				712AEB0728C79A7800544F4B /* locate_animation.json in Resources */,
 				7147DB9527F5B7F10043CB00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,7 +731,6 @@
 				71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */,
 				71440F342840AB7500581C59 /* Date+Extension.swift in Sources */,
 				7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */,
-				71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */,
 				71574FFB2886BB6900061F91 /* ParameterEncoding.swift in Sources */,
 				71AF5BFC28C5FBC1004319D5 /* CircularProgressBar.swift in Sources */,
 				7173733428B5D80F00339EF1 /* SettingsViewController.swift in Sources */,
@@ -783,6 +782,7 @@
 				714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */,
 				715750072886FAD300061F91 /* Router.swift in Sources */,
 				71574FF52886B4B800061F91 /* EndPointType.swift in Sources */,
+				7183A8F72906DF6C002D5E4E /* TableBackgroundView.swift in Sources */,
 				71B5B378283F890C00F5BA63 /* IntervalTimeIntercator.swift in Sources */,
 				7168A6AA289286C5004C94C1 /* QFArrowView.swift in Sources */,
 				71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */,
@@ -941,12 +941,12 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8V6G95GKNP;
+				DEVELOPMENT_TEAM = M358H5F32F;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
@@ -984,12 +984,12 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8V6G95GKNP;
+				DEVELOPMENT_TEAM = M358H5F32F;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
@@ -1030,7 +1030,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "Namaz Times" */ = {
+		7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "NamazTimes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7147DB9D27F5B7F10043CB00 /* Debug */,
