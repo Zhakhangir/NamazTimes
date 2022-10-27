@@ -110,7 +110,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
 
     private func updateLocationDidFailWithError(error: NSError) {
-
         guard let delegate = self.delegate else {
             return
         }
@@ -126,7 +125,7 @@ extension LocationService {
 
         switch status { 
         case .notDetermined, .denied, .restricted:
-            vc = ErrorPageRouter(errorType: .lcoationError).build()
+            vc = ErrorPageRouter(errorType: .locationError).build()
         case .authorizedAlways, .authorizedWhenInUse:
             vc = GeneralStorageController.shared.getCityInfo() == nil ? LocationFinderRouter().build() : GeneralTabBarViewController()
         default: vc = ErrorPageRouter(errorType: .unknown).build()

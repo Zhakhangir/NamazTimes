@@ -20,14 +20,12 @@ class ErrorPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .red
-        label.text = "warning".localized + "!"
         label.font = UIFont.systemFont(dynamicSize: 24, weight: .regular)
         return label
     }()
 
     private let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "location_access".localized
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font =  UIFont.systemFont(dynamicSize: 16, weight: .regular)
@@ -37,7 +35,6 @@ class ErrorPageViewController: UIViewController {
     private let actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = GeneralColor.primary
-        button.setTitle("open_settings".localized, for: .normal)
         button.layer.cornerRadius = 12
         return button
     }()
@@ -58,6 +55,7 @@ class ErrorPageViewController: UIViewController {
         addSubviews()
         setupLayout()
         addActions()
+        stylize()
     }
 
     private func addSubviews() {
@@ -90,10 +88,19 @@ class ErrorPageViewController: UIViewController {
     private func addActions() {
         actionButton.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
     }
+    
+    private func stylize() {
+        guard let type = interactor?.getErrorType() else { return }
+        titleLabel.text = type.title
+        messageTextView.text = type.message
+        actionButton.setTitle(type.actionTitle, for: .normal)
+    }
 
     @objc func buttonTap() {
-    
+        interactor?.didTapButton()
     }
+    
+    
 }
 
 extension ErrorPageViewController: ErrorPageViewInput {

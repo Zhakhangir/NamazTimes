@@ -8,18 +8,45 @@
 import UIKit
 
 enum ErrorPageType {
-    case lcoationError, noDataErorr, unknown
+    case locationError, noDataErorr, unknown
+    
+    var title: String {
+        switch self {
+        case .locationError:
+            return "warning".localized + "!"
+        case .noDataErorr:
+            return ""
+        case .unknown:
+            return ""
+        }
+    }
+    
+    var message: String {
+        switch self {
+        case .locationError:
+            return "location_access".localized
+        case .noDataErorr:
+            return ""
+        case .unknown:
+            return ""
+        }
+    }
+    
+    var actionTitle: String {
+        switch self {
+        case .locationError:
+            return "open_settings".localized
+        case .noDataErorr:
+            return ""
+        case .unknown:
+            return ""
+        }
+    }
 }
-
-//struct ErrorPageViewModel {
-//    var title: String?
-//    var message: String?
-//    var buttonTitle: String?
-//    var buttonAction: (()->Void)?
-//}
 
 protocol ErrorPageInteractorInput {
     func didTapButton()
+    func getErrorType() -> ErrorPageType
 }
 
 class ErrorPageInteractor: ErrorPageInteractorInput {
@@ -33,10 +60,20 @@ class ErrorPageInteractor: ErrorPageInteractorInput {
     }
     
     func didTapButton() {
-//        viewModel.buttonAction?()
-//        if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
-//            UIApplication.shared.open(url)
-//        }
+        switch errorType {
+        case .locationError:
+            if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
+                UIApplication.shared.open(url)
+            }
+        case .noDataErorr:
+            return
+        case .unknown:
+            return
+        }
+    }
+    
+    func getErrorType() -> ErrorPageType {
+        return errorType
     }
 }
 
