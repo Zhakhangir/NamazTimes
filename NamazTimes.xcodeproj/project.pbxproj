@@ -97,11 +97,12 @@
 		71E5064C281E901700F2880D /* GeneralAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertViewController.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
-		C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */; };
+		A3581D311C7F2CDA30DA0AFA /* Pods_NamazTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05162673FD0931BB7171068D /* Pods_NamazTimes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Namaz_Times.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05162673FD0931BB7171068D /* Pods_NamazTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamazTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.debug.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.debug.xcconfig"; sourceTree = "<group>"; };
 		7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711C990428B89A8A00841934 /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
 		711C990628BBD60100841934 /* DeviceFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFinder.swift; sourceTree = "<group>"; };
@@ -197,8 +198,7 @@
 		71E5064B281E901600F2880D /* GeneralAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertViewController.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
-		9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.release.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
-		E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.debug.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.debug.xcconfig"; sourceTree = "<group>"; };
+		A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.release.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */,
+				A3581D311C7F2CDA30DA0AFA /* Pods_NamazTimes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +216,7 @@
 		5E40125825E82D17408473D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */,
+				05162673FD0931BB7171068D /* Pods_NamazTimes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -580,8 +580,8 @@
 		AFA383F674B70E2CEBE47FA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */,
-				9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */,
+				5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */,
+				A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -665,15 +665,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		88B3DBE18388F80C4DF45322 /* [CP] Check Pods Manifest.lock */ = {
@@ -691,7 +691,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Namaz Times-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NamazTimes-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -934,7 +934,7 @@
 		};
 		7147DB9D27F5B7F10043CB00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */;
+			baseConfigurationReference = 5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -944,7 +944,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZPTNP6DSTX;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
@@ -981,7 +981,7 @@
 		};
 		7147DB9E27F5B7F10043CB00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */;
+			baseConfigurationReference = A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -991,7 +991,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZPTNP6DSTX;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
