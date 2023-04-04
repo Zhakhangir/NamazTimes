@@ -14,7 +14,7 @@
 "standart" = "Стандарт";
 "satellite" = "Спутник";
 "done" = "Дайын";
-"error" = "Қателік";
+"error" = "Қтелік";
 "network_error" = "Желілік қосылу қатесі. Кейінірек қайталап көріңіз.";
 "times" = "Уақыттар";
 "settings" = "Баптаулар";
@@ -55,3 +55,39 @@
 "time_out" = "Cұрау уақыты аяқталды";
 "decode_error" = "Деректeрді оқу мүмкін емес";
 "no_data" = "Деректeр табылмады";
+
+// Months & weekdays
+"january" = "Қаңтар";
+"february" = "Ақпан";
+"marhc" = "Наурыз";
+"april" = "Сәуір";
+"may" = "Мамыр";
+"june" = "Маусым";
+"july" = "Шілде";
+"august" = "Тамыз";
+"september" = "Қыркүйек";
+"october" = "Қазан";
+"november" = "Қараша";
+"december" = "Желтоқсан";
+
+"muharram" = "Мухаррам";
+"safar" = "Сафар";
+"rabiAlAwwal" = "Рабиул-әууәл";
+"rabiAlThani" = "Рабиул-ахир";
+"jamadaAlAwwal" = " Жамазиәл-әууәл";
+"jamadaAlThani" = "Жамазиәл-ахир";
+"rajab" = "Ражаб";
+"shaban" = "Шабан";
+"ramadan" = "Рамазан";
+"shawwal" = "Шәууал";
+"dhulQadah" = "Зул-қада";
+"dhulHijjah" = "Зул-хиджа";
+
+"monday" = "Дүйсенбі";
+"tuesday" = "Сейсенбі";
+"wednesday" = "Сәрсенбі";
+"thursday" = "Бейсенбі";
+"friday" = "Жұма";
+"saturday" = "Сенбі";
+"sunday" = "Жексенбі";
+"newVersion" = "Жаңа жаңарту қол жетімді, қолданбаны жаңартқыңыз келе ме?";

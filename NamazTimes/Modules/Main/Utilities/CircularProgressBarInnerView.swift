@@ -129,10 +129,15 @@ class CircularProgressBarInnerView: UIView {
     func updateReminingTime(interval: Int) {
         let attrString = NSMutableAttributedString()
         let paragraphStyle = NSMutableParagraphStyle()
-        
-        let nextTime = NSAttributedString(string: (prayerInfo?.nextCode.localized ?? "").concatenateWithSapce("to_time".localized), attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
-        let reminigTime = NSAttributedString(string: getReminingTime(from: interval),
-                                            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
+
+        let nextTime = NSAttributedString(
+            string: language == "ru" ?
+            "to_time".localized.concatenateWithSapce(prayerInfo?.nextCode.localized)
+            : prayerInfo?.nextCode.localized.concatenateWithSapce("to_time".localized) ?? "",
+            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
+        let reminigTime = NSAttributedString(
+            string: getReminingTime(from: interval),
+            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
         
         paragraphStyle.lineSpacing = 2
         paragraphStyle.lineHeightMultiple = 2

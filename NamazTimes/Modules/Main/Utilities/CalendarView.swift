@@ -39,6 +39,7 @@ class CalendarView: UIView {
         let label = UILabel()
         label.font = .systemFont(dynamicSize: 16, weight: .regular)
         label.minimumScaleFactor = 0.1
+        label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .white

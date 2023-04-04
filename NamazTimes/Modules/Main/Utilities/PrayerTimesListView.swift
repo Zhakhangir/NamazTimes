@@ -11,13 +11,12 @@ class PrayerTimesListView: UIView {
 
     private var timesList = [DailyPrayerTime]()
     private let cellReuseId  = "DTListCell"
-    private let defaultRowHeight: CGFloat = 48.0
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
-        tableView.rowHeight = defaultRowHeight
+        tableView.rowHeight = 48
         tableView.separatorInset = .zero
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = nil
@@ -69,6 +68,12 @@ class PrayerTimesListView: UIView {
     func reload(with data: [DailyPrayerTime]) {
         timesList = data
         tableView.reloadData()
+    }
+    
+    func addBorderToTable() {
+        tableView.layer.borderColor = GeneralColor.primary.cgColor
+        tableView.layer.cornerRadius = 12
+        tableView.layer.borderWidth = 1
     }
 }
 

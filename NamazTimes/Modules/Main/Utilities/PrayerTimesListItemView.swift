@@ -9,7 +9,7 @@ import UIKit
 
 class PrayerTimesListItemView: UIView {
 
-    private var dynamicFontSize: CGFloat = 22
+    private var dynamicFontSize: CGFloat = 18
 
     lazy var prayerName: UILabel = {
         let label = UILabel()
@@ -22,8 +22,8 @@ class PrayerTimesListItemView: UIView {
 
     lazy var prayerTime: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(dynamicSize: dynamicFontSize, weight: .medium)
-        label.textAlignment = .right
+        label.font = .monospacedDigitSystemFont(dynamicSize: dynamicFontSize, weight: .medium)
+        label.textAlignment = .left
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         label.adjustsFontSizeToFitWidth = true
@@ -66,10 +66,12 @@ class PrayerTimesListItemView: UIView {
     }
 
     func configure(viewModel: DailyPrayerTime) {
-        dynamicFontSize = DeviceType.heightType == .big ? 20 : 18
+//        dynamicFontSize = DeviceType.heightType == .big ? 20 : 18
         prayerName.text = viewModel.code.localized
         prayerTime.text = viewModel.startTime
+        prayerTime.addCharacterSpacing()
         setSelected(viewModel.selected)
+        
     }
 }
 

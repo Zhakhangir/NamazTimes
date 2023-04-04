@@ -56,3 +56,39 @@
 "time_out" = "Превышен лимит времени на запрос";
 "decode_error" = "Не удалось расшифровать";
 "no_data" = "Нет данных";
+
+//Months & weekdays
+"january" = "Январь";
+"february" = "Февраль";
+"marhc" = "Март";
+"april" = "Апрель";
+"may" = "Май";
+"june" = "Июнь";
+"july" = "Июль";
+"august" = "июль";
+"september" = "Август";
+"october" = "Октябрь";
+"november" = "Ноябрь";
+"december" = "Декабрь";
+
+"muharram" = "Мухаррам";
+"safar" = "Сафар";
+"rabiAlAwwal" = "Рабиуль-аууал";
+"rabiAlThani" = "Рабиульахир";
+"jamadaAlAwwal" = "Джамазильаууаль";
+"jamadaAlThani" = "Джамазильахир";
+"rajab" = "Раджаб";
+"shaban" = "Шабан";
+"ramadan" = "Рамазан";
+"shawwal" = "Шаууаль";
+"dhulQadah" = "Залькада";
+"dhulHijjah" = "Зильхиджа";
+
+"monday" = "Понедельник";
+"tuesday" = "Вторник";
+"wednesday" = "Среда";
+"thursday" = "Четверг";
+"friday" = "Пятница";
+"saturday" = "Суббота";
+"sunday" = "Воскресенье";
+"newVersion" = "Доступно новое обновление, хотите обновть приложение?";

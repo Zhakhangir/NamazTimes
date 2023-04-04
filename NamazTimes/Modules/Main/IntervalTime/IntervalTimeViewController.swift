@@ -28,6 +28,7 @@ class IntervalTimeViewController: UIViewController {
     private let timesList: PrayerTimesListView = {
         let list = PrayerTimesListView()
         list.isUserInteractionEnabled = false
+        list.addBorderToTable()
         return list
     }()
     
@@ -36,7 +37,7 @@ class IntervalTimeViewController: UIViewController {
         label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(dynamicSize: 18, weight: .semibold)
+        label.font = .monospacedDigitSystemFont(dynamicSize: 20, weight: .semibold)
         return label
     }()
     
@@ -45,18 +46,11 @@ class IntervalTimeViewController: UIViewController {
         label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        label.font = .systemFont(dynamicSize: 18, weight: .medium)
+        label.font = .systemFont(dynamicSize: 20, weight: .medium)
         label.textColor = GeneralColor.primary
         return label
     }()
 
-    private let currentTimeStatus: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
-        label.font = .systemFont(dynamicSize: 16, weight: .light)
-        return label
-    }()
     private lazy var calendarStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [hijriCalendar, gregorianCalendar])
         stackView.distribution = .fillEqually
@@ -65,7 +59,7 @@ class IntervalTimeViewController: UIViewController {
         return stackView
     }()
     private lazy var currentTimeStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [weekDay, currentTimeStatus, currentTime])
+        let stackView = UIStackView(arrangedSubviews: [weekDay, currentTime])
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.distribution = .fillProportionally
@@ -76,7 +70,6 @@ class IntervalTimeViewController: UIViewController {
         super.viewDidLoad()
         
         timesList.backgroundColor = .clear
-        currentTimeStatus.text = "local_time".localized
         hijriCalendar.icon.image = UIImage(named: "hijri_calendar")
         gregorianCalendar.icon.image = UIImage(named: "gregorian_calendar")
         
@@ -106,24 +99,29 @@ class IntervalTimeViewController: UIViewController {
             circularProgressBar.widthAnchor.constraint(equalToConstant: box.width),
             circularProgressBar.heightAnchor.constraint(equalToConstant:  box.height)
         ]
+        
         timesList.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             timesList.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor, constant: 8),
-            timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             timesList.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -8),
-            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
+            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
         ]
-        calendarStack.translatesAutoresizingMaskIntoConstraints = false
-        layoutConstraints += [
-            calendarStack.topAnchor.constraint(equalTo: timesList.topAnchor),
-            calendarStack.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: CGFloat(UIScreen.main.bounds.width/4)),
-        ]
+        
         currentTimeStack.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
-            currentTimeStack.topAnchor.constraint(greaterThanOrEqualTo: calendarStack.bottomAnchor, constant: 8),
-            currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            currentTimeStack.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
-            currentTimeStack.bottomAnchor.constraint(equalTo: timesList.bottomAnchor)
+            currentTimeStack.topAnchor.constraint(equalTo: timesList.topAnchor),
+            currentTimeStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            currentTimeStack.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 8)
+        ]
+        
+        calendarStack.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            calendarStack.topAnchor.constraint(greaterThanOrEqualTo: currentTimeStack.bottomAnchor, constant: 8),
+            calendarStack.centerXAnchor.constraint(equalTo: currentTimeStack.centerXAnchor),
+            calendarStack.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -24),
+            calendarStack.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 8),
+            calendarStack.bottomAnchor.constraint(equalTo: timesList.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(layoutConstraints)
@@ -163,7 +161,7 @@ extension IntervalTimeViewController: IntervalTimeViewInput {
     
     func reloadCalendar() {
         guard let calendarViewModels = interactor?.getCalendarViewModels() else { return }
-        gregorianCalendar.configure(with: calendarViewModels.gregorioanCalendar)
+        gregorianCalendar.configure(with: calendarViewModels.gregorianCalendar)
         hijriCalendar.configure(with: calendarViewModels.hijriCalendar)
         weekDay.text = calendarViewModels.weekDay
     }

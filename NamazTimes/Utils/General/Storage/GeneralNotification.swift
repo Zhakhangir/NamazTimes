@@ -8,6 +8,5 @@
 import Foundation
 
 enum GeneralNotifications: String {
-    
    case APPLICATION_DID_BECOME_ACTIVE, DID_PRAYER_TIME_CHANGE
 }

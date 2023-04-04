@@ -19,9 +19,9 @@ protocol IntervalTimeInteractorInput {
 
 struct DateNameViewModel {
     var hijriCalendar: CalendarViewModel?
-    var gregorioanCalendar: CalendarViewModel?
+    var gregorianCalendar: CalendarViewModel?
     var hijriDate: String?
-    var gregorioanDate: String?
+    var gregorianDate: String?
     var weekDay: String?
 }
 

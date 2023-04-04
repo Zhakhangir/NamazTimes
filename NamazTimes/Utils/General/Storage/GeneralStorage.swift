@@ -13,7 +13,6 @@ struct GeneralStorageController {
     static var shared = GeneralStorageController()
     private let realm = try! Realm()
     private lazy var mainData = realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first
-    
     private var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Date.Time.dateTimeDisplay.string
@@ -26,28 +25,32 @@ struct GeneralStorageController {
         return realm.objects(CityPrayerData.self).toArray(ofType: CityPrayerData.self).first?.cityInfo
     }
     
+    // MARK: Calendar view model
     mutating func getDateNameViewModel() -> DateNameViewModel {
         var viewModel = DateNameViewModel()
         let times = mainData?.times.first(where: { $0.date == DateHelper.today.date })
-                
-        viewModel.weekDay = times?.dayName
-        // 1 Nюнь 2022
-        viewModel.gregorioanCalendar = getCalendarViewModel(for: times?.day?.replacingOccurrences(of: " -", with: "").concatenateWithSapce(Date().toString(format: "yyyy")).components(separatedBy: " "))
-        viewModel.hijriCalendar = getCalendarViewModel(for: times?.islamicDateInWords?.components(separatedBy: " "))
-        viewModel.gregorioanDate = times?.date
-        viewModel.hijriDate = times?.islamicDate
+        
+        viewModel.weekDay = Weekdays(rawValue: Calendar.current.component(.weekday, from: Date()))?.title.localized
+        viewModel.gregorianCalendar = getCalendarViewModel(from: times?.date)
+        viewModel.hijriCalendar = getCalendarViewModel(from: times?.islamicDate, reversed: true)
         return viewModel
     }
     
-    private func getCalendarViewModel(for calendar: [String]?) -> CalendarViewModel? {
+    private func getCalendarViewModel(from date: String?, reversed: Bool = false) -> CalendarViewModel? {
         var viewModel = CalendarViewModel()
-        guard let dateArray = calendar else { return nil }
+        guard var dateArray = date?.components(separatedBy: "-") else {
+            return nil
+        }
+        dateArray = reversed ? dateArray.reversed() : dateArray
         for (index, item) in dateArray.enumerated() {
             switch index {
             case 0: //day
-                viewModel.day = item
+                viewModel.day = item.first == "0" ? String(item.dropFirst()) : item
             case 1: //month
-                viewModel.month = item
+                let monthSystem = reversed ?
+                HijriMonths(rawValue: Int(item) ?? 1)?.title.localized :
+                GrigorianMonths(rawValue: Int(item) ?? 1)?.title.localized
+                viewModel.month = monthSystem
             case 2: //year
                 viewModel.year = item
             default: break;
@@ -57,6 +60,8 @@ struct GeneralStorageController {
         return viewModel
     }
     
+    
+    // MARK: Start function
     mutating func getConfiguredPrayerTimes(shortList: Bool = false) -> [DailyPrayerTime] {
         
         var prayerTimes = dailyPrayerTimesList(shortList: shortList)
@@ -86,7 +91,7 @@ struct GeneralStorageController {
         for (index, item) in items.enumerated() {
             startTime = (times?.value(forKey: item.code) as? String) ?? ""
             
-            if  (index + 1) >= items.count {
+            if (index + 1) >= items.count {
                 nextCode = items[0].code
                 nextTime = (tomorrowTimes?.value(forKey: nextCode) as? String) ?? ""
                 nextDate = tommorrow.date
@@ -110,15 +115,15 @@ struct GeneralStorageController {
     }
     
     private func findCurrentTimeIndex(from prayerTimes: [DailyPrayerTime]) -> Int? {
-    
+        let timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
         var currentIndex: Int?
         
         for (index, item) in prayerTimes.enumerated() {
-            let current = dateFormatter.string(from: Date())
-            let startTime = item.startDate.concatenateWithSapce(item.startTime)
-            let endTime = (item.nextDate.concatenateWithSapce(item.nextTime))
+            let current = Date().addingTimeInterval(TimeInterval(timeZone?.secondsFromGMT() ?? 0))
+            let startTime = item.startDate.concatenateWithSapce(item.startTime).toDate()
+            let endTime = (item.nextDate.concatenateWithSapce(item.nextTime)).toDate()
             
-            if (startTime <= current) && (current < endTime) {
+            if (startTime..<endTime).contains(current) {
                 currentIndex = index
                 break
             }

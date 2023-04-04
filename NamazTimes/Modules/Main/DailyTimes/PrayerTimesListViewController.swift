@@ -32,7 +32,7 @@ class PrayerTimesListViewController: UIViewController {
         NSLayoutConstraint.activate([
             timesList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 32 + 64),
             timesList.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 32),
-            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+            timesList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             timesList.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
     }
