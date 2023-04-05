@@ -8,9 +8,9 @@
 import UIKit
 
 struct GeneralAlertModel {
-    let titleLabel: String
+    var titleLabel: String
     var descriptionLabel: String? = nil
-    let buttonTitle: String = "Ok"
+    var buttonTitle: String = "Ok"
     var actionButtonTapped: (() -> Void)?
     var withCancel: Bool = false
 }
@@ -125,13 +125,13 @@ final class GeneralAlertPopupView: UIView, AlertPopupView {
         subTitleLabel.numberOfLines = 0
         subTitleLabel.textColor = GeneralColor.el_subtitle
 
-        closeButton.setImage(UIImage(named: "close_icon_red"), for: .normal)
+        closeButton.setImage(UIImage(named: "close_icon"), for: .normal)
 
         actionButton.backgroundColor = GeneralColor.primary
         actionButton.titleLabel?.textColor = .white
         actionButton.layer.cornerRadius = 12
 
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle("cancel".localized, for: .normal)
         cancelButton.backgroundColor = .red
         cancelButton.layer.cornerRadius = 12
     }

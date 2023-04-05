@@ -36,7 +36,6 @@
 		714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20C928104E7100E8A81A /* QFCompassViewController.swift */; };
 		714A20CC28104E8600E8A81A /* IntervalTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */; };
 		714A20CE28104EA000E8A81A /* PrayerTimesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */; };
-		714A82B02891C2A800817053 /* CAListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82AF2891C2A800817053 /* CAListCard.swift */; };
 		714A82B22891C7B300817053 /* ErrorPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* ErrorPageViewController.swift */; };
 		714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E828A12EF700113C5F /* Results+Extensions.swift */; };
 		71574FEF2886AA3900061F91 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FEE2886AA3900061F91 /* GeneralStorage.swift */; };
@@ -138,7 +137,6 @@
 		714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimeViewController.swift; sourceTree = "<group>"; };
 		714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListViewController.swift; sourceTree = "<group>"; };
 		714A82AC28919F3E00817053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		714A82AF2891C2A800817053 /* CAListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListCard.swift; sourceTree = "<group>"; };
 		714A82B12891C7B300817053 /* ErrorPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageViewController.swift; sourceTree = "<group>"; };
 		714FD8E828A12EF700113C5F /* Results+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extensions.swift"; sourceTree = "<group>"; };
 		71574FEE2886AA3900061F91 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
@@ -361,7 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				71E5064F281E936E00F2880D /* CABaseCard.swift */,
-				714A82AF2891C2A800817053 /* CAListCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -726,7 +723,6 @@
 				71574FFF2886BDE600061F91 /* NetworkError.swift in Sources */,
 				714A20CA28104E7100E8A81A /* QFCompassViewController.swift in Sources */,
 				71B5B36E283F6FB000F5BA63 /* PrayerTimesListItemView.swift in Sources */,
-				714A82B02891C2A800817053 /* CAListCard.swift in Sources */,
 				7147DB8C27F5B7ED0043CB00 /* AppDelegate.swift in Sources */,
 				7167DB8628C2194B00BA4134 /* SettingsItemView.swift in Sources */,
 				715750052886F9B800061F91 /* NetworkRouter.swift in Sources */,

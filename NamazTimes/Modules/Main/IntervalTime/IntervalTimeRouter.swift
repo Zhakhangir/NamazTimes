@@ -7,7 +7,9 @@
 
 import Foundation
 
-protocol IntervalTimeRouterInput { }
+protocol IntervalTimeRouterInput {
+    func showAlert(with model: GeneralAlertModel)
+}
 
 class IntervalTimeRouter: IntervalTimeRouterInput {
 
@@ -16,12 +18,21 @@ class IntervalTimeRouter: IntervalTimeRouterInput {
     public func build() -> IntervalTimeViewInput {
         let viewController = IntervalTimeViewController()
         let interactor = IntervalTimeIntercator(view: viewController)
-
+    
         self.view = viewController
         viewController.router = self
         viewController.interactor = interactor
 
         return viewController
+    }
+    
+    func showAlert(with model: GeneralAlertModel) {
+        let alertVc = GeneralAlertPopupVc()
+        let alertView = GeneralAlertPopupView()
+        alertView.configure(with: model)
+        alertVc.setContentView(alertView)
+
+        view?.present(alertVc, animated: true, completion: nil)
     }
 }
 

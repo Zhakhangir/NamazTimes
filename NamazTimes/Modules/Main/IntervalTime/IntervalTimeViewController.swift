@@ -11,6 +11,7 @@ import RealmSwift
 protocol IntervalTimeViewInput where Self: UIViewController {
     func reload()
     func reloadCalendar()
+    func showAlert(with model: GeneralAlertModel)
 }
 
 class IntervalTimeViewController: UIViewController {
@@ -24,7 +25,7 @@ class IntervalTimeViewController: UIViewController {
     private let hijriCalendar = CalendarView()
     private let circularProgressBar = CircularProgressBarView()
     private let parayerCellReuseId = "PrayerTimeCell"
-
+    
     private let timesList: PrayerTimesListView = {
         let list = PrayerTimesListView()
         list.isUserInteractionEnabled = false
@@ -50,7 +51,7 @@ class IntervalTimeViewController: UIViewController {
         label.textColor = GeneralColor.primary
         return label
     }()
-
+    
     private lazy var calendarStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [hijriCalendar, gregorianCalendar])
         stackView.distribution = .fillEqually
@@ -65,7 +66,7 @@ class IntervalTimeViewController: UIViewController {
         stackView.distribution = .fillProportionally
         return stackView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +79,7 @@ class IntervalTimeViewController: UIViewController {
         reload()
         reloadCalendar()
         runTimer()
+        interactor?.viewDidload()
     }
     
     private func addSubviews() {
@@ -86,7 +88,7 @@ class IntervalTimeViewController: UIViewController {
         view.addSubview(calendarStack)
         view.addSubview(currentTimeStack)
     }
-
+    
     private func setupLayout() {
         
         var layoutConstraints = [NSLayoutConstraint]()
@@ -123,7 +125,7 @@ class IntervalTimeViewController: UIViewController {
             calendarStack.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 8),
             calendarStack.bottomAnchor.constraint(equalTo: timesList.bottomAnchor)
         ]
-
+        
         NSLayoutConstraint.activate(layoutConstraints)
     }
     
@@ -158,6 +160,10 @@ class IntervalTimeViewController: UIViewController {
 }
 
 extension IntervalTimeViewController: IntervalTimeViewInput {
+    
+    func showAlert(with model: GeneralAlertModel) {
+        router?.showAlert(with: model)
+    }
     
     func reloadCalendar() {
         guard let calendarViewModels = interactor?.getCalendarViewModels() else { return }

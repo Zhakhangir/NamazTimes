@@ -48,6 +48,7 @@
 "ishtibaq" = "Иштибак";
 "quptan" = "Құптан";
 "ishaisani" = "Имсак";
+"cancel" = "Cancel";
 
 // Network errors
 "bad_request" = "Bad request";
@@ -91,4 +92,5 @@
 "saturday" = "Saturday";
 "sunday" = "Sunday";
 "newVersion" = "Доступно новое обновление, хотите обновть приложение?";
-}
+"update" = "Обновить";
+"miss" = "Пропустить";

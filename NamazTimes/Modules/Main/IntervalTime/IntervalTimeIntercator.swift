@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum VersionError: Error {
+    case invalidBundleInfo, invalidResponse
+}
+
 protocol IntervalTimeInteractorInput {
     func getCityInfo() -> CityInfo?
     func getTimesList() -> [DailyPrayerTime]
@@ -15,6 +19,7 @@ protocol IntervalTimeInteractorInput {
     func getCurrentProgressStatus() -> (progress: Double, remining: Int)
     func getCalendarViewModels() -> DateNameViewModel
     func reloadTimer()
+    func viewDidload()
 }
 
 struct DateNameViewModel {
@@ -26,7 +31,7 @@ struct DateNameViewModel {
 }
 
 class IntervalTimeIntercator: IntervalTimeInteractorInput {
-
+    
     var view: IntervalTimeViewInput
     
     private let timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "UTC")
@@ -42,10 +47,41 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
         totalTimeInterval = timeIntervals.total
         passedTimeInterval = timeIntervals.passed
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(didBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+    }
+    
+    func viewDidload() {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            do {
+                let update = try self?.isUpdateAvailable()
+                if update ?? false {
+                    DispatchQueue.main.async {
+                        self?.view.showAlert(with: .init(
+                            titleLabel: "",
+                            descriptionLabel: "newVersion".localized,
+                            buttonTitle: "update".localized,
+                            actionButtonTapped: {
+                            if let url = URL(string: "itms-apps://itunes.apple.com/us/app/prayertimes/id6444033060"),
+                               UIApplication.shared.canOpenURL(url){
+                                    if #available(iOS 10.0, *) {
+                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                    } else {
+                                        UIApplication.shared.openURL(url)
+                                    }
+                                }
+                            },
+                            withCancel: true)
+                        )
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
     func getCityInfo() -> CityInfo? {
@@ -93,6 +129,23 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
 
         return (endTime.timeIntervalSince(startTime), currentTime.timeIntervalSince(startTime))
     }
+    
+    private func isUpdateAvailable() throws -> Bool {
+         guard let info = Bundle.main.infoDictionary,
+             let currentVersion = info["CFBundleShortVersionString"] as? String,
+             let identifier = info["CFBundleIdentifier"] as? String,
+             let url = URL(string: "https://itunes.apple.com/lookup?bundleId=\(identifier)") else {
+             throw VersionError.invalidBundleInfo
+         }
+         let data = try Data(contentsOf: url)
+         guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
+             throw VersionError.invalidResponse
+         }
+         if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
+             return version != currentVersion
+         }
+         throw VersionError.invalidResponse
+     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)

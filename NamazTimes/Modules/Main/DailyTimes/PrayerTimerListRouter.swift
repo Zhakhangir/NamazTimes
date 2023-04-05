@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol PrayerTimesListRouterInput {
-
-}
+protocol PrayerTimesListRouterInput {}
 
 class PrayerTimerListRouter: PrayerTimesListRouterInput {
 
