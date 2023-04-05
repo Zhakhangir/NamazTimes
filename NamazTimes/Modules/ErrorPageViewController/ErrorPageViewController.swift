@@ -7,30 +7,34 @@
 
 import UIKit
 
-class LocationAccessErrorViewController: UIViewController {
+protocol ErrorPageViewInput where Self: UIViewController {
+    
+}
+
+class ErrorPageViewController: UIViewController {
+    
+    var router: ErrorPageRouterInput?
+    var interactor: ErrorPageInteractorInput?
 
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .red
-        label.text = "warning".localized + "!"
-        label.font = BaseFont.regular.withSize(25)
+        label.font = UIFont.systemFont(dynamicSize: 24, weight: .regular)
         return label
     }()
 
     private let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "location_access".localized
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = BaseFont.regular.withSize(16)
+        textView.font =  UIFont.systemFont(dynamicSize: 16, weight: .regular)
         return textView
     }()
 
     private let actionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = GeneralColor.primary
-        button.setTitle("open_settings".localized, for: .normal)
         button.layer.cornerRadius = 12
         return button
     }()
@@ -51,6 +55,7 @@ class LocationAccessErrorViewController: UIViewController {
         addSubviews()
         setupLayout()
         addActions()
+        stylize()
     }
 
     private func addSubviews() {
@@ -83,10 +88,21 @@ class LocationAccessErrorViewController: UIViewController {
     private func addActions() {
         actionButton.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
     }
+    
+    private func stylize() {
+        guard let type = interactor?.getErrorType() else { return }
+        titleLabel.text = type.title
+        messageTextView.text = type.message
+        actionButton.setTitle(type.actionTitle, for: .normal)
+    }
 
     @objc func buttonTap() {
-        if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
-            UIApplication.shared.open(url)
-        }
+        interactor?.didTapButton()
     }
+    
+    
+}
+
+extension ErrorPageViewController: ErrorPageViewInput {
+    
 }

@@ -10,6 +10,7 @@ import UIKit
 class CircularProgressBarInnerView: UIView {
 
     private var prayerInfo: DailyPrayerTime?
+    private let language = UserDefaults.standard.string(forKey: "language") ?? ""
     
     private let topSeparator: CALayer = {
         let layer = CALayer()
@@ -39,7 +40,6 @@ class CircularProgressBarInnerView: UIView {
     var currentTimeLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 40, weight: .medium)
-        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.textAlignment = .center
         label.textColor = GeneralColor.primary
         label.adjustsFontSizeToFitWidth = true
@@ -49,8 +49,7 @@ class CircularProgressBarInnerView: UIView {
 
     var remainingTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .regular)
-        label.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        label.font = .monospacedDigitSystemFont(dynamicSize: 21, weight: .light)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
@@ -60,8 +59,7 @@ class CircularProgressBarInnerView: UIView {
 
     var nextTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .regular)
-        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        label.font = .monospacedDigitSystemFont(dynamicSize: 21, weight: .light)
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
@@ -109,7 +107,6 @@ class CircularProgressBarInnerView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
 
-
         topSpace.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
             topSpace.heightAnchor.constraint(equalToConstant: 10)
@@ -132,10 +129,15 @@ class CircularProgressBarInnerView: UIView {
     func updateReminingTime(interval: Int) {
         let attrString = NSMutableAttributedString()
         let paragraphStyle = NSMutableParagraphStyle()
-        
-        let nextTime = NSAttributedString(string: (prayerInfo?.nextCode.localized ?? "").concatenateWithSapce("remaining".localized), attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
-        let reminigTime = NSAttributedString(string: getReminingTime(from: interval),
-                                            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
+
+        let nextTime = NSAttributedString(
+            string: language == "ru" ?
+            "to_time".localized.concatenateWithSapce(prayerInfo?.nextCode.localized)
+            : prayerInfo?.nextCode.localized.concatenateWithSapce("to_time".localized) ?? "",
+            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 20, weight: .light)])
+        let reminigTime = NSAttributedString(
+            string: getReminingTime(from: interval),
+            attributes: [ .font: UIFont.monospacedDigitSystemFont(dynamicSize: 23, weight: .semibold) ])
         
         paragraphStyle.lineSpacing = 2
         paragraphStyle.lineHeightMultiple = 2
@@ -161,6 +163,14 @@ class CircularProgressBarInnerView: UIView {
             return string + "\(minutes)".concatenateWithSapce("minutes".localized)
         } else if hours > 0 && minutes == 0 {
             return string + "\(hours)".concatenateWithSapce("hours".localized)
+        }
+        
+        if language == "ru"  {
+            string += "\(hours == 0 ? minutes : hours)"
+                      .concatenateWithSapce((hours == 0 ? "minutes".localized : "hours".localized))
+                      .concatenateWithSapce("\((hours == 0 && minutes < 10) ? seconds : minutes)")
+                      .concatenateWithSapce((hours == 0 && minutes < 10) ? "seconds".localized : "minutes".localized)
+            return string
         }
             
         string += "\(hours == 0 ? minutes : hours)"

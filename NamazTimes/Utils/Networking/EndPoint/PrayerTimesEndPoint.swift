@@ -37,9 +37,12 @@ extension PrayerTimesApi: EndPointType {
     var path: String {
         switch self {
         case .annualTimes:
+            guard let lang = UserDefaults.standard.string(forKey: "language"), lang != "kk" else {
+                return "ru/api/year-times"
+            }
             return "api/year-times"
         case .autoFinder:
-            return "/year-times/8408 year"
+            return "/year-times/8408/year"
         case .search:
             guard let lang = UserDefaults.standard.string(forKey: "language"), lang != "kk" else {
                 return "/json/sity"

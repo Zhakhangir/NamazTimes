@@ -11,7 +11,7 @@ class BaseSectionHeadFooterView: UIView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = BaseFont.regular.withSize(16)
+        label.font = UIFont.systemFont(dynamicSize: 16, weight: .regular)
         label.textColor = GeneralColor.el_subtitle
         return label
     }()

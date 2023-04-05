@@ -37,9 +37,9 @@ extension SettingsInteractor: SettingsInteractorInput {
                 .init(icon: UIImage(named: "settings_location"), title: "location".localized, description: cityName, fieldType: .location),
                 .init(icon: UIImage(named: "settings_language"), title: "language".localized, description: LanguageHelper().name, fieldType: .language)
             ]),
-
-                .init(elements: [
-                    .init(icon: UIImage(named: "settings_info"), title: "about_us".localized, description: "namaztimes.kz", fieldType: .aboutUs)
+            
+            .init(elements: [
+                .init(icon: UIImage(named: "settings_info"), title: "about_us".localized, description: "namaztimes.kz", fieldType: .aboutUs)
                 ])
         ]
 

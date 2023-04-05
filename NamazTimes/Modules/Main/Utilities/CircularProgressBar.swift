@@ -13,7 +13,7 @@ class CircularProgressBarView: UIView {
     private let secondaryLayer = CAShapeLayer()
     private let startPoint = CGFloat(5*Double.pi/6)
     private let endPoint = CGFloat(Double.pi/6)
-    private let radius = (UIScreen.main.bounds.width / 2 - 40)
+    private let radius = (UIScreen.main.bounds.width / 2 - 24)
 
     let innerView = CircularProgressBarInnerView()
 
@@ -46,13 +46,13 @@ class CircularProgressBarView: UIView {
         secondaryLayer.strokeColor = GeneralColor.primary.cgColor.copy(alpha: 0.5)
         secondaryLayer.path = circularPath.cgPath
         secondaryLayer.fillColor = UIColor.clear.cgColor
-        secondaryLayer.lineWidth = 11.0
+        secondaryLayer.lineWidth = 13.0
         layer.addSublayer(secondaryLayer)
 
         progressLayer.strokeColor = GeneralColor.primary.cgColor
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineWidth = 11.0
+        progressLayer.lineWidth = 13.0
         layer.addSublayer(progressLayer)
     }
     

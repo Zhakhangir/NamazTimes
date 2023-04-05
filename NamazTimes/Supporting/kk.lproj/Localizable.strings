@@ -6,19 +6,19 @@
   
 */
 
-"choose_location" = "Өтінеміз, өз қалаңызды таңдаңыз";
+"choose_location" = "Өз қалаңызды таңдаңыз";
 "city_name" = "Қала атауы";
 "daily_times" = "Күндік уақыт";
-"qibla" = "ҚЫБЛА";
+"qibla" = "ҚҰБЫЛА";
 "open_settings" = "Баптауларды ашу";
 "standart" = "Стандарт";
 "satellite" = "Спутник";
 "done" = "Дайын";
-"error" = "Қателік";
+"error" = "Қтелік";
 "network_error" = "Желілік қосылу қатесі. Кейінірек қайталап көріңіз.";
 "times" = "Уақыттар";
 "settings" = "Баптаулар";
-"qibla_st" = "Қыбла";
+"qibla_st" = "Құбыла";
 "location" = "Орналасқан жер";
 "language" = "Тіл";
 "about_us" = "Біз туралы";
@@ -28,29 +28,66 @@
 "hours" = "сағат";
 "minutes" = "минут";
 "seconds" = "секунд";
-"remaining" = "уақытына дейін";
+"to_time" = "уақытына дейін";
+"remaining" = "қалған";
 "open_settings" = "Баптауларды ашу";
-"location_access" = "Namaz Times қосымшасы намаз уақыттарын анықтау үшін сіздің орналасқан жеріңізді пайдаланады. Өтінеміз орналасқан жерді анықтауға рұқсат берініз";
-"app_settings" = "Қосымша баптаулары";
+"location_access" = "Namaz Times қосымшасы намаз уақыттарын анықтау үшін сіздің орналасқан жеріңізді пайдаланады. Орналасқан жерді анықтауға рұқсат беруіңіз қажет";
+"app_settings" = "Қосымша баптаулар";
 
 //PrayerTimes
 "imsak" = "Имсак";
 "bamdat" = "Бамдат";
 "kun" = "Күн";
 "ishraq" = "Ишрак";
-"kerahat" = "Керахат";
+"kerahat" = "Кәрахат";
 "besin" = "Бесін";
-"asriauual" = "Асри Әууал";
+"asriauual" = "Асри әууал";
 "ekindi" = "Екінді";
 "isfirar" = "Исфирар";
 "aqsham" = "Ақшам";
 "ishtibaq" = "Иштибак";
 "quptan" = "Құптан";
-"ishaisani" = "Ишаи Сани";
+"ishaisani" = "Ишаи сани";
 
 // Network errors
 "bad_request" = "Қате сұраныс";
-"network_error" = "Интернетке қосылу жоқ";
+"network_error" = "Интернет байланысы жоқ";
 "time_out" = "Cұрау уақыты аяқталды";
 "decode_error" = "Деректeрді оқу мүмкін емес";
 "no_data" = "Деректeр табылмады";
+
+// Months & weekdays
+"january" = "Қаңтар";
+"february" = "Ақпан";
+"marhc" = "Наурыз";
+"april" = "Сәуір";
+"may" = "Мамыр";
+"june" = "Маусым";
+"july" = "Шілде";
+"august" = "Тамыз";
+"september" = "Қыркүйек";
+"october" = "Қазан";
+"november" = "Қараша";
+"december" = "Желтоқсан";
+
+"muharram" = "Мухаррам";
+"safar" = "Сафар";
+"rabiAlAwwal" = "Рабиул-әууәл";
+"rabiAlThani" = "Рабиул-ахир";
+"jamadaAlAwwal" = " Жамазиәл-әууәл";
+"jamadaAlThani" = "Жамазиәл-ахир";
+"rajab" = "Ражаб";
+"shaban" = "Шабан";
+"ramadan" = "Рамазан";
+"shawwal" = "Шәууал";
+"dhulQadah" = "Зул-қада";
+"dhulHijjah" = "Зул-хиджа";
+
+"monday" = "Дүйсенбі";
+"tuesday" = "Сейсенбі";
+"wednesday" = "Сәрсенбі";
+"thursday" = "Бейсенбі";
+"friday" = "Жұма";
+"saturday" = "Сенбі";
+"sunday" = "Жексенбі";
+"newVersion" = "Жаңа жаңарту қол жетімді, қолданбаны жаңартқыңыз келе ме?";

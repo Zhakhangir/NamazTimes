@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710260D729DA1C8000004410 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710260D629DA1C8000004410 /* UILabel+Extensions.swift */; };
+		710260D929DB709600004410 /* GrigorianMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710260D829DB709600004410 /* GrigorianMonths.swift */; };
+		710260DB29DB70A500004410 /* HijriMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710260DA29DB70A500004410 /* HijriMonths.swift */; };
+		710260DD29DB70AD00004410 /* Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710260DC29DB70AD00004410 /* Weekdays.swift */; };
 		7107A45628B49C5C007E18BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */; };
 		711C990528B89A8A00841934 /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990428B89A8A00841934 /* UITabBar+Extensions.swift */; };
 		711C990728BBD60200841934 /* DeviceFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C990628BBD60100841934 /* DeviceFinder.swift */; };
@@ -19,9 +23,7 @@
 		7128BC992896B5AB00F66896 /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */; };
 		712AEB0328C6F34900544F4B /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0228C6F34900544F4B /* LanguageCell.swift */; };
 		712AEB0628C79A7800544F4B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0428C79A7800544F4B /* loader.json */; };
-		712AEB0728C79A7800544F4B /* locate_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 712AEB0528C79A7800544F4B /* locate_animation.json */; };
 		712AEB0928C7A75700544F4B /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AEB0828C7A75700544F4B /* BaseHeaderView.swift */; };
-		7131309B287AF0D2005BA798 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7131309A287AF0D1005BA798 /* Reachability.swift */; };
 		713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713487F428998F510064CEF4 /* LoadingLabelView.swift */; };
 		714178A7287F3FDF00790E82 /* GeneralStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714178A6287F3FDF00790E82 /* GeneralStorageModel.swift */; };
 		71440F342840AB7500581C59 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71440F332840AB7500581C59 /* Date+Extension.swift */; };
@@ -35,7 +37,7 @@
 		714A20CC28104E8600E8A81A /* IntervalTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CB28104E8600E8A81A /* IntervalTimeViewController.swift */; };
 		714A20CE28104EA000E8A81A /* PrayerTimesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */; };
 		714A82B02891C2A800817053 /* CAListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82AF2891C2A800817053 /* CAListCard.swift */; };
-		714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */; };
+		714A82B22891C7B300817053 /* ErrorPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A82B12891C7B300817053 /* ErrorPageViewController.swift */; };
 		714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FD8E828A12EF700113C5F /* Results+Extensions.swift */; };
 		71574FEF2886AA3900061F91 /* GeneralStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FEE2886AA3900061F91 /* GeneralStorage.swift */; };
 		71574FF52886B4B800061F91 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71574FF42886B4B800061F91 /* EndPointType.swift */; };
@@ -60,6 +62,8 @@
 		7173733828B5D84100339EF1 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173733728B5D84100339EF1 /* SettingsInteractor.swift */; };
 		71767D44289D2220001ACDFE /* LocationFinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D43289D2220001ACDFE /* LocationFinderRouter.swift */; };
 		71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */; };
+		7183A8F52905CA59002D5E4E /* no_data_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7183A8F42905CA59002D5E4E /* no_data_animation.json */; };
+		7183A8F72906DF6C002D5E4E /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */; };
 		71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0628CA503500721915 /* AnnualTimeModel.swift */; };
 		71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0828CAF5F000721915 /* String+Extensions.swift */; };
 		71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71849C0A28CB400100721915 /* LanguageHelper.swift */; };
@@ -86,21 +90,26 @@
 		71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */; };
 		71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B382283F964900F5BA63 /* CleanableView.swift */; };
 		71B5B385283FA3EB00F5BA63 /* BaseContainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */; };
-		71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDCE8C28DA37F50073DBDF /* BaseFont.swift */; };
 		71D8AAC328C06DBB00EB65FC /* SettingsItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */; };
 		71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78C829005B7E00C85C51 /* CalendarView.swift */; };
+		71DA78CC2903B71400C85C51 /* ErrorPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */; };
+		71DA78CE2903B72000C85C51 /* ErrorPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */; };
 		71E1E62F28D489380042246E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1E62E28D489370042246E /* DateHelper.swift */; };
 		71E50646281E1FB200F2880D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50645281E1FB200F2880D /* UIImage+Extensions.swift */; };
 		71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E50649281E606A00F2880D /* LoadingLayer.swift */; };
 		71E5064C281E901700F2880D /* GeneralAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064B281E901600F2880D /* GeneralAlertViewController.swift */; };
 		71E50650281E936E00F2880D /* CABaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5064F281E936E00F2880D /* CABaseCard.swift */; };
 		71E80B78283184CD004F8A55 /* GeneralNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */; };
-		71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37B628A54A8A003B693A /* ModeTextField.swift */; };
-		C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */; };
+		A3581D311C7F2CDA30DA0AFA /* Pods_NamazTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05162673FD0931BB7171068D /* Pods_NamazTimes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Namaz_Times.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05162673FD0931BB7171068D /* Pods_NamazTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NamazTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.debug.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.debug.xcconfig"; sourceTree = "<group>"; };
+		710260D629DA1C8000004410 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		710260D829DB709600004410 /* GrigorianMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrigorianMonths.swift; sourceTree = "<group>"; };
+		710260DA29DB70A500004410 /* HijriMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HijriMonths.swift; sourceTree = "<group>"; };
+		710260DC29DB70AD00004410 /* Weekdays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekdays.swift; sourceTree = "<group>"; };
 		7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711C990428B89A8A00841934 /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
 		711C990628BBD60100841934 /* DeviceFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFinder.swift; sourceTree = "<group>"; };
@@ -114,13 +123,11 @@
 		7128BC982896B5AB00F66896 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
 		712AEB0228C6F34900544F4B /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		712AEB0428C79A7800544F4B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
-		712AEB0528C79A7800544F4B /* locate_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locate_animation.json; sourceTree = "<group>"; };
 		712AEB0828C7A75700544F4B /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
-		7131309A287AF0D1005BA798 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		713487F428998F510064CEF4 /* LoadingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLabelView.swift; sourceTree = "<group>"; };
 		714178A6287F3FDF00790E82 /* GeneralStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorageModel.swift; sourceTree = "<group>"; };
 		71440F332840AB7500581C59 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		7147DB8827F5B7ED0043CB00 /* Namaz Times.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Namaz Times.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7147DB8827F5B7ED0043CB00 /* NamazTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamazTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7147DB9427F5B7F10043CB00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71482F8E28A4F00D007EAE0A /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -132,7 +139,7 @@
 		714A20CD28104EA000E8A81A /* PrayerTimesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesListViewController.swift; sourceTree = "<group>"; };
 		714A82AC28919F3E00817053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		714A82AF2891C2A800817053 /* CAListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAListCard.swift; sourceTree = "<group>"; };
-		714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAccessErrorViewController.swift; sourceTree = "<group>"; };
+		714A82B12891C7B300817053 /* ErrorPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageViewController.swift; sourceTree = "<group>"; };
 		714FD8E828A12EF700113C5F /* Results+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+Extensions.swift"; sourceTree = "<group>"; };
 		71574FEE2886AA3900061F91 /* GeneralStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStorage.swift; sourceTree = "<group>"; };
 		71574FF42886B4B800061F91 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
@@ -159,6 +166,8 @@
 		7173733728B5D84100339EF1 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		71767D43289D2220001ACDFE /* LocationFinderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderRouter.swift; sourceTree = "<group>"; };
 		71767D45289D222B001ACDFE /* LocationFinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderInteractor.swift; sourceTree = "<group>"; };
+		7183A8F42905CA59002D5E4E /* no_data_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = no_data_animation.json; sourceTree = "<group>"; };
+		7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
 		71849C0628CA503500721915 /* AnnualTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualTimeModel.swift; sourceTree = "<group>"; };
 		71849C0828CAF5F000721915 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		71849C0A28CB400100721915 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
@@ -185,18 +194,17 @@
 		71B5B37F283F95C400F5BA63 /* BaseContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerCollectionCell.swift; sourceTree = "<group>"; };
 		71B5B382283F964900F5BA63 /* CleanableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanableView.swift; sourceTree = "<group>"; };
 		71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerTableCell.swift; sourceTree = "<group>"; };
-		71BDCE8C28DA37F50073DBDF /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		71D8AAC228C06DBB00EB65FC /* SettingsItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemElement.swift; sourceTree = "<group>"; };
 		71DA78C829005B7E00C85C51 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageRouter.swift; sourceTree = "<group>"; };
+		71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageInteractor.swift; sourceTree = "<group>"; };
 		71E1E62E28D489370042246E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		71E50645281E1FB200F2880D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71E50649281E606A00F2880D /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		71E5064B281E901600F2880D /* GeneralAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlertViewController.swift; sourceTree = "<group>"; };
 		71E5064F281E936E00F2880D /* CABaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABaseCard.swift; sourceTree = "<group>"; };
 		71E80B77283184CD004F8A55 /* GeneralNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralNavigationView.swift; sourceTree = "<group>"; };
-		71FA37B628A54A8A003B693A /* ModeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTextField.swift; sourceTree = "<group>"; };
-		9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.release.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
-		E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Namaz Times.debug.xcconfig"; path = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.debug.xcconfig"; sourceTree = "<group>"; };
+		A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NamazTimes.release.xcconfig"; path = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6EBA79D2D52EC51B7B0A2E8 /* Pods_Namaz_Times.framework in Frameworks */,
+				A3581D311C7F2CDA30DA0AFA /* Pods_NamazTimes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +222,19 @@
 		5E40125825E82D17408473D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32D8DB59449C28063354F56C /* Pods_Namaz_Times.framework */,
+				05162673FD0931BB7171068D /* Pods_NamazTimes.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		710260DE29DC090500004410 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				710260D829DB709600004410 /* GrigorianMonths.swift */,
+				710260DA29DB70A500004410 /* HijriMonths.swift */,
+				710260DC29DB70AD00004410 /* Weekdays.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		71100C4A28B7313700CACFEA /* LanguageSettings */ = {
@@ -241,7 +259,8 @@
 		713487F328998F330064CEF4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				71FA37B628A54A8A003B693A /* ModeTextField.swift */,
+				71849C0628CA503500721915 /* AnnualTimeModel.swift */,
+				7157500B288714E000061F91 /* CitySearchModel.swift */,
 				713487F428998F510064CEF4 /* LoadingLabelView.swift */,
 				71482F8E28A4F00D007EAE0A /* LoadingButton.swift */,
 			);
@@ -272,7 +291,7 @@
 		7147DB8927F5B7ED0043CB00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7147DB8827F5B7ED0043CB00 /* Namaz Times.app */,
+				7147DB8827F5B7ED0043CB00 /* NamazTimes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				71E4F73D280C37B00091B120 /* Supporting */,
-				7157500A288714AE00061F91 /* Model */,
 				71E4F73A280C2F010091B120 /* Utils */,
 				71E4F739280C2EF40091B120 /* Modules */,
 			);
@@ -291,6 +309,7 @@
 		714A20BD2810352600E8A81A /* General */ = {
 			isa = PBXGroup;
 			children = (
+				710260DE29DC090500004410 /* Constants */,
 				714178A5287F3DDA00790E82 /* Storage */,
 				71E5064D281E931000F2880D /* GeneralAlert */,
 				714A20BB2810337400E8A81A /* GeneralColor.swift */,
@@ -313,6 +332,7 @@
 				711C990E28BCC94F00841934 /* CALayer+Extensions.swift */,
 				71AF5BF928C5F6F4004319D5 /* UIFont+Extensions.swift */,
 				71849C0828CAF5F000721915 /* String+Extensions.swift */,
+				710260D629DA1C8000004410 /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,15 +403,6 @@
 				71574FFE2886BDE600061F91 /* NetworkError.swift */,
 			);
 			path = Encoding;
-			sourceTree = "<group>";
-		};
-		7157500A288714AE00061F91 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7157500B288714E000061F91 /* CitySearchModel.swift */,
-				71849C0628CA503500721915 /* AnnualTimeModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		715D084728144ACD00729AFB /* LocationFinder */ = {
@@ -486,15 +497,9 @@
 				71B5B382283F964900F5BA63 /* CleanableView.swift */,
 				71B5B384283FA3EB00F5BA63 /* BaseContainerTableCell.swift */,
 				712AEB0828C7A75700544F4B /* BaseHeaderView.swift */,
+				7183A8F62906DF6C002D5E4E /* TableBackgroundView.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		71BDCE7F28DA33DA0073DBDF /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		71D8AAC128C06DAB00EB65FC /* Utilities */ = {
@@ -506,9 +511,20 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		71DA78CA2903B6F700C85C51 /* ErrorPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				714A82B12891C7B300817053 /* ErrorPageViewController.swift */,
+				71DA78CB2903B71400C85C51 /* ErrorPageRouter.swift */,
+				71DA78CD2903B72000C85C51 /* ErrorPageInteractor.swift */,
+			);
+			path = ErrorPageViewController;
+			sourceTree = "<group>";
+		};
 		71E4F739280C2EF40091B120 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				71DA78CA2903B6F700C85C51 /* ErrorPageViewController */,
 				7173733228B5D7FB00339EF1 /* Settings */,
 				715D084728144ACD00729AFB /* LocationFinder */,
 				71E4F73E280C3DA00091B120 /* Main */,
@@ -520,16 +536,13 @@
 		71E4F73A280C2F010091B120 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				714A20BD2810352600E8A81A /* General */,
 				719B2B6528CC861D008D5063 /* PrayerTimesInfo.swift */,
 				718C03102890567A00AB7794 /* LocationService.swift */,
-				7131309A287AF0D1005BA798 /* Reachability.swift */,
-				714A82B12891C7B300817053 /* LocationAccessErrorViewController.swift */,
 				71E4F73C280C37770091B120 /* Networking */,
 				71B5B381283F960C00F5BA63 /* UI */,
 				714A20BE2810353900E8A81A /* Extensions */,
-				714A20BD2810352600E8A81A /* General */,
 				711C990628BBD60100841934 /* DeviceFinder.swift */,
-				71BDCE8C28DA37F50073DBDF /* BaseFont.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -548,10 +561,9 @@
 		71E4F73D280C37B00091B120 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				71BDCE7F28DA33DA0073DBDF /* Fonts */,
 				7107A45528B49C5C007E18BA /* LaunchScreen.storyboard */,
 				712AEB0428C79A7800544F4B /* loader.json */,
-				712AEB0528C79A7800544F4B /* locate_animation.json */,
+				7183A8F42905CA59002D5E4E /* no_data_animation.json */,
 				7147DB8B27F5B7ED0043CB00 /* AppDelegate.swift */,
 				714A82AC28919F3E00817053 /* Info.plist */,
 				7147DB9427F5B7F10043CB00 /* Assets.xcassets */,
@@ -585,8 +597,8 @@
 		AFA383F674B70E2CEBE47FA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */,
-				9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */,
+				5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */,
+				A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -594,9 +606,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7147DB8727F5B7ED0043CB00 /* Namaz Times */ = {
+		7147DB8727F5B7ED0043CB00 /* NamazTimes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "Namaz Times" */;
+			buildConfigurationList = 7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "NamazTimes" */;
 			buildPhases = (
 				88B3DBE18388F80C4DF45322 /* [CP] Check Pods Manifest.lock */,
 				7147DB8427F5B7ED0043CB00 /* Sources */,
@@ -608,9 +620,9 @@
 			);
 			dependencies = (
 			);
-			name = "Namaz Times";
+			name = NamazTimes;
 			productName = NamazTimes;
-			productReference = 7147DB8827F5B7ED0043CB00 /* Namaz Times.app */;
+			productReference = 7147DB8827F5B7ED0043CB00 /* NamazTimes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -643,7 +655,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7147DB8727F5B7ED0043CB00 /* Namaz Times */,
+				7147DB8727F5B7ED0043CB00 /* NamazTimes */,
 			);
 		};
 /* End PBXProject section */
@@ -655,8 +667,8 @@
 			files = (
 				7107A45628B49C5C007E18BA /* LaunchScreen.storyboard in Resources */,
 				715D084C2814523000729AFB /* Localizable.strings in Resources */,
+				7183A8F52905CA59002D5E4E /* no_data_animation.json in Resources */,
 				712AEB0628C79A7800544F4B /* loader.json in Resources */,
-				712AEB0728C79A7800544F4B /* locate_animation.json in Resources */,
 				7147DB9527F5B7F10043CB00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,15 +682,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Namaz Times/Pods-Namaz Times-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NamazTimes/Pods-NamazTimes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		88B3DBE18388F80C4DF45322 /* [CP] Check Pods Manifest.lock */ = {
@@ -696,7 +708,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Namaz Times-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NamazTimes-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -736,7 +748,6 @@
 				71849C0728CA503500721915 /* AnnualTimeModel.swift in Sources */,
 				71440F342840AB7500581C59 /* Date+Extension.swift in Sources */,
 				7127A60F28C3E67E000EA212 /* LanguageSettingsViewControlller.swift in Sources */,
-				71BDCE8D28DA37F50073DBDF /* BaseFont.swift in Sources */,
 				71574FFB2886BB6900061F91 /* ParameterEncoding.swift in Sources */,
 				71AF5BFC28C5FBC1004319D5 /* CircularProgressBar.swift in Sources */,
 				7173733428B5D80F00339EF1 /* SettingsViewController.swift in Sources */,
@@ -744,6 +755,7 @@
 				71AC767428E1EF4B000E33EF /* MainPageViewController.swift in Sources */,
 				71849C0B28CB400100721915 /* LanguageHelper.swift in Sources */,
 				71ACB2EB2844EA2D00371C25 /* QFMapViewController.swift in Sources */,
+				710260D929DB709600004410 /* GrigorianMonths.swift in Sources */,
 				714A20BC2810337400E8A81A /* GeneralColor.swift in Sources */,
 				71574FFD2886BCF900061F91 /* URLParameterEncoder.swift in Sources */,
 				7167DB8828C21A1000BA4134 /* BaseSectionHeadFooterView.swift in Sources */,
@@ -753,6 +765,7 @@
 				713487F528998F510064CEF4 /* LoadingLabelView.swift in Sources */,
 				719B2B6628CC861D008D5063 /* PrayerTimesInfo.swift in Sources */,
 				7187839328362E6F00883421 /* PrayerTimesListView.swift in Sources */,
+				710260D729DA1C8000004410 /* UILabel+Extensions.swift in Sources */,
 				71E50650281E936E00F2880D /* CABaseCard.swift in Sources */,
 				71B5B36C283F4CB300F5BA63 /* PagerView.swift in Sources */,
 				711DA0D7284145F60023A64B /* QFCompassRouter.swift in Sources */,
@@ -761,7 +774,9 @@
 				711C990728BBD60200841934 /* DeviceFinder.swift in Sources */,
 				71E5064A281E606A00F2880D /* LoadingLayer.swift in Sources */,
 				71DA78C929005B7E00C85C51 /* CalendarView.swift in Sources */,
+				71DA78CC2903B71400C85C51 /* ErrorPageRouter.swift in Sources */,
 				715D084928144B0B00729AFB /* LocationFinderViewController.swift in Sources */,
+				710260DD29DB70AD00004410 /* Weekdays.swift in Sources */,
 				711DA0D92841460A0023A64B /* QFCompassInteractor.swift in Sources */,
 				71767D46289D222B001ACDFE /* LocationFinderInteractor.swift in Sources */,
 				71ACB2EF2844EA5800371C25 /* QFMapRouter.swift in Sources */,
@@ -769,14 +784,13 @@
 				71ACB2F12844EA6B00371C25 /* QFMapIntractor.swift in Sources */,
 				7157500E288716C500061F91 /* NetworkManager.swift in Sources */,
 				711DA0CA28413EDB0023A64B /* IntervalTimeRouter.swift in Sources */,
-				714A82B22891C7B300817053 /* LocationAccessErrorViewController.swift in Sources */,
-				71FA37B728A54A8A003B693A /* ModeTextField.swift in Sources */,
+				714A82B22891C7B300817053 /* ErrorPageViewController.swift in Sources */,
 				71AC768028E1F376000E33EF /* MainPageRouter.swift in Sources */,
 				715750092887093000061F91 /* PrayerTimesEndPoint.swift in Sources */,
+				71DA78CE2903B72000C85C51 /* ErrorPageInteractor.swift in Sources */,
 				71AA453628FD4485000F02A6 /* GeneralNotification.swift in Sources */,
 				71B5B380283F95C400F5BA63 /* BaseContainerCollectionCell.swift in Sources */,
 				71482F8F28A4F00D007EAE0A /* LoadingButton.swift in Sources */,
-				7131309B287AF0D2005BA798 /* Reachability.swift in Sources */,
 				7173733628B5D82900339EF1 /* SettingsRouter.swift in Sources */,
 				714A20C2281046EB00E8A81A /* GeneralTabBarViewController.swift in Sources */,
 				71B5B383283F964900F5BA63 /* CleanableView.swift in Sources */,
@@ -784,9 +798,11 @@
 				71AC767E28E1F13E000E33EF /* PrayerTimerListRouter.swift in Sources */,
 				71AF5BFA28C5F6F4004319D5 /* UIFont+Extensions.swift in Sources */,
 				71849C0928CAF5F000721915 /* String+Extensions.swift in Sources */,
+				710260DB29DB70A500004410 /* HijriMonths.swift in Sources */,
 				714FD8E928A12EF700113C5F /* Results+Extensions.swift in Sources */,
 				715750072886FAD300061F91 /* Router.swift in Sources */,
 				71574FF52886B4B800061F91 /* EndPointType.swift in Sources */,
+				7183A8F72906DF6C002D5E4E /* TableBackgroundView.swift in Sources */,
 				71B5B378283F890C00F5BA63 /* IntervalTimeIntercator.swift in Sources */,
 				7168A6AA289286C5004C94C1 /* QFArrowView.swift in Sources */,
 				71AC767C28E1F136000E33EF /* PrayerTimesListInteractor.swift in Sources */,
@@ -938,19 +954,20 @@
 		};
 		7147DB9D27F5B7F10043CB00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E655585DEE19FB7BD30144CA /* Pods-Namaz Times.debug.xcconfig */;
+			baseConfigurationReference = 5A4FACDEAA668E43055EFAED /* Pods-NamazTimes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M358H5F32F;
+				DEVELOPMENT_TEAM = ZPTNP6DSTX;
+				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
@@ -966,8 +983,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TairoV-devlopment.NamazTimes";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tairov.development.NamazTimes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -981,19 +998,20 @@
 		};
 		7147DB9E27F5B7F10043CB00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FF7373199DED83907E8CF30 /* Pods-Namaz Times.release.xcconfig */;
+			baseConfigurationReference = A671AB2ADDC5E23EB2E1023B /* Pods-NamazTimes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M358H5F32F;
+				DEVELOPMENT_TEAM = ZPTNP6DSTX;
+				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=*]" = NamazTimes/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Namaz Times";
+				INFOPLIST_KEY_CFBundleDisplayName = NamazTimes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дайте согласия на отслеживания";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Дайте согласия на отслеживания";
@@ -1009,8 +1027,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TairoV-devlopment.NamazTimes";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tairov.development.NamazTimes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1034,7 +1052,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "Namaz Times" */ = {
+		7147DB9C27F5B7F10043CB00 /* Build configuration list for PBXNativeTarget "NamazTimes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7147DB9D27F5B7F10043CB00 /* Debug */,

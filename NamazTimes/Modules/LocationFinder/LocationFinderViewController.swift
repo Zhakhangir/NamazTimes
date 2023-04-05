@@ -175,7 +175,7 @@ private func stylize() {
     let bar = UIToolbar()
     bar.sizeToFit()
     bar.items = [ UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                  UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))]
+                  UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneTapped))]
     
     fieldImageView.contentMode = .scaleAspectFit
     fieldImageView.image = UIImage(named: "search")

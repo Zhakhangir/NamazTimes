@@ -13,6 +13,9 @@ protocol MainPageViewInput where Self: UIViewController {
 
 class MainPageViewController: UIPageViewController {
     
+    var router: MainPageRouterInput?
+    var interactor: MainPageInteractorInput?
+    
     private var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.backgroundColor = .clear
@@ -22,9 +25,6 @@ class MainPageViewController: UIPageViewController {
         pageControl.layer.position.x = UIScreen.main.bounds.width
         return pageControl
     }()
-    
-    var router: MainPageRouterInput?
-    var interactor: MainPageInteractorInput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +58,7 @@ class MainPageViewController: UIPageViewController {
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
-        if DeviceType.heightType == .big {
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        } else {
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: CGFloat(UIScreen.main.bounds.width/4)).isActive = true
-        }
+        pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 

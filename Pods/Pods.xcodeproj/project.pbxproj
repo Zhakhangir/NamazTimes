@@ -171,7 +171,6 @@
 		69DF98E79471924E612868AD2AAC4959 /* RLMProperty_Private.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = F4045A9F8BA06EDC319B2489BDB567AC /* RLMProperty_Private.h */; };
 		6AC9633D42EF6DD8631A2715CCB9B5E5 /* RLMRealmUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = C167AE557F9A5E3BD14958C11206E7E7 /* RLMRealmUtil.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"10.29.0\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		6AEDF3D1798888D99C3C7C6BD2F3779F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE5FEDF3C5D18B5618E7C5F5D7C6A7 /* Color.swift */; };
-		6BC6D373BEC52DAFBAD14F271CFBCC52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1EB190C93369D5DA351D6BAD8630FE /* Foundation.framework */; };
 		6BFF10C22676CAEC23DEE38FE08031FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1EB190C93369D5DA351D6BAD8630FE /* Foundation.framework */; };
 		6C32E566E81DC6585C14353D30DCFEA1 /* NSError+RLMSync.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5BE81DD9D9B211947B8D928EC85EFE /* NSError+RLMSync.m */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"10.29.0\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		6C8E210026D35C77C8D2064E5940B8F8 /* RLMCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 3969B93FFA9E9383DDD59CA05D396524 /* RLMCredentials.h */; };
@@ -218,6 +217,7 @@
 		843588510847505E149784E74D2CB687 /* AnimationSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9833D7099F50E4D4D31CB82931287 /* AnimationSubview.swift */; };
 		84CD1A3D6E57178F901C732FE0B61C95 /* BundleImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22D8A80906051A7493C15AC21F28C6A /* BundleImageProvider.swift */; };
 		861C9EB0C760A8D446C3A4F1320E2C06 /* AnimationViewInitializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA34B784F9744C9204FA2B1F0F93AD8 /* AnimationViewInitializers.swift */; };
+		864BE7A6E4304DA30A670B8CD0EBD181 /* Pods-NamazTimes-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B09D9C632CF1D2F8DC3EB88B10756001 /* Pods-NamazTimes-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		868EC2D6F5E462D6EC55BCAA99DA1848 /* ObjectiveCSupport+BSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51B61A992CDE570F04A12FA4E16E0E /* ObjectiveCSupport+BSON.swift */; };
 		876BEAC75F36A8BE7DC6FFE1CCED3136 /* CurveVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9F50838121F6D5320F81E37C207D50 /* CurveVertex.swift */; };
 		876EE37947934409808939990FBC28D7 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B35108AA3A29164A72AB6AF83CBA8D /* SwiftUI.swift */; };
@@ -234,7 +234,6 @@
 		8D376A7495902CF3AC2E2FEAEC2DCA8B /* RLMSet_Private.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = F0EE98189F8932BEF896FFAA343F8003 /* RLMSet_Private.h */; };
 		8F17855A7090CB9FC6412A83CE7B9685 /* RLMFindOneAndModifyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 58EF30005BB822FC29EBE2489015467D /* RLMFindOneAndModifyOptions.h */; };
 		8F3C9B8EC45EA7E758BF8709508BA3C9 /* RLMUserAPIKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D83928E7F0E28F41E755193ADA6C19EE /* RLMUserAPIKey.h */; };
-		8FB61531364089643FADF937F4F89F2D /* Pods-Namaz Times-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A57CF8FEB1133BDDE11F932E4EF47FC9 /* Pods-Namaz Times-dummy.m */; };
 		9067F373822D84F800203D89278E08E0 /* ShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7065BD2C6DAC1755D61D2456A72B141 /* ShapeNode.swift */; };
 		90E590A8216B396C52967163E89F5208 /* RLMObjectStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D675F3D7093506F4361092F92348E1D /* RLMObjectStore.h */; };
 		90FDC93B6DD5207807DA8A37EF3E3AC8 /* RLMAccessor.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = 30BC81659CE16AAB00E909AE18716E48 /* RLMAccessor.h */; };
@@ -268,7 +267,6 @@
 		A1D5D53A39C1F76B306B2B187A95616F /* RLMRealmConfiguration.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 4559DB03A897F9609D69B66B62D26549 /* RLMRealmConfiguration.h */; };
 		A2D241953E4F2DA88EEC3CED7DEDF8B1 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67135CA30AFBD13AE916FD3A3677F363 /* Realm.swift */; };
 		A3B0C332426A4E8205D9EAD2AA690747 /* RLMObjectStore.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = 5D675F3D7093506F4361092F92348E1D /* RLMObjectStore.h */; };
-		A4091654FCE2BD3B05D4366A6A0C6C71 /* Pods-Namaz Times-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5FB991D92E84B5168A25C8133245256 /* Pods-Namaz Times-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A515A3A3B2CF6958FAA17D86A579DDFB /* KeyframeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660465CADCAB3663A26893515ED8F40F /* KeyframeGroup.swift */; };
 		A558211A3D211F80AD636919494D394C /* RLMMongoClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = B4F0E1EBE4EC7E9955756724319406F0 /* RLMMongoClient.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"10.29.0\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		A5AE75455F58AFA8091A87C1539A0E37 /* Repeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BCB48CEA9444B569835DF9CE58095 /* Repeater.swift */; };
@@ -321,6 +319,7 @@
 		C3FDA89B8C650BCE0B6B2264EA7A8418 /* RLMObjectId.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F626F26D85037FF56ACB8EE101C74A1 /* RLMObjectId.h */; };
 		C4388F7C6E07DE4C1F66B1884C923C5B /* RLMAccessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0FB1FD39E62FD2A1B355BA7A9C249D9 /* RLMAccessor.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"10.29.0\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		C548C03689D33BB0E472D0FF16F7F24D /* RLMAsymmetricObject.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 9C3C6D18F0DD16391E2623788C208E3A /* RLMAsymmetricObject.h */; };
+		C6C8D7E72DBDA85E40C39D4ED5BA0BC2 /* Pods-NamazTimes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 730BB602A09EA38677CC3957A61E859A /* Pods-NamazTimes-dummy.m */; };
 		C70496D08D937ABB9DF1A1414C08CB7E /* RLMResults.h in Headers */ = {isa = PBXBuildFile; fileRef = E38E8628013394A354A6687E76837EA6 /* RLMResults.h */; };
 		C75D2219C4CE37D25AC9FE9FADF41316 /* RLMMongoDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CE6A00295F551D6BB15A7E2F943192 /* RLMMongoDatabase.h */; };
 		C8413231EA7E3A9AF268C845AA0FC32A /* ShapeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FBFA91D3C5E9A801A866ED266D2D6 /* ShapeTransform.swift */; };
@@ -361,6 +360,7 @@
 		DC5E4DB7351FDA603E65BFED8D6178C3 /* SingleValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797CDB414B879A783FC8C1F7A2281B9 /* SingleValueProvider.swift */; };
 		DC93A3421CA0B8A5B367C7E615A0FFC1 /* RLMRealm+Sync.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = EF286D4D30ECE2D004B5205A1ADAFB4F /* RLMRealm+Sync.h */; };
 		DE05924421F7CB823B4766BC14DBF066 /* Vectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70733285238DA3AD2C7222B31B013286 /* Vectors.swift */; };
+		DE47130D6400B64AFE520D427C3A78B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1EB190C93369D5DA351D6BAD8630FE /* Foundation.framework */; };
 		DE9AC4D1B35C9E07B979930D5C0B38DF /* CollectionAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15754F6A19E3053A6B05F6DF93AC60B6 /* CollectionAccess.swift */; };
 		DF03D01A6F107F918AAC4BF901E8CC43 /* RLMProviderClient.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = CFD8B0FA47A8771C0F78C1112A55EF36 /* RLMProviderClient.h */; };
 		DF20FA3D69BC752B01D65651AF876198 /* GradientStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E02F0B6EFB4FC20A5B11153EA36FB /* GradientStroke.swift */; };
@@ -411,26 +411,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		12409636FDAC9A96CDEAFB0DF6A515C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 782725687624F8665247B84AB581BEB1;
-			remoteInfo = RealmSwift;
-		};
-		673468F11068BF46E9545E9E7B9EBCEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0B967D7F8561D42493EE289EC8D450D1;
-			remoteInfo = "lottie-ios";
-		};
-		C58D58780F52E4D26801716C12B70192 /* PBXContainerItemProxy */ = {
+		0219395D2B3C852F31812F5466B78FB8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 68494F30B4A13F8E5E88BCCAEC25B0A4;
 			remoteInfo = Realm;
+		};
+		C0A8508D8EE3FF74C4C317A0B8F1501C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B967D7F8561D42493EE289EC8D450D1;
+			remoteInfo = "lottie-ios";
 		};
 		CF70DF695C8C68DF7933F10901789FC3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -438,6 +431,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 68494F30B4A13F8E5E88BCCAEC25B0A4;
 			remoteInfo = Realm;
+		};
+		CF8865E3C9B708A62696D7BE5AB98680 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 782725687624F8665247B84AB581BEB1;
+			remoteInfo = RealmSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -540,7 +540,6 @@
 		01C95AED20B8EAC762A6E3A20225A4ED /* RLMUUID.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUUID.mm; path = Realm/RLMUUID.mm; sourceTree = "<group>"; };
 		0298EB9411831FDD5F3417C8031EB6D7 /* RLMAsymmetricObject.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAsymmetricObject.mm; path = Realm/RLMAsymmetricObject.mm; sourceTree = "<group>"; };
 		02A5742D5E8F1F4920387E527BB98292 /* RLMBSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMBSON.h; path = include/RLMBSON.h; sourceTree = "<group>"; };
-		02CC179AA24D46C48F6AE30B49B4605D /* Pods-Namaz Times.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Namaz Times.modulemap"; sourceTree = "<group>"; };
 		036F8C1B9814F9553305E2E277A46863 /* Results.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Results.swift; path = RealmSwift/Results.swift; sourceTree = "<group>"; };
 		03CE7DC99E1CE2072A4D134D477F4EA2 /* RLMValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMValue.h; path = include/RLMValue.h; sourceTree = "<group>"; };
 		0536FF828090B43FC6D76B47422AE380 /* Shape.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shape.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Shape.swift"; sourceTree = "<group>"; };
@@ -560,18 +559,17 @@
 		10F9295FED732A9ACCCA8A912E3B615D /* RLMPredicateUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMPredicateUtil.mm; path = Realm/RLMPredicateUtil.mm; sourceTree = "<group>"; };
 		119F748C244FFA1D27FCF78F24EB8CCE /* RLMPushClient.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMPushClient.mm; path = Realm/RLMPushClient.mm; sourceTree = "<group>"; };
 		12859C2A7EEC9AE85CA80846C1FD326A /* ObjectId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectId.swift; path = RealmSwift/ObjectId.swift; sourceTree = "<group>"; };
-		128CE60831B487BDBE11D8A8BA7FB8B3 /* Pods-Namaz Times.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Namaz Times.release.xcconfig"; sourceTree = "<group>"; };
 		1359C031F4A4E6360F064BE622B2472E /* RLMObjectBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectBase.h; path = include/RLMObjectBase.h; sourceTree = "<group>"; };
 		13664DDEE7332AB64C2C57886EA17208 /* ShapeContainerLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeContainerLayer.swift; path = "lottie-swift/src/Private/NodeRenderSystem/RenderLayers/ShapeContainerLayer.swift"; sourceTree = "<group>"; };
 		137FB9FAE2D6FCC6BBF58C267DAF4C4C /* AnimationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationView.swift; path = "lottie-swift/src/Public/Animation/AnimationView.swift"; sourceTree = "<group>"; };
 		15754F6A19E3053A6B05F6DF93AC60B6 /* CollectionAccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionAccess.swift; path = RealmSwift/Impl/CollectionAccess.swift; sourceTree = "<group>"; };
 		1590008229472E7037E1C554F44A12DC /* GradientFillNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientFillNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/RenderNodes/GradientFillNode.swift"; sourceTree = "<group>"; };
+		15B4B957F34C3901EEE3E56B0069262D /* Pods-NamazTimes-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NamazTimes-acknowledgements.markdown"; sourceTree = "<group>"; };
 		167BA9F3F1388A824918660F2F1C2084 /* StrokeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StrokeRenderer.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/OutputNodes/Renderables/StrokeRenderer.swift"; sourceTree = "<group>"; };
 		16BF757F70253048A7520A542F64E7B0 /* Object.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Object.swift; path = RealmSwift/Object.swift; sourceTree = "<group>"; };
 		16D34BE452B096CFCA639D3EF1F29807 /* RLMMigration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMMigration.mm; path = Realm/RLMMigration.mm; sourceTree = "<group>"; };
 		16EA8FAC6956C5DFBAC347E699B8161D /* StrokeNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StrokeNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/RenderNodes/StrokeNode.swift"; sourceTree = "<group>"; };
 		173A3DA025E5E6F9A1E7C3A46E0E48F7 /* RLMUserAPIKey.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUserAPIKey.mm; path = Realm/RLMUserAPIKey.mm; sourceTree = "<group>"; };
-		1740739AE827C6ADD126348DC41594DE /* Pods-Namaz Times.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Namaz Times.debug.xcconfig"; sourceTree = "<group>"; };
 		17425F471FC073A3E322078BA1E39132 /* LayerTransformNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerTransformNode.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/LayerTransformNode.swift"; sourceTree = "<group>"; };
 		1A3DD29B01AF0DB6625BF939BF29BB7A /* Ellipse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Ellipse.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Ellipse.swift"; sourceTree = "<group>"; };
 		1B5818668715D689D6A2523C510222A2 /* RealmSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RealmSwift-Info.plist"; sourceTree = "<group>"; };
@@ -613,6 +611,7 @@
 		2FC74082BE8122D8616E020EF090869A /* ThreadSafeReference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadSafeReference.swift; path = RealmSwift/ThreadSafeReference.swift; sourceTree = "<group>"; };
 		2FE19E00C42ED479E18A78CD41E4BD2D /* RLMObjectBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObjectBase.mm; path = Realm/RLMObjectBase.mm; sourceTree = "<group>"; };
 		30BC81659CE16AAB00E909AE18716E48 /* RLMAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMAccessor.h; path = include/RLMAccessor.h; sourceTree = "<group>"; };
+		3299A4B3073BA3EE5959DD7812E352A2 /* Pods-NamazTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamazTimes.release.xcconfig"; sourceTree = "<group>"; };
 		32D3CD42C2E43CF2DD1F9C6F029AF677 /* RLMObjectBase_Dynamic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectBase_Dynamic.h; path = include/RLMObjectBase_Dynamic.h; sourceTree = "<group>"; };
 		3321AD9E5019A1F1938BE7FB282DA8B3 /* AnimationTextProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationTextProvider.swift; path = "lottie-swift/src/Public/TextProvider/AnimationTextProvider.swift"; sourceTree = "<group>"; };
 		333D47BF9A02788B9EE3FC649C4FD6C3 /* Interpolatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interpolatable.swift; path = "lottie-swift/src/Private/Utility/Interpolatable/Interpolatable.swift"; sourceTree = "<group>"; };
@@ -682,7 +681,6 @@
 		6171B552FB02F2E389104DA428B8B9D5 /* AnimatedSwitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedSwitch.swift; path = "lottie-swift/src/Public/iOS/AnimatedSwitch.swift"; sourceTree = "<group>"; };
 		61D8A58484BA33B17F26BB757572E188 /* RLMSwiftValueStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSwiftValueStorage.h; path = include/RLMSwiftValueStorage.h; sourceTree = "<group>"; };
 		63413675999986898ACD30692ABC96DE /* NodePropertyMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NodePropertyMap.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/Protocols/NodePropertyMap.swift"; sourceTree = "<group>"; };
-		635799705DF117B14DCF5D616BC4F947 /* Pods-Namaz Times-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Namaz Times-acknowledgements.plist"; sourceTree = "<group>"; };
 		63F4F74679F5B0B252340D0BF0C13BBC /* Realm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Realm.h; path = include/Realm.h; sourceTree = "<group>"; };
 		6439AA42817129A43FF19DB8E4D60E58 /* TextLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextLayer.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/TextLayer.swift"; sourceTree = "<group>"; };
 		648518F9C30670A948055AD45659D65D /* RLMSyncUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncUtil.mm; path = Realm/RLMSyncUtil.mm; sourceTree = "<group>"; };
@@ -692,6 +690,7 @@
 		671A2D5CD7B27B6B23D8440021360831 /* Group.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Group.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Group.swift"; sourceTree = "<group>"; };
 		67D3811534F1CC31AE50C02F40DE1C8C /* RLMSyncSession.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSession.mm; path = Realm/RLMSyncSession.mm; sourceTree = "<group>"; };
 		685C3800F4957723E43C10D457810279 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		69E4E5217E032BE7F556FD14924C871E /* Pods-NamazTimes-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamazTimes-acknowledgements.plist"; sourceTree = "<group>"; };
 		6A19803F1310D3FDBB02D312B8D19241 /* ObjectiveCSupport+AnyRealmValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ObjectiveCSupport+AnyRealmValue.swift"; path = "RealmSwift/ObjectiveCSupport+AnyRealmValue.swift"; sourceTree = "<group>"; };
 		6AA34B784F9744C9204FA2B1F0F93AD8 /* AnimationViewInitializers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationViewInitializers.swift; path = "lottie-swift/src/Public/Animation/AnimationViewInitializers.swift"; sourceTree = "<group>"; };
 		6B68070D2EA2B5293E54FC86F579415A /* TextLayerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextLayerModel.swift; path = "lottie-swift/src/Private/Model/Layers/TextLayerModel.swift"; sourceTree = "<group>"; };
@@ -704,6 +703,7 @@
 		714476D80BEE89F5E55914A8199C19B3 /* AssetLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssetLibrary.swift; path = "lottie-swift/src/Private/Model/Assets/AssetLibrary.swift"; sourceTree = "<group>"; };
 		7269E7ED942D9A65E898DC24BB6D08E9 /* RLMRealm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealm.h; path = include/RLMRealm.h; sourceTree = "<group>"; };
 		727CD20DF0ABDFF3A2CAA4EC58D77199 /* RLMUser.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUser.mm; path = Realm/RLMUser.mm; sourceTree = "<group>"; };
+		730BB602A09EA38677CC3957A61E859A /* Pods-NamazTimes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NamazTimes-dummy.m"; sourceTree = "<group>"; };
 		7353541BC15A6F174EC58856B53D0ACA /* PropertyAccessors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PropertyAccessors.swift; path = RealmSwift/Impl/PropertyAccessors.swift; sourceTree = "<group>"; };
 		73B35108AA3A29164A72AB6AF83CBA8D /* SwiftUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftUI.swift; path = RealmSwift/SwiftUI.swift; sourceTree = "<group>"; };
 		7481E83A877196F4AB20F2D9EA1CDF6F /* GradientStrokeNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientStrokeNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/RenderNodes/GradientStrokeNode.swift"; sourceTree = "<group>"; };
@@ -711,13 +711,13 @@
 		7601D4FA35EAADA7E5E6723AEC530BBE /* BezierPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BezierPath.swift; path = "lottie-swift/src/Private/Utility/Primitives/BezierPath.swift"; sourceTree = "<group>"; };
 		78BCFF6BAE079E8FCF2E0CCCD948A7BD /* KeyframeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyframeExtensions.swift; path = "lottie-swift/src/Private/Utility/Interpolatable/KeyframeExtensions.swift"; sourceTree = "<group>"; };
 		79EF6DC9D4A38F2307F175FE2901A20C /* RLMQueryUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMQueryUtil.mm; path = Realm/RLMQueryUtil.mm; sourceTree = "<group>"; };
+		7A0DDC7389216B830EAEB7182741E68E /* Pods-NamazTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NamazTimes.debug.xcconfig"; sourceTree = "<group>"; };
 		7A86275D8952722D62A390A6E150562D /* AnimationCacheProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationCacheProvider.swift; path = "lottie-swift/src/Public/AnimationCache/AnimationCacheProvider.swift"; sourceTree = "<group>"; };
 		7A86CFC506F474A070444011E51F7135 /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = "lottie-swift/src/Private/Model/Animation.swift"; sourceTree = "<group>"; };
 		7AB393DAA223E5E08BE61D76D1716175 /* RLMMongoCollection.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMMongoCollection.mm; path = Realm/RLMMongoCollection.mm; sourceTree = "<group>"; };
 		7B107901E6E10BA117BF69A0849E5D9C /* RLMSwiftValueStorage.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSwiftValueStorage.mm; path = Realm/RLMSwiftValueStorage.mm; sourceTree = "<group>"; };
 		7B410F3A44FD9499CA33129000C0D825 /* RLMBSON.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMBSON.mm; path = Realm/RLMBSON.mm; sourceTree = "<group>"; };
 		7B48FDEA5691BF299DE6419512510798 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = "lottie-swift/src/Private/Model/Objects/Transform.swift"; sourceTree = "<group>"; };
-		7B6C7F629B085153F8FBCE9659DDE4C7 /* Pods-Namaz Times-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Namaz Times-Info.plist"; sourceTree = "<group>"; };
 		7BDC9B144BA6E0D0CFCD5ED9D7A26A1B /* ShapeCompositionLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeCompositionLayer.swift; path = "lottie-swift/src/Private/LayerContainers/CompLayers/ShapeCompositionLayer.swift"; sourceTree = "<group>"; };
 		7C485DD8AA93E3C6ECF87153579A4794 /* RLMApp.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMApp.mm; path = Realm/RLMApp.mm; sourceTree = "<group>"; };
 		7D1576FFC915ECAC625D7E835B957249 /* Projection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Projection.swift; path = RealmSwift/Projection.swift; sourceTree = "<group>"; };
@@ -730,11 +730,11 @@
 		802C00CAF668D1B20A67579CD7BB67A0 /* ShapeRenderLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeRenderLayer.swift; path = "lottie-swift/src/Private/NodeRenderSystem/RenderLayers/ShapeRenderLayer.swift"; sourceTree = "<group>"; };
 		80A6EFC957589DC552E96FC508D52709 /* AnyRealmValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyRealmValue.swift; path = RealmSwift/AnyRealmValue.swift; sourceTree = "<group>"; };
 		80AAE61BFA4549F07539130C50DBBA3F /* AnyValueProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyValueProvider.swift; path = "lottie-swift/src/Public/DynamicProperties/AnyValueProvider.swift"; sourceTree = "<group>"; };
+		80E93E64B40ED7762AA1379D97C01F71 /* Pods-NamazTimes-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NamazTimes-frameworks.sh"; sourceTree = "<group>"; };
 		81E735699980B2116CF8544608B83AC0 /* RLMDecimal128.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMDecimal128.h; path = include/RLMDecimal128.h; sourceTree = "<group>"; };
 		8312ACDF0CEDBF8740A473C91CDCD359 /* Rectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rectangle.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Rectangle.swift"; sourceTree = "<group>"; };
 		83780BF8FECDB2FB35035B8CBEE03A39 /* EmbeddedObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmbeddedObject.swift; path = RealmSwift/EmbeddedObject.swift; sourceTree = "<group>"; };
 		838B1ABC0DF003ABA32C4B77D94B3EDE /* Persistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = RealmSwift/Impl/Persistable.swift; sourceTree = "<group>"; };
-		843FE3AAAD73AAC00A6F3E029FDC9A81 /* Pods-Namaz Times-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Namaz Times-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8576B9C99B298E938A8FA267921C3FBB /* RLMMongoClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMMongoClient.h; path = include/RLMMongoClient.h; sourceTree = "<group>"; };
 		860220427BB80E184DD18D85A909DF91 /* RenderNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RenderNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Protocols/RenderNode.swift"; sourceTree = "<group>"; };
 		8658BEC2D9806206926532338ACB44DB /* AnimatedButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedButton.swift; path = "lottie-swift/src/Public/iOS/AnimatedButton.swift"; sourceTree = "<group>"; };
@@ -743,6 +743,7 @@
 		8AE3104E6CD4CC780A20FA751CB7B888 /* RealmSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RealmSwift.debug.xcconfig; sourceTree = "<group>"; };
 		8B861E483456CFF0BD2E84DF3FE1A971 /* PathNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Protocols/PathNode.swift"; sourceTree = "<group>"; };
 		8B91E851DD5EC8175724C4527883A668 /* RLMSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSchema.mm; path = Realm/RLMSchema.mm; sourceTree = "<group>"; };
+		8B99BA2716A80651D3B37A7A3FAE254E /* Pods-NamazTimes */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NamazTimes"; path = Pods_NamazTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A4FCA1ACB357A318DEBFF054D1E9A /* AnimatorNodeDebugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatorNodeDebugging.swift; path = "lottie-swift/src/Private/Utility/Debugging/AnimatorNodeDebugging.swift"; sourceTree = "<group>"; };
 		8E0B1E4B9D36A2F973668ABBF44A95A6 /* LayerImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerImageProvider.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/LayerImageProvider.swift"; sourceTree = "<group>"; };
 		8EAAAA7CAED49311C61E986EE2C30796 /* RLMSyncUtil_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncUtil_Private.h; path = include/RLMSyncUtil_Private.h; sourceTree = "<group>"; };
@@ -754,6 +755,7 @@
 		928BFEC2EE8BF49A11B4AE88729E795F /* SolidCompositionLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SolidCompositionLayer.swift; path = "lottie-swift/src/Private/LayerContainers/CompLayers/SolidCompositionLayer.swift"; sourceTree = "<group>"; };
 		934BF6C163818B29F90298B23A89341C /* RLMSyncSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSession.h; path = include/RLMSyncSession.h; sourceTree = "<group>"; };
 		939EFD5F58723DEC8E813F113064A808 /* TextAnimatorNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAnimatorNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/Text/TextAnimatorNode.swift"; sourceTree = "<group>"; };
+		9427BE2DFD412E54828038D29CFB4CF8 /* Pods-NamazTimes.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NamazTimes.modulemap"; sourceTree = "<group>"; };
 		967A43D5D1EAB8B1849DA0E48AA38EA3 /* RLMCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMCollection.h; path = include/RLMCollection.h; sourceTree = "<group>"; };
 		970B100D1E1B72C2B918067F28501493 /* RLMSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSchema.h; path = include/RLMSchema.h; sourceTree = "<group>"; };
 		9736055C17FBA2C208F5BBA228A100A2 /* RLMSectionedResults.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSectionedResults.mm; path = Realm/RLMSectionedResults.mm; sourceTree = "<group>"; };
@@ -779,7 +781,6 @@
 		A38389CA8DF2201876EA1455ED8A484D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		A4391A1F1A75B59B8738DA706DC57C16 /* RLMCollection_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMCollection_Private.h; path = include/RLMCollection_Private.h; sourceTree = "<group>"; };
 		A4BE97D46E3B72A0F5E383ED5CC5956B /* Realm-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Realm-prefix.pch"; sourceTree = "<group>"; };
-		A57CF8FEB1133BDDE11F932E4EF47FC9 /* Pods-Namaz Times-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Namaz Times-dummy.m"; sourceTree = "<group>"; };
 		A6FE5FEDF3C5D18B5618E7C5F5D7C6A7 /* Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Color.swift; path = "lottie-swift/src/Public/Primitives/Color.swift"; sourceTree = "<group>"; };
 		A75434C3A7896B703F0D7E5ED27F4C9A /* ShapeItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeItem.swift; path = "lottie-swift/src/Private/Model/ShapeItems/ShapeItem.swift"; sourceTree = "<group>"; };
 		A76FF5E934B415E04912E54FFB2FB8DB /* SectionedResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SectionedResults.swift; path = RealmSwift/SectionedResults.swift; sourceTree = "<group>"; };
@@ -787,11 +788,11 @@
 		AA29DA1907832163B61DACCC6E87841B /* ColorValueProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorValueProvider.swift; path = "lottie-swift/src/Public/DynamicProperties/ValueProviders/ColorValueProvider.swift"; sourceTree = "<group>"; };
 		AB5BE81DD9D9B211947B8D928EC85EFE /* NSError+RLMSync.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+RLMSync.m"; path = "Realm/NSError+RLMSync.m"; sourceTree = "<group>"; };
 		ABE9F000F0D8CFF14BF396CDDCE90FC7 /* RLMObjectSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectSchema.h; path = include/RLMObjectSchema.h; sourceTree = "<group>"; };
-		AC3B0AC7C18B72EA2598EFE26EF62318 /* Pods-Namaz Times-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Namaz Times-frameworks.sh"; sourceTree = "<group>"; };
 		AE2EC0A3A11C34D9834E5CCCA271CF3B /* GradientFillRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientFillRenderer.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/OutputNodes/Renderables/GradientFillRenderer.swift"; sourceTree = "<group>"; };
 		AF78C08420623723830725EB631DC3C3 /* ImageAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageAsset.swift; path = "lottie-swift/src/Private/Model/Assets/ImageAsset.swift"; sourceTree = "<group>"; };
 		AFC9432BC5A02FEB8A83244C808A0690 /* RLMEmbeddedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMEmbeddedObject.h; path = include/RLMEmbeddedObject.h; sourceTree = "<group>"; };
 		B064931C79A1077F6364B3C8B83C0A74 /* AsymmetricObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsymmetricObject.swift; path = RealmSwift/AsymmetricObject.swift; sourceTree = "<group>"; };
+		B09D9C632CF1D2F8DC3EB88B10756001 /* Pods-NamazTimes-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NamazTimes-umbrella.h"; sourceTree = "<group>"; };
 		B0D9A05D812353F01F0790C1FC6B998E /* RealmKeyedCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RealmKeyedCollection.swift; path = RealmSwift/RealmKeyedCollection.swift; sourceTree = "<group>"; };
 		B20CDD8A1A1EC3606911B5CEAC3F425E /* RLMUpdateChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUpdateChecker.mm; path = Realm/RLMUpdateChecker.mm; sourceTree = "<group>"; };
 		B2B1902CE41136DA81B9CE79A51F20B8 /* SolidLayerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SolidLayerModel.swift; path = "lottie-swift/src/Private/Model/Layers/SolidLayerModel.swift"; sourceTree = "<group>"; };
@@ -819,6 +820,7 @@
 		C22B0119A2C93B304C5DEBB2434A6A78 /* NSError+RLMSync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RLMSync.h"; path = "include/NSError+RLMSync.h"; sourceTree = "<group>"; };
 		C22D8A80906051A7493C15AC21F28C6A /* BundleImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleImageProvider.swift; path = "lottie-swift/src/Public/iOS/BundleImageProvider.swift"; sourceTree = "<group>"; };
 		C265EE2877B63FA756809F3048190C60 /* BSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BSON.swift; path = RealmSwift/BSON.swift; sourceTree = "<group>"; };
+		C398FF0D350DB5374A64C77C45083E9C /* Pods-NamazTimes-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NamazTimes-Info.plist"; sourceTree = "<group>"; };
 		C40D1B8528CE8E282D260C7ECF8F1211 /* RLMAPIKeyAuth.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAPIKeyAuth.mm; path = Realm/RLMAPIKeyAuth.mm; sourceTree = "<group>"; };
 		C42E854F71563D90EBF4B62122A283FE /* LayerFontProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerFontProvider.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/LayerFontProvider.swift"; sourceTree = "<group>"; };
 		C46BF9A20428AD37EDEE86412E68047E /* RLMObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObject.h; path = include/RLMObject.h; sourceTree = "<group>"; };
@@ -827,7 +829,6 @@
 		C4C7F1C249F609468243B078AB92A46D /* RLMUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUtil.mm; path = Realm/RLMUtil.mm; sourceTree = "<group>"; };
 		C51B3664C2B2DD9B63303288E2C7E057 /* lottie-ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "lottie-ios-Info.plist"; sourceTree = "<group>"; };
 		C5AF4BB1348D9842721A02F3EC24C50A /* PolygonNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PolygonNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/PathNodes/PolygonNode.swift"; sourceTree = "<group>"; };
-		C5FB991D92E84B5168A25C8133245256 /* Pods-Namaz Times-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Namaz Times-umbrella.h"; sourceTree = "<group>"; };
 		C62AECC810EFF9BAA5EA71DFCD61FA17 /* AnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationContext.swift; path = "lottie-swift/src/Private/Utility/Helpers/AnimationContext.swift"; sourceTree = "<group>"; };
 		C6BC6E4F3CC62FA8AE88EEDEFFC7FD30 /* RealmSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RealmSwift.release.xcconfig; sourceTree = "<group>"; };
 		C995542556FF4CFEC8FBBCEFC712F6FA /* EllipseNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EllipseNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/PathNodes/EllipseNode.swift"; sourceTree = "<group>"; };
@@ -836,7 +837,6 @@
 		CB7DCC897AEFE3FF0F92C32C8C6F32DE /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = RealmSwift/Query.swift; sourceTree = "<group>"; };
 		CBC24542AD3AB21024976125F9B47225 /* RLMRealmConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmConfiguration.mm; path = Realm/RLMRealmConfiguration.mm; sourceTree = "<group>"; };
 		CC7EDAAC48C4E386BF80DC5F8AFE4C34 /* FilepathImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FilepathImageProvider.swift; path = "lottie-swift/src/Public/iOS/FilepathImageProvider.swift"; sourceTree = "<group>"; };
-		CF60CA8E22E3CFE735FC65F783208755 /* Pods-Namaz Times */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Namaz Times"; path = Pods_Namaz_Times.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6C97D082C8B3FDE3139EADB0F5D3E1 /* VectorsExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VectorsExtensions.swift; path = "lottie-swift/src/Private/Utility/Primitives/VectorsExtensions.swift"; sourceTree = "<group>"; };
 		CFD8B0FA47A8771C0F78C1112A55EF36 /* RLMProviderClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMProviderClient.h; path = include/RLMProviderClient.h; sourceTree = "<group>"; };
 		D143BC227572EB689B31D6E5FEF747F8 /* List.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = List.swift; path = RealmSwift/List.swift; sourceTree = "<group>"; };
@@ -904,19 +904,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		39D4190816976FC07B66E387DD75E3E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE47130D6400B64AFE520D427C3A78B2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4B55B4F3E8454CE936EFB8DD56D259F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				910145FF03824ABFF17CA653C7F0BD5E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91509C1097BF17DE6D68E0C9C5734F8E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6BC6D373BEC52DAFBAD14F271CFBCC52 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,21 +1105,29 @@
 			path = "../Target Support Files/RealmSwift";
 			sourceTree = "<group>";
 		};
-		63ED4B269B027F6A4E19BBAF489E0EE1 /* Pods-Namaz Times */ = {
+		648772FA1858FD4B4B5D0BA95A1721B9 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				02CC179AA24D46C48F6AE30B49B4605D /* Pods-Namaz Times.modulemap */,
-				843FE3AAAD73AAC00A6F3E029FDC9A81 /* Pods-Namaz Times-acknowledgements.markdown */,
-				635799705DF117B14DCF5D616BC4F947 /* Pods-Namaz Times-acknowledgements.plist */,
-				A57CF8FEB1133BDDE11F932E4EF47FC9 /* Pods-Namaz Times-dummy.m */,
-				AC3B0AC7C18B72EA2598EFE26EF62318 /* Pods-Namaz Times-frameworks.sh */,
-				7B6C7F629B085153F8FBCE9659DDE4C7 /* Pods-Namaz Times-Info.plist */,
-				C5FB991D92E84B5168A25C8133245256 /* Pods-Namaz Times-umbrella.h */,
-				1740739AE827C6ADD126348DC41594DE /* Pods-Namaz Times.debug.xcconfig */,
-				128CE60831B487BDBE11D8A8BA7FB8B3 /* Pods-Namaz Times.release.xcconfig */,
+				667079DAA0560999E754F792927A939C /* Pods-NamazTimes */,
 			);
-			name = "Pods-Namaz Times";
-			path = "Target Support Files/Pods-Namaz Times";
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		667079DAA0560999E754F792927A939C /* Pods-NamazTimes */ = {
+			isa = PBXGroup;
+			children = (
+				9427BE2DFD412E54828038D29CFB4CF8 /* Pods-NamazTimes.modulemap */,
+				15B4B957F34C3901EEE3E56B0069262D /* Pods-NamazTimes-acknowledgements.markdown */,
+				69E4E5217E032BE7F556FD14924C871E /* Pods-NamazTimes-acknowledgements.plist */,
+				730BB602A09EA38677CC3957A61E859A /* Pods-NamazTimes-dummy.m */,
+				80E93E64B40ED7762AA1379D97C01F71 /* Pods-NamazTimes-frameworks.sh */,
+				C398FF0D350DB5374A64C77C45083E9C /* Pods-NamazTimes-Info.plist */,
+				B09D9C632CF1D2F8DC3EB88B10756001 /* Pods-NamazTimes-umbrella.h */,
+				7A0DDC7389216B830EAEB7182741E68E /* Pods-NamazTimes.debug.xcconfig */,
+				3299A4B3073BA3EE5959DD7812E352A2 /* Pods-NamazTimes.release.xcconfig */,
+			);
+			name = "Pods-NamazTimes";
+			path = "Target Support Files/Pods-NamazTimes";
 			sourceTree = "<group>";
 		};
 		83EAE2597F0E63C60BDC8AE42818D472 /* Support Files */ = {
@@ -1284,17 +1292,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B9F50F21FDC714AD265D7203053222DA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				51BA97E8B5085EFFB47BC9C0B785CEA7 /* lottie-ios */,
-				CF60CA8E22E3CFE735FC65F783208755 /* Pods-Namaz Times */,
-				921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm */,
-				437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C6B45959FC1E2E8B60D04B639CAB77C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,17 +1306,9 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				B94D7768568A9992200DB461E8CF687F /* Frameworks */,
 				233A08E727529DB13E89AAF65B5B8D26 /* Pods */,
-				B9F50F21FDC714AD265D7203053222DA /* Products */,
-				DF432975677CC0C17E5ACFD05F1D606A /* Targets Support Files */,
+				FA9A66A1B88B95C97FEDF16774E028A5 /* Products */,
+				648772FA1858FD4B4B5D0BA95A1721B9 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		DF432975677CC0C17E5ACFD05F1D606A /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				63ED4B269B027F6A4E19BBAF489E0EE1 /* Pods-Namaz Times */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		E7108504269D162CCFBE7062B0F4153F /* Realm */ = {
@@ -1415,6 +1404,17 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		FA9A66A1B88B95C97FEDF16774E028A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51BA97E8B5085EFFB47BC9C0B785CEA7 /* lottie-ios */,
+				8B99BA2716A80651D3B37A7A3FAE254E /* Pods-NamazTimes */,
+				921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm */,
+				437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1496,6 +1496,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9682B58E142764CEC0889B8242B396F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864BE7A6E4304DA30A670B8CD0EBD181 /* Pods-NamazTimes-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A581BE0E16E4FCE52E9519A091628842 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1509,14 +1517,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15FBDAE3DDDEBF1E36298091A8896B04 /* lottie-ios-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB4B17EFC02D97063D0858144072545B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4091654FCE2BD3B05D4366A6A0C6C71 /* Pods-Namaz Times-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1541,25 +1541,25 @@
 			productReference = 51BA97E8B5085EFFB47BC9C0B785CEA7 /* lottie-ios */;
 			productType = "com.apple.product-type.framework";
 		};
-		29D4A6A6FD31D96323B7B636E3560D2E /* Pods-Namaz Times */ = {
+		50AC0B9652E6CCC5E971FC7C51FACBBB /* Pods-NamazTimes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23A72E05EF9036349ACE93B853D8AE41 /* Build configuration list for PBXNativeTarget "Pods-Namaz Times" */;
+			buildConfigurationList = 40BA84A35DF366C1DC9BF82C18C6C0FD /* Build configuration list for PBXNativeTarget "Pods-NamazTimes" */;
 			buildPhases = (
-				FB4B17EFC02D97063D0858144072545B /* Headers */,
-				BC2510E5B5C061DF30F419D5BD87215D /* Sources */,
-				91509C1097BF17DE6D68E0C9C5734F8E /* Frameworks */,
-				E5AB6630BD226B90A4B4FC0B727E9D19 /* Resources */,
+				9682B58E142764CEC0889B8242B396F3 /* Headers */,
+				5374BD94CA3F28E57337E5B29624645C /* Sources */,
+				39D4190816976FC07B66E387DD75E3E5 /* Frameworks */,
+				CA6AA6CE31B0FF99FF1B02E2BCB1A8C0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9AB5C19EDDBB8748D510101C349B9B33 /* PBXTargetDependency */,
-				4D0C8834526DB74EA7C15B08B5071669 /* PBXTargetDependency */,
-				59F37D8309756D4EA79314DE858F90EB /* PBXTargetDependency */,
+				A16BB8D0B25702DEB1A692528550C998 /* PBXTargetDependency */,
+				10ADD5D2A14A39E2755684ABC2434C63 /* PBXTargetDependency */,
+				376DAEA66F90837D33FA9294A484C99C /* PBXTargetDependency */,
 			);
-			name = "Pods-Namaz Times";
-			productName = Pods_Namaz_Times;
-			productReference = CF60CA8E22E3CFE735FC65F783208755 /* Pods-Namaz Times */;
+			name = "Pods-NamazTimes";
+			productName = Pods_NamazTimes;
+			productReference = 8B99BA2716A80651D3B37A7A3FAE254E /* Pods-NamazTimes */;
 			productType = "com.apple.product-type.framework";
 		};
 		68494F30B4A13F8E5E88BCCAEC25B0A4 /* Realm */ = {
@@ -1609,8 +1609,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -1621,12 +1621,12 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = B9F50F21FDC714AD265D7203053222DA /* Products */;
+			productRefGroup = FA9A66A1B88B95C97FEDF16774E028A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0B967D7F8561D42493EE289EC8D450D1 /* lottie-ios */,
-				29D4A6A6FD31D96323B7B636E3560D2E /* Pods-Namaz Times */,
+				50AC0B9652E6CCC5E971FC7C51FACBBB /* Pods-NamazTimes */,
 				68494F30B4A13F8E5E88BCCAEC25B0A4 /* Realm */,
 				782725687624F8665247B84AB581BEB1 /* RealmSwift */,
 			);
@@ -1648,7 +1648,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5AB6630BD226B90A4B4FC0B727E9D19 /* Resources */ = {
+		CA6AA6CE31B0FF99FF1B02E2BCB1A8C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1841,6 +1841,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5374BD94CA3F28E57337E5B29624645C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6C8D7E72DBDA85E40C39D4ED5BA0BC2 /* Pods-NamazTimes-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E19C03913F3D1CB2F7603740B976F22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1899,14 +1907,6 @@
 				3EEB5CD0432AE4C966A336FE407F4564 /* SyncSubscription.swift in Sources */,
 				CCD1C585CE4E9DBE15769F38E06842C2 /* ThreadSafeReference.swift in Sources */,
 				E34B80A9A8B49857FCD043CAE44D1EC0 /* Util.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC2510E5B5C061DF30F419D5BD87215D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8FB61531364089643FADF937F4F89F2D /* Pods-Namaz Times-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1982,23 +1982,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D0C8834526DB74EA7C15B08B5071669 /* PBXTargetDependency */ = {
+		10ADD5D2A14A39E2755684ABC2434C63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RealmSwift;
 			target = 782725687624F8665247B84AB581BEB1 /* RealmSwift */;
-			targetProxy = 12409636FDAC9A96CDEAFB0DF6A515C6 /* PBXContainerItemProxy */;
+			targetProxy = CF8865E3C9B708A62696D7BE5AB98680 /* PBXContainerItemProxy */;
 		};
-		59F37D8309756D4EA79314DE858F90EB /* PBXTargetDependency */ = {
+		376DAEA66F90837D33FA9294A484C99C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "lottie-ios";
 			target = 0B967D7F8561D42493EE289EC8D450D1 /* lottie-ios */;
-			targetProxy = 673468F11068BF46E9545E9E7B9EBCEF /* PBXContainerItemProxy */;
+			targetProxy = C0A8508D8EE3FF74C4C317A0B8F1501C /* PBXContainerItemProxy */;
 		};
-		9AB5C19EDDBB8748D510101C349B9B33 /* PBXTargetDependency */ = {
+		A16BB8D0B25702DEB1A692528550C998 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Realm;
 			target = 68494F30B4A13F8E5E88BCCAEC25B0A4 /* Realm */;
-			targetProxy = C58D58780F52E4D26801716C12B70192 /* PBXContainerItemProxy */;
+			targetProxy = 0219395D2B3C852F31812F5466B78FB8 /* PBXContainerItemProxy */;
 		};
 		B74C22FA1A7FFCB110940C314BE0A0A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2044,9 +2044,9 @@
 			};
 			name = Release;
 		};
-		4ED55832407C2141EC21405F56584347 /* Release */ = {
+		566A0CD94191267972F48EE42B5EB957 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 128CE60831B487BDBE11D8A8BA7FB8B3 /* Pods-Namaz Times.release.xcconfig */;
+			baseConfigurationReference = 7A0DDC7389216B830EAEB7182741E68E /* Pods-NamazTimes.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2058,7 +2058,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2067,45 +2067,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		764F8340CA8BCC0D9BE2E484D7E92D21 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1740739AE827C6ADD126348DC41594DE /* Pods-Namaz Times.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Namaz Times/Pods-Namaz Times.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2152,6 +2114,44 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		8AC93BFC87D30DDFA1F88326507A9B22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3299A4B3073BA3EE5959DD7812E352A2 /* Pods-NamazTimes.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NamazTimes/Pods-NamazTimes.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2422,11 +2422,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23A72E05EF9036349ACE93B853D8AE41 /* Build configuration list for PBXNativeTarget "Pods-Namaz Times" */ = {
+		40BA84A35DF366C1DC9BF82C18C6C0FD /* Build configuration list for PBXNativeTarget "Pods-NamazTimes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				764F8340CA8BCC0D9BE2E484D7E92D21 /* Debug */,
-				4ED55832407C2141EC21405F56584347 /* Release */,
+				566A0CD94191267972F48EE42B5EB957 /* Debug */,
+				8AC93BFC87D30DDFA1F88326507A9B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

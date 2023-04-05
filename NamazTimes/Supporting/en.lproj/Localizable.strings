@@ -33,6 +33,7 @@
 "open_settings" = "Open settings";
 "location_access" = "Namaz Times application uses your location to determine the place of Namaz. Please give access to the location";
 "app_settings" = "Application settings";
+
 //PrayerTimes
 "imsak" = "Имсак";
 "bamdat" = "Бамдат";
@@ -54,3 +55,40 @@
 "time_out" = "Request limit exceeded";
 "decode_error" = "Unable to decode";
 "no_data" = "No data";
+
+//Months & weekdays
+"january" = "January";
+"february" = "February";
+"marhc" = "Marhc";
+"april" = "April";
+"may" = "May";
+"june" = "June";
+"july" = "July";
+"august" = "August";
+"september" = "September";
+"october" = "October";
+"november" = "November";
+"december" = "December";
+
+"muharram" = "Muharram";
+"safar" = "Safar";
+"rabiAlAwwal" = "Rabi Al-Awwal";
+"rabiAlThani" = "Rabi Al-Thani";
+"jamadaAlAwwal" = "Jamada Al-Awwal";
+"jamadaAlThani" = "Jamada Al-Thani";
+"rajab" = "Rajab";
+"shaban" = "Shaban";
+"ramadan" = "Ramadan";
+"shawwal" = "Shawwal";
+"dhulQadah" = "Dhul-Qadah";
+"dhulHijjah" = "Dhul-Hijjah";
+
+"monday" = "Monday";
+"tuesday" = "Tuesday";
+"wednesday" = "Wednesday";
+"thursday" = "Thursday";
+"friday" = "Friday";
+"saturday" = "Saturday";
+"sunday" = "Sunday";
+"newVersion" = "Доступно новое обновление, хотите обновть приложение?";
+}
