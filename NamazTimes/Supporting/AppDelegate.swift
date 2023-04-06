@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        print(realm.configuration.fileURL)
         LocationService.sharedInstance.startUpdatingLocation()
         configure()
 
@@ -29,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func configure() {
-        
         if UserDefaults.standard.string(forKey: "language") == nil {
             UserDefaults.standard.set(LanguageHelper().code, forKey: "language")
             UserDefaults().synchronize()

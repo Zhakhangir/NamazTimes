@@ -20,6 +20,16 @@ class SettingsViewtroller: UIViewController {
     var interactor: SettingsInteractorInput?
     private let settingsCellId = "settingsReuseId"
     
+    private var versionNumer: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "version".localized + " 1.0.0"
+        label.font = .systemFont(ofSize: 13)
+        label.textColor = GeneralColor.el_subtitle
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "app_settings".localized
@@ -64,6 +74,7 @@ class SettingsViewtroller: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(closeButton)
+        view.addSubview(versionNumer)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         layoutConstraints += [
@@ -78,6 +89,12 @@ class SettingsViewtroller: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+        
+        versionNumer.translatesAutoresizingMaskIntoConstraints = false
+        layoutConstraints += [
+            versionNumer.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor),
+            versionNumer.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false

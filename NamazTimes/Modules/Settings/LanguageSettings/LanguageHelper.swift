@@ -12,7 +12,6 @@ enum LanguageHelper {
 
     init() {
         let code = UserDefaults.standard.string(forKey: "language")
-
         switch code {
         case "en": self = .en
         case "kk": self = .kk

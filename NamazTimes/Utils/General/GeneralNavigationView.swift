@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 enum NavigationButton: Int {
     case location = 1, settings
