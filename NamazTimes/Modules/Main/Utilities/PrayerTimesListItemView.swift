@@ -23,7 +23,7 @@ class PrayerTimesListItemView: UIView {
     lazy var prayerTime: UILabel = {
         let label = UILabel()
         label.font = .monospacedDigitSystemFont(dynamicSize: dynamicFontSize, weight: .medium)
-        label.textAlignment = .left
+        label.textAlignment = .right
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         label.textColor = GeneralColor.black.withAlphaComponent(0.7)
         label.adjustsFontSizeToFitWidth = true
@@ -52,9 +52,9 @@ class PrayerTimesListItemView: UIView {
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
         ])
     }
