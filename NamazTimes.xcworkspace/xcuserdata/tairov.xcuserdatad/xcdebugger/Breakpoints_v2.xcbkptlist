@@ -3,4 +3,468 @@
    uuid = "CCD657C8-DE39-49E2-9FD2-A6738BB63245"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC32DE80-370C-48B8-9581-EE87BC37ECAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CC32DE80-370C-48B8-9581-EE87BC37ECAB - 3bcced982534ea30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "CC32DE80-370C-48B8-9581-EE87BC37ECAB - 3bcced982534ea30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "376">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF0C615E-5181-4251-B792-E8F265FE7574"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF0C615E-5181-4251-B792-E8F265FE7574 - 3bcced982534ebf6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "796">
+               </Location>
+               <Location
+                  uuid = "CF0C615E-5181-4251-B792-E8F265FE7574 - 3bcced982534ebf6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "1032">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE4EC325-375A-4CDE-BF5B-A6C1D0852C25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EE4EC325-375A-4CDE-BF5B-A6C1D0852C25 - 3bcced982534ebd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "EE4EC325-375A-4CDE-BF5B-A6C1D0852C25 - 3bcced982534ebd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "744">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A10914C3-FE9C-4C8A-8724-85698DF3A8CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22128156-549C-4CA6-B9D9-38CD9C199CE2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04546966-49C2-4702-80AB-0D3E686DF7B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2C5A7F2-E571-4182-8B24-B93D72F37D37"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D2C5A7F2-E571-4182-8B24-B93D72F37D37 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "1932">
+               </Location>
+               <Location
+                  uuid = "D2C5A7F2-E571-4182-8B24-B93D72F37D37 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2360">
+               </Location>
+               <Location
+                  uuid = "D2C5A7F2-E571-4182-8B24-B93D72F37D37 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "198DB13A-8DC9-4651-B935-132628A028C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A19D530B-D93C-47B7-BF3A-44E9FA61E131"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9C07A3A-44F1-467A-A3B2-AFD75EB26D30"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2750071E-EC9D-4E8A-A980-476E44FB8F5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2750071E-EC9D-4E8A-A980-476E44FB8F5E - 3bcced982534ec8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "2668">
+               </Location>
+               <Location
+                  uuid = "2750071E-EC9D-4E8A-A980-476E44FB8F5E - 3bcced982534ec8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "2720">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A28E5E4E-01CA-4FFC-ACE0-6A5F0D4382F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A28E5E4E-01CA-4FFC-ACE0-6A5F0D4382F6 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "1932">
+               </Location>
+               <Location
+                  uuid = "A28E5E4E-01CA-4FFC-ACE0-6A5F0D4382F6 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2360">
+               </Location>
+               <Location
+                  uuid = "A28E5E4E-01CA-4FFC-ACE0-6A5F0D4382F6 - 3bcced982534ecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "2632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50E04827-D869-41C9-A631-72B8CB7B9A9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "isUpdateAvailable()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "50E04827-D869-41C9-A631-72B8CB7B9A9A - 3bcced982534eb95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "1092">
+               </Location>
+               <Location
+                  uuid = "50E04827-D869-41C9-A631-72B8CB7B9A9A - 3bcced982534eb95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NamazTimes.IntervalTimeIntercator.isUpdateAvailable() throws -&gt; Swift.Bool"
+                  moduleName = "NamazTimes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tairov/Projects/Aura%20%F0%9F%87%B0%F0%9F%87%BF/NamazTimes/NamazTimes/Modules/Main/IntervalTime/IntervalTimeIntercator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "1356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

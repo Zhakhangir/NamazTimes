@@ -136,6 +136,7 @@ class IntervalTimeIntercator: IntervalTimeInteractorInput {
              let identifier = info["CFBundleIdentifier"] as? String,
              let url = URL(string: "https://itunes.apple.com/lookup?bundleId=\(identifier)") else {
              throw VersionError.invalidBundleInfo
+             
          }
          let data = try Data(contentsOf: url)
          guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {

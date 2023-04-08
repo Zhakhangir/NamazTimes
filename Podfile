@@ -6,6 +6,6 @@ target 'NamazTimes' do
   use_frameworks!
 
   # Pods for NamazTimes
-  pod 'RealmSwift', '~>10'
+  pod 'RealmSwift'
   
 end
